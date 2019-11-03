@@ -3,11 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const RoomsUser = props => {
-  const { user, rooms } = props;
+  const { rooms } = props;
 
   return (
     <div>
-      <h1> List User Rooms</h1>
       {rooms.map((room, index) => {
         return (
           <div key={room._id}>

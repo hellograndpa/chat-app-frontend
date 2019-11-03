@@ -6,7 +6,7 @@ import Login from './views/auth/Login';
 import Signup from './views/auth/Signup';
 import Home from './views/auth/Home';
 import Chat from './views/Chat';
-import MeUser from './views/user/MeUser';
+import MeUser from './views/user/meUser';
 
 import { withAuth } from './Context/AuthContext';
 
