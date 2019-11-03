@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import React, { Component, createContext } from 'react';
 import authService from '../services/authService';
 
@@ -12,13 +13,14 @@ export const withAuth = Comp => {
     render() {
       return (
         <AuthConsumer>
-          {({ isLoading, isLoggedin, user, handleLogin, handleLogout }) => (
+          {({ isLoading, isLoggedin, user, handleLogin, handleSignup, handleLogout }) => (
             <Comp
               {...this.props}
               isLoading={isLoading}
               isLoggedin={isLoggedin}
               user={user}
               handleLogin={handleLogin}
+              handleSignup={handleSignup}
               handleLogout={handleLogout}
             />
           )}
@@ -71,6 +73,25 @@ export default class AuthProvider extends Component {
       });
   };
 
+  handleSignup = user => {
+    authService
+      .signup(user)
+      .then(() => {
+        this.setState({
+          isLoggedin: false,
+          user: undefined,
+          isLoading: false,
+        });
+      })
+      .catch(() => {
+        this.setState({
+          isLoading: false,
+          isLoggedin: false,
+          user: undefined,
+        });
+      });
+  };
+
   handleLogout = () => {
     this.setState({
       isLoading: true,
@@ -106,6 +127,7 @@ export default class AuthProvider extends Component {
           isLoggedin,
           user,
           handleLogin: this.handleLogin,
+          handleSignup: this.handleSignup,
           handleLogout: this.handleLogout,
         }}
       >

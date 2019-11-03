@@ -12,6 +12,10 @@ class RoomService {
     return this.axios.get('/api/v01/room', location).then(({ data: rooms }) => rooms);
   }
 
+  getAllRoomsUserId(id) {
+    return this.axios.get(`/api/v01/room/me/${id}`).then(({ data: rooms }) => rooms);
+  }
+
   getRoomById(id) {
     return this.axios.get(`/api/v01/room/${id}`).then(({ room }) => room);
   }

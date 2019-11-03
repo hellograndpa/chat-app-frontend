@@ -8,12 +8,12 @@ class ChatUserService {
     });
   }
 
-  getAllChatUser(location) {
-    return this.axios.get('/api/v01/chat-user', location).then(({ data: chatUsers }) => chatUsers);
+  getAllChatUserId(userId) {
+    return this.axios.get(`/api/v01/chat-user/${userId}`).then(({ data: chatUsersId }) => chatUsersId);
   }
 
   getChatUserById(id) {
-    return this.axios.get(`/api/v01/chat-user/${id}`).then(({ data: chatUser }) => chatUser);
+    return this.axios.get(`/api/v01/chat-user/me/${id}`).then(({ data: chatUser }) => chatUser);
   }
 
   createChatUser(body) {
