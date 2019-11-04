@@ -11,8 +11,10 @@ import RoomsUser from './components/RoomsUser';
 class MeUser extends Component {
   state = {
     chats: [],
+    searchChats: [],
+    selectStatus: '',
     rooms: [],
-    filterRooms: [],
+    searchRooms: [],
     selectTheme: '',
     loading: true,
   };
@@ -22,6 +24,7 @@ class MeUser extends Component {
       .then(chats => {
         this.setState({
           chats,
+          searchChats: chats,
         });
       })
       .catch(error => console.log(error));
@@ -32,32 +35,52 @@ class MeUser extends Component {
       .then(rooms => {
         this.setState({
           rooms,
-          filterRooms: rooms,
+          searchRooms: rooms,
           loading: false,
         });
       })
       .catch(error => console.log(error));
   };
 
-  handleChangeSelect = event => {
-    console.log('TCL: MeUser -> event', event.target.value);
+  handleChangeSelectRooms = event => {
     this.setState({
       selectTheme: event.target.value,
     });
   };
 
+  handleChangeSelectChats = event => {
+    this.setState({
+      selectStatus: event.target.value,
+    });
+  };
+
   handleSearchRoom = event => {
     const { rooms } = this.state;
-    let filterRooms = [];
+    let searchRooms = [];
     if (event !== '') {
-      filterRooms = rooms.filter(
+      searchRooms = rooms.filter(
         element => element.roomName.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1,
       );
     } else {
-      filterRooms = rooms;
+      searchRooms = rooms;
     }
     this.setState({
-      filterRooms,
+      searchRooms,
+    });
+  };
+
+  handleSearchChats = event => {
+    const { chats } = this.state;
+    let searchChats = [];
+    if (event !== '') {
+      searchChats = chats.filter(
+        element => element.userChat02.userName.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1,
+      );
+    } else {
+      searchChats = chats;
+    }
+    this.setState({
+      searchChats,
     });
   };
 
@@ -69,44 +92,30 @@ class MeUser extends Component {
 
   render() {
     const { user } = this.props;
-    const { chats, filterRooms, selectTheme, loading } = this.state;
-    const sortedList = filterRooms
-      .sort((a, b) => {
-        if (a < b) return -1;
-        if (a > b) return 1;
-        return 0;
-      })
-      .map((room, index) => (
-        <option key={index} value={room.theme}>
-          {room.theme}
-        </option>
-      ));
-    let roomsSelected = [];
-    if (selectTheme !== '') {
-      roomsSelected = filterRooms.filter(element => element.theme === selectTheme);
-    } else {
-      roomsSelected = filterRooms;
-    }
+    const { searchChats, selectStatus, searchRooms, selectTheme, loading } = this.state;
+    console.log('TCL: MeUser -> render -> searchChats', searchChats);
+
     return (
       <div>
         {!loading && (
           <div>
             <div>
-              <select value="" onChange={this.handleChangeSelect}>
-                <option>Select theme</option>
-                {sortedList}
-              </select>
-            </div>
-            <div>
+              <h1> List User Rooms</h1>
               Search <input defaultValue="" onChange={this.handleSearchRoom} />
-              <RoomsUser rooms={roomsSelected} />
+              <RoomsUser searchRooms={searchRooms} selectTheme={selectTheme} onSelect={this.handleChangeSelectRooms} />
             </div>
             <h2>ITS ME</h2>
             <div>
               <User user={user} />
             </div>
             <div>
-              <ChatsUser user={user} chats={chats} />
+              <h1> List User Chats</h1>
+              Search <input defaultValue="" onChange={this.handleSearchChats} />
+              <ChatsUser
+                searchChats={searchChats}
+                selectStatus={selectStatus}
+                onSelect={this.handleChangeSelectChats}
+              />
             </div>
           </div>
         )}
