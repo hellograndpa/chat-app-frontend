@@ -9,6 +9,7 @@ import Chat from './views/Chat';
 import MeUser from './views/user/meUser';
 import CreateRoomWp from './views/room/CreateRoomWp';
 import RoomWp from './views/room/RoomWp';
+import RoomsList from './views/room/RoomsList';
 
 import { withAuth } from './Context/AuthContext';
 
@@ -29,6 +30,7 @@ class App extends Component {
           <PrivateRoute exact path="/me-user" component={MeUser} />
           <PrivateRoute exact path="/rooms/create" component={CreateRoomWp} />
           <PrivateRoute exact path="/rooms/:id" component={RoomWp} />
+          <PrivateRoute exact path="/rooms/list" component={RoomsList} />
         </Router>
       </>
     );

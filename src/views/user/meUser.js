@@ -16,7 +16,6 @@ class MeUser extends Component {
     rooms: [],
     searchRooms: [],
     selectTheme: '',
-    loading: true,
   };
 
   handleChatUser = user => {
@@ -93,7 +92,29 @@ class MeUser extends Component {
   render() {
     const { user } = this.props;
     const { searchChats, selectStatus, searchRooms, selectTheme, loading } = this.state;
-    console.log('TCL: MeUser -> render -> searchChats', searchChats);
+
+    let themes = [];
+    if (searchRooms) {
+      themes = [...new Set(searchRooms.map(room => room.theme))];
+    }
+    const sortedList = themes
+      .sort((a, b) => {
+        if (a < b) return -1;
+        if (a > b) return 1;
+        return 0;
+      })
+      .map((room, index) => (
+        <option key={index} value={room}>
+          {room}
+        </option>
+      ));
+
+    let rooms = [];
+    if (selectTheme !== '') {
+      rooms = searchRooms.filter(element => element.theme === selectTheme);
+    } else {
+      rooms = searchRooms;
+    }
 
     return (
       <div>
@@ -102,7 +123,14 @@ class MeUser extends Component {
             <div>
               <h1> List User Rooms</h1>
               Search <input defaultValue="" onChange={this.handleSearchRoom} />
-              <RoomsUser searchRooms={searchRooms} selectTheme={selectTheme} onSelect={this.handleChangeSelectRooms} />
+              <br />
+              Filters
+              <select value="" onChange={this.handleChangeSelectRooms}>
+                <option>Select theme</option>
+                <option value="">All</option>
+                {sortedList}
+              </select>
+              <RoomsUser rooms={rooms} />
             </div>
             <h2>ITS ME</h2>
             <div>
