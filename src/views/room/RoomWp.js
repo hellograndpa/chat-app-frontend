@@ -25,7 +25,7 @@ class RoomWp extends Component {
     } = this.props;
 
     const room = await RoomService.getRoomById(id);
-    console.log('chatId', room);
+    console.log('chatId', room.chat._id);
     this.setState({ conversation: room.conversation, loading: false, chatId: room.chat });
 
     // const socket = socketIOClient(this.state.endpoint);
