@@ -8,8 +8,8 @@ class RoomService {
     });
   }
 
-  getAllRooms(location) {
-    return this.axios.get('/api/v01/room', location).then(({ data: rooms }) => rooms);
+  getAllRooms(latitude, longitude, radiusInMeters) {
+    return this.axios.post('/api/v01/room', { latitude, longitude, radiusInMeters }).then(({ data: rooms }) => rooms);
   }
 
   getAllRoomsUserId(id) {
