@@ -7,6 +7,7 @@ import Signup from './views/auth/Signup';
 import Home from './views/auth/Home';
 import Chat from './views/Chat';
 import MeUser from './views/user/meUser';
+import CreateRoomWp from './views/room/CreateRoomWp';
 
 import { withAuth } from './Context/AuthContext';
 
@@ -25,6 +26,7 @@ class App extends Component {
           <AnonRoute exact path="/login" component={Login} />
           <AnonRoute exact path="/signup" component={Signup} />
           <PrivateRoute exact path="/me-user" component={MeUser} />
+          <PrivateRoute exact path="/rooms/create" component={CreateRoomWp} />
         </Router>
       </>
     );

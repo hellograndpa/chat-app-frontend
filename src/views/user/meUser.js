@@ -40,7 +40,6 @@ class MeUser extends Component {
   };
 
   handleChangeSelect = event => {
-    console.log('TCL: MeUser -> event', event.target.value);
     this.setState({
       selectTheme: event.target.value,
     });

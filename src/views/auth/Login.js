@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../../Context/AuthContext';
+import getCoords from '../../helpers/coordinates';
 
 class Login extends Component {
   state = {
@@ -13,20 +14,19 @@ class Login extends Component {
     this.setState({ [name]: value });
   };
 
-  handleFormSubmit = e => {
+  handleFormSubmit = async e => {
     e.preventDefault();
     const { email, password } = this.state;
-    const success = pos => {
-      const { latitude, longitude } = pos.coords;
-      this.props.handleLogin({
-        email,
-        password,
-        latitude,
-        longitude,
-      });
-    };
+    const {
+      coords: { latitude, longitude },
+    } = await getCoords();
 
-    navigator.geolocation.getCurrentPosition(success);
+    this.props.handleLogin({
+      email,
+      password,
+      latitude,
+      longitude,
+    });
   };
 
   render() {
