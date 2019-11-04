@@ -8,6 +8,8 @@ import RoomService from '../../../services/roomService';
 const RoomCreate = props => {
   const handleSubmit = async e => {
     e.preventDefault();
+
+    // Get date from form
     const {
       roomName: { value: roomName },
       description: { value: description },
@@ -15,15 +17,18 @@ const RoomCreate = props => {
       privateRoom: { value: privateRoom },
     } = e.target;
 
+    // Get Coords
     const {
       coords: { latitude, longitude },
     } = await getCoords();
 
     const body = { roomName, description, longitude, latitude, privateRoom, theme };
 
+    // Create Room
     const created = await RoomService.createRoom(body);
 
-    props.history.push('/rooms');
+    // Go to the room created
+    props.history.push(`/rooms/${created._id}`);
   };
 
   return (

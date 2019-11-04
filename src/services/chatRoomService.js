@@ -8,8 +8,8 @@ class ChatUserService {
     });
   }
 
-  updateChatUser(chatRoom) {
-    return this.axios.put(`/api/v01/chat-room/${chatRoom._id}`, chatUser).then(({ data: chatUser }) => chatUser);
+  updateChatUser(chatRoomId, text) {
+    return this.axios.put(`/api/v01/chat-room/${chatRoomId}`, { text }).then(({ data: chatUser }) => chatUser);
   }
 }
 

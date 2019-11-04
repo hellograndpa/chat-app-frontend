@@ -17,7 +17,7 @@ class RoomService {
   }
 
   getRoomById(id) {
-    return this.axios.get(`/api/v01/room/${id}`).then(({ room }) => room);
+    return this.axios.get(`/api/v01/room/${id}`).then(({ data: room }) => room);
   }
 
   createRoom(body) {
