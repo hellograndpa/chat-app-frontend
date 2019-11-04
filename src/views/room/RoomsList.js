@@ -93,13 +93,13 @@ class RoomsList extends Component {
           <div>
             <div>
               <h1>Room map</h1>
-              <Map />
+              <Map rooms={rooms} />
             </div>
             <div>
               <h1>Rooms Filter</h1>
               <div>
                 Search: <br />
-                <input defaultValue="" value={eventSearch} onChange={this.handleSearchRoom} />
+                <input name="rooms" value={eventSearch} onChange={this.handleSearchRoom} />
                 <br />
                 Theme: <br />
                 <select value="" onChange={this.handleChangeSelectRooms}>
@@ -113,7 +113,7 @@ class RoomsList extends Component {
             </div>
             <div>
               <h1>Rooms List</h1>
-              Search <input defaultValue="" value={eventSearch} onChange={this.handleSearchRoom} />
+              Search <input name="roomslist" value={eventSearch} onChange={this.handleSearchRoom} />
               <RoomsUser rooms={rooms} />
             </div>
           </div>
