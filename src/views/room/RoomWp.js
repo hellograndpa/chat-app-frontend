@@ -25,25 +25,27 @@ class RoomWp extends Component {
     } = this.props;
 
     const room = await RoomService.getRoomById(id);
-    console.log('chatId', room.chat._id);
-    this.setState({ conversation: room.conversation, loading: false, chatId: room.chat });
 
-    // const socket = socketIOClient(this.state.endpoint);
-    // socket.on(room.chat, chat => {
-    //   const newConversation = [...this.state.conversation, chat];
-    //   this.setState({ conversation: newConversation });
-    // });
+    this.setState({ conversation: room.chat.conversation, loading: false, chatId: room.chat._id });
+
+    const socket = socketIOClient('localhost:3001');
+    socket.on(room.chat._id, message => {
+      console.log('medssage', message);
+      const newConversation = message.chatUser.conversation;
+      this.setState({ conversation: newConversation });
+    });
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
     const { chatId } = this.state;
     const text = e.target.text.value;
 
-    ChatRoomService.updateChatUser(chatId, text);
+    const chatUser = await ChatRoomService.updateChatUser(chatId, text);
 
-    // const socket = socketIOClient(this.state.endpoint);
-    // socket.emit(chatId, this.state.text); // change 'red' to this.state.color
+    const socket = socketIOClient('localhost:3001');
+    const message = { chatId, chatUser };
+    socket.emit('chat-message', message);
   };
 
   render() {
