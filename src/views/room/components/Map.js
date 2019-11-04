@@ -1,5 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
+
 import MapGL, { Layer, Source } from 'react-map-gl';
 import getCoords from '../../../helpers/coordinates';
 import 'mapbox-gl/dist/mapbox-gl.css';
