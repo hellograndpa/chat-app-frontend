@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import PrivateView from './views/PrivateView';
 import Login from './views/auth/Login';
@@ -23,14 +23,16 @@ class App extends Component {
       <>
         <button onClick={handleLogout}>logout</button>
         <Router>
-          <AnonRoute exact path="/chat" component={Chat} />
-          <AnonRoute exact path="/home" component={Home} />
-          <AnonRoute exact path="/login" component={Login} />
-          <AnonRoute exact path="/signup" component={Signup} />
-          <PrivateRoute exact path="/me-user" component={MeUser} />
-          <PrivateRoute exact path="/rooms/create" component={CreateRoomWp} />
-          <PrivateRoute exact path="/rooms/list" component={RoomsList} />
-          <PrivateRoute path="/rooms/:id" component={RoomWp} />
+          <Switch>
+            <AnonRoute exact path="/chat" component={Chat} />
+            <AnonRoute exact path="/home" component={Home} />
+            <AnonRoute exact path="/login" component={Login} />
+            <AnonRoute exact path="/signup" component={Signup} />
+            <PrivateRoute exact path="/me-user" component={MeUser} />
+            <PrivateRoute exact path="/rooms/create" component={CreateRoomWp} />
+            <PrivateRoute exact path="/rooms/list" component={RoomsList} />
+            <PrivateRoute exact path="/rooms/:id" component={RoomWp} />
+          </Switch>
         </Router>
       </>
     );

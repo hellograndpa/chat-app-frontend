@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import WebMercatorViewport from 'viewport-mercator-project';
-import MapGL, { Layer, Source, GeolocateControl } from 'react-map-gl';
+import MapGL, { Layer, Source } from 'react-map-gl';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -42,7 +42,8 @@ class Map extends Component {
 
     this.setState({
       viewport: {
-        ...this.state.viewport,
+        width: window.innerWidth,
+        height: window.innerHeight - 200,
         longitude,
         latitude,
         zoom,
@@ -50,15 +51,25 @@ class Map extends Component {
     });
   };
 
-  mapRef = React.createRef();
-
   componentDidMount() {
+    window.addEventListener('resize', this.setInitialBounds);
     this.setInitialBounds();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.setInitialBounds);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.rooms !== this.props.rooms) {
+      this.setInitialBounds();
+    }
   }
 
   render() {
     const { rooms } = this.props;
     const { viewport } = this.state;
+    console.log('TCL: Map -> render -> viewport', viewport);
 
     const features = rooms.map(room => {
       return {
@@ -74,14 +85,8 @@ class Map extends Component {
     return (
       <div style={{ margin: '0 auto', width: '800' }}>
         <h1 style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder' }}>Your location is:</h1>
-        <MapGL
-          ref={this.mapRef}
-          {...viewport}
-          mapboxApiAccessToken={TOKEN}
-          mapStyle="mapbox://styles/mapbox/streets-v11"
-        >
+        <MapGL {...viewport} mapboxApiAccessToken={TOKEN} mapStyle="mapbox://styles/mapbox/streets-v11">
           <Source id="my-data" type="geojson" data={geojson}>
-            <GeolocateControl positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} />
             <Layer
               id="point"
               type="circle"

@@ -9,7 +9,7 @@ import Map from './components/Map';
 
 class RoomsList extends Component {
   state = {
-    rooms: this.props.rooms,
+    rooms: [],
     serchRooms: [],
     radiusInMeters: 50000,
     selectTheme: '',
