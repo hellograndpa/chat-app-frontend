@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import { withAuth } from '../../Context/AuthContext';
 import RoomService from '../../services/roomService';
 import getCoords from '../../helpers/coordinates';
@@ -7,7 +9,7 @@ import Map from './components/Map';
 
 class RoomsList extends Component {
   state = {
-    rooms: [],
+    rooms: this.props.rooms,
     serchRooms: [],
     radiusInMeters: 50000,
     selectTheme: '',
@@ -52,6 +54,18 @@ class RoomsList extends Component {
     });
   };
 
+  handleChangeSelectRadiusMeters = async event => {
+    const radiusInMeters = event.target.value;
+    this.setState({
+      radiusInMeters,
+    });
+    const {
+      coords: { latitude, longitude },
+    } = await getCoords();
+
+    this.handleRoomArroundMe(latitude, longitude, radiusInMeters);
+  };
+
   componentDidMount = async () => {
     const {
       coords: { latitude, longitude },
@@ -62,7 +76,7 @@ class RoomsList extends Component {
 
   render() {
     const { searchRooms, selectTheme, loading, eventSearch } = this.state;
-    console.log('TCL: RoomsList -> render -> searchRooms', searchRooms);
+    console.log('TCL: RoomsList -> render -> searchRooms', this.state.searchRooms);
 
     let themes = [];
     if (searchRooms) {
@@ -91,6 +105,7 @@ class RoomsList extends Component {
       <div>
         {!loading && (
           <div>
+            aa
             <div>
               <h1>Room map</h1>
               <Map rooms={rooms} />
@@ -108,8 +123,21 @@ class RoomsList extends Component {
                   {sortedList}
                 </select>
                 <br />
-                Filter: <br />
+                Radius Km: <br />
+                <select onChange={this.handleChangeSelectRadiusMeters}>
+                  <option>Select km</option>
+                  <option value="50000"> 50 km</option>
+                  <option value="40000"> 40 km</option>
+                  <option value="30000"> 30 km</option>
+                  <option value="20000"> 20 km</option>
+                  <option value="10000"> 10 km</option>
+                  <option value="5000"> 5 km</option>
+                  <option value="2000"> 2 km</option>
+                </select>
               </div>
+              <Link to="">
+                <buttoen> create new room</buttoen>
+              </Link>
             </div>
             <div>
               <h1>Rooms List</h1>

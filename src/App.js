@@ -29,8 +29,8 @@ class App extends Component {
           <AnonRoute exact path="/signup" component={Signup} />
           <PrivateRoute exact path="/me-user" component={MeUser} />
           <PrivateRoute exact path="/rooms/create" component={CreateRoomWp} />
-          <PrivateRoute exact path="/rooms/:id" component={RoomWp} />
           <PrivateRoute exact path="/rooms/list" component={RoomsList} />
+          <PrivateRoute path="/rooms/:id" component={RoomWp} />
         </Router>
       </>
     );
