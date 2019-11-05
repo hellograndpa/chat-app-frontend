@@ -11,7 +11,7 @@ class RoomsList extends Component {
   state = {
     rooms: [],
     serchRooms: [],
-    radiusInMeters: 50000,
+    radiusInMeters: 50,
     selectTheme: '',
     eventSearch: '',
     loading: true,
@@ -62,8 +62,10 @@ class RoomsList extends Component {
     const {
       coords: { latitude, longitude },
     } = await getCoords();
+    console.log('TCL: RoomsList -> componentDidMount -> longitude2', longitude);
+    console.log('TCL: RoomsList -> componentDidMount -> latitude2', latitude);
 
-    this.handleRoomArroundMe(latitude, longitude, radiusInMeters);
+    this.handleRoomArroundMe(longitude, latitude, radiusInMeters);
   };
 
   componentDidMount = async () => {
@@ -71,7 +73,8 @@ class RoomsList extends Component {
       coords: { latitude, longitude },
     } = await getCoords();
     const { radiusInMeters } = this.state;
-    this.handleRoomArroundMe(latitude, longitude, radiusInMeters);
+
+    this.handleRoomArroundMe(longitude, latitude, radiusInMeters);
   };
 
   render() {
@@ -125,14 +128,14 @@ class RoomsList extends Component {
                 <br />
                 Radius Km: <br />
                 <select onChange={this.handleChangeSelectRadiusMeters}>
-                  <option>Select km</option>
-                  <option value="50000"> 50 km</option>
-                  <option value="40000"> 40 km</option>
-                  <option value="30000"> 30 km</option>
-                  <option value="20000"> 20 km</option>
-                  <option value="10000"> 10 km</option>
-                  <option value="5000"> 5 km</option>
-                  <option value="2000"> 2 km</option>
+                  <option value="">Select km</option>
+                  <option value="50"> 50 km</option>
+                  <option value="40"> 40 km</option>
+                  <option value="30"> 30 km</option>
+                  <option value="20"> 20 km</option>
+                  <option value="10"> 10 km</option>
+                  <option value="5"> 5 km</option>
+                  <option value="2"> 2 km</option>
                 </select>
               </div>
               <Link to="">

@@ -16,18 +16,26 @@ class Map extends Component {
   };
 
   setInitialBounds = () => {
+    console.log('TCL: Map -> setInitialBounds -> rooms', this.props.rooms);
     const { rooms } = this.props;
-    let maxValueLat = 0;
-    let minValueLat = 0;
-    let maxValueLong = 0;
-    let minValueLong = 0;
 
-    if (rooms) {
+    let maxValueLat = 3;
+    let minValueLat = 2;
+    let maxValueLong = 5;
+    let minValueLong = 3;
+
+    if (rooms.length > 0) {
       maxValueLat = Math.max(...rooms.map(room => room.location.coordinates[0]));
       minValueLat = Math.min(...rooms.map(room => room.location.coordinates[0]));
       maxValueLong = Math.max(...rooms.map(room => room.location.coordinates[1]));
       minValueLong = Math.min(...rooms.map(room => room.location.coordinates[1]));
+    } else {
+      maxValueLat = 3;
+      minValueLat = -5;
+      maxValueLong = 44;
+      minValueLong = 35;
     }
+
     const viewport = new WebMercatorViewport({
       width: window.innerWidth,
       height: window.innerHeight - 200,
@@ -68,19 +76,23 @@ class Map extends Component {
 
   render() {
     const { rooms } = this.props;
+    console.log('TCL: Map -> render -> rooms', rooms);
     const { viewport } = this.state;
     console.log('TCL: Map -> render -> viewport', viewport);
-
-    const features = rooms.map(room => {
-      return {
-        type: 'Feature',
-        geometry: { type: 'Point', coordinates: [room.location.coordinates[0], room.location.coordinates[1]] },
+    let features = [];
+    let geojson = {};
+    if (rooms !== []) {
+      features = rooms.map(room => {
+        return {
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: [room.location.coordinates[0], room.location.coordinates[1]] },
+        };
+      });
+      geojson = {
+        type: 'FeatureCollection',
+        features,
       };
-    });
-    const geojson = {
-      type: 'FeatureCollection',
-      features,
-    };
+    }
 
     return (
       <div style={{ margin: '0 auto', width: '800' }}>
