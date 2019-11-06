@@ -17,7 +17,7 @@ const ChatsUser = props => {
         {chatStatus}
       </option>
     ));
-  console.log('TCL: sortedList', sortedList);
+
   let chats = [];
   if (selectStatus !== '') {
     chats = searchChats.filter(element => element.status === selectStatus);
@@ -40,7 +40,7 @@ const ChatsUser = props => {
               <Link to={`/me/${chat._id}`}>{chat.userChat01.userName}</Link>
             </div>
             <div>
-              avatar <img src={`/avatar/${chat.userChat02.avatar}`} />
+              avatar <img alt="" src={`/avatar/${chat.userChat02.avatar}`} />
             </div>
           </div>
         );

@@ -24,6 +24,7 @@ const RoomCreate = props => {
 
     const body = { roomName, description, longitude, latitude, privateRoom, theme };
 
+    console.log(body);
     // Create Room
     const created = await RoomService.createRoom(body);
 

@@ -10,7 +10,7 @@ const UserMe = props => {
       <div>Email {user.email}</div>
       <div>Last theme {user.userName}</div>
       <div>
-        Avatar <img src=""></img> {user.userName}
+        Avatar <img src="" alt=""></img> {user.userName}
       </div>
     </div>
   );

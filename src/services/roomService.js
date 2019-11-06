@@ -21,11 +21,19 @@ class RoomService {
   }
 
   createRoom(body) {
-    return this.axios.post('/api/v01/room', body).then(({ data: room }) => room);
+    return this.axios.post('/api/v01/room/new', body).then(({ data: room }) => room);
   }
 
-  updateRoom(room) {
-    return this.axios.put(`/api/v01/room/${room._id}`, room).then(({ data: room }) => room);
+  updateRoom(body) {
+    return this.axios.put(`/api/v01/room/${body._id}`, body).then(({ data: room }) => room);
+  }
+
+  insertUserToRoom(id) {
+    return this.axios.put(`/api/v01/room/${id}/new-user`).then(({ data: room }) => room);
+  }
+
+  deleteUserFromRoom(id) {
+    return this.axios.delete(`/api/v01/room/${id}/delete-user`).then(({ data: room }) => room);
   }
 }
 

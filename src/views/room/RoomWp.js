@@ -2,62 +2,62 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import socketIOClient from 'socket.io-client';
+
 import Chat from './components/Chat';
-import RoomService from '../../services/roomService';
-import ChatRoomService from '../../services/chatRoomService';
+import UsersInChat from './components/UsersInChat';
 
 class RoomWp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      conversation: [],
-      loading: true,
-      chatId: 0,
-    };
-  }
+  // async componentDidMount() {
+  //   const {
+  //     match: {
+  //       params: { id },
+  //     },
+  //   } = this.props;
 
-  async componentDidMount() {
+  //   const room = await RoomService.getRoomById(id);
+
+  //   const newUser = await RoomService.insertUserToRoom(id);
+
+  //   this.setState({
+  //     conversation: room.chat.conversation,
+  //     loading: false,
+  //     chatId: room.chat._id,
+  //     // activeUsers: newUser.activeUsers,
+  //   });
+
+  //   const socket = socketIOClient('localhost:3001');
+  //   socket.on(room.chat._id, message => {
+  //     const newConversation = message.chatUser.conversation;
+  //     this.setState({ conversation: newConversation });
+  //   });
+  //   socket.on('user-in-chat', users => {
+  //     this.setState({ activeUsers: users });
+  //   });
+
+  //   socket.emit('user-in-chat', newUser.activeUsers);
+  // }
+
+  // async componentWillUnmount() {
+  //   const socket = socketIOClient('localhost:3001');
+  //   const {
+  //     match: {
+  //       params: { id },
+  //     },
+  //   } = this.props;
+  //   const room = await RoomService.deleteUserFromRoom(id);
+  //   socket.emit('user-in-chat', room.activeUsers);
+  // }
+
+  render() {
     const {
       match: {
         params: { id },
       },
     } = this.props;
-
-    const room = await RoomService.getRoomById(id);
-
-    this.setState({ conversation: room.chat.conversation, loading: false, chatId: room.chat._id });
-
-    const socket = socketIOClient('localhost:3001');
-    socket.on(room.chat._id, message => {
-      console.log('medssage', message);
-      const newConversation = message.chatUser.conversation;
-      this.setState({ conversation: newConversation });
-    });
-  }
-
-  handleSubmit = async e => {
-    e.preventDefault();
-    const { chatId } = this.state;
-    const text = e.target.text.value;
-
-    const chatUser = await ChatRoomService.updateChatUser(chatId, text);
-
-    const socket = socketIOClient('localhost:3001');
-    const message = { chatId, chatUser };
-    socket.emit('chat-message', message);
-  };
-
-  render() {
     return (
       <div>
-        <Chat {...this.state}></Chat>
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <input type="text" name="text"></input>
-            <button>Enviar</button>
-          </form>
-        </div>
+        <UsersInChat roomId={id}></UsersInChat>
+        <Chat roomId={id}></Chat>
       </div>
     );
   }

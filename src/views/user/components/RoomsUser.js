@@ -11,7 +11,7 @@ const RoomsUser = props => {
         return (
           <div key={room._id}>
             <div>
-              <Link to={`../${room._id}`}>{room.roomName}</Link>
+              <Link to={`../rooms/${room._id}`}>{room.roomName}</Link>
             </div>
             <div>{room.theme}</div>
           </div>
