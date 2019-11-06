@@ -12,15 +12,22 @@ import RoomWp from './views/room/RoomWp';
 import RoomsList from './views/room/RoomsList';
 
 import { withAuth } from './Context/AuthContext';
+import { withNotification } from './Context/NotificationCtx';
 
 import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
 
 class App extends Component {
   render() {
-    const { handleLogout, user } = this.props;
+    const { handleLogout, user, notification, status, handleCloseMessage } = this.props;
     return (
       <>
+        {status && (
+          <div classNmae={notification.typeMessage}>
+            {notification.typeMessage}: {notification.message}
+            <button onClick={handleCloseMessage}>close</button>
+          </div>
+        )}
         <button onClick={handleLogout}>logout</button>
         <Router>
           <Switch>
@@ -39,4 +46,4 @@ class App extends Component {
   }
 }
 
-export default withAuth(App);
+export default withAuth(withNotification(App));

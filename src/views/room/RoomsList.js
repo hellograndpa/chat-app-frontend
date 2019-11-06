@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { withAuth } from '../../Context/AuthContext';
+import { withNotification } from '../../Context/NotificationCtx';
 import RoomService from '../../services/roomService';
 import getCoords from '../../helpers/coordinates';
+import { emtyValidation } from '../../helpers/Validation';
 import RoomsUser from '../user/components/RoomsUser';
 import Map from './components/Map';
 
@@ -20,13 +21,16 @@ class RoomsList extends Component {
   handleRoomArroundMe = (latitude, longitude, radiusInMeters) => {
     RoomService.getAllRooms(latitude, longitude, radiusInMeters)
       .then(rooms => {
+        emtyValidation(rooms, this.props.handleSetMessage);
         this.setState({
           rooms,
           searchRooms: rooms,
           loading: false,
         });
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   handleSearchRoom = event => {
@@ -46,6 +50,7 @@ class RoomsList extends Component {
       searchRooms,
       eventSearch: newEventSearch,
     });
+    emtyValidation(searchRooms, this.props.handleSetMessage);
   };
 
   handleChangeSelectRooms = event => {
@@ -62,8 +67,6 @@ class RoomsList extends Component {
     const {
       coords: { latitude, longitude },
     } = await getCoords();
-    console.log('TCL: RoomsList -> componentDidMount -> longitude2', longitude);
-    console.log('TCL: RoomsList -> componentDidMount -> latitude2', latitude);
 
     this.handleRoomArroundMe(longitude, latitude, radiusInMeters);
   };
@@ -78,11 +81,11 @@ class RoomsList extends Component {
   };
 
   render() {
+    console.log(this.props);
     const { searchRooms, selectTheme, loading, eventSearch } = this.state;
-    console.log('TCL: RoomsList -> render -> searchRooms', this.state.searchRooms);
 
     let themes = [];
-    if (searchRooms) {
+    if (searchRooms && searchRooms.length > 0) {
       themes = [...new Set(searchRooms.map(room => room.theme))];
     }
     const sortedList = themes
@@ -155,4 +158,4 @@ class RoomsList extends Component {
   }
 }
 
-export default withAuth(RoomsList);
+export default withNotification(RoomsList);

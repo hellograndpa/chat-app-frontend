@@ -125,7 +125,6 @@ export default class AuthProvider extends Component {
           isLoggedin,
           user,
           handleLogin: this.handleLogin,
-          handleSignup: this.handleSignup,
           handleLogout: this.handleLogout,
         }}
       >
