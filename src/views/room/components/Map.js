@@ -68,6 +68,14 @@ class Map extends Component {
     window.removeEventListener('resize', this.setInitialBounds);
   }
 
+  // shouldComponentUpdate(nextProps) {
+  //   if (nextProps.rooms !== this.props.rooms) {
+  //     this.setInitialBounds();
+  //     return true;
+  //   }
+  //   return false;
+  // }
+
   componentDidUpdate(prevProps) {
     if (prevProps.rooms !== this.props.rooms) {
       this.setInitialBounds();
