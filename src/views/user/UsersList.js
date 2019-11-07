@@ -108,7 +108,7 @@ class UsersList extends Component {
       ));
 
     let users = [];
-    if (selectTheme !== '' && radiusInMeters <= 50000) {
+    if (selectTheme !== '' && radiusInMeters <= 50001) {
       users = searchUsers
         .filter(element => element.theme === selectTheme)
         .filter(element => element.distanceFromMe <= radiusInMeters);

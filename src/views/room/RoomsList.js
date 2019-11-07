@@ -15,7 +15,7 @@ class RoomsList extends Component {
   state = {
     rooms: [],
     serchRooms: [],
-    radiusInMeters: 500000000000000000000,
+    radiusInMeters: 50000,
     selectTheme: '',
     eventSearch: '',
     loading: true,
@@ -35,6 +35,7 @@ class RoomsList extends Component {
   handleRoomsArroundMe = (latitude, longitude, radiusInMeters) => {
     RoomService.getAllRooms(latitude, longitude, radiusInMeters)
       .then(async rooms => {
+        console.log('TCL: RoomsList -> handleRoomsArroundMe -> rooms', rooms);
         const newRooms = await rooms.map(async room => {
           const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
           room.distanceFromMe = await getDistanceFromMe(location);
@@ -43,6 +44,7 @@ class RoomsList extends Component {
         return Promise.all(newRooms);
       })
       .then(newRooms => {
+        console.log('TCL: RoomsList -> handleRoomsArroundMe -> newRooms', newRooms);
         this.resultRooms(newRooms);
       })
       .catch(error => {
@@ -76,25 +78,21 @@ class RoomsList extends Component {
     });
   };
 
-  handleChangeSelectRadiusMeters = async event => {
-    const radiusInMeters = event.target.value;
+  handleChangeSelectRadiusMeters = event => {
     this.setState({
-      radiusInMeters,
+      radiusInMeters: event.target.value,
     });
-    const {
-      coords: { latitude, longitude },
-    } = await getCoords();
-
-    this.handleRoomsArroundMe(latitude, longitude, radiusInMeters);
   };
 
   componentDidMount = async () => {
     const {
       coords: { latitude, longitude },
     } = await getCoords();
+
+    console.log('TCL: RoomsList -> componentDidMount -> latitude', latitude);
     const { radiusInMeters } = this.state;
 
-    this.handleRoomArroundMe(longitude, latitude, radiusInMeters / 1000);
+    this.handleRoomsArroundMe(latitude, longitude, radiusInMeters / 1000);
 
     socket.on('room-created', room => {
       const searchRooms = [...this.state.searchRooms, room];
@@ -128,6 +126,7 @@ class RoomsList extends Component {
         .filter(element => element.distanceFromMe <= radiusInMeters);
     } else {
       rooms = searchRooms;
+      console.log('TCL: RoomsList -> render -> searchRooms', searchRooms);
     }
 
     return (
@@ -163,7 +162,7 @@ class RoomsList extends Component {
                   <option value="20000"> 20 km</option>
                   <option value="10000"> 10 km</option>
                   <option value="5000"> 5 km</option>
-                  <option value="2"> 2 km</option>
+                  <option value="200"> 2 km</option>
                 </select>
               </div>
               <Link to="">
