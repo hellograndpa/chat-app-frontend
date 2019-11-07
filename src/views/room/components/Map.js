@@ -16,19 +16,18 @@ class Map extends Component {
   };
 
   setInitialBounds = () => {
-    console.log('TCL: Map -> setInitialBounds -> rooms', this.props.rooms);
-    const { rooms } = this.props;
+    const { locations } = this.props;
 
     let maxValueLat = 3;
     let minValueLat = 2;
     let maxValueLong = 5;
     let minValueLong = 3;
 
-    if (rooms.length > 0) {
-      maxValueLat = Math.max(...rooms.map(room => room.location.coordinates[0]));
-      minValueLat = Math.min(...rooms.map(room => room.location.coordinates[0]));
-      maxValueLong = Math.max(...rooms.map(room => room.location.coordinates[1]));
-      minValueLong = Math.min(...rooms.map(room => room.location.coordinates[1]));
+    if (locations.length > 0) {
+      maxValueLat = Math.max(...locations.map(locations => locations.location.coordinates[0]));
+      minValueLat = Math.min(...locations.map(locations => locations.location.coordinates[0]));
+      maxValueLong = Math.max(...locations.map(locations => locations.location.coordinates[1]));
+      minValueLong = Math.min(...locations.map(locations => locations.location.coordinates[1]));
     } else {
       maxValueLat = 3;
       minValueLat = -5;
@@ -68,32 +67,25 @@ class Map extends Component {
     window.removeEventListener('resize', this.setInitialBounds);
   }
 
-  // shouldComponentUpdate(nextProps) {
-  //   if (nextProps.rooms !== this.props.rooms) {
-  //     this.setInitialBounds();
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
   componentDidUpdate(prevProps) {
-    if (prevProps.rooms !== this.props.rooms) {
+    if (prevProps.locations !== this.props.locations) {
       this.setInitialBounds();
     }
   }
 
   render() {
-    const { rooms } = this.props;
-    console.log('TCL: Map -> render -> rooms', rooms);
+    const { locations } = this.props;
     const { viewport } = this.state;
-    console.log('TCL: Map -> render -> viewport', viewport);
     let features = [];
     let geojson = {};
-    if (rooms !== []) {
-      features = rooms.map(room => {
+    if (locations !== []) {
+      features = locations.map(item => {
         return {
           type: 'Feature',
-          geometry: { type: 'Point', coordinates: [room.location.coordinates[0], room.location.coordinates[1]] },
+          geometry: {
+            type: 'Point',
+            coordinates: [item.location.coordinates[0], item.location.coordinates[1]],
+          },
         };
       });
       geojson = {

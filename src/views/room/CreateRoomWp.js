@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import RoomCreate from './components/RoomCreate';
 import Map from './components/Map';
-import getCoords from '../../helpers/coordinates';
+import { getCoords } from '../../helpers/coordinates';
 
 class CreateRoomWp extends Component {
   state = {
@@ -20,7 +20,7 @@ class CreateRoomWp extends Component {
   render() {
     return (
       <div>
-        <Map rooms={this.state.location}></Map>
+        <Map locations={this.state.location}></Map>
         <RoomCreate></RoomCreate>
       </div>
     );

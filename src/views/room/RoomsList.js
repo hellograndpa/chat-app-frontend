@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { withNotification } from '../../Context/NotificationCtx';
 import RoomService from '../../services/roomService';
-import getCoords from '../../helpers/coordinates';
-import { emtyValidation } from '../../helpers/Validation';
+import { getCoords } from '../../helpers/coordinates';
+import { emptyValidation } from '../../helpers/Validation';
 import RoomsUser from '../user/components/RoomsUser';
 import Map from './components/Map';
 
@@ -21,7 +21,7 @@ class RoomsList extends Component {
   handleRoomArroundMe = (latitude, longitude, radiusInMeters) => {
     RoomService.getAllRooms(latitude, longitude, radiusInMeters)
       .then(rooms => {
-        emtyValidation(rooms, this.props.handleSetMessage);
+        emptyValidation(rooms, this.props.handleSetMessage);
         this.setState({
           rooms,
           searchRooms: rooms,
@@ -50,7 +50,7 @@ class RoomsList extends Component {
       searchRooms,
       eventSearch: newEventSearch,
     });
-    emtyValidation(searchRooms, this.props.handleSetMessage);
+    emptyValidation(searchRooms, this.props.handleSetMessage);
   };
 
   handleChangeSelectRooms = event => {
@@ -68,7 +68,7 @@ class RoomsList extends Component {
       coords: { latitude, longitude },
     } = await getCoords();
 
-    this.handleRoomArroundMe(longitude, latitude, radiusInMeters);
+    this.handleRoomArroundMe(latitude, longitude, radiusInMeters);
   };
 
   componentDidMount = async () => {
@@ -77,7 +77,7 @@ class RoomsList extends Component {
     } = await getCoords();
     const { radiusInMeters } = this.state;
 
-    this.handleRoomArroundMe(longitude, latitude, radiusInMeters);
+    this.handleRoomArroundMe(latitude, longitude, radiusInMeters);
   };
 
   render() {
@@ -114,7 +114,7 @@ class RoomsList extends Component {
             aa
             <div>
               <h1>Room map</h1>
-              <Map rooms={rooms} />
+              <Map locations={rooms} />
             </div>
             <div>
               <h1>Rooms Filter</h1>
@@ -123,15 +123,18 @@ class RoomsList extends Component {
                 <input name="rooms" value={eventSearch} onChange={this.handleSearchRoom} />
                 <br />
                 Theme: <br />
-                <select value="" onChange={this.handleChangeSelectRooms}>
-                  <option>Select theme</option>
+                <select name="Select theme" value={this.state.selectTheme} onChange={this.handleChangeSelectRooms}>
                   <option value="">All</option>
                   {sortedList}
                 </select>
                 <br />
                 Radius Km: <br />
-                <select onChange={this.handleChangeSelectRadiusMeters}>
-                  <option value="">Select km</option>
+                <select
+                  name="Select kms"
+                  Select
+                  value={this.state.radiusInMeters}
+                  onChange={this.handleChangeSelectRadiusMeters}
+                >
                   <option value="50"> 50 km</option>
                   <option value="40"> 40 km</option>
                   <option value="30"> 30 km</option>
@@ -142,7 +145,7 @@ class RoomsList extends Component {
                 </select>
               </div>
               <Link to="">
-                <buttoen> create new room</buttoen>
+                <button> create new room</button>
               </Link>
             </div>
             <div>
