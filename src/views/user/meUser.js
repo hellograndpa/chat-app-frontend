@@ -139,7 +139,7 @@ class MeUser extends Component {
             </div>
             <h2>ITS ME</h2>
             <div>
-              <User showuser={user} />
+              <User showuser={user} user={user} />
             </div>
             <div>
               <h1> List User Chats</h1>

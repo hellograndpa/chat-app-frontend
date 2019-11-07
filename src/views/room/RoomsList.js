@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import socketIOClient from 'socket.io-client';
 import { withNotification } from '../../Context/NotificationCtx';
 import RoomService from '../../services/roomService';
-import { getCoords } from '../../helpers/coordinates';
+import { getCoords, getDistance, getDistanceFromMe } from '../../helpers/coordinates';
 import { emptyValidation } from '../../helpers/Validation';
 import RoomsUser from '../user/components/RoomsUser';
 import Map from './components/Map';
@@ -15,21 +15,35 @@ class RoomsList extends Component {
   state = {
     rooms: [],
     serchRooms: [],
-    radiusInMeters: 50,
+    radiusInMeters: 500000000000000000000,
     selectTheme: '',
     eventSearch: '',
     loading: true,
   };
 
-  handleRoomArroundMe = (latitude, longitude, radiusInMeters) => {
+  resultRooms = async newRooms => {
+    console.log('TCL: RoomsList -> newRooms', newRooms);
+    emptyValidation(newRooms, this.props.handleSetMessage);
+
+    this.setState({
+      rooms: newRooms,
+      searchRooms: newRooms,
+      loading: false,
+    });
+  };
+
+  handleRoomsArroundMe = (latitude, longitude, radiusInMeters) => {
     RoomService.getAllRooms(latitude, longitude, radiusInMeters)
-      .then(rooms => {
-        emptyValidation(rooms, this.props.handleSetMessage);
-        this.setState({
-          rooms,
-          searchRooms: rooms,
-          loading: false,
+      .then(async rooms => {
+        const newRooms = await rooms.map(async room => {
+          const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
+          room.distanceFromMe = await getDistanceFromMe(location);
+          return room;
         });
+        return Promise.all(newRooms);
+      })
+      .then(newRooms => {
+        this.resultRooms(newRooms);
       })
       .catch(error => {
         console.log(error);
@@ -71,7 +85,7 @@ class RoomsList extends Component {
       coords: { latitude, longitude },
     } = await getCoords();
 
-    this.handleRoomArroundMe(latitude, longitude, radiusInMeters);
+    this.handleRoomsArroundMe(latitude, longitude, radiusInMeters);
   };
 
   componentDidMount = async () => {
@@ -80,7 +94,7 @@ class RoomsList extends Component {
     } = await getCoords();
     const { radiusInMeters } = this.state;
 
-    this.handleRoomArroundMe(longitude, latitude, radiusInMeters);
+    this.handleRoomArroundMe(longitude, latitude, radiusInMeters / 1000);
 
     socket.on('room-created', room => {
       const searchRooms = [...this.state.searchRooms, room];
@@ -89,7 +103,7 @@ class RoomsList extends Component {
   };
 
   render() {
-    const { searchRooms, selectTheme, loading, eventSearch } = this.state;
+    const { searchRooms, selectTheme, loading, eventSearch, radiusInMeters } = this.state;
 
     let themes = [];
     if (searchRooms && searchRooms.length > 0) {
@@ -108,8 +122,10 @@ class RoomsList extends Component {
       ));
 
     let rooms = [];
-    if (selectTheme !== '') {
-      rooms = searchRooms.filter(element => element.theme === selectTheme);
+    if (selectTheme !== '' && radiusInMeters <= 50001) {
+      rooms = searchRooms
+        .filter(element => element.theme === selectTheme)
+        .filter(element => element.distanceFromMe <= radiusInMeters);
     } else {
       rooms = searchRooms;
     }
@@ -138,16 +154,15 @@ class RoomsList extends Component {
                 Radius Km: <br />
                 <select
                   name="Select kms"
-                  Select
-                  value={this.state.radiusInMeters}
+                  defaultValue={this.state.radiusInMeters}
                   onChange={this.handleChangeSelectRadiusMeters}
                 >
-                  <option value="50"> 50 km</option>
-                  <option value="40"> 40 km</option>
-                  <option value="30"> 30 km</option>
-                  <option value="20"> 20 km</option>
-                  <option value="10"> 10 km</option>
-                  <option value="5"> 5 km</option>
+                  <option value="50000"> 50 km</option>
+                  <option value="40000"> 40 km</option>
+                  <option value="30000"> 30 km</option>
+                  <option value="20000"> 20 km</option>
+                  <option value="10000"> 10 km</option>
+                  <option value="5000"> 5 km</option>
                   <option value="2"> 2 km</option>
                 </select>
               </div>
