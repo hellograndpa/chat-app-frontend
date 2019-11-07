@@ -126,6 +126,7 @@ export default class AuthProvider extends Component {
           user,
           handleLogin: this.handleLogin,
           handleLogout: this.handleLogout,
+          handleSignup: this.handleSignup,
         }}
       >
         {children}

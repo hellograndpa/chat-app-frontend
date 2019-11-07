@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import socketIOClient from 'socket.io-client';
 import { withNotification } from '../../Context/NotificationCtx';
 import RoomService from '../../services/roomService';
 import getCoords from '../../helpers/coordinates';
 import { emtyValidation } from '../../helpers/Validation';
 import RoomsUser from '../user/components/RoomsUser';
 import Map from './components/Map';
+
+const socket = socketIOClient('localhost:3001');
 
 class RoomsList extends Component {
   state = {
@@ -78,10 +81,14 @@ class RoomsList extends Component {
     const { radiusInMeters } = this.state;
 
     this.handleRoomArroundMe(longitude, latitude, radiusInMeters);
+
+    socket.on('room-created', room => {
+      const searchRooms = [...this.state.searchRooms, room];
+      this.setState({ searchRooms });
+    });
   };
 
   render() {
-    console.log(this.props);
     const { searchRooms, selectTheme, loading, eventSearch } = this.state;
 
     let themes = [];
