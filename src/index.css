@@ -23,3 +23,30 @@ code {
   /* anchor nodes are required to have non-zero area */
   height: 1px;
 }
+
+* {
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  --n: 1;
+  display: flex;
+  align-items: center;
+  overflow-y: hidden;
+  width: 100%;
+  width: calc(var(--n) * 100%);
+  height: 50vw;
+  max-height: 100vh;
+  transform: translate(calc(var(--i, 0) / var(--n) * -100%));
+}
+.container .left,
+.container .right,
+.container .center {
+  width: 100%;
+  width: calc(100% / var(--n));
+  user-select: none;
+}

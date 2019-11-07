@@ -17,7 +17,8 @@ class Signup extends Component {
   handleFormSubmit = e => {
     e.preventDefault();
     const { userName, email, password } = this.state;
-    this.props.handleSignup({
+    const { handleSignup } = this.props;
+    handleSignup({
       userName,
       email,
       password,

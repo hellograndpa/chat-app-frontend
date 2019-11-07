@@ -17,7 +17,6 @@ class PrivateChat extends Component {
     // Look for chat available
     const room = await ChatUserService.getPrivateChat(roomId);
 
-    console.log(room);
     // Fill the state with initial conversation
     this.setState({
       roomId: room._id,

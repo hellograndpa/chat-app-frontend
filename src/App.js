@@ -46,8 +46,8 @@ class App extends Component {
             <PrivateRoute exact path="/rooms/:id" component={RoomWp} />
             <PrivateRoute exact path="/users/:id" component={OtherUser} />
             <PrivateRoute exact path="/users/private-chat/:id" component={PrivateChatWp} />
-            <NavBar />
           </Switch>
+          <NavBar />
         </Router>
       </>
     );
