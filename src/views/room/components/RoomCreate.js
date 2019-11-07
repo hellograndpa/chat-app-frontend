@@ -22,7 +22,7 @@ const RoomCreate = props => {
       coords: { latitude, longitude },
     } = await getCoords();
 
-    const body = { roomName, description, longitude, latitude, privateRoom, theme };
+    const body = { roomName, description, latitude, longitude, privateRoom, theme };
 
     console.log(body);
     // Create Room
