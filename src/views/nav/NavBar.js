@@ -13,6 +13,10 @@ const NavBar = () => {
       </span>
       <span> | </span>
       <span>
+        <NavLink to="/users/list">Users</NavLink>
+      </span>
+      <span> | </span>
+      <span>
         <NavLink to="/user">User</NavLink>
       </span>
       <span> | </span>

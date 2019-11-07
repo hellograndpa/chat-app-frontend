@@ -47,15 +47,18 @@ const ChatsUser = props => {
             <div>
               {chat.status === 'pending' ? (
                 <>
-                  {chat.userChat01.userName}
-                  {chat.userChat02._id == user._id ? (
+                  {chat.userChat01._id === user._id ? chat.userChat02.userName : chat.userChat01.userName}
+
+                  {chat.userChat02._id === user._id ? (
                     <button onClick={() => handleAccept(chat._id)}>Aceptar</button>
                   ) : (
                     ' Pending...'
                   )}
                 </>
               ) : (
-                <Link to={`/users/private-chat/${chat._id}`}>{chat.userChat01.userName}</Link>
+                <Link to={`/users/private-chat/${chat._id}`}>
+                  {chat.userChat01._id === user._id ? chat.userChat02.userName : chat.userChat01.userName}
+                </Link>
               )}
             </div>
             <div>
