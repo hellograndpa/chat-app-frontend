@@ -83,6 +83,11 @@ class MeUser extends Component {
     });
   };
 
+  handleAcceptChat = () => {
+    const { user } = this.props;
+    this.handleChatUser(user);
+  };
+
   componentDidMount = () => {
     const { user } = this.props;
     this.handleChatUser(user);
@@ -134,7 +139,7 @@ class MeUser extends Component {
             </div>
             <h2>ITS ME</h2>
             <div>
-              <User user={user} />
+              <User showuser={user} />
             </div>
             <div>
               <h1> List User Chats</h1>
@@ -143,6 +148,7 @@ class MeUser extends Component {
                 searchChats={searchChats}
                 selectStatus={selectStatus}
                 onSelect={this.handleChangeSelectChats}
+                onAccept={this.handleAcceptChat}
               />
             </div>
           </div>

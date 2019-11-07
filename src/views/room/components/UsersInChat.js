@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import socketIOClient from 'socket.io-client';
+import { NavLink } from 'react-router-dom';
 import RoomService from '../../../services/roomService';
 
 const socket = socketIOClient('localhost:3001');
@@ -38,7 +39,11 @@ class UsersInChat extends Component {
     return (
       <div>
         {activeUsers.map(user => {
-          return <li key={user._id}>{user.userName}</li>;
+          return (
+            <li key={user._id}>
+              <NavLink to={`/users/${user._id}`}>{user.userName}</NavLink>
+            </li>
+          );
         })}
       </div>
     );

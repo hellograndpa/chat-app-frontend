@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withAuth } from '../../../Context/AuthContext';
+import ChatUserService from '../../../services/chatUserService';
 
 const ChatsUser = props => {
-  const { searchChats, selectStatus, onSelect } = props;
+  const { searchChats, selectStatus, onSelect, user, onAccept } = props;
 
   const status = [...new Set(searchChats.map(chat => chat.status))];
 
@@ -24,6 +26,12 @@ const ChatsUser = props => {
   } else {
     chats = searchChats;
   }
+
+  const handleAccept = async chatId => {
+    await ChatUserService.updateChatUserStatus(chatId, 'active');
+    onAccept();
+  };
+
   return (
     <div>
       <div>
@@ -37,7 +45,18 @@ const ChatsUser = props => {
         return (
           <div key={chat._id}>
             <div>
-              <Link to={`/me/${chat._id}`}>{chat.userChat01.userName}</Link>
+              {chat.status === 'pending' ? (
+                <>
+                  {chat.userChat01.userName}
+                  {chat.userChat02._id == user._id ? (
+                    <button onClick={() => handleAccept(chat._id)}>Aceptar</button>
+                  ) : (
+                    ' Pending...'
+                  )}
+                </>
+              ) : (
+                <Link to={`/users/private-chat/${chat._id}`}>{chat.userChat01.userName}</Link>
+              )}
             </div>
             <div>
               avatar <img alt="" src={`/avatar/${chat.userChat02.avatar}`} />
@@ -49,4 +68,4 @@ const ChatsUser = props => {
   );
 };
 
-export default ChatsUser;
+export default withAuth(ChatsUser);
