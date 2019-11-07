@@ -2,7 +2,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { withAuth } from '../../../Context/AuthContext';
-import getCoords from '../../../helpers/coordinates';
+import { getCoords } from '../../../helpers/coordinates';
 import RoomService from '../../../services/roomService';
 
 const RoomCreate = props => {
@@ -22,7 +22,7 @@ const RoomCreate = props => {
       coords: { latitude, longitude },
     } = await getCoords();
 
-    const body = { roomName, description, longitude, latitude, privateRoom, theme };
+    const body = { roomName, description, latitude, longitude, privateRoom, theme };
 
     console.log(body);
     // Create Room

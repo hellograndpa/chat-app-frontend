@@ -10,6 +10,7 @@ import CreateRoomWp from './views/room/CreateRoomWp';
 import RoomWp from './views/room/RoomWp';
 import RoomsList from './views/room/RoomsList';
 import NavBar from './views/nav/NavBar';
+import UsersList from './views/user/UsersList';
 
 import { withAuth } from './Context/AuthContext';
 import { withNotification } from './Context/NotificationCtx';
@@ -23,7 +24,7 @@ class App extends Component {
     return (
       <>
         {status && (
-          <div classNmae={notification.typeMessage}>
+          <div className={notification.typeMessage}>
             {notification.typeMessage}: {notification.message}
             <button onClick={handleCloseMessage}>close</button>
           </div>
@@ -36,6 +37,7 @@ class App extends Component {
             <AnonRoute exact path="/login" component={Login} />
             <AnonRoute exact path="/signup" component={Signup} />
             <PrivateRoute exact path="/me-user" component={MeUser} />
+            <PrivateRoute exact path="/users" component={UsersList} />
             <PrivateRoute exact path="/rooms/create" component={CreateRoomWp} />
             <PrivateRoute exact path="/rooms/list" component={RoomsList} />
             <PrivateRoute exact path="/rooms/:id" component={RoomWp} />
