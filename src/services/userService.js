@@ -8,8 +8,8 @@ class UserService {
     });
   }
 
-  getAllUser(location) {
-    return this.axios.get('/api/v01/user', location).then(({ data: users }) => users);
+  getAllUsers(latitude, longitude, radiusInMeters) {
+    return this.axios.post('/api/v01/user', { latitude, longitude, radiusInMeters }).then(({ data: users }) => users);
   }
 
   getUserById(id) {

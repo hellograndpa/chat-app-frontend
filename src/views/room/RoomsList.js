@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import socketIOClient from 'socket.io-client';
 import { withNotification } from '../../Context/NotificationCtx';
 import RoomService from '../../services/roomService';
-import getCoords from '../../helpers/coordinates';
-import { emtyValidation } from '../../helpers/Validation';
+import { getCoords, getDistance, getDistanceFromMe } from '../../helpers/coordinates';
+import { emptyValidation } from '../../helpers/Validation';
 import RoomsUser from '../user/components/RoomsUser';
 import Map from './components/Map';
 
@@ -15,21 +15,37 @@ class RoomsList extends Component {
   state = {
     rooms: [],
     serchRooms: [],
-    radiusInMeters: 50,
+    radiusInMeters: 50000,
     selectTheme: '',
     eventSearch: '',
     loading: true,
   };
 
-  handleRoomArroundMe = (latitude, longitude, radiusInMeters) => {
+  resultRooms = async newRooms => {
+    console.log('TCL: RoomsList -> newRooms', newRooms);
+    emptyValidation(newRooms, this.props.handleSetMessage);
+
+    this.setState({
+      rooms: newRooms,
+      searchRooms: newRooms,
+      loading: false,
+    });
+  };
+
+  handleRoomsArroundMe = (latitude, longitude, radiusInMeters) => {
     RoomService.getAllRooms(latitude, longitude, radiusInMeters)
-      .then(rooms => {
-        emtyValidation(rooms, this.props.handleSetMessage);
-        this.setState({
-          rooms,
-          searchRooms: rooms,
-          loading: false,
+      .then(async rooms => {
+        console.log('TCL: RoomsList -> handleRoomsArroundMe -> rooms', rooms);
+        const newRooms = await rooms.map(async room => {
+          const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
+          room.distanceFromMe = await getDistanceFromMe(location);
+          return room;
         });
+        return Promise.all(newRooms);
+      })
+      .then(newRooms => {
+        console.log('TCL: RoomsList -> handleRoomsArroundMe -> newRooms', newRooms);
+        this.resultRooms(newRooms);
       })
       .catch(error => {
         console.log(error);
@@ -53,7 +69,7 @@ class RoomsList extends Component {
       searchRooms,
       eventSearch: newEventSearch,
     });
-    emtyValidation(searchRooms, this.props.handleSetMessage);
+    emptyValidation(searchRooms, this.props.handleSetMessage);
   };
 
   handleChangeSelectRooms = event => {
@@ -62,25 +78,21 @@ class RoomsList extends Component {
     });
   };
 
-  handleChangeSelectRadiusMeters = async event => {
-    const radiusInMeters = event.target.value;
+  handleChangeSelectRadiusMeters = event => {
     this.setState({
-      radiusInMeters,
+      radiusInMeters: event.target.value,
     });
-    const {
-      coords: { latitude, longitude },
-    } = await getCoords();
-
-    this.handleRoomArroundMe(longitude, latitude, radiusInMeters);
   };
 
   componentDidMount = async () => {
     const {
       coords: { latitude, longitude },
     } = await getCoords();
+
+    console.log('TCL: RoomsList -> componentDidMount -> latitude', latitude);
     const { radiusInMeters } = this.state;
 
-    this.handleRoomArroundMe(longitude, latitude, radiusInMeters);
+    this.handleRoomsArroundMe(latitude, longitude, radiusInMeters / 1000);
 
     socket.on('room-created', room => {
       const searchRooms = [...this.state.searchRooms, room];
@@ -89,7 +101,7 @@ class RoomsList extends Component {
   };
 
   render() {
-    const { searchRooms, selectTheme, loading, eventSearch } = this.state;
+    const { searchRooms, selectTheme, loading, eventSearch, radiusInMeters } = this.state;
 
     let themes = [];
     if (searchRooms && searchRooms.length > 0) {
@@ -108,10 +120,13 @@ class RoomsList extends Component {
       ));
 
     let rooms = [];
-    if (selectTheme !== '') {
-      rooms = searchRooms.filter(element => element.theme === selectTheme);
+    if (selectTheme !== '' && radiusInMeters <= 50001) {
+      rooms = searchRooms
+        .filter(element => element.theme === selectTheme)
+        .filter(element => element.distanceFromMe <= radiusInMeters);
     } else {
       rooms = searchRooms;
+      console.log('TCL: RoomsList -> render -> searchRooms', searchRooms);
     }
 
     return (
@@ -121,7 +136,7 @@ class RoomsList extends Component {
             aa
             <div>
               <h1>Room map</h1>
-              <Map rooms={rooms} />
+              <Map locations={rooms} />
             </div>
             <div>
               <h1>Rooms Filter</h1>
@@ -130,26 +145,28 @@ class RoomsList extends Component {
                 <input name="rooms" value={eventSearch} onChange={this.handleSearchRoom} />
                 <br />
                 Theme: <br />
-                <select value="" onChange={this.handleChangeSelectRooms}>
-                  <option>Select theme</option>
+                <select name="Select theme" value={this.state.selectTheme} onChange={this.handleChangeSelectRooms}>
                   <option value="">All</option>
                   {sortedList}
                 </select>
                 <br />
                 Radius Km: <br />
-                <select onChange={this.handleChangeSelectRadiusMeters}>
-                  <option value="">Select km</option>
-                  <option value="50"> 50 km</option>
-                  <option value="40"> 40 km</option>
-                  <option value="30"> 30 km</option>
-                  <option value="20"> 20 km</option>
-                  <option value="10"> 10 km</option>
-                  <option value="5"> 5 km</option>
-                  <option value="2"> 2 km</option>
+                <select
+                  name="Select kms"
+                  defaultValue={this.state.radiusInMeters}
+                  onChange={this.handleChangeSelectRadiusMeters}
+                >
+                  <option value="50000"> 50 km</option>
+                  <option value="40000"> 40 km</option>
+                  <option value="30000"> 30 km</option>
+                  <option value="20000"> 20 km</option>
+                  <option value="10000"> 10 km</option>
+                  <option value="5000"> 5 km</option>
+                  <option value="200"> 2 km</option>
                 </select>
               </div>
               <Link to="">
-                <buttoen> create new room</buttoen>
+                <button> create new room</button>
               </Link>
             </div>
             <div>

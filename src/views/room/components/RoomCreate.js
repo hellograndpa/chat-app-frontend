@@ -2,7 +2,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { withAuth } from '../../../Context/AuthContext';
-import getCoords from '../../../helpers/coordinates';
+import { getCoords } from '../../../helpers/coordinates';
 import RoomService from '../../../services/roomService';
 
 const RoomCreate = props => {

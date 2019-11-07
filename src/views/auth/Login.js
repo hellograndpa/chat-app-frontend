@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../../Context/AuthContext';
-import getCoords from '../../helpers/coordinates';
+import { getCoords } from '../../helpers/coordinates';
 
 class Login extends Component {
   state = {
