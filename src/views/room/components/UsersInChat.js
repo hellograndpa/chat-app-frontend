@@ -2,13 +2,15 @@
 import React, { Component } from 'react';
 import socketIOClient from 'socket.io-client';
 import { NavLink } from 'react-router-dom';
+
+// Services
 import RoomService from '../../../services/roomService';
 
 const socket = socketIOClient('localhost:3001');
 
 class UsersInChat extends Component {
   state = {
-    activeUsers: [],
+    activeUsers: this.props.activeUsers,
   };
 
   async componentDidMount() {
@@ -21,13 +23,13 @@ class UsersInChat extends Component {
 
     // Insert the user into the room,
     // this will fire socket.on before.
-    await RoomService.insertUserToRoom(roomId);
+    RoomService.insertUserToRoom(roomId);
   }
 
   async componentCleanup() {
     socket.removeAllListeners('user-in-chat');
     const { roomId } = this.props;
-    await RoomService.deleteUserFromRoom(roomId);
+    RoomService.deleteUserFromRoom(roomId);
   }
 
   componentWillUnmount() {
