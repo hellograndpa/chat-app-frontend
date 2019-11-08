@@ -1,17 +1,18 @@
 @import 'fonts.scss';
+@import 'normalize.'
 
-html{
-    height:100%
+html {
+    height: 100%
 }
-body{
-    font-family:$primary-font;
+
+body {
+    font-family: $primary-font;
     background-image: linear-gradient(to bottom, #ffffff 10%, #f7f7fa 30%);
-    
+
 }
 
-.flex-centered{
-    display:flex;
-    justify-content:center;    
-    text-align:center
+.flex-centered {
+    display: flex;
+    justify-content: center;
+    text-align: center
 }
-
