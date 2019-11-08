@@ -11,6 +11,9 @@ import Chat from './components/Chat';
 import UsersInChat from './components/UsersInChat';
 import RoomDetails from './components/RoomDetails';
 
+// SCSS
+import '../../threeScreen.css';
+
 class RoomWp extends Component {
   state = {
     room: {},
@@ -33,14 +36,49 @@ class RoomWp extends Component {
     const { loading } = this.state;
 
     return (
-      <div>
+      <div className="CSSgal">
+        {/* Don't wrap targets in parent */}
+        <s id="s1"></s>
+        <s id="s2"></s>
+        <s id="s3"></s>
         {!loading && (
           <>
-            <UsersInChat roomId={this.state.room._id} activeUsers={this.state.room.activeUsers}></UsersInChat>
-            <Chat {...this.state}></Chat>
-            <RoomDetails {...this.state.room}></RoomDetails>
+            {/* START SLIDER--------- */}
+            <div className="slider">
+              {/* FIRST SALIDER ------------------*/}
+              <div>
+                <UsersInChat roomId={this.state.room._id} activeUsers={this.state.room.activeUsers}></UsersInChat>
+              </div>
+              {/* SECOND SALIDER ------------------*/}
+              <div>
+                <Chat {...this.state}></Chat>
+              </div>
+              {/* THIRD SALIDER ------------------*/}
+              <div>
+                <RoomDetails {...this.state.room}></RoomDetails>
+              </div>
+            </div>
+            {/* END SLIDER--------- */}
+
+            {/* START BUTTONS */}
+            <div className="prevNext">
+              <div>
+                <a href="#s1"></a>
+                <a href="#s2"></a>
+              </div>
+              <div>
+                <a href="#s1"></a>
+                <a href="#s3"></a>
+              </div>
+              <div>
+                <a href="#s2"></a>
+                <a href="#s3"></a>
+              </div>
+            </div>
+            {/* END BUTTONS */}
           </>
         )}
+        {loading && <div className="loader">Loading...</div>}
       </div>
     );
   }

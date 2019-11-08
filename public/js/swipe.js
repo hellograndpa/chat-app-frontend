@@ -1,94 +1,97 @@
-const _C = document.querySelector('.container');
-const N = _C.children.length;
-const NF = 30;
-const TFN = {
-  'bounce-out': function(k, a = 2.75, b = 1.5) {
-    return 1 - Math.pow(1 - k, a) * Math.abs(Math.cos(Math.pow(k, b) * (n + 0.5) * Math.PI));
-  },
-};
+const container = document.querySelector('.slider');
+const container_width = container.clientWidth;
+const imgs_wrapper = document.querySelector('.slider__wrapper');
+const imgs = document.querySelectorAll('.slide');
+const total_imgs = imgs.length;
+let current_index = 0;
+let pointer_is_down = false;
+let [start_x, end_x] = [0, 0];
+let move_distance = 0;
 
-let i = 0;
-let x0 = null;
-let locked = false;
-let w;
-let ini;
-let fin;
-let rID = null;
-let anf;
-let n;
-
-function stopAni() {
-  cancelAnimationFrame(rID);
-  rID = null;
+function init() {
+   imgs_wrapper.style.width = `${container_width * total_imgs}px`;
 }
 
-function ani(cf = 0) {
-  _C.style.setProperty('--i', ini + (fin - ini) * TFN['bounce-out'](cf / anf));
+// Mousemove and Touchmove Event
+function createDraggingEffects() {
+   const max_distance = 2;
+   const scrolled_distance = (current_index * container_width) + (start_x - end_x) / max_distance;
 
-  if (cf === anf) {
-    stopAni();
-    return;
-  }
-
-  rID = requestAnimationFrame(ani.bind(this, ++cf));
+   switchImages(-scrolled_distance);
 }
 
-function unify(e) {
-  return e.changedTouches ? e.changedTouches[0] : e;
+// Mouseup and Touchend Event
+function calculateFinalMoveDistance() {
+   const scrolled_distance = Math.abs(start_x - end_x);
+   const minimum_distance = 30;
+
+   if (scrolled_distance < minimum_distance) {
+      move_distance = -(current_index * container_width);
+      switchImages();
+      return false;
+   }
+
+   if (start_x > end_x & current_index < total_imgs - 1) { // scroll next
+      current_index++;
+   } else if (start_x < end_x && current_index > 0) { // scroll prev
+      current_index--;
+   }
+
+   move_distance = -(current_index * container_width);
+   switchImages(move_distance);
 }
 
-function lock(e) {
-  x0 = unify(e).clientX;
-  locked = true;
+// Switch Images
+function switchImages(scrolled_number) {
+   const distance = scrolled_number || move_distance;
+
+   imgs_wrapper.style.transform = `translateX(${distance}px)`;
 }
 
-function drag(e) {
-  e.preventDefault();
+// Mouseleave event
+function handleMouseLeave(e) {
+   if (!pointer_is_down) return false;
 
-  if (locked) {
-    const dx = unify(e).clientX - x0;
-    const f = +(dx / w).toFixed(2);
-
-    _C.style.setProperty('--i', i - f);
-  }
+   pointer_is_down = false;
+   [start_x, end_x] = [0, 0];
+   switchImages();
 }
 
-function move(e) {
-  if (locked) {
-    const dx = unify(e).clientX - x0;
-    const s = Math.sign(dx);
-    let f = +((s * dx) / w).toFixed(2);
+init();
 
-    ini = i - s * f;
+container.addEventListener('mousedown', (e) => {
+   e.preventDefault();
+   pointer_is_down = true;
+   start_x = e.pageX;
+});
 
-    if ((i > 0 || s < 0) && (i < N - 1 || s > 0) && f > 0.2) {
-      i -= s;
-      f = f;
-    }
+container.addEventListener('mousemove', (e) => {
+   e.preventDefault();
+   if (!pointer_is_down) return false;
+   end_x = e.pageX;
+   createDraggingEffects();
+});
 
-    fin = i;
-    anf = Math.round(f * NF);
-    n = 0 + Math.round(f);
-    ani();
-    x0 = null;
-    locked = false;
-  }
-}
+container.addEventListener('mouseup', (e) => {
+   e.preventDefault();
+   pointer_is_down = false;
+   calculateFinalMoveDistance();
+});
 
-function size() {
-  w = window.innerWidth;
-}
+container.addEventListener('mouseleave', handleMouseLeave);
 
-size();
-_C.style.setProperty('--n', N);
+container.addEventListener('touchstart', (e) => {
+   pointer_is_down = true;
+   start_x = e.touches[0].pageX;
+});
 
-window.addEventListener('resize', size, false);
+container.addEventListener('touchmove', (e) => {
+   if (!pointer_is_down) return false;
+   end_x = e.touches[0].pageX;
+   createDraggingEffects();
+});
 
-_C.addEventListener('mousedown', lock, false);
-_C.addEventListener('touchstart', lock, false);
-
-_C.addEventListener('mousemove', drag, false);
-_C.addEventListener('touchmove', drag, false);
-
-_C.addEventListener('mouseup', move, false);
-_C.addEventListener('touchend', move, false);
+container.addEventListener('touchend', (e) => {
+   pointer_is_down = false;
+   calculateFinalMoveDistance();
+});

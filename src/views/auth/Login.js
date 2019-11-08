@@ -9,8 +9,8 @@ class Login extends Component {
     password: '',
   };
 
-  handleChange = event => {
-    const { name, value } = event.target;
+  handleChange = e => {
+    const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
@@ -38,7 +38,7 @@ class Login extends Component {
           <input type="text" name="email" value={email} onChange={this.handleChange} />
           <label>Password:</label>
           <input type="password" name="password" value={password} onChange={this.handleChange} />
-          <input type="submit" value="Login" />
+          <input type="submit" value="Signup" />
         </form>
         <p>
           I dont have an accoun?
