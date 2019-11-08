@@ -1,12 +1,20 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 
+// Context
 import { withAuth } from '../../Context/AuthContext';
-import User from './components/User';
+
+// Services
 import ChatUserService from '../../services/chatUserService';
-import ChatsUser from './components/ChatsUser';
 import RoomService from '../../services/roomService';
+
+// Components
+import User from './components/User';
+import ChatsUser from './components/ChatsUser';
 import RoomsUser from './components/RoomsUser';
+
+// CSS
+import '../../threeScreen.css';
 
 class MeUser extends Component {
   state = {
@@ -122,38 +130,70 @@ class MeUser extends Component {
     }
 
     return (
-      <div>
+      <div className="CSSgal">
+        {/* Don't wrap targets in parent */}
+        <s id="s1"></s>
+        <s id="s2"></s>
+        <s id="s3"></s>
+
         {!loading && (
-          <div>
-            <div>
-              <h1> List User Rooms</h1>
-              Search <input defaultValue="" onChange={this.handleSearchRoom} />
-              <br />
-              Filters
-              <select value="" onChange={this.handleChangeSelectRooms}>
-                <option>Select theme</option>
-                <option value="">All</option>
-                {sortedList}
-              </select>
-              <RoomsUser rooms={rooms} />
+          <>
+            {/* START SLIDER--------- */}
+            <div className="slider">
+              {/* FIRST SALIDER ------------------*/}
+              <div>
+                <h1> List User Rooms</h1>
+                Search <input defaultValue="" onChange={this.handleSearchRoom} />
+                <br />
+                Filters
+                <select value="" onChange={this.handleChangeSelectRooms}>
+                  <option>Select theme</option>
+                  <option value="">All</option>
+                  {sortedList}
+                </select>
+                <RoomsUser rooms={rooms} />
+              </div>
+              {/* EMD FIRST SALIDER-------------- */}
+              {/* SECOND SALIDER ------------------*/}
+              <div>
+                <h2>ITS ME</h2>
+                <User showuser={user} />
+              </div>
+              {/* END SECOND SALIDER ------------------*/}
+              {/* THIRD SALIDER ------------------*/}
+              <div>
+                <h1> List User Chats</h1>
+                Search <input defaultValue="" onChange={this.handleSearchChats} />
+                <ChatsUser
+                  searchChats={searchChats}
+                  selectStatus={selectStatus}
+                  onSelect={this.handleChangeSelectChats}
+                  onAccept={this.handleAcceptChat}
+                />
+              </div>
+              {/* END THIRD SALIDER ------------------*/}
             </div>
-            <h2>ITS ME</h2>
-            <div>
-              <User showuser={user} />
+            {/* END SLIDER--------- */}
+
+            {/* START BUTTONS */}
+            <div className="prevNext">
+              <div>
+                <a href="#s1"></a>
+                <a href="#s2"></a>
+              </div>
+              <div>
+                <a href="#s1"></a>
+                <a href="#s3"></a>
+              </div>
+              <div>
+                <a href="#s2"></a>
+                <a href="#s3"></a>
+              </div>
             </div>
-            <div>
-              <h1> List User Chats</h1>
-              Search <input defaultValue="" onChange={this.handleSearchChats} />
-              <ChatsUser
-                searchChats={searchChats}
-                selectStatus={selectStatus}
-                onSelect={this.handleChangeSelectChats}
-                onAccept={this.handleAcceptChat}
-              />
-            </div>
-          </div>
+            {/* END BUTTONS */}
+          </>
         )}
-        {loading && <div>loading...</div>}
+        {loading && <div className="loader">Loading...</div>}
       </div>
     );
   }
