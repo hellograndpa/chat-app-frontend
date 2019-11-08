@@ -14,6 +14,7 @@ const RoomsUser = props => {
               <Link to={`../rooms/${room._id}`}>{room.roomName}</Link>
             </div>
             <div>{room.theme}</div>
+            <div>Disgtande from me: {room.distanceFromMe}</div>
           </div>
         );
       })}

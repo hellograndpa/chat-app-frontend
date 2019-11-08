@@ -17,7 +17,7 @@ class FileUpload extends React.Component {
   render() {
     return (
       <ImageUploader
-        withIcon={true}
+        withIcon={false}
         buttonText="Choose a new image"
         onChange={this.onDrop}
         imgExtension={['.jpg', '.gif', '.png', '.gif']}

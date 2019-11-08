@@ -4,6 +4,8 @@ import userService from '../../../services/userService';
 import { getCoords } from '../../../helpers/coordinates';
 import ChatUserService from '../../../services/chatUserService';
 import { withAuth } from '../../../Context/AuthContext';
+// Components
+import FileUpload from '../../../components/FileUpload';
 
 class UserMe extends Component {
   state = {
@@ -14,6 +16,8 @@ class UserMe extends Component {
     age: null,
     edit: false,
     valueButton: 'Edit user',
+    upload: false,
+    valueUploadBtn: 'Edit image',
   };
 
   handleInvite = () => {
@@ -32,6 +36,20 @@ class UserMe extends Component {
       this.setState({
         edit: false,
         valueButton: 'Edit user',
+      });
+    }
+  };
+
+  handleUpload = e => {
+    if (e.target.value === 'Upload image') {
+      this.setState({
+        upload: true,
+        valueUploadBtn: 'Cancel Upload',
+      });
+    } else {
+      this.setState({
+        upload: false,
+        valueUploadBtn: 'Upload image',
       });
     }
   };
@@ -74,7 +92,7 @@ class UserMe extends Component {
 
   render() {
     const { user, showuser } = this.props;
-    const { edit, userName, lastName, email, age, city, valueButton } = this.state;
+    const { edit, userName, lastName, email, age, city, valueButton, upload, valueUploadBtn } = this.state;
 
     return (
       <div>
@@ -97,7 +115,7 @@ class UserMe extends Component {
 
         {!edit && (
           <>
-            <button value={valueButton} onClick={this.handleEdit}>
+            <button value={valueButton} onClick={this.handleUpload}>
               {valueButton}
             </button>
             <div>Name {userName}</div>
@@ -107,7 +125,23 @@ class UserMe extends Component {
             <div>Age {age}</div>
 
             <div>
-              Avatar <img src="" alt=""></img> {showuser.userName}
+              {!upload && (
+                <>
+                  Avatar <img src="" alt=""></img>
+                  <button value={valueUploadBtn} onClick={this.handleUpload}>
+                    {valueUploadBtn}
+                  </button>
+                </>
+              )}
+              {upload && (
+                <>
+                  <button value={valueUploadBtn} onClick={this.handleUpload}>
+                    {valueUploadBtn}
+                  </button>
+                  Avatar <img src="" alt=""></img>
+                  <FileUpload></FileUpload>
+                </>
+              )}
             </div>
           </>
         )}
