@@ -16,8 +16,10 @@ class UserService {
     return this.axios.get(`/api/v01/user/${id}`).then(({ data: user }) => user);
   }
 
-  updateUser(user) {
-    return this.axios.put(`/api/v01/user/${user._id}`, user).then(({ data: user }) => user);
+  updateUser(_id, userName, lastName, email, age, city, latitude, longitude) {
+    return this.axios
+      .put(`/api/v01/user/${_id}`, { userName, lastName, email, age, city, latitude, longitude })
+      .then(({ data: user }) => user);
   }
 }
 
