@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { withAuth } from '../Context/AuthContext';
+import NavBar from '../views/nav/NavBar';
 
 function PrivateRoute({ component: Comp, isLoggedin, user, ...rest }) {
   return (
@@ -8,7 +9,10 @@ function PrivateRoute({ component: Comp, isLoggedin, user, ...rest }) {
       {...rest}
       render={props =>
         isLoggedin ? (
-          <Comp {...props} />
+          <>
+            <Comp {...props} />
+            <NavBar />
+          </>
         ) : (
           <Redirect
             to={{

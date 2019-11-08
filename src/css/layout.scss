@@ -1,17 +1,17 @@
 @import 'fonts.scss';
 
-html{
-    height:100%
+html {
+  height: 100%;
 }
-body{
-    font-family:$primary-font;
-    background-image: linear-gradient(to bottom, #ffffff 10%, #f7f7fa 30%);
-    
-}
-
-.flex-centered{
-    display:flex;
-    justify-content:center;    
-    text-align:center
+body {
+  font-family: $primary-font;
+  background-image: linear-gradient(to bottom, #ffffff 10%, #f7f7fa 30%);
 }
 
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+}

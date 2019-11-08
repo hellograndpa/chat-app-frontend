@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { withAuth } from '../../Context/AuthContext';
 import { getCoords } from '../../helpers/coordinates';
 import '../../css/forms.scss';
@@ -35,12 +34,31 @@ class Login extends Component {
     const { email, password } = this.state;
     return (
       <div className="flex-centered">
-        <form onSubmit={this.handleFormSubmit}>        
-          <div><input type="text" name="email" className="input input-label" placeHolder="Email" value={email} onChange={this.handleChange}/></div>
-          <div><input type="password"  className="input input-label" name="password" placeHolder="Password" value={password} onChange={this.handleChange} /></div>
-          <div><input className="action-btn-big" type="submit" value="Login" /></div>
-          
-        </form>      
+        <form onSubmit={this.handleFormSubmit}>
+          <div>
+            <input
+              type="text"
+              name="email"
+              className="input input-label"
+              placeHolder="Email"
+              value={email}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              className="input input-label"
+              name="password"
+              placeHolder="Password"
+              value={password}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input className="action-btn-big" type="submit" value="Login" />
+          </div>
+        </form>
       </div>
     );
   }

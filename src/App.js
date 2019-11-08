@@ -11,7 +11,7 @@ import OtherUser from './views/user/otherUser';
 import CreateRoomWp from './views/room/CreateRoomWp';
 import RoomWp from './views/room/RoomWp';
 import RoomsList from './views/room/RoomsList';
-import NavBar from './views/nav/NavBar';
+
 import PrivateChatWp from './views/user/PrivateChatWp';
 import UsersList from './views/user/UsersList';
 
@@ -36,7 +36,7 @@ class App extends Component {
         <Router>
           <Switch>
             <AnonRoute exact path="/chat" component={Chat} />
-            <AnonRoute exact path="/home" component={Home} />
+            <AnonRoute exact path="/" component={Home} />
             <AnonRoute exact path="/login" component={Login} />
             <AnonRoute exact path="/signup" component={Signup} />
             <PrivateRoute exact path="/me-user" component={MeUser} />
@@ -47,7 +47,6 @@ class App extends Component {
             <PrivateRoute exact path="/users/:id" component={OtherUser} />
             <PrivateRoute exact path="/users/private-chat/:id" component={PrivateChatWp} />
           </Switch>
-          <NavBar />
         </Router>
       </>
     );
