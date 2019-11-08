@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { promised } from 'q';
 import { withAuth } from '../../../Context/AuthContext';
 import ChatUserService from '../../../services/chatUserService';
+import { getDistanceFromMe } from '../../../helpers/coordinates';
 
 const ChatsUser = props => {
   const { searchChats, selectStatus, onSelect, user, onAccept } = props;
@@ -26,10 +28,25 @@ const ChatsUser = props => {
   } else {
     chats = searchChats;
   }
+  console.log(chats);
 
   const handleAccept = async chatId => {
     await ChatUserService.updateChatUserStatus(chatId, 'active');
     onAccept();
+  };
+
+  // ToDo: hacer todo lo pone aquí....
+  const distance = async () => {
+    const newdistance = chats.map(async chat => {
+      const uno = await getDistanceFromMe({
+        latitude: chat.userChat02.location.coordinates[0],
+        logitude: chat.userChat02.location.coordinates[1],
+      });
+      return uno;
+    });
+    const pp = await Promise.all(newdistance);
+    console.log('TCL: distance -> pp', pp);
+    return pp;
   };
 
   return (
@@ -47,8 +64,27 @@ const ChatsUser = props => {
             <div>
               {chat.status === 'pending' ? (
                 <>
-                  {chat.userChat01._id === user._id ? chat.userChat02.userName : chat.userChat01.userName}
-
+                  {chat.userChat01._id === user._id ? (
+                    <>
+                      {chat.userChat02.userName}
+                      {/* {
+                        await getDistanceFromMe({
+                          latitude: chat.userChat02.location.coordinates[0],
+                          logitude: chat.userChat02.location.coordinates[1],
+                        })
+                      } */}
+                    </>
+                  ) : (
+                    <>
+                      {chat.userChat01.userName}
+                      {/* {
+                        await getDistanceFromMe({
+                          latitude: chat.userChat01.location.coordinates[0],
+                          logitude: chat.userChat01.location.coordinates[1],
+                        })
+                      } */}
+                    </>
+                  )}
                   {chat.userChat02._id === user._id ? (
                     <button onClick={() => handleAccept(chat._id)}>Aceptar</button>
                   ) : (
