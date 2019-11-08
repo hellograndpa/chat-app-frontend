@@ -50,7 +50,7 @@ class Chat extends Component {
     const {
       chat: { _id: chatId },
     } = this.state.room;
-    socket.removeAllListeners(`chat${chatId}`);
+    socket.removeAllListeners(chatId);
   }
 
   componentWillUnmount() {

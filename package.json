@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "mapbox-gl": "^1.5.0",
+    "node-sass": "^4.13.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-images-upload": "^1.2.7",
@@ -16,10 +17,13 @@
     "viewport-mercator-project": "^6.2.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "node-sass --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "npm run build-css && node-sass --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "start-js": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,6 +46,7 @@
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.16.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2"
   }
 }

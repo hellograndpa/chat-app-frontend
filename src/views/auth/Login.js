@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../../Context/AuthContext';
 import { getCoords } from '../../helpers/coordinates';
+import '../../css/forms.scss';
+import '../../css/layout.scss';
 
 class Login extends Component {
   state = {
@@ -32,18 +34,13 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Email:</label>
-          <input type="text" name="email" value={email} onChange={this.handleChange} />
-          <label>Password:</label>
-          <input type="password" name="password" value={password} onChange={this.handleChange} />
-          <input type="submit" value="Login" />
-        </form>
-        <p>
-          I dont have an accoun?
-          <Link to={'/signup'}> Singup</Link>
-        </p>
+      <div className="flex-centered">
+        <form onSubmit={this.handleFormSubmit}>        
+          <div><input type="text" name="email" className="input input-label" placeHolder="Email" value={email} onChange={this.handleChange}/></div>
+          <div><input type="password"  className="input input-label" name="password" placeHolder="Password" value={password} onChange={this.handleChange} /></div>
+          <div><input className="action-btn-big" type="submit" value="Login" /></div>
+          
+        </form>      
       </div>
     );
   }

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <div>
+    <div draggable="false">
       <span>
         <NavLink to="/home">Home</NavLink>
       </span>

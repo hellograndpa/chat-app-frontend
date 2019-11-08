@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
+import socketIOClient from 'socket.io-client';
 
-import { all } from 'q';
+// Context
 import { withNotification } from '../../Context/NotificationCtx';
+
+// Services
 import UserService from '../../services/userService';
-import { getCoords, getDistance, getDistanceFromMe } from '../../helpers/coordinates';
-import { emptyValidation } from '../../helpers/Validation';
+
+// Components
 import Users from './components/Users';
 import Map from '../room/components/Map';
+
+// Helpers
+import { getCoords, getDistance, getDistanceFromMe } from '../../helpers/coordinates';
+import { emptyValidation } from '../../helpers/Validation';
+
+const socket = socketIOClient('localhost:3001');
 
 class UsersList extends Component {
   state = {
@@ -86,6 +95,10 @@ class UsersList extends Component {
     const { radiusInMeters } = this.state;
 
     this.handleUsersArroundMe(latitude, longitude, radiusInMeters / 1000);
+
+    socket.on('user-connected', user => {
+      // TODO: control user conected
+    });
   };
 
   render() {

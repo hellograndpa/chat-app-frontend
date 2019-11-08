@@ -1,6 +1,9 @@
 /* eslint-disable max-classes-per-file */
 import React, { Component, createContext } from 'react';
+import socketIOClient from 'socket.io-client';
 import authService from '../services/authService';
+
+const socket = socketIOClient('localhost:3001');
 
 const AuthContext = createContext();
 
@@ -46,6 +49,7 @@ export default class AuthProvider extends Component {
           user,
           isLoading: false,
         });
+        socket.emit('login', user._id);
       })
       .catch(() => {
         this.setState({
@@ -63,6 +67,7 @@ export default class AuthProvider extends Component {
           user: loggedUser,
           isLoading: false,
         });
+        socket.emit('login', loggedUser._id);
       })
       .catch(() => {
         this.setState({
@@ -102,6 +107,7 @@ export default class AuthProvider extends Component {
           user: undefined,
           isLoading: false,
         });
+        socket.emit('logout', this.state.user._id);
       })
       .catch(() => {
         this.setState({
