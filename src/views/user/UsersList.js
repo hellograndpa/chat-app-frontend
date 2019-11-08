@@ -17,6 +17,9 @@ import { emptyValidation } from '../../helpers/Validation';
 
 const socket = socketIOClient('localhost:3001');
 
+// CSS
+// import '../../threeScreen.css';
+
 class UsersList extends Component {
   state = {
     users: [],
@@ -130,50 +133,81 @@ class UsersList extends Component {
     }
 
     return (
-      <div>
+      <div className="CSSgal">
+        {/* Don't wrap targets in parent */}
+        <s id="s1"></s>
+        <s id="s2"></s>
+        <s id="s3"></s>
+
         {!loading && (
-          <div>
-            aa
-            <div>
-              <h1>Users map</h1>
-              <Map locations={users} />
-            </div>
-            <div>
-              <h1>Users Filter</h1>
+          <>
+            {/* START SLIDER--------- */}
+            <div className="slider">
+              {/* FIRST SALIDER ------------------*/}
               <div>
-                Search: <br />
-                <input name="users" value={eventSearch} onChange={this.handleSearchUser} />
-                <br />
-                Theme: <br />
-                <select defaultValue={this.state.selectTheme} onChange={this.handleChangeSelectUser}>
-                  <option value="">All</option>
-                  {sortedList}
-                </select>
-                <br />
-                Radius Km: <br />
-                <select
-                  name="Select kms"
-                  defaultValue={this.state.radiusInMeters}
-                  onChange={this.handleChangeSelectRadiusMeters}
-                >
-                  <option value="50000"> 50 km</option>
-                  <option value="40000"> 40 km</option>
-                  <option value="30000"> 30 km</option>
-                  <option value="20000"> 20 km</option>
-                  <option value="10000"> 10 km</option>
-                  <option value="5000"> 5 km</option>
-                  <option value="2"> 2 km</option>
-                </select>
+                <h1>Users map</h1>
+                <Map locations={users} />
+              </div>
+              {/* EMD FIRST SALIDER-------------- */}
+              {/* SECOND SALIDER ------------------*/}
+              <div>
+                <h1>Users Filter</h1>
+                <div>
+                  Search: <br />
+                  <input name="users" value={eventSearch} onChange={this.handleSearchUser} />
+                  <br />
+                  Theme: <br />
+                  <select defaultValue={this.state.selectTheme} onChange={this.handleChangeSelectUser}>
+                    <option value="">All</option>
+                    {sortedList}
+                  </select>
+                  <br />
+                  Radius Km: <br />
+                  <select
+                    name="Select kms"
+                    defaultValue={this.state.radiusInMeters}
+                    onChange={this.handleChangeSelectRadiusMeters}
+                  >
+                    <option value="50000"> 50 km</option>
+                    <option value="40000"> 40 km</option>
+                    <option value="30000"> 30 km</option>
+                    <option value="20000"> 20 km</option>
+                    <option value="10000"> 10 km</option>
+                    <option value="5000"> 5 km</option>
+                    <option value="2"> 2 km</option>
+                  </select>
+                </div>
+              </div>
+              {/* END SECOND SALIDER ------------------*/}
+              {/* THIRD SALIDER ------------------*/}
+              <div>
+                <h1>Users List</h1>
+                Search <input name="userslist" value={eventSearch} onChange={this.handleSearchUser} />
+                <Users users={users} />
+              </div>
+              {/* END THIRD SALIDER ------------------*/}
+            </div>
+            {/* END SLIDER--------- */}
+
+            {/* START BUTTONS */}
+            <div className="prevNext">
+              <div>
+                <a href="#s1"></a>
+                <a href="#s2"></a>
+              </div>
+              <div>
+                <a href="#s1"></a>
+                <a href="#s3"></a>
+              </div>
+              <div>
+                <a href="#s2"></a>
+                <a href="#s3"></a>
               </div>
             </div>
-            <div>
-              <h1>Users List</h1>
-              Search <input name="userslist" value={eventSearch} onChange={this.handleSearchUser} />
-              <Users users={users} />
-            </div>
-          </div>
+            {/* END BUTTONS */}
+          </>
         )}
-        {loading && <div>loading...</div>}
+        {loading && <div className="loader">Loading...</div>}
       </div>
     );
   }

@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+// Services
 import socketIOClient from 'socket.io-client';
-import { withNotification } from '../../Context/NotificationCtx';
 import RoomService from '../../services/roomService';
-import { getCoords, getDistance, getDistanceFromMe } from '../../helpers/coordinates';
+// Context
+import { withNotification } from '../../Context/NotificationCtx';
+
+// Helpers
+import { getCoords, getDistanceFromMe } from '../../helpers/coordinates';
 import { emptyValidation } from '../../helpers/Validation';
+
+// Components
 import RoomsUser from '../user/components/RoomsUser';
 import Map from './components/Map';
+
+// CSS
+import '../../threeScreen.css';
 
 const socket = socketIOClient('localhost:3001');
 
@@ -130,53 +139,74 @@ class RoomsList extends Component {
     }
 
     return (
-      <div>
+      <div className="CSSgal">
+        {/* Don't wrap targets in parent */}
+        <s id="s1"></s>
+        <s id="s2"></s>
+        <s id="s3"></s>
+
         {!loading && (
-          <div>
-            aa
-            <div>
-              <h1>Room map</h1>
-              <Map locations={rooms} />
-            </div>
-            <div>
-              <h1>Rooms Filter</h1>
+          <>
+            <div className="slider">
               <div>
-                Search: <br />
-                <input name="rooms" value={eventSearch} onChange={this.handleSearchRoom} />
-                <br />
-                Theme: <br />
-                <select name="Select theme" value={this.state.selectTheme} onChange={this.handleChangeSelectRooms}>
-                  <option value="">All</option>
-                  {sortedList}
-                </select>
-                <br />
-                Radius Km: <br />
-                <select
-                  name="Select kms"
-                  defaultValue={this.state.radiusInMeters}
-                  onChange={this.handleChangeSelectRadiusMeters}
-                >
-                  <option value="50000"> 50 km</option>
-                  <option value="40000"> 40 km</option>
-                  <option value="30000"> 30 km</option>
-                  <option value="20000"> 20 km</option>
-                  <option value="10000"> 10 km</option>
-                  <option value="5000"> 5 km</option>
-                  <option value="200"> 2 km</option>
-                </select>
+                <h1>Room map</h1>
+                <Map locations={rooms} />
               </div>
-              <Link to="">
-                <button> create new room</button>
-              </Link>
+              <div>
+                <h1>Rooms Filter</h1>
+                <div>
+                  Search: <br />
+                  <input name="rooms" value={eventSearch} onChange={this.handleSearchRoom} />
+                  <br />
+                  Theme: <br />
+                  <select name="Select theme" value={this.state.selectTheme} onChange={this.handleChangeSelectRooms}>
+                    <option value="">All</option>
+                    {sortedList}
+                  </select>
+                  <br />
+                  Radius Km: <br />
+                  <select
+                    name="Select kms"
+                    defaultValue={this.state.radiusInMeters}
+                    onChange={this.handleChangeSelectRadiusMeters}
+                  >
+                    <option value="50000"> 50 km</option>
+                    <option value="40000"> 40 km</option>
+                    <option value="30000"> 30 km</option>
+                    <option value="20000"> 20 km</option>
+                    <option value="10000"> 10 km</option>
+                    <option value="5000"> 5 km</option>
+                    <option value="200"> 2 km</option>
+                  </select>
+                </div>
+                <Link to="">
+                  <button> create new room</button>
+                </Link>
+              </div>
+              <div>
+                TRES <h1>Rooms List</h1>
+                Search <input name="roomslist" value={eventSearch} onChange={this.handleSearchRoom} />
+                <RoomsUser rooms={rooms} />
+              </div>
             </div>
-            <div>
-              <h1>Rooms List</h1>
-              Search <input name="roomslist" value={eventSearch} onChange={this.handleSearchRoom} />
-              <RoomsUser rooms={rooms} />
+
+            <div className="prevNext">
+              <div>
+                <a href="#s1"></a>
+                <a href="#s2"></a>
+              </div>
+              <div>
+                <a href="#s1"></a>
+                <a href="#s3"></a>
+              </div>
+              <div>
+                <a href="#s2"></a>
+                <a href="#s3"></a>
+              </div>
             </div>
-          </div>
+          </>
         )}
-        {loading && <div>loading...</div>}
+        {loading && <div className="loader">Loading...</div>}
       </div>
     );
   }
