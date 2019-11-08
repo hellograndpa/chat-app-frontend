@@ -15,10 +15,10 @@ import Map from '../room/components/Map';
 import { getCoords, getDistance, getDistanceFromMe } from '../../helpers/coordinates';
 import { emptyValidation } from '../../helpers/Validation';
 
-const socket = socketIOClient('localhost:3001');
-
 // CSS
-// import '../../threeScreen.css';
+import '../../threeScreen.css';
+
+const socket = socketIOClient('localhost:3001');
 
 class UsersList extends Component {
   state = {
