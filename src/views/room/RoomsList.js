@@ -191,14 +191,30 @@ class RoomsList extends Component {
             <div className="prevNext">
               <div>
                 <a href="#s1"></a>
-                <a href="#s2"></a>
+                <a href="#s2">
+                  <div className="arrowed">
+                    <div className="arrow-R"></div>
+                  </div>
+                </a>
               </div>
               <div>
-                <a href="#s1"></a>
-                <a href="#s3"></a>
+                <a href="#s1">
+                  <div className="arrowed">
+                    <div className="arrow-L"></div>
+                  </div>
+                </a>
+                <a href="#s3">
+                  <div className="arrowed">
+                    <div className="arrow-R"></div>
+                  </div>
+                </a>
               </div>
               <div>
-                <a href="#s2"></a>
+                <a href="#s2">
+                  <div className="arrowed">
+                    <div className="arrow-L"></div>
+                  </div>
+                </a>
                 <a href="#s3"></a>
               </div>
             </div>

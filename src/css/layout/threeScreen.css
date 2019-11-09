@@ -110,7 +110,7 @@ http://stackoverflow.com/a/34696029/383904
   text-align: center; }
 
 .CSSgal a {
-  border-radius: 50%;
+  border-radius: 100%;
   margin: 0 3px;
   color: rgba(0, 0, 0, 0.8);
   text-decoration: none; }
