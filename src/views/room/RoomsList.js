@@ -15,8 +15,6 @@ import { emptyValidation } from '../../helpers/Validation';
 import RoomsUser from '../user/components/RoomsUser';
 import Map from './components/Map';
 
-// CSS
-
 const socket = socketIOClient('localhost:3001');
 
 class RoomsList extends Component {

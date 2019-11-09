@@ -7,6 +7,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './css/main.scss';
 
+import './css/main.scss';
+
 ReactDOM.render(
   <AuthProvider>
     <NotificationProvider>

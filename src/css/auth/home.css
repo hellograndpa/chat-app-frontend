@@ -1,0 +1,7 @@
+.home-image {
+  background-image: url(/images/home.jpg);
+  height: 100%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center; }

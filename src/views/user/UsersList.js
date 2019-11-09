@@ -15,8 +15,6 @@ import Map from '../room/components/Map';
 import { getCoords, getDistance, getDistanceFromMe } from '../../helpers/coordinates';
 import { emptyValidation } from '../../helpers/Validation';
 
-// CSS
-
 const socket = socketIOClient('localhost:3001');
 
 class UsersList extends Component {

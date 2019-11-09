@@ -17,16 +17,12 @@ class Home extends Component {
 
         <div className="slider">
           <div>
-            ada
-            <p>aaaa</p>
-            <p>aaaa</p>
-            <p>aaaa</p>
-            <p>aaaa</p>
-            <p>aaaa</p>
             <Login />
           </div>
           <div>
-            <h2>Esta es la home que tenemos que hacer y ver que ponemos </h2>
+            <div className="home-image">
+              <h2>Ready to talk?</h2>
+            </div>
           </div>
           <div>
             <Signup />

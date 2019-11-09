@@ -1,3 +1,5 @@
+@import '../utilities/colors.scss';
+
 .menu-principal {
   width: 33%;
   height: 75px;
@@ -13,5 +15,5 @@
 }
 
 .menu-principal .element03 {
-  background-color: $cornflower-two;
+  background-color: $cornflower;
 }

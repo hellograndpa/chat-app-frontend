@@ -13,8 +13,6 @@ import User from './components/User';
 import ChatsUser from './components/ChatsUser';
 import RoomsUser from './components/RoomsUser';
 
-// CSS
-
 class MeUser extends Component {
   state = {
     chats: [],
