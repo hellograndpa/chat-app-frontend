@@ -390,7 +390,7 @@ th {
   width: 73px;
   height: 32px;
   border-radius: 12px;
-  background-color: #5773ff;
+  background-color: #5773FF;
   font-size: 24px; }
 
 .input {
@@ -577,15 +577,55 @@ http://stackoverflow.com/a/34696029/383904
     transform: rotate(360deg); } }
 
 .menu-principal {
-  width: 33%;
   height: 75px;
-  background-color: #3497fd; }
+  background-color: #3497fd;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  color: #fff; }
 
 .menu-principal .element01 {
-  background-color: #3497fd; }
+  background-color: #3497fd;
+  width: 33%; }
 
 .menu-principal .element02 {
-  background-color: #5773ff; }
+  background-color: #5773FF;
+  width: 34%; }
 
 .menu-principal .element03 {
-  background-color: #5773ff; }
+  background-color: #665EFF;
+  width: 33%;
+  padding-top: 6px; }
+
+.menu-principal .icon {
+  padding-top: 15px; }
+
+.menu-principal .nav {
+  color: #fff;
+  text-decoration: none; }
+
+.ripple {
+  background-position: center;
+  transition: background 0.4s; }
+
+.ripple:hover {
+  background: #353a50 radial-gradient(circle, transparent 1%, #3acce1 1%) center/15000%; }
+
+.ripple:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s; }
+
+/* Button style */
+.element01,
+.element02,
+.element03 {
+  border: none;
+  cursor: pointer;
+  color: white;
+  outline: none; }
