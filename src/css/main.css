@@ -386,12 +386,24 @@ th {
   background-color: #353a50;
   font-size: 24px; }
 
+.action-btn-medium {
+  width: 150px;
+  border-radius: 12px;
+  background-color: #3acce1;
+  font-size: 24px;
+  border: 0px;
+  margin: 10px 0 10px 0;
+  padding: 10px;
+  color: #fff; }
+
 .action-btn-small {
   width: 73px;
   height: 32px;
   border-radius: 12px;
-  background-color: #5773FF;
-  font-size: 24px; }
+  background-color: #5773ff;
+  font-size: 24px;
+  border: 0px;
+  margin: 10px 0 10px 0; }
 
 .input {
   width: 327px;
@@ -407,7 +419,9 @@ th {
   border-radius: 12px;
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.08);
   background-color: #ffffff;
-  margin: 10px 0 10px 0; }
+  margin: 10px 0 10px 0;
+  padding-left: 5px;
+  font-size: 18px; }
 
 .select-filter {
   border-radius: 10px;
@@ -423,12 +437,19 @@ th {
   color: #454f63;
   padding-left: 15px; }
 
+.border-active {
+  border: 4px solid #07b17d; }
+
 html {
   height: 100%; }
 
 body {
   font-family: "Montserrat", sans-serif;
   background-image: linear-gradient(to bottom, #ffffff 10%, #f7f7fa 30%); }
+
+img {
+  max-width: 100%;
+  max-height: 100%; }
 
 .flex-centered {
   display: flex;
@@ -438,6 +459,13 @@ body {
 .flex-between {
   display: flex;
   justify-content: space-between; }
+
+.flex-centered-text-left {
+  display: flex;
+  justify-content: center; }
+
+.margin-bottom {
+  height: 60px; }
 
 * {
   box-sizing: border-box;
@@ -682,11 +710,11 @@ http://stackoverflow.com/a/34696029/383904
   width: 33%; }
 
 .menu-principal .element02 {
-  background-color: #5773FF;
+  background-color: #5773ff;
   width: 34%; }
 
 .menu-principal .element03 {
-  background-color: #665EFF;
+  background-color: #665eff;
   width: 33%;
   padding-top: 6px; }
 
@@ -736,6 +764,51 @@ http://stackoverflow.com/a/34696029/383904
 .room-user-content .card .title {
   color: #78849e;
   font-size: 18px; }
+
+.user .right-content {
+  padding-left: 20px; }
+
+.user .header {
+  background-color: #454f63; }
+
+.user .header .header-wrapper {
+  padding: 50px 20px 50px 20px;
+  display: flex;
+  align-items: center; }
+
+.user .edit {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  justify-content: flex-end; }
+
+.user .edit .edit-mode-text {
+  padding-right: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px; }
+
+.user .header .avatar-content {
+  background-color: #ffffff;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  padding: 10px;
+  margin-left: 20px; }
+
+.user .header .edit-avatar-btn-wrapper {
+  margin-top: 20px;
+  margin-left: 8px; }
+
+.user .header .edit-avatar-btn {
+  border-radius: 10px;
+  background: #3acce1;
+  border-color: #3acce1; }
+
+.user .header .details-content {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: #f0e9d3;
+  padding-left: 20px; }
 
 .edit .switch {
   position: relative;

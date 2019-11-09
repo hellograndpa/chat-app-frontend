@@ -16,7 +16,7 @@ export const withAuth = Comp => {
     render() {
       return (
         <AuthConsumer>
-          {({ isLoading, isLoggedin, user, handleLogin, handleSignup, handleLogout }) => (
+          {({ isLoading, isLoggedin, user, handleLogin, handleSignup, handleLogout, changeSession }) => (
             <Comp
               {...this.props}
               isLoading={isLoading}
@@ -25,6 +25,7 @@ export const withAuth = Comp => {
               handleLogin={handleLogin}
               handleSignup={handleSignup}
               handleLogout={handleLogout}
+              changeSession={changeSession}
             />
           )}
         </AuthConsumer>
@@ -118,6 +119,12 @@ export default class AuthProvider extends Component {
       });
   };
 
+  changeSession = newUser => {
+    const newState = { ...this.state };
+    newState.user = newUser;
+    this.setState({ newState });
+  };
+
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     const { children } = this.props;
@@ -133,6 +140,7 @@ export default class AuthProvider extends Component {
           handleLogin: this.handleLogin,
           handleLogout: this.handleLogout,
           handleSignup: this.handleSignup,
+          changeSession: this.changeSession,
         }}
       >
         {children}
