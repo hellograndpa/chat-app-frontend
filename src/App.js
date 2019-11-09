@@ -35,9 +35,7 @@ class App extends Component {
         <button onClick={handleLogout}>logout</button>
         <Router>
           <Switch>
-            <AnonRoute exact path="/home" component={Home} />
-            <AnonRoute exact path="/login" component={Login} />
-            <AnonRoute exact path="/signup" component={Signup} />
+            <AnonRoute exact path="/" component={Home} />
             <PrivateRoute exact path="/me-user" component={MeUser} />
             <PrivateRoute exact path="/users/list" component={UsersList} />
             <PrivateRoute exact path="/rooms/create" component={CreateRoomWp} />

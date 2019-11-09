@@ -22,7 +22,7 @@ class RoomsList extends Component {
   state = {
     rooms: [],
     serchRooms: [],
-    radiusInMeters: 50000,
+    radiusInMeters: 50,
     selectTheme: '',
     eventSearch: '',
     loading: true,
@@ -30,7 +30,7 @@ class RoomsList extends Component {
 
   resultRooms = async newRooms => {
     emptyValidation(newRooms, this.props.handleSetMessage);
-
+    console.log('Newrroms', newRooms);
     this.setState({
       rooms: newRooms,
       searchRooms: newRooms,
@@ -94,7 +94,7 @@ class RoomsList extends Component {
     } = await getCoords();
     const { radiusInMeters } = this.state;
 
-    this.handleRoomsArroundMe(latitude, longitude, radiusInMeters / 1000);
+    this.handleRoomsArroundMe(latitude, longitude, radiusInMeters);
 
     socket.on('room-created', room => {
       const searchRooms = [...this.state.searchRooms, room];
@@ -122,10 +122,17 @@ class RoomsList extends Component {
       ));
 
     let rooms = [];
-    if (selectTheme !== '' && radiusInMeters <= 50001) {
-      rooms = searchRooms
-        .filter(element => element.theme === selectTheme)
-        .filter(element => element.distanceFromMe <= radiusInMeters);
+    if (selectTheme !== '' || radiusInMeters <= 51) {
+      if (!loading) {
+        rooms = searchRooms;
+
+        if (selectTheme !== '') {
+          rooms = rooms.filter(element => element.theme === selectTheme);
+        }
+        if (radiusInMeters <= 51) {
+          rooms = rooms.filter(element => element.distanceFromMe <= radiusInMeters);
+        }
+      }
     } else {
       rooms = searchRooms;
     }
@@ -161,16 +168,16 @@ class RoomsList extends Component {
                     defaultValue={this.state.radiusInMeters}
                     onChange={this.handleChangeSelectRadiusMeters}
                   >
-                    <option value="50000"> 50 km</option>
-                    <option value="40000"> 40 km</option>
-                    <option value="30000"> 30 km</option>
-                    <option value="20000"> 20 km</option>
-                    <option value="10000"> 10 km</option>
-                    <option value="5000"> 5 km</option>
-                    <option value="200"> 2 km</option>
+                    <option value="50"> 50 km</option>
+                    <option value="40"> 40 km</option>
+                    <option value="30"> 30 km</option>
+                    <option value="20"> 20 km</option>
+                    <option value="10"> 10 km</option>
+                    <option value="5"> 5 km</option>
+                    <option value="2"> 2 km</option>
                   </select>
                 </div>
-                <Link to="">
+                <Link to="/rooms/create">
                   <button> create new room</button>
                 </Link>
               </div>

@@ -97,7 +97,7 @@ const ChatsUser = props => {
                 </Link>
               )}
             </div>
-            <div>
+            <div className="avatar-wrapper">
               <img alt="" src={avatarDefault} />
             </div>
           </div>
