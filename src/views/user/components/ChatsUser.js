@@ -4,6 +4,7 @@ import { promised } from 'q';
 import { withAuth } from '../../../Context/AuthContext';
 import ChatUserService from '../../../services/chatUserService';
 import { getDistanceFromMe } from '../../../helpers/coordinates';
+import avatarDefault from '../../../img/avatar.svg';
 
 const ChatsUser = props => {
   const { searchChats, selectStatus, onSelect, user, onAccept } = props;
@@ -45,15 +46,14 @@ const ChatsUser = props => {
       return uno;
     });
     const pp = await Promise.all(newdistance);
-    console.log('TCL: distance -> pp', pp);
     return pp;
   };
 
   return (
     <div>
-      <div>
-        <select value="" onChange={onSelect}>
-          <option value="">Select theme</option>
+      <div className="room-user-content">
+        <select value="" className="select-filter" onChange={onSelect}>
+          <option>Select theme</option>
           <option value="">All</option>
           {sortedList}
         </select>
@@ -98,7 +98,7 @@ const ChatsUser = props => {
               )}
             </div>
             <div>
-              avatar <img alt="" src={`/avatar/${chat.userChat02.avatar}`} />
+              <img alt="" src={avatarDefault} />
             </div>
           </div>
         );

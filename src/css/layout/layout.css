@@ -9,3 +9,7 @@ body {
   display: flex;
   justify-content: center;
   text-align: center; }
+
+.flex-between {
+  display: flex;
+  justify-content: space-between; }

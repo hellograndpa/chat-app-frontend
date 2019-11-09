@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 // Services
 import socketIOClient from 'socket.io-client';
 import RoomService from '../../services/roomService';
+
 // Context
 import { withNotification } from '../../Context/NotificationCtx';
 
@@ -28,7 +29,6 @@ class RoomsList extends Component {
   };
 
   resultRooms = async newRooms => {
-    console.log('TCL: RoomsList -> newRooms', newRooms);
     emptyValidation(newRooms, this.props.handleSetMessage);
 
     this.setState({
@@ -41,7 +41,6 @@ class RoomsList extends Component {
   handleRoomsArroundMe = (latitude, longitude, radiusInMeters) => {
     RoomService.getAllRooms(latitude, longitude, radiusInMeters)
       .then(async rooms => {
-        console.log('TCL: RoomsList -> handleRoomsArroundMe -> rooms', rooms);
         const newRooms = await rooms.map(async room => {
           const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
           room.distanceFromMe = await getDistanceFromMe(location);
@@ -50,7 +49,6 @@ class RoomsList extends Component {
         return Promise.all(newRooms);
       })
       .then(newRooms => {
-        console.log('TCL: RoomsList -> handleRoomsArroundMe -> newRooms', newRooms);
         this.resultRooms(newRooms);
       })
       .catch(error => {
@@ -94,8 +92,6 @@ class RoomsList extends Component {
     const {
       coords: { latitude, longitude },
     } = await getCoords();
-
-    console.log('TCL: RoomsList -> componentDidMount -> latitude', latitude);
     const { radiusInMeters } = this.state;
 
     this.handleRoomsArroundMe(latitude, longitude, radiusInMeters / 1000);
@@ -132,12 +128,10 @@ class RoomsList extends Component {
         .filter(element => element.distanceFromMe <= radiusInMeters);
     } else {
       rooms = searchRooms;
-      console.log('TCL: RoomsList -> render -> searchRooms', searchRooms);
     }
 
     return (
       <div className="CSSgal">
-        {/* Don't wrap targets in parent */}
         <s id="s1"></s>
         <s id="s2"></s>
         <s id="s3"></s>
