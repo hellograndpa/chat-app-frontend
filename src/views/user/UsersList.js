@@ -16,7 +16,6 @@ import { getCoords, getDistance, getDistanceFromMe } from '../../helpers/coordin
 import { emptyValidation } from '../../helpers/Validation';
 
 // CSS
-import '../../threeScreen.css';
 
 const socket = socketIOClient('localhost:3001');
 

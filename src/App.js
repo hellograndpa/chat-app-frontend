@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import Login from './views/auth/Login';
 import Signup from './views/auth/Signup';
 import Home from './views/auth/Home';
-import Chat from './views/Chat';
 import MeUser from './views/user/meUser';
 import OtherUser from './views/user/otherUser';
 import CreateRoomWp from './views/room/CreateRoomWp';
@@ -35,7 +34,6 @@ class App extends Component {
         <button onClick={handleLogout}>logout</button>
         <Router>
           <Switch>
-            <AnonRoute exact path="/chat" component={Chat} />
             <AnonRoute exact path="/home" component={Home} />
             <AnonRoute exact path="/login" component={Login} />
             <AnonRoute exact path="/signup" component={Signup} />

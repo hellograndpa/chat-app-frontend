@@ -12,7 +12,6 @@ import UsersInChat from './components/UsersInChat';
 import RoomDetails from './components/RoomDetails';
 
 // SCSS
-import '../../threeScreen.css';
 
 class RoomWp extends Component {
   state = {

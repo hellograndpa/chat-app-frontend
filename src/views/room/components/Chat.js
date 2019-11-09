@@ -6,7 +6,6 @@ import socketIOClient from 'socket.io-client';
 import ChatRoomService from '../../../services/chatRoomService';
 
 // Css
-import '../../../index.css';
 
 const socket = socketIOClient('localhost:3001');
 

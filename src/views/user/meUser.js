@@ -14,7 +14,6 @@ import ChatsUser from './components/ChatsUser';
 import RoomsUser from './components/RoomsUser';
 
 // CSS
-import '../../threeScreen.css';
 
 class MeUser extends Component {
   state = {

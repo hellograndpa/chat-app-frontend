@@ -16,7 +16,6 @@ import RoomsUser from '../user/components/RoomsUser';
 import Map from './components/Map';
 
 // CSS
-import '../../threeScreen.css';
 
 const socket = socketIOClient('localhost:3001');
 

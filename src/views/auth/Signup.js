@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../../Context/AuthContext';
 import { getCoords } from '../../helpers/coordinates';
-import '../../css/forms.scss';
-import '../../css/layout.scss';
 
 class Signup extends Component {
   state = {
@@ -39,10 +37,39 @@ class Signup extends Component {
     return (
       <div className="flex-centered">
         <form onSubmit={this.handleFormSubmit}>
-          <div><input type="text" name="userName" className="input input-label" placeHolder="User Name" value={userName} onChange={this.handleChange} /></div>
-          <div><input type="text" name="email" className="input input-label" placeHolder="Email" value={email} onChange={this.handleChange} /></div>
-          <div><input type="password" className="input input-label" placeHolder="password" name="password" value={password} onChange={this.handleChange} /></div>
-          <div><input type="submit" className="action-btn-big" value="Signup" /></div>
+          <div>
+            <input
+              type="text"
+              name="userName"
+              className="input input-label"
+              placeHolder="User Name"
+              value={userName}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              name="email"
+              className="input input-label"
+              placeHolder="Email"
+              value={email}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              className="input input-label"
+              placeHolder="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input type="submit" className="action-btn-big" value="Signup" />
+          </div>
         </form>
       </div>
     );
