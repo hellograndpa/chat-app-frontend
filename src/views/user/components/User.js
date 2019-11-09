@@ -1,36 +1,26 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
-import ImageUploader from 'react-images-upload';
-import axios from 'axios';
 import userService from '../../../services/userService';
 import { getCoords } from '../../../helpers/coordinates';
 import ChatUserService from '../../../services/chatUserService';
 import { withAuth } from '../../../Context/AuthContext';
 
 // Components
-import FileUpload from '../../../components/FileUpload';
 
 import avatarDefault from '../../../images/avatar.svg';
 
 class UserMe extends Component {
   state = {
-    userName: null,
-    lastName: null,
-    email: null,
-    city: null,
-    age: null,
+    userName: '',
+    lastName: '',
+    email: '',
+    city: '',
+    age: '',
+    avatar: '',
     edit: false,
-    valueButton: 'Edit user',
-    upload: false,
-    valueUploadBtn: 'Edit image',
+    loading: true,
     pictures: [],
   };
-
-  onDrop(picture) {
-    this.setState({
-      pictures: this.state.pictures.concat(picture),
-    });
-  }
 
   handleInvite = () => {
     const { user, showuser } = this.props;
@@ -38,17 +28,9 @@ class UserMe extends Component {
     ChatUserService.createChatUser(body);
   };
 
-  handleEdit = e => {
+  handleEdit = () => {
     this.setState({
       edit: !this.state.edit,
-      valueButton: 'Cancel editon',
-    });
-  };
-
-  handleUpload = () => {
-    this.setState({
-      upload: !this.state.upload,
-      // valueUploadBtn: 'Upload image',
     });
   };
 
@@ -65,6 +47,8 @@ class UserMe extends Component {
       email: newUser.email,
       city: newUser.city,
       age: newUser.age,
+      avatar: newUser.avatar,
+      loading: false,
     });
   };
 
@@ -94,23 +78,6 @@ class UserMe extends Component {
     // this.handleUserGet(this.props.user);
   };
 
-  onFormImageSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('myImage', this.state.pictures[0]);
-    const config = {
-      headers: {
-        'content-type': 'multipart/form-data',
-      },
-    };
-    axios
-      .post('/upload', formData, config)
-      .then(response => {
-        alert('The file is successfully uploaded');
-      })
-      .catch(error => {});
-  }
-
   componentDidMount = () => {
     this.handleUserGet(this.props.user);
   };
@@ -119,156 +86,168 @@ class UserMe extends Component {
     widget.open();
   };
 
+  checkUploadResult = async resultEvent => {
+    if (resultEvent.event === 'success') {
+      await userService.updateUserAvatar(this.props.user._id, resultEvent.info.secure_url);
+      this.setState({ avatar: resultEvent.info.secure_url });
+      const newUser = { ...this.props.user };
+      newUser.avatar = resultEvent.info.secure_url;
+      this.props.changeSession(newUser);
+    }
+  };
+
   render() {
     const widget = window.cloudinary.createUploadWidget(
       {
         cloudName: 'dadpqdwus',
-        uploadPreset: 'fepkp7k0',
+        uploadPreset: 'viqz5h5f',
       },
-      (error, result) => {},
+      (error, result) => {
+        this.checkUploadResult(result);
+      },
     );
-    console.log(widget);
 
-    const { user, showuser } = this.props;
-    const { edit, userName, lastName, email, age, city, valueButton, upload, valueUploadBtn } = this.state;
+    const { showuser } = this.props;
+    const { edit, loading, userName, lastName, email, avatar, age, city } = this.state;
     const checked = edit ? 'checked' : '';
+
     return (
-      <div className="user">
-        {user._id !== showuser._id ? (
-          <>
-            <div>Name {showuser.userName}</div>
-            <div>Last Name {showuser.lastName}</div>
-            <div>Email {showuser.email}</div>
-            <div>Last theme {showuser.userName}</div>
-
-            <div>
-              Avatar <img src="" alt=""></img> {showuser.userName}
-            </div>
-
-            <button onClick={this.handleInvite()}>Invitar</button>
-          </>
-        ) : (
-          <></>
-        )}
-
-        <>
-          <div className="edit">
-            <div className="edit-mode-text">Edit Mode:</div>
-            <div className="edit-mode-switch">
-              <label className="switch">
-                <input type="checkbox" checked={checked} onChange={this.handleEdit} />
-                <span className="slider round"></span>
-              </label>
-            </div>
-          </div>
-
-          <div className="header">
-            <div className="header-wrapper">
-              <div className="avatar-content border-active">
-                <img src={avatarDefault} alt=""></img>
-                {edit && (
-                  <div className="edit-avatar-btn-wrapper">
-                    <button
-                      className="edit-avatar-btn"
-                      value={valueUploadBtn}
-                      onClick={() => {
-                        this.showWidget(widget);
-                      }}
-                    >
-                      {valueUploadBtn}
-                    </button>
+      <>
+        {!loading && (
+          <div className="user">
+            {showuser._id !== undefined ? (
+              <>
+                <div className="header">
+                  <div className="header-wrapper">
+                    <div className="avatar-content">
+                      <img
+                        className="border-active"
+                        src={showuser.avatar !== undefined ? showuser.avatar : avatarDefault}
+                        alt=""
+                      ></img>
+                    </div>
+                    <div className="details-content">
+                      <div>
+                        {showuser.userName} {showuser.lastName}
+                      </div>
+                      <div>{showuser.email}</div>
+                      <div>{showuser.city}</div>
+                      <div>{showuser.age} years old</div>
+                    </div>
                   </div>
-                )}
-              </div>
-              <div className="details-content">
-                <div>
-                  {userName} {lastName}
                 </div>
-                <div>{email}</div>
-                <div>{city}</div>
-                <div>{age} years old</div>
-              </div>
-            </div>
-          </div>
-        </>
-        {!upload && edit && (
-          <>
-            <form onSubmit={this.handleFormSubmit}>
-              <div>
-                <input
-                  type="text"
-                  className="input input-filter"
-                  placeholder="User Name"
-                  name="userName"
-                  value={userName}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  className="input input-filter"
-                  placeholder="Last Name"
-                  name="lastName"
-                  value={lastName}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  className="input input-filter"
-                  placeholder="Email"
-                  name="email"
-                  value={email}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  placeholder="City"
-                  className="input input-filter"
-                  name="city"
-                  value={city}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  placeholder="Age"
-                  className="input input-filter"
-                  name="age"
-                  value={age}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="flex-centered">
-                <input onClick={this.handleFormSubmit} className="action-btn-medium" type="submit" value="Update!" />
-              </div>
-              <div className="margin-bottom"></div>
-            </form>
-          </>
-        )}
-        {upload && (
-          <form>
-            <ImageUploader
-              withIcon={false}
-              buttonText="Choose a new image"
-              onChange={this.onDrop}
-              imgExtension={['.jpg', '.gif', '.png', '.gif']}
-              maxFileSize={5242880}
-              singleImage={true}
-              withPreview={true}
-            />
 
-            <div className="flex-centered">
-              <input onClick={this.handleFormSubmit} className="action-btn-medium" type="submit" value="Update!" />
-            </div>
-          </form>
+                <button onClick={this.handleInvite}>Invitar</button>
+              </>
+            ) : (
+              <>
+                <div className="edit">
+                  <div>
+                    <div onClick={this.props.handleLogout}>Logout</div>
+                  </div>
+                  <div className="flex-centered-aligned">
+                    <div className="edit-mode-text">Edit Mode:</div>
+                    <div className="edit-mode-switch">
+                      <label className="switch">
+                        <input type="checkbox" checked={checked} onChange={this.handleEdit} />
+                        <span className="slider round"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="header">
+                  <div className="header-wrapper">
+                    <div className="avatar-content">
+                      <img
+                        className={edit ? 'border-active-editable' : 'border-active'}
+                        onClick={() => {
+                          this.showWidget(widget);
+                        }}
+                        src={avatar !== undefined ? avatar : avatarDefault}
+                        alt=""
+                      ></img>
+                    </div>
+                    <div className="details-content">
+                      <div>
+                        {userName} {lastName}
+                      </div>
+                      <div>{email}</div>
+                      <div>{city}</div>
+                      <div>{age} years old</div>
+                    </div>
+                  </div>
+                </div>
+
+                {edit && (
+                  <form className="text-centered" onSubmit={this.handleFormSubmit}>
+                    <div>
+                      <input
+                        type="text"
+                        className="input input-filter"
+                        placeholder="User Name"
+                        name="userName"
+                        value={userName}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        className="input input-filter"
+                        placeholder="Last Name"
+                        name="lastName"
+                        value={lastName}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        className="input input-filter"
+                        placeholder="Email"
+                        name="email"
+                        value={email}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="City"
+                        className="input input-filter"
+                        name="city"
+                        value={city}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Age"
+                        className="input input-filter"
+                        name="age"
+                        value={age}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                    <div className="flex-centered">
+                      <input
+                        onClick={this.handleFormSubmit}
+                        className="action-btn-medium"
+                        type="submit"
+                        value="Update!"
+                      />
+                    </div>
+                    <div className="margin-bottom"></div>
+                  </form>
+                )}
+              </>
+            )}
+          </div>
         )}
-      </div>
+        {loading && <div className="loader">Loading...</div>}
+      </>
     );
   }
 }

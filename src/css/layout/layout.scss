@@ -19,6 +19,11 @@ img {
   justify-content: center;
   text-align: center;
 }
+.flex-centered-aligned {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .flex-between {
   display: flex;
@@ -30,4 +35,7 @@ img {
 }
 .margin-bottom {
   height: 60px;
+}
+.text-centered {
+  text-align: center;
 }

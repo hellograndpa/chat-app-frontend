@@ -105,6 +105,15 @@ http://stackoverflow.com/a/34696029/383904
 .CSSgal {
   text-align: center; }
 
+/* .CSSgal .prevNext a {
+  width: 100px;
+  height: 50px;
+  margin: 0 3px;
+  background: $blue-grey;
+  text-decoration: none;
+  border-radius: 0%;
+  color: #fff;
+} */
 /* Just centering the examples */
 .arrowed div {
   position: absolute;

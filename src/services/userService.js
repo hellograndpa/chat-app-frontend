@@ -21,6 +21,10 @@ class UserService {
       .put(`/api/v01/user/${_id}`, { userName, lastName, email, age, city, latitude, longitude })
       .then(({ data: user }) => user);
   }
+
+  updateUserAvatar(_id, avatar) {
+    return this.axios.put(`/api/v01/user/${_id}/image`, { avatar }).then(({ data: user }) => user);
+  }
 }
 
 const userService = new UserService();

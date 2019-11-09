@@ -1,6 +1,9 @@
 @import '../utilities/colors.scss';
 @import '../utilities/fonts.scss';
 
+.user {
+  margin-top: 20px;
+}
 .user .right-content {
   padding-left: 20px;
 }
@@ -8,7 +11,7 @@
   background-color: $slate;
 }
 .user .header .header-wrapper {
-  padding: 50px 20px 50px 20px;
+  padding: 40px 20px 40px 20px;
   display: flex;
   align-items: center;
 }
@@ -16,7 +19,7 @@
   display: flex;
   align-items: center;
   padding-bottom: 10px;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 .user .edit .edit-mode-text {
   padding-right: 10px;
@@ -25,12 +28,18 @@
 }
 
 .user .header .avatar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.user .header .avatar-content img {
   background-color: #ffffff;
   width: 125px;
   height: 125px;
   border-radius: 50%;
-  padding: 10px;
-  margin-left: 20px;
+  padding: 5px;
+  border-radius: 50%;
 }
 .user .header .edit-avatar-btn-wrapper {
   margin-top: 20px;
@@ -44,7 +53,7 @@
 
 .user .header .details-content {
   font-family: $primary-font;
-  font-size: $font-size-m;
+  font-size: $font-size-s;
   color: $soft-text;
   padding-left: 20px;
 }
