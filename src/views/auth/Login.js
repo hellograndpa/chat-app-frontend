@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { withAuth } from '../../Context/AuthContext';
 import { getCoords } from '../../helpers/coordinates';
-import '../../css/forms.scss';
-import '../../css/layout.scss';
 
 class Login extends Component {
   state = {

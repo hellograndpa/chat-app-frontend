@@ -1,12 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 
-import '../../threeScreen.css';
-
 import Login from './Login';
 import Signup from './Signup';
-
-import './home.scss';
 
 class Home extends Component {
   componentDidMount() {}
