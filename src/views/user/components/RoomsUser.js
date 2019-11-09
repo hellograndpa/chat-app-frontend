@@ -9,6 +9,7 @@ const RoomsUser = props => {
 
   return (
     <div className="room-user-content">
+      <h1>Rooms List</h1>
       {rooms.map(room => {
         return (
           <Link key={room._id} to={`../rooms/${room._id}`}>

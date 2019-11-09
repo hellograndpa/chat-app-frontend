@@ -1,0 +1,88 @@
+@import '../utilities/colors.scss';
+@import '../utilities/fonts.scss';
+@import '../utilities/forms.scss';
+
+.title {
+  padding: 27px 10px 2px 27px;
+
+  .h1 {
+    color: $slate;
+    text-align: center;
+  }
+}
+
+.box-title-search {
+  display: flex;
+  height: 45px;
+  flex-flow: row;
+  justify-content: left;
+  width: 100%;
+  border-top: 2px #f4f4f6 solid;
+  border-radius: 1px;
+}
+
+.title-search {
+  width: 33%;
+  height: 44px;
+  border-right: 2px #f4f4f6 solid;
+  padding-top: 10px;
+  color: $slate;
+  font-size: $font-size-s;
+}
+
+.search-text {
+  width: 100%;
+}
+
+.colors-selected {
+  margin-top: 7px;
+  display: flex;
+  height: 8px;
+  flex-flow: row;
+
+
+  .box-color01 {
+    height: 8px;
+    background-color: $cornflodwer-two;
+    width: 25%;
+  }
+
+  .box-color02 {
+    height: 8px;
+    background-color: $cornflower;
+    width: 25%;
+  }
+
+  .box-color03 {
+    height: 8px;
+    background-color: $dodger-blue;
+    width: 25%;
+  }
+
+  .box-color04 {
+    height: 8px;
+    background-color: $aqua-marine;
+    width: 25%;
+  }
+}
+
+.imput-color-dark {
+  background-color: $dark;
+}
+
+// This stuff matters!
+.section {
+  overflow: hidden;
+  transition: max-height 0.3s ease-out; // note that we're transitioning max-height, not height!
+  height: auto;
+  max-height: 600px; // still have to hard-code a value!
+  background-color: $dark-two;
+  ;
+}
+
+.section.collapsed {
+  max-height: 0;
+}
+
+
+// This stuff doesn't matter!

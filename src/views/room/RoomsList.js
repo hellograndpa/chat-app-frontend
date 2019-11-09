@@ -15,6 +15,7 @@ import { emptyValidation } from '../../helpers/Validation';
 // Components
 import RoomsUser from '../user/components/RoomsUser';
 import Map from './components/Map';
+import RoomFilters from './components/RoomFilters';
 
 const socket = socketIOClient('localhost:3001');
 
@@ -144,39 +145,15 @@ class RoomsList extends Component {
                 <Map locations={rooms} />
               </div>
               <div>
-                <h1>Rooms Filter</h1>
-                <div>
-                  Search: <br />
-                  <input name="rooms" value={eventSearch} onChange={this.handleSearchRoom} />
-                  <br />
-                  Theme: <br />
-                  <select name="Select theme" value={this.state.selectTheme} onChange={this.handleChangeSelectRooms}>
-                    <option value="">All</option>
-                    {sortedList}
-                  </select>
-                  <br />
-                  Radius Km: <br />
-                  <select
-                    name="Select kms"
-                    defaultValue={this.state.radiusInMeters}
-                    onChange={this.handleChangeSelectRadiusMeters}
-                  >
-                    <option value="50000"> 50 km</option>
-                    <option value="40000"> 40 km</option>
-                    <option value="30000"> 30 km</option>
-                    <option value="20000"> 20 km</option>
-                    <option value="10000"> 10 km</option>
-                    <option value="5000"> 5 km</option>
-                    <option value="200"> 2 km</option>
-                  </select>
-                </div>
-                <Link to="">
-                  <button> create new room</button>
-                </Link>
-              </div>
-              <div>
-                TRES <h1>Rooms List</h1>
-                Search <input name="roomslist" value={eventSearch} onChange={this.handleSearchRoom} />
+                <RoomFilters
+                  eventSearch={eventSearch}
+                  handleSearchRoom={this.handleSearchRoom}
+                  handleChangeSelectRooms={this.handleChangeSelectRooms}
+                  selectTheme={selectTheme}
+                  radiusInMeters={radiusInMeters}
+                  handleChangeSelectRadiusMeters={this.handleChangeSelectRadiusMeters}
+                  sortedList={sortedList}
+                />
                 <RoomsUser rooms={rooms} />
               </div>
             </div>
@@ -196,19 +173,7 @@ class RoomsList extends Component {
                     <div className="arrow-L"></div>
                   </div>
                 </a>
-                <a href="#s3">
-                  <div className="arrowed">
-                    <div className="arrow-R"></div>
-                  </div>
-                </a>
-              </div>
-              <div>
-                <a href="#s2">
-                  <div className="arrowed">
-                    <div className="arrow-L"></div>
-                  </div>
-                </a>
-                <a href="#s3"></a>
+                <a href="#s2"></a>
               </div>
             </div>
           </>

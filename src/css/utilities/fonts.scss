@@ -1,8 +1,23 @@
-$primary-font: 'Montserrat', sans-serif;
-$font-size-xl: 40px;
+@import './colors.scss';
+
+$primary-font: 'Montserrat',
+sans-serif;
+$font-size-xl: 36px;
 $font-size-l: 24px;
 $font-size-m: 18px;
-$font-size-s: 15px;
+$font-size-s: 14px;
 $text-center: center;
 $text-left: left;
 $text-rigth: right;
+
+h1 {
+  font-family: $primary-font;
+  font-size: $font-size-xl;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left;
+
+}

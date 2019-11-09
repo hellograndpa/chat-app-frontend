@@ -9,10 +9,6 @@ import icons_users from '../../images/icons/icons_users.svg';
 const NavBar = () => {
   return (
     <div>
-      <div>
-        <div>izq</div>
-        <div>der</div>
-      </div>
       <div className="menu-principal ripple">
         <di className="element01 ripple">
           <div>
@@ -27,7 +23,7 @@ const NavBar = () => {
             <img className="icon" src={icons_comment} />
           </div>
           <NavLink className="nav" to="/rooms/list">
-            Rooms Tour
+            Rooms
           </NavLink>
         </div>
         <div className="element03 ripple">
@@ -35,7 +31,7 @@ const NavBar = () => {
             <img className="icon" src={icons_users} />
           </div>
           <NavLink className="nav" to="/users/list">
-            Users Tour
+            Users
           </NavLink>
         </div>
       </div>

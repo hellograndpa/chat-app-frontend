@@ -32,7 +32,6 @@ class App extends Component {
             <button onClick={handleCloseMessage}>close</button>
           </div>
         )}
-        <button onClick={handleLogout}>logout</button>
         <Router>
           <Switch>
             <AnonRoute exact path="/" component={Home} />

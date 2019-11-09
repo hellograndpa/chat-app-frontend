@@ -1,8 +1,18 @@
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
 .room-user-content {
   padding: 0 16px 0 16px;
   text-align: left;
   font-family: "Montserrat", sans-serif;
-  font-size: 15px; }
+  font-size: 14px; }
 
 .room-user-content .card {
   padding: 8px;
