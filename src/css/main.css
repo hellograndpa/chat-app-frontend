@@ -93,8 +93,7 @@ a {
   * Improve readability of focused elements when they are also in an
   * active/hover state.
   */
-a:active,
-a:hover {
+a:active, a:hover {
   outline: 0; }
 
 /* Text-level semantics
@@ -253,9 +252,9 @@ select {
   *  Known issue: inner spacing remains in IE 6.
   */
 button,
-html input[type='button'],
-input[type='reset'],
-input[type='submit'] {
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
@@ -370,7 +369,7 @@ th {
   padding: 0; }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -380,7 +379,7 @@ h1 {
   text-align: left; }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -395,7 +394,7 @@ h1 {
   border-radius: 12px;
   background-color: #3acce1;
   font-size: 24px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #ffffff;
   border: 0px;
   margin: 10px 0 10px 0; }
@@ -448,9 +447,7 @@ h1 {
   border-radius: 12px;
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.08);
   background-color: #ffffff;
-  margin: 10px 0 10px 0;
-  padding-left: 5px;
-  font-size: 18px; }
+  margin: 10px 0 10px 0; }
 
 .input-filter:focus {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
@@ -467,11 +464,21 @@ h1 {
 .border-active {
   border: 4px solid #07b17d; }
 
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
 html {
   height: 100%; }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-image: linear-gradient(to bottom, #ffffff 10%, #f7f7fa 30%); }
 
 img {
@@ -720,7 +727,7 @@ http://stackoverflow.com/a/34696029/383904
     transform: rotate(360deg); } }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -790,7 +797,7 @@ h1 {
   padding: 0 16px 0 16px; }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -802,7 +809,7 @@ h1 {
 .room-user-content {
   padding: 0 16px 0 16px;
   text-align: left;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px; }
 
 .room-user-content .card {
@@ -814,6 +821,16 @@ h1 {
 .room-user-content .card .title {
   color: #78849e;
   font-size: 18px; }
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
 
 .user .right-content {
   padding-left: 20px; }
@@ -834,7 +851,7 @@ h1 {
 
 .user .edit .edit-mode-text {
   padding-right: 10px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px; }
 
 .user .header .avatar-content {
@@ -855,7 +872,7 @@ h1 {
   border-color: #3acce1; }
 
 .user .header .details-content {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   color: #f0e9d3;
   padding-left: 20px; }

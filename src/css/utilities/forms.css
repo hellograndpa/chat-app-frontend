@@ -67,9 +67,7 @@ h1 {
   border-radius: 12px;
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.08);
   background-color: #ffffff;
-  margin: 10px 0 10px 0;
-  padding-left: 5px;
-  font-size: 18px; }
+  margin: 10px 0 10px 0; }
 
 .input-filter:focus {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
