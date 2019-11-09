@@ -8,21 +8,15 @@ const NavBar = () => {
         <div>izq</div>
         <div>der</div>
       </div>
-      <div draggable="false">
+      <div>
         <span>
-          <NavLink to="/home">Home</NavLink>
+          <NavLink to="/">You</NavLink>
         </span>
         <span>
-          <NavLink to="/rooms/list">Rooms</NavLink>
+          <NavLink to="/rooms/list">Rooms Tour</NavLink>
         </span>
         <span>
-          <NavLink to="/users/list">Users</NavLink>
-        </span>
-        <span>
-          <NavLink to="/user">User</NavLink>
-        </span>
-        <span>
-          <NavLink to="/rooms/create">Create Room</NavLink>
+          <NavLink to="/users/list">Users Tour</NavLink>
         </span>
       </div>
     </>
