@@ -68,8 +68,6 @@ class UserMe extends Component {
       city: newUser.userName,
       age: newUser.userName,
     });
-    console.log('TCL: UserMe -> newUser', newUser);
-    console.log('TCL: UserMe -> this.setState', this.state);
   };
 
   handleFormSubmit = async e => {
@@ -115,14 +113,29 @@ class UserMe extends Component {
 
         {!edit && (
           <>
-            <button value={valueButton} onClick={this.handleUpload}>
-              {valueButton}
-            </button>
-            <div>Name {userName}</div>
-            <div>Last Name {lastName}</div>
-            <div>Email {email}</div>
-            <div>City {city}</div>
-            <div>Age {age}</div>
+            <div className="edit">
+              Edit Mode:
+              <label className="switch">
+                <input type="checkbox" onClick={this.handleEdit} /> ON
+                <span className="slider round"></span>
+              </label>
+            </div>
+            <div className="flex-between">
+              <div>
+                <div>Name </div>
+                <div>Last Name</div>
+                <div>Email</div>
+                <div>City</div>
+                <div>Age</div>
+              </div>
+              <div>
+                <div>{userName}</div>
+                <div>{lastName}</div>
+                <div>{email}</div>
+                <div>{city}</div>
+                <div>{age}</div>
+              </div>
+            </div>
 
             <div>
               {!upload && (
@@ -147,9 +160,12 @@ class UserMe extends Component {
         )}
         {edit && (
           <>
-            <button value={valueButton} onClick={this.handleEdit}>
-              {valueButton}
-            </button>
+            <div className="edit">
+              <label className="switch">
+                OFF <input type="checkbox" onClick={this.handleEdit} /> ON
+                <span className="slider round"></span>
+              </label>
+            </div>
             <form onSubmit={this.handleFormSubmit}>
               <div>
                 <label>Name:</label>

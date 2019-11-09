@@ -1,0 +1,19 @@
+@import '../utilities/colors.scss';
+@import '../utilities/fonts.scss';
+
+.room-user-content {
+  padding: 0 16px 0 16px;
+  text-align: left;
+  font-family: $primary-font;
+  font-size: $font-size-s;
+}
+.room-user-content .card {
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid $blue-grey;
+}
+.room-user-content .card .title {
+  color: $blue-grey;
+  font-size: $font-size-m;
+}

@@ -1,0 +1,15 @@
+.room-user-content {
+  padding: 0 16px 0 16px;
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px; }
+
+.room-user-content .card {
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid #78849e; }
+
+.room-user-content .card .title {
+  color: #78849e;
+  font-size: 18px; }

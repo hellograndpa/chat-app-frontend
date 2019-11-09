@@ -128,39 +128,42 @@ class MeUser extends Component {
 
     return (
       <div className="CSSgal">
-        {/* Don't wrap targets in parent */}
         <s id="s1"></s>
         <s id="s2"></s>
         <s id="s3"></s>
 
         {!loading && (
           <>
-            {/* START SLIDER--------- */}
             <div className="slider">
-              {/* FIRST SALIDER ------------------*/}
               <div>
-                <h1> List User Rooms</h1>
-                Search <input defaultValue="" onChange={this.handleSearchRoom} />
-                <br />
-                Filters
-                <select value="" onChange={this.handleChangeSelectRooms}>
-                  <option>Select theme</option>
-                  <option value="">All</option>
-                  {sortedList}
-                </select>
+                <div className="room-user-filters">
+                  <input
+                    className="input-filter input-label"
+                    placeholder="What do you want to talk about?"
+                    onChange={this.handleSearchRoom}
+                  />
+                  <br />
+
+                  <select value="" className="select-filter" onChange={this.handleChangeSelectRooms}>
+                    <option>Select theme</option>
+                    <option value="">All</option>
+                    {sortedList}
+                  </select>
+                </div>
                 <RoomsUser rooms={rooms} />
               </div>
-              {/* EMD FIRST SALIDER-------------- */}
-              {/* SECOND SALIDER ------------------*/}
-              <div>
-                <h2>ITS ME</h2>
+              <div className="room-user-content">
                 <User showuser={user} />
               </div>
-              {/* END SECOND SALIDER ------------------*/}
-              {/* THIRD SALIDER ------------------*/}
               <div>
-                <h1> List User Chats</h1>
-                Search <input defaultValue="" onChange={this.handleSearchChats} />
+                <div className="room-user-filters">
+                  <input
+                    className="input-filter input-label"
+                    placeholder="Your chats... have a look?"
+                    defaultValue=""
+                    onChange={this.handleSearchChats}
+                  />
+                </div>
                 <ChatsUser
                   searchChats={searchChats}
                   selectStatus={selectStatus}
@@ -168,11 +171,7 @@ class MeUser extends Component {
                   onAccept={this.handleAcceptChat}
                 />
               </div>
-              {/* END THIRD SALIDER ------------------*/}
             </div>
-            {/* END SLIDER--------- */}
-
-            {/* START BUTTONS */}
             <div className="prevNext">
               <div>
                 <a href="#s1"></a>
@@ -187,7 +186,6 @@ class MeUser extends Component {
                 <a href="#s3"></a>
               </div>
             </div>
-            {/* END BUTTONS */}
           </>
         )}
         {loading && <div className="loader">Loading...</div>}

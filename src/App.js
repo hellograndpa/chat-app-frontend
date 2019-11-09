@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
+// Views
 import Login from './views/auth/Login';
 import Signup from './views/auth/Signup';
 import Home from './views/auth/Home';
@@ -10,10 +11,10 @@ import OtherUser from './views/user/otherUser';
 import CreateRoomWp from './views/room/CreateRoomWp';
 import RoomWp from './views/room/RoomWp';
 import RoomsList from './views/room/RoomsList';
-
 import PrivateChatWp from './views/user/PrivateChatWp';
 import UsersList from './views/user/UsersList';
 
+// Context
 import { withAuth } from './Context/AuthContext';
 import { withNotification } from './Context/NotificationCtx';
 

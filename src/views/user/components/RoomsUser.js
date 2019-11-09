@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable class-methods-use-this */
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,16 +8,23 @@ const RoomsUser = props => {
   const { rooms } = props;
 
   return (
-    <div>
-      {rooms.map((room, index) => {
+    <div className="room-user-content">
+      {rooms.map(room => {
         return (
-          <div key={room._id}>
-            <div>
-              <Link to={`../rooms/${room._id}`}>{room.roomName}</Link>
+          <Link key={room._id} to={`../rooms/${room._id}`}>
+            <div className="card">
+              <div className="title">{room.roomName}</div>
+              <div className="flex-between">
+                <div>{room.theme}</div>
+                <div>Last chat 12mn</div>
+              </div>
+
+              <div className="flex-between">
+                <div>{room.distanceFromMe} km from you</div>
+                <div>people in: 18</div>
+              </div>
             </div>
-            <div>{room.theme}</div>
-            <div>Disgtande from me: {room.distanceFromMe}</div>
-          </div>
+          </Link>
         );
       })}
     </div>
