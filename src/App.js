@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 // Views
-import Login from './views/auth/Login';
-import Signup from './views/auth/Signup';
 import Home from './views/auth/Home';
 import MeUser from './views/user/meUser';
 import OtherUser from './views/user/otherUser';
@@ -35,8 +33,6 @@ class App extends Component {
         <Router>
           <Switch>
             <AnonRoute exact path="/" component={Home} />
-            <AnonRoute exact path="/login" component={Login} />
-            <AnonRoute exact path="/signup" component={Signup} />
             <PrivateRoute exact path="/me-user" component={MeUser} />
             <PrivateRoute exact path="/users/list" component={UsersList} />
             <PrivateRoute exact path="/rooms/create" component={CreateRoomWp} />

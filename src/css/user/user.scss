@@ -1,3 +1,53 @@
+@import '../utilities/colors.scss';
+@import '../utilities/fonts.scss';
+
+.user .right-content {
+  padding-left: 20px;
+}
+.user .header {
+  background-color: $slate;
+}
+.user .header .header-wrapper {
+  padding: 50px 20px 50px 20px;
+  display: flex;
+  align-items: center;
+}
+.user .edit {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  justify-content: flex-end;
+}
+.user .edit .edit-mode-text {
+  padding-right: 10px;
+  font-family: $primary-font;
+  font-size: $font-size-m;
+}
+
+.user .header .avatar-content {
+  background-color: #ffffff;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  padding: 10px;
+  margin-left: 20px;
+}
+.user .header .edit-avatar-btn-wrapper {
+  margin-top: 20px;
+  margin-left: 8px;
+}
+.user .header .edit-avatar-btn {
+  border-radius: 10px;
+  background: $aqua-marine;
+  border-color: $aqua-marine;
+}
+
+.user .header .details-content {
+  font-family: $primary-font;
+  font-size: $font-size-m;
+  color: $soft-text;
+  padding-left: 20px;
+}
 .edit .switch {
   position: relative;
   display: inline-block;

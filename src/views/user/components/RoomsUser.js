@@ -21,7 +21,7 @@ const RoomsUser = props => {
               </div>
 
               <div className="flex-between">
-                <div>{room.distanceFromMe} km from you</div>
+                <div>{room.distanceFromMe.toFixed(2)} km from you</div>
                 <div>people in: 18</div>
               </div>
             </div>

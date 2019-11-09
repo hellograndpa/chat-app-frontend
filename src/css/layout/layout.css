@@ -15,6 +15,10 @@ body {
   font-family: "Montserrat", sans-serif;
   background-image: linear-gradient(to bottom, #ffffff 10%, #f7f7fa 30%); }
 
+img {
+  max-width: 100%;
+  max-height: 100%; }
+
 .flex-centered {
   display: flex;
   justify-content: center;
@@ -23,3 +27,10 @@ body {
 .flex-between {
   display: flex;
   justify-content: space-between; }
+
+.flex-centered-text-left {
+  display: flex;
+  justify-content: center; }
+
+.margin-bottom {
+  height: 60px; }

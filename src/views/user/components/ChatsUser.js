@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { promised } from 'q';
 import { withAuth } from '../../../Context/AuthContext';
 import ChatUserService from '../../../services/chatUserService';
 import { getDistanceFromMe } from '../../../helpers/coordinates';
-import avatarDefault from '../../../img/avatar.svg';
+import avatarDefault from '../../../images/avatar.svg';
 
 const ChatsUser = props => {
   const { searchChats, selectStatus, onSelect, user, onAccept } = props;
@@ -97,7 +96,7 @@ const ChatsUser = props => {
                 </Link>
               )}
             </div>
-            <div>
+            <div className="avatar-wrapper">
               <img alt="" src={avatarDefault} />
             </div>
           </div>

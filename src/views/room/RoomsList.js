@@ -23,7 +23,7 @@ class RoomsList extends Component {
   state = {
     rooms: [],
     serchRooms: [],
-    radiusInMeters: 50000,
+    radiusInMeters: 50,
     selectTheme: '',
     eventSearch: '',
     loading: true,
@@ -31,7 +31,7 @@ class RoomsList extends Component {
 
   resultRooms = async newRooms => {
     emptyValidation(newRooms, this.props.handleSetMessage);
-
+    console.log('Newrroms', newRooms);
     this.setState({
       rooms: newRooms,
       searchRooms: newRooms,
@@ -95,7 +95,7 @@ class RoomsList extends Component {
     } = await getCoords();
     const { radiusInMeters } = this.state;
 
-    this.handleRoomsArroundMe(latitude, longitude, radiusInMeters / 1000);
+    this.handleRoomsArroundMe(latitude, longitude, radiusInMeters);
 
     socket.on('room-created', room => {
       const searchRooms = [...this.state.searchRooms, room];
@@ -123,10 +123,17 @@ class RoomsList extends Component {
       ));
 
     let rooms = [];
-    if (selectTheme !== '' && radiusInMeters <= 50001) {
-      rooms = searchRooms
-        .filter(element => element.theme === selectTheme)
-        .filter(element => element.distanceFromMe <= radiusInMeters);
+    if (selectTheme !== '' || radiusInMeters <= 51) {
+      if (!loading) {
+        rooms = searchRooms;
+
+        if (selectTheme !== '') {
+          rooms = rooms.filter(element => element.theme === selectTheme);
+        }
+        if (radiusInMeters <= 51) {
+          rooms = rooms.filter(element => element.distanceFromMe <= radiusInMeters);
+        }
+      }
     } else {
       rooms = searchRooms;
     }

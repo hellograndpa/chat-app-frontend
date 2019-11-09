@@ -1,11 +1,16 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
+import ImageUploader from 'react-images-upload';
+import axios from 'axios';
 import userService from '../../../services/userService';
 import { getCoords } from '../../../helpers/coordinates';
 import ChatUserService from '../../../services/chatUserService';
 import { withAuth } from '../../../Context/AuthContext';
+
 // Components
 import FileUpload from '../../../components/FileUpload';
+
+import avatarDefault from '../../../images/avatar.svg';
 
 class UserMe extends Component {
   state = {
@@ -18,7 +23,14 @@ class UserMe extends Component {
     valueButton: 'Edit user',
     upload: false,
     valueUploadBtn: 'Edit image',
+    pictures: [],
   };
+
+  onDrop(picture) {
+    this.setState({
+      pictures: this.state.pictures.concat(picture),
+    });
+  }
 
   handleInvite = () => {
     const { user, showuser } = this.props;
@@ -27,31 +39,17 @@ class UserMe extends Component {
   };
 
   handleEdit = e => {
-    if (e.target.value === 'Edit user') {
-      this.setState({
-        edit: true,
-        valueButton: 'Cancel editon',
-      });
-    } else {
-      this.setState({
-        edit: false,
-        valueButton: 'Edit user',
-      });
-    }
+    this.setState({
+      edit: !this.state.edit,
+      valueButton: 'Cancel editon',
+    });
   };
 
-  handleUpload = e => {
-    if (e.target.value === 'Upload image') {
-      this.setState({
-        upload: true,
-        valueUploadBtn: 'Cancel Upload',
-      });
-    } else {
-      this.setState({
-        upload: false,
-        valueUploadBtn: 'Upload image',
-      });
-    }
+  handleUpload = () => {
+    this.setState({
+      upload: !this.state.upload,
+      // valueUploadBtn: 'Upload image',
+    });
   };
 
   handleChange = event => {
@@ -63,10 +61,10 @@ class UserMe extends Component {
     const newUser = await userService.getUserById(user._id);
     this.setState({
       userName: newUser.userName,
-      lastName: newUser.userName,
-      email: newUser.userName,
-      city: newUser.userName,
-      age: newUser.userName,
+      lastName: newUser.lastName,
+      email: newUser.email,
+      city: newUser.city,
+      age: newUser.age,
     });
   };
 
@@ -76,24 +74,66 @@ class UserMe extends Component {
       coords: { latitude, longitude },
     } = await getCoords();
 
-    const { _id, userName, lastName, email, age, city } = this.state;
-    await userService.updateUser(_id, userName, lastName, email, age, city, latitude, longitude);
-    this.setState({
-      edit: false,
-    });
-    this.handleUserGet(this.props.user);
+    const { userName, lastName, email, age, city } = this.state;
+
+    const newUser = await userService.updateUser(
+      this.props.user._id,
+      userName,
+      lastName,
+      email,
+      age,
+      city,
+      latitude,
+      longitude,
+    );
+
+    this.props.changeSession(newUser);
+
+    this.setState({ edit: false });
+
+    // this.handleUserGet(this.props.user);
   };
+
+  onFormImageSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('myImage', this.state.pictures[0]);
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data',
+      },
+    };
+    axios
+      .post('/upload', formData, config)
+      .then(response => {
+        alert('The file is successfully uploaded');
+      })
+      .catch(error => {});
+  }
 
   componentDidMount = () => {
     this.handleUserGet(this.props.user);
   };
 
+  showWidget = widget => {
+    widget.open();
+  };
+
   render() {
+    const widget = window.cloudinary.createUploadWidget(
+      {
+        cloudName: 'dadpqdwus',
+        uploadPreset: 'fepkp7k0',
+      },
+      (error, result) => {},
+    );
+    console.log(widget);
+
     const { user, showuser } = this.props;
     const { edit, userName, lastName, email, age, city, valueButton, upload, valueUploadBtn } = this.state;
-
+    const checked = edit ? 'checked' : '';
     return (
-      <div>
+      <div className="user">
         {user._id !== showuser._id ? (
           <>
             <div>Name {showuser.userName}</div>
@@ -111,86 +151,122 @@ class UserMe extends Component {
           <></>
         )}
 
-        {!edit && (
-          <>
-            <div className="edit">
-              Edit Mode:
+        <>
+          <div className="edit">
+            <div className="edit-mode-text">Edit Mode:</div>
+            <div className="edit-mode-switch">
               <label className="switch">
-                <input type="checkbox" onClick={this.handleEdit} /> ON
+                <input type="checkbox" checked={checked} onChange={this.handleEdit} />
                 <span className="slider round"></span>
               </label>
             </div>
-            <div className="flex-between">
-              <div>
-                <div>Name </div>
-                <div>Last Name</div>
-                <div>Email</div>
-                <div>City</div>
-                <div>Age</div>
+          </div>
+
+          <div className="header">
+            <div className="header-wrapper">
+              <div className="avatar-content border-active">
+                <img src={avatarDefault} alt=""></img>
+                {edit && (
+                  <div className="edit-avatar-btn-wrapper">
+                    <button
+                      className="edit-avatar-btn"
+                      value={valueUploadBtn}
+                      onClick={() => {
+                        this.showWidget(widget);
+                      }}
+                    >
+                      {valueUploadBtn}
+                    </button>
+                  </div>
+                )}
               </div>
-              <div>
-                <div>{userName}</div>
-                <div>{lastName}</div>
+              <div className="details-content">
+                <div>
+                  {userName} {lastName}
+                </div>
                 <div>{email}</div>
                 <div>{city}</div>
-                <div>{age}</div>
+                <div>{age} years old</div>
               </div>
             </div>
-
-            <div>
-              {!upload && (
-                <>
-                  Avatar <img src="" alt=""></img>
-                  <button value={valueUploadBtn} onClick={this.handleUpload}>
-                    {valueUploadBtn}
-                  </button>
-                </>
-              )}
-              {upload && (
-                <>
-                  <button value={valueUploadBtn} onClick={this.handleUpload}>
-                    {valueUploadBtn}
-                  </button>
-                  Avatar <img src="" alt=""></img>
-                  <FileUpload></FileUpload>
-                </>
-              )}
-            </div>
-          </>
-        )}
-        {edit && (
+          </div>
+        </>
+        {!upload && edit && (
           <>
-            <div className="edit">
-              <label className="switch">
-                OFF <input type="checkbox" onClick={this.handleEdit} /> ON
-                <span className="slider round"></span>
-              </label>
-            </div>
             <form onSubmit={this.handleFormSubmit}>
               <div>
-                <label>Name:</label>
-                <input type="text" name="userName" value={userName} onChange={this.handleChange} />
+                <input
+                  type="text"
+                  className="input input-filter"
+                  placeholder="User Name"
+                  name="userName"
+                  value={userName}
+                  onChange={this.handleChange}
+                />
               </div>
               <div>
-                <label>Last Name</label>
-                <input type="text" name="lastName" value={lastName} onChange={this.handleChange} />
+                <input
+                  type="text"
+                  className="input input-filter"
+                  placeholder="Last Name"
+                  name="lastName"
+                  value={lastName}
+                  onChange={this.handleChange}
+                />
               </div>
               <div>
-                <label>Email</label>
-                <input type="text" name="email" value={email} onChange={this.handleChange} />
+                <input
+                  type="text"
+                  className="input input-filter"
+                  placeholder="Email"
+                  name="email"
+                  value={email}
+                  onChange={this.handleChange}
+                />
               </div>
               <div>
-                <label>City</label> <input type="text" name="city" value={city} onChange={this.handleChange} />
+                <input
+                  type="text"
+                  placeholder="City"
+                  className="input input-filter"
+                  name="city"
+                  value={city}
+                  onChange={this.handleChange}
+                />
               </div>
               <div>
-                <label>Age</label>Age <input type="text" name="age" value={age} onChange={this.handleChange} />
+                <input
+                  type="text"
+                  placeholder="Age"
+                  className="input input-filter"
+                  name="age"
+                  value={age}
+                  onChange={this.handleChange}
+                />
               </div>
-              <button onClick={this.handleFormSubmit}> Updata me </button>
+              <div className="flex-centered">
+                <input onClick={this.handleFormSubmit} className="action-btn-medium" type="submit" value="Update!" />
+              </div>
+              <div className="margin-bottom"></div>
             </form>
-            <div>
-              <label>Avatar</label> <img src="" alt=""></img> {userName}
-            </div>
           </>
+        )}
+        {upload && (
+          <form>
+            <ImageUploader
+              withIcon={false}
+              buttonText="Choose a new image"
+              onChange={this.onDrop}
+              imgExtension={['.jpg', '.gif', '.png', '.gif']}
+              maxFileSize={5242880}
+              singleImage={true}
+              withPreview={true}
+            />
+
+            <div className="flex-centered">
+              <input onClick={this.handleFormSubmit} className="action-btn-medium" type="submit" value="Update!" />
+            </div>
+          </form>
         )}
       </div>
     );

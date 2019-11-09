@@ -62,6 +62,7 @@ const RoomCreate = props => {
         <div>
           <input type="submit" value="Create"></input>
         </div>
+        <div className="footer-div"></div>
       </form>
     </div>
   );
