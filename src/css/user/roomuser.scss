@@ -1,19 +1,96 @@
 @import '../utilities/colors.scss';
 @import '../utilities/fonts.scss';
 
-.room-user-content {
-  padding: 0 16px 0 16px;
-  text-align: left;
-  font-family: $primary-font;
-  font-size: $font-size-s;
-}
-.room-user-content .card {
-  padding: 8px;
-  border-radius: 10px;
-  cursor: pointer;
-  border: 1px solid $blue-grey;
-}
-.room-user-content .card .title {
+h3 {
   color: $blue-grey;
-  font-size: $font-size-m;
+  padding-top: 20px;
+}
+
+.room-user-content {
+  width: 100%;
+  padding: 0 16px 100px 16px;
+  text-align: left;
+  font-size: $font-size-s;
+  text-decoration: none;
+  background-color: #e2e4e9;
+  margin-top: -18px, ;
+  padding: 0, 16px;
+
+
+  .card-L {
+    width: 340px;
+    height: 144px;
+    background-color: #fff;
+    padding: 10px 7px 7px 20px;
+    margin: 24px 0;
+    border-radius: 12px;
+    color: $dark;
+    box-shadow: 0 4px 16px 0 $gray-shadows;
+
+    img {
+      width: 120px;
+      height: 120px;
+      background-color: $blue-grey;
+      margin: 4px -40px 8px 10px;
+      border-radius: 12px;
+      color: $dark;
+      float: right;
+    }
+
+    .title {
+      font-size: $font-size-m;
+      color: $slate;
+      text-decoration: none;
+      padding: 14px 0 0 0;
+    }
+
+    .theme {
+      font-size: $font-size-m;
+      padding-top: 10px;
+      color: $barbie-pink;
+    }
+
+    .distance {}
+
+    .people {}
+  }
+
+  .card-R {
+    width: 340px;
+    height: 144px;
+    background-color: #fff;
+    padding: 10px 7px 7px 20px;
+    margin: 24px 0 0 30px;
+    border-radius: 12px;
+    color: $dark;
+    box-shadow: 0 4px 16px 0 $gray-shadows;
+
+    img {
+      width: 120px;
+      height: 120px;
+      background-color: $blue-grey;
+      margin: 4px 16px 8px -50px;
+      border-radius: 12px;
+      color: $dark;
+      float: left;
+
+    }
+
+    .title {
+      font-size: $font-size-m;
+      color: $slate;
+      text-decoration: none;
+      padding: 14px 0 0 0;
+    }
+
+    .theme {
+      font-size: $font-size-m;
+      padding-top: 10px;
+      color: $barbie-pink;
+    }
+
+    .distance {}
+
+    .people {}
+  }
 }

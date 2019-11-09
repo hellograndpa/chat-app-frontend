@@ -96,7 +96,6 @@ class Map extends Component {
 
     return (
       <div style={{ margin: '0 auto', width: '800' }}>
-        <h1 style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder' }}>Your location is:</h1>
         <MapGL {...viewport} mapboxApiAccessToken={TOKEN} mapStyle="mapbox://styles/mapbox/streets-v11">
           <Source id="my-data" type="geojson" data={geojson}>
             <Layer

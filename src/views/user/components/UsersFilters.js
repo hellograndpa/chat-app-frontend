@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 import '../../../css/room/roomfilter.scss';
 
-class RoomFilters extends Component {
+class UsersFilters extends Component {
   state = {};
 
   render() {
     const {
       eventSearch,
-      handleSearchRoom,
-      handleChangeSelectRooms,
+      handleSearchUser,
+      handleChangeSelectUser,
       selectTheme,
       radiusInMeters,
       handleChangeSelectRadiusMeters,
@@ -19,7 +19,7 @@ class RoomFilters extends Component {
     return (
       <div>
         <div className="title">
-          <h1>Rooms Filters</h1>
+          <h1>Users Filters</h1>
         </div>
         <div className="box-title-search">
           <div className="title-search ">
@@ -35,10 +35,10 @@ class RoomFilters extends Component {
         <div className="section">
           <input
             className="input-dark"
-            name="rooms"
-            placeholder="Search by title"
+            name="users"
+            placeholder="Search by N"
             value={eventSearch}
-            onChange={handleSearchRoom}
+            onChange={handleSearchUser}
           />
           <div className="select-wp">
             <div className="select-width-theme-60">
@@ -47,7 +47,7 @@ class RoomFilters extends Component {
                 className="select-css-dark"
                 name="Select theme"
                 value={selectTheme}
-                onChange={handleChangeSelectRooms}
+                onChange={handleChangeSelectUser}
               >
                 <option value="">Select Theme</option>
                 {sortedList}
@@ -76,4 +76,4 @@ class RoomFilters extends Component {
   }
 }
 
-export default RoomFilters;
+export default UsersFilters;

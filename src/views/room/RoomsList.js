@@ -148,16 +148,20 @@ class RoomsList extends Component {
           <>
             <div className="slider">
               <div>
-                <h1>Room map</h1>
-                <Map locations={rooms} />
+                <div className="title">
+                  <h1>Room map</h1>
+                </div>
+                <div>
+                  <Map locations={rooms} />
+                </div>
               </div>
               <div>
                 <RoomFilters
                   eventSearch={eventSearch}
                   handleSearchRoom={this.handleSearchRoom}
                   handleChangeSelectRooms={this.handleChangeSelectRooms}
-                  selectTheme={selectTheme}
-                  radiusInMeters={radiusInMeters}
+                  selectTheme={this.state.selectTheme}
+                  radiusInMeters={this.state.radiusInMeters}
                   handleChangeSelectRadiusMeters={this.handleChangeSelectRadiusMeters}
                   sortedList={sortedList}
                 />
