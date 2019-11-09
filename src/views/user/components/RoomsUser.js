@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable class-methods-use-this */
 
@@ -7,25 +8,34 @@ import { Link } from 'react-router-dom';
 const RoomsUser = props => {
   const { rooms } = props;
 
+  const handleindex = number => {
+    return number & 1 ? 'card-R' : 'card-L';
+  };
+
   return (
     <div className="room-user-content">
-      <h1>Rooms List</h1>
-      {rooms.map(room => {
+      <h3>
+        <strong> {rooms.length} Rooms</strong> avalible arround you
+      </h3>
+      {rooms.map((room, index) => {
         return (
-          <Link key={room._id} to={`../rooms/${room._id}`}>
-            <div className="card">
-              <div className="title">{room.roomName}</div>
-              <div className="flex-between">
-                <div>{room.theme}</div>
-                <div>Last chat 12mn</div>
-              </div>
-
-              <div className="flex-between">
-                <div>{room.distanceFromMe.toFixed(2)} km from you</div>
-                <div>people in: 18</div>
-              </div>
+          <div className={handleindex(index)}>
+            <img src="" />
+            <div className="title">
+              <Link className="title" key={room._id} to={`../rooms/${room._id}`}>
+                {room.roomName}
+              </Link>
             </div>
-          </Link>
+            <div className="flex-between">
+              <div className="theme">{room.theme}</div>
+            </div>
+
+            <div className="flex-between">
+              <div>Last chat 12mn</div>
+              <div className>{room.distanceFromMe.toFixed(2)} km</div>
+              <div>People in: 18</div>
+            </div>
+          </div>
         );
       })}
     </div>

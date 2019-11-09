@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// CSS
+
+import '../../../css/user/userslist.scss';
+
 const Users = props => {
   const { users } = props;
   const allDistances = users.map(user => {
@@ -8,19 +12,25 @@ const Users = props => {
   });
 
   return (
-    <div>
+    <div className="users-list-content-Bg">
+      <h3>{users.length} Users arround you</h3>
       {users.map(user1 => {
         return (
-          <div key={user1._id}>
-            <Link to={`/users/${user1._id}`}>
-              <div>Name {user1.userName}</div>
-              <div>Last Name {user1.lastName}</div>
-            </Link>
-            <div>Email {user1.email}</div>
-            <div>Distance from me {user1.distanceFromMe}</div>
-            <div>Last theme {user1.userName}</div>
+          <div key={user1._id} className="users-list-line">
+            <div className="avatar activo">
+              <img src="" alt="" />
+            </div>
+            <div className="name">
+              <div>
+                <Link to={`/users/${user1._id}`}>
+                  {user1.userName} {user1.lastName}
+                </Link>
+              </div>
+              <div>Ciudad {user1.city}</div>
+            </div>
             <div>
-              Avatar <img src="" alt=""></img> {user1.userName}
+              <div>Distance from me {user1.distanceFromMe}</div>
+              <div>Last theme {user1.userName}</div>
             </div>
           </div>
         );
