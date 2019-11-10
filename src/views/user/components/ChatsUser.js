@@ -28,7 +28,6 @@ const ChatsUser = props => {
   } else {
     chats = searchChats;
   }
-  console.log(chats);
 
   const handleAccept = async chatId => {
     await ChatUserService.updateChatUserStatus(chatId, 'active');
@@ -57,51 +56,52 @@ const ChatsUser = props => {
           {sortedList}
         </select>
       </div>
-      {chats.map((chat, index) => {
-        return (
-          <div key={chat._id}>
-            <div>
-              {chat.status === 'pending' ? (
-                <>
-                  {chat.userChat01._id === user._id ? (
-                    <>
-                      {chat.userChat02.userName}
-                      {/* {
+      {chats.length > 0 &&
+        chats.map((chat, index) => {
+          return (
+            <div key={chat._id}>
+              <div>
+                {chat.status === 'pending' ? (
+                  <>
+                    {chat.userChat01._id === user._id ? (
+                      <>
+                        {chat.userChat02.userName}
+                        {/* {
                         await getDistanceFromMe({
                           latitude: chat.userChat02.location.coordinates[0],
                           logitude: chat.userChat02.location.coordinates[1],
                         })
                       } */}
-                    </>
-                  ) : (
-                    <>
-                      {chat.userChat01.userName}
-                      {/* {
+                      </>
+                    ) : (
+                      <>
+                        {chat.userChat01.userName}
+                        {/* {
                         await getDistanceFromMe({
                           latitude: chat.userChat01.location.coordinates[0],
                           logitude: chat.userChat01.location.coordinates[1],
                         })
                       } */}
-                    </>
-                  )}
-                  {chat.userChat02._id === user._id ? (
-                    <button onClick={() => handleAccept(chat._id)}>Aceptar</button>
-                  ) : (
-                    ' Pending...'
-                  )}
-                </>
-              ) : (
-                <Link to={`/users/private-chat/${chat._id}`}>
-                  {chat.userChat01._id === user._id ? chat.userChat02.userName : chat.userChat01.userName}
-                </Link>
-              )}
+                      </>
+                    )}
+                    {chat.userChat02._id === user._id ? (
+                      <button onClick={() => handleAccept(chat._id)}>Aceptar</button>
+                    ) : (
+                      ' Pending...'
+                    )}
+                  </>
+                ) : (
+                  <Link to={`/users/private-chat/${chat._id}`}>
+                    {chat.userChat01._id === user._id ? chat.userChat02.userName : chat.userChat01.userName}
+                  </Link>
+                )}
+              </div>
+              <div className="avatar-wrapper">
+                <img alt="" src={avatarDefault} />
+              </div>
             </div>
-            <div className="avatar-wrapper">
-              <img alt="" src={avatarDefault} />
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };

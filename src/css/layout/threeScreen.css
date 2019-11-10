@@ -103,6 +103,7 @@ http://stackoverflow.com/a/34696029/383904
 .CSSgal {
   text-align: center; }
 
+<<<<<<< HEAD
 .CSSgal .prevNext a {
   width: 100px;
   height: 40px;
@@ -110,6 +111,87 @@ http://stackoverflow.com/a/34696029/383904
   text-decoration: none;
   border-radius: 0%;
   color: #fff; }
+=======
+/* .CSSgal .prevNext a {
+  width: 100px;
+  height: 50px;
+  margin: 0 3px;
+  background: $blue-grey;
+  text-decoration: none;
+  border-radius: 0%;
+  color: #fff;
+} */
+/* Just centering the examples */
+.arrowed div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; }
+
+.arrow-L {
+  /* more triangle */
+  height: 10px;
+  width: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-width: 3px 3px 0 0;
+  transform: rotate(225deg); }
+
+.arrow-L:before,
+.arrow-L:after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 10px;
+  width: 10px;
+  border-width: 3px 3px 0 0; }
+
+.arrow-L:before {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-width: 3px 3px 0 0;
+  /* top - distance minus border */
+  top: 7px;
+  left: -10px; }
+
+.arrow-L:after {
+  border: 1px solid white;
+  border-width: 3px 3px 0 0;
+  /* top - distance plus border */
+  top: -13px;
+  left: 10px; }
+
+.arrow-R {
+  /* more triangle */
+  height: 10px;
+  width: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-width: 3px 3px 0 0;
+  transform: rotate(45deg); }
+
+.arrow-R:before,
+.arrow-R:after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 10px;
+  width: 10px;
+  border-width: 3px 3px 0 0; }
+
+.arrow-R:before {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-width: 3px 3px 0 0;
+  /* top - distance minus border */
+  top: 7px;
+  left: -10px; }
+
+.arrow-R:after {
+  border: 1px solid white;
+  border-width: 3px 3px 0 0;
+  /* top - distance plus border */
+  top: -13px;
+  left: 10px; }
+>>>>>>> 5fde812051ca51d808903f45f6f6f51f8c9cbaf5
 
 /* SPINNER  */
 .loader,

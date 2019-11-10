@@ -58,7 +58,6 @@
     box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
     border: solid 2px $aqua-marine;
     background-color: #ffffff;
-
   }
 }
 
@@ -76,10 +75,7 @@
     box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
     border: solid 2px $aqua-marine;
     background-color: #ffffff;
-
   }
-
-
 }
 
 .input-label {
@@ -92,6 +88,12 @@
 
 .border-active {
   border: 4px solid $active;
+  pointer-events: none;
+}
+.border-active-editable {
+  border: 4px solid $active;
+  border-style: dotted;
+}
 }
 
 .input-dark {

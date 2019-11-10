@@ -153,7 +153,7 @@ class MeUser extends Component {
                 <RoomsUser rooms={rooms} />
               </div>
               <div className="room-user-content">
-                <User showuser={user} />
+                <User showuser={{}} />
               </div>
               <div>
                 <div className="room-user-filters">
