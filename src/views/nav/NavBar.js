@@ -11,26 +11,26 @@ const NavBar = () => {
     <div>
       <div className="menu-principal ripple">
         <di className="element01 ripple">
-          <div>
-            <img className="icon" src={icons_rideshare} />
-          </div>
           <NavLink className="nav" to="/">
+            <div>
+              <img className="icon" src={icons_rideshare} />
+            </div>
             You
           </NavLink>
         </di>
         <div className="element02 ripple">
-          <div>
-            <img className="icon" src={icons_comment} />
-          </div>
           <NavLink className="nav" to="/rooms/list">
+            <div>
+              <img className="icon" src={icons_comment} />
+            </div>
             Rooms
           </NavLink>
         </div>
         <div className="element03 ripple">
-          <div>
-            <img className="icon" src={icons_users} />
-          </div>
           <NavLink className="nav" to="/users/list">
+            <div>
+              <img className="icon" src={icons_users} />
+            </div>
             Users
           </NavLink>
         </div>

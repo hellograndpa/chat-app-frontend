@@ -20,7 +20,7 @@ const RoomsUser = props => {
       {rooms.map((room, index) => {
         return (
           <div className={handleindex(index)}>
-            <img src="" />
+            <img src="https://engineering.fb.com/wp-content/uploads/2009/02/chat.jpg" />
             <div className="title">
               <Link className="title" key={room._id} to={`../rooms/${room._id}`}>
                 {room.roomName}

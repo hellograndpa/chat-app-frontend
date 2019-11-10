@@ -56,6 +56,12 @@ class Login extends Component {
           <div>
             <input className="action-btn-big" type="submit" value="Login" />
           </div>
+          <div className="o-btn o-btn--xs">Lorem</div>
+          <div className="o-btn o-btn--sm">Foo</div>
+          <div className="o-btn">Foo</div>
+          <div className="o-btn o-btn--lg">Foo</div>
+
+          <div className="o-btn o-btn--theme2 o-btn--lg o-btn--block">Foo</div>
         </form>
       </div>
     );
