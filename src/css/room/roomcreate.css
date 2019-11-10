@@ -8,7 +8,21 @@
   transition: background 0s; }
 
 .room-create .button-image {
+  width: 327px;
   border: none;
   cursor: pointer;
   color: white;
-  outline: none; }
+  outline: none;
+  background-color: #665eff;
+  padding-top: 6px;
+  border-radius: 10px;
+  padding: 10px; }
+
+.room-create image {
+  width: 327px; }
+
+.room-create .footer {
+  height: 60px; }
+
+.room-create .button-wrapper {
+  margin: 10px 0 10px 0; }

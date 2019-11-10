@@ -124,15 +124,15 @@ http://stackoverflow.com/a/34696029/383904
   text-align: center;
 }
 
-.CSSgal .prevNext a {
-  width: 100px;
-  height: 40px;
-  //margin: 0 3px;
-  background: $blue-grey;
-  text-decoration: none;
-  border-radius: 0%;
-  color: #fff;
-}
+// .CSSgal .prevNext a {
+//   width: 100px;
+//   height: 40px;
+//   //margin: 0 3px;
+//   background: $blue-grey;
+//   text-decoration: none;
+//   border-radius: 0%;
+//   color: #fff;
+// }
 
 /* SPINNER  */
 .loader,
@@ -181,31 +181,3 @@ http://stackoverflow.com/a/34696029/383904
     transform: rotate(360deg);
   }
 }
-
-// #s1:target~.o-nav {
-//   .o-nav__btn.o-nav__btn--next {
-//     opacity: 1;
-//     pointer-events: auto;
-//     transform: translateX(0)
-//   }
-
-//   .o-nav__btn:not(.o-nav__btn--next) {
-//     opacity: 0.3;
-//     pointer-events: none;
-//     transform: translateX(-100%)
-//   }
-// }
-
-// #s2:target~.o-nav {
-//   .o-nav__btn.o-nav__btn--next {
-//     opacity: 0.3;
-//     pointer-events: none;
-//     transform: translateX(+100%)
-//   }
-
-//   .o-nav__btn:not(.o-nav__btn--next) {
-//     opacity: 1;
-//     pointer-events: auto;
-//     transform: translateX(0)
-//   }
-// }
