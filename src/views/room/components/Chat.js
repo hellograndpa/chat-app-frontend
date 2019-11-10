@@ -5,6 +5,9 @@ import socketIOClient from 'socket.io-client';
 // Services
 import ChatRoomService from '../../../services/chatRoomService';
 
+// Context
+import { withAuth } from '../../../Context/AuthContext';
+
 // Css
 
 const socket = socketIOClient('localhost:3001');
@@ -21,8 +24,10 @@ class Chat extends Component {
 
     // Listen for changes on the db.
     socket.on(chatId, message => {
+      const newState = { ...this.state };
       const newConversation = [...this.state.room.chat.conversation, message];
-      this.setState({ room: { chat: { conversation: newConversation } } });
+      newState.room.chat.conversation = newConversation;
+      this.setState({ newState });
     });
   }
 
@@ -62,14 +67,36 @@ class Chat extends Component {
     } = this.state.room;
 
     return (
-      <>
+      <div className="chatroom">
         <div className="chatwrapper">
           <div className="chat">
             {conversation.map((c, index) => {
               return (
-                <div key={index}>
-                  {c.user.userName}: {c.text}
-                </div>
+                <>
+                  {c.user._id === this.props.user._id ? (
+                    <div className="box tu" key={index}>
+                      <div className="bubble you">{c.text}</div>
+                      <div className="box-avatar">
+                        <div className="o-avatar is-active w-100precent">
+                          <div className="o-avatar__inner">
+                            <img className="o-avatar__img" src={c.user.avatar} alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="box el" key={index}>
+                      <div className="box-avatar">
+                        <div className="o-avatar is-active w-100precent">
+                          <div className="o-avatar__inner">
+                            <img className="o-avatar__img" src={c.user.avatar} alt="" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="bubble me">{c.text}</div>
+                    </div>
+                  )}
+                </>
               );
             })}
             <div className="anchor"></div>
@@ -81,9 +108,9 @@ class Chat extends Component {
             <button>Enviar</button>
           </form>
         </div>
-      </>
+      </div>
     );
   }
 }
 
-export default Chat;
+export default withAuth(Chat);

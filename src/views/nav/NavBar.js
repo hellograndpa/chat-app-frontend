@@ -11,9 +11,6 @@ const NavBar = () => {
     <div>
       <div className="menu-principal ripple">
         <div className="element01 ripple">
-          <div>
-            <img className="icon" src={icons_rideshare} />
-          </div>
           <NavLink className="nav" to="/">
             <div>
               <img className="icon" src={icons_rideshare} />

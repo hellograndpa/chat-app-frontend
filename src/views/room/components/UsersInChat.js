@@ -40,13 +40,26 @@ class UsersInChat extends Component {
     const { activeUsers } = this.state;
     return (
       <div>
-        {activeUsers.map(user => {
-          return (
-            <li key={user._id}>
-              <NavLink to={`/users/${user._id}`}>{user.userName}</NavLink>
-            </li>
-          );
-        })}
+        <div className="title">
+          <h1>Users in this chat</h1>
+        </div>
+
+        <div className="users-chat flex">
+          {activeUsers.map(user => {
+            return (
+              <div className="flex-centered-vetically  box" key={user._id}>
+                <div className="o-avatar is-active w-50precent">
+                  <div className="o-avatar__inner">
+                    <img className="o-avatar__img" src={user.avatar} alt="" />
+                  </div>
+                </div>
+                <div className="userName">
+                  <NavLink to={`/users/${user._id}`}>{user.userName}</NavLink>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import '../../../css/room/roomfilter.scss';
 
@@ -26,9 +26,6 @@ function RoomFilters(props) {
 
   return (
     <div>
-      <div className="title">
-        <h1>Rooms Filters</h1>
-      </div>
       <div className="box-title-search">
         <div className="title-search ">
           <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
@@ -40,6 +37,11 @@ function RoomFilters(props) {
             <div className="box-color03 "></div>
             <div className="box-color04 "></div>
           </div>
+        </div>
+        <div className="title-search ">
+          <NavLink to="/rooms/create" className="accordion ">
+            <div calssname="search-text">CREATE</div>
+          </NavLink>
         </div>
       </div>
 

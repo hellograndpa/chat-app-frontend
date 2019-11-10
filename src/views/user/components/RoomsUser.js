@@ -6,6 +6,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const RoomsUser = props => {
+  const avatarDefault = 'https://engineering.fb.com/wp-content/uploads/2009/02/chat.jpg';
   const { rooms } = props;
 
   const handleindex = number => {
@@ -20,7 +21,7 @@ const RoomsUser = props => {
       {rooms.map((room, index) => {
         return (
           <div className={handleindex(index)}>
-            <img src="https://engineering.fb.com/wp-content/uploads/2009/02/chat.jpg" />
+            <img src={room.avatar !== '' ? room.avatar : avatarDefault} />
             <div className="title">
               <Link className="title" key={room._id} to={`../rooms/${room._id}`}>
                 {room.roomName}

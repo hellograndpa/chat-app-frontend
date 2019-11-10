@@ -131,7 +131,14 @@ class MeUser extends Component {
         <s id="s1"></s>
         <s id="s2"></s>
         <s id="s3"></s>
-
+        <div className="o-top-nav o-top-nav--rel">
+          <a href="#s1" className="o-top-nav__btn || o-btn">
+            Prev
+          </a>
+          <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+            Next
+          </a>
+        </div>
         {!loading && (
           <>
             <div className="slider">
