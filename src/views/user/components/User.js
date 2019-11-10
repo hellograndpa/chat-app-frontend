@@ -6,7 +6,6 @@ import ChatUserService from '../../../services/chatUserService';
 import { withAuth } from '../../../Context/AuthContext';
 
 // Components
-
 import avatarDefault from '../../../images/avatar.svg';
 
 class UserMe extends Component {

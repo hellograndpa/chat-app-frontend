@@ -169,25 +169,6 @@ class UsersList extends Component {
                 <Users users={users} />
               </div>
             </div>
-
-            <div className="prevNext">
-              <div>
-                <a href="#s1"></a>
-                <a href="#s2">
-                  <div className="arrowed">
-                    <div className="arrow-R"></div>
-                  </div>
-                </a>
-              </div>
-              <div>
-                <a href="#s1">
-                  <div className="arrowed">
-                    <div className="arrow-L"></div>
-                  </div>
-                </a>
-                <a href="#s2"></a>
-              </div>
-            </div>
           </>
         )}
         {loading && <div className="loader">Loading...</div>}

@@ -22,7 +22,7 @@ const RoomsUser = props => {
           <div className={handleindex(index)}>
             <div className="o-images ">
               <div className="o-images__inner">
-                <img className="o-images__img" src="https://engineering.fb.com/wp-content/uploads/2009/02/chat.jpg" />
+                <img className="o-images__img" src={room.avatar} />
               </div>
             </div>
             <div className="title">
@@ -33,9 +33,11 @@ const RoomsUser = props => {
             <div className="flex-between">
               <div className="theme">{room.theme}</div>
             </div>
-            <div className="flex-between">
-              <div>{room.distance !== undefined && room.distanceFromMe.toFixed(2)} km from you</div>
-              <div>people in: 18</div>
+            <div className="flex-between ">
+              <div className="distance">
+                {room.distance !== undefined && room.distanceFromMe.toFixed(2)} km from you
+              </div>
+              <div className="people">people in: 18</div>
             </div>
           </div>
         );

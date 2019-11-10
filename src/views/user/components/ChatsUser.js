@@ -34,7 +34,7 @@ const ChatsUser = props => {
     onAccept();
   };
 
-  // ToDo: hacer todo lo pone aquí....
+  // ToDo: hacer todo lo pone aquí que ni mas que menso que recger la distancia....
   const distance = async () => {
     const newdistance = chats.map(async chat => {
       const uno = await getDistanceFromMe({
@@ -48,18 +48,22 @@ const ChatsUser = props => {
   };
 
   return (
-    <div>
-      <div className="room-user-content">
-        <select value="" className="select-filter" onChange={onSelect}>
-          <option>Select theme</option>
-          <option value="">All</option>
-          {sortedList}
-        </select>
-      </div>
+    <div className=".u-wrapper-row">
       {chats.length > 0 &&
         chats.map((chat, index) => {
           return (
-            <div key={chat._id}>
+            <div key={chat._id} className="">
+              {/* start image of avatar */}
+              <div className="o-avatar is-active w-15precent">
+                <div className="o-avatar__inner">
+                  <img
+                    className="o-avatar__img"
+                    src={chat.userChat01._id === user._id ? user.avatar : chat.userChat02.avatar}
+                    alt=""
+                  />
+                </div>
+              </div>
+              {/* end image of avatar */}
               <div>
                 {chat.status === 'pending' ? (
                   <>
@@ -75,7 +79,7 @@ const ChatsUser = props => {
                       </>
                     ) : (
                       <>
-                        {chat.userChat01.userName}
+                        <div className="title">{chat.userChat01.userName}</div>
                         {/* {
                         await getDistanceFromMe({
                           latitude: chat.userChat01.location.coordinates[0],
@@ -95,9 +99,6 @@ const ChatsUser = props => {
                     {chat.userChat01._id === user._id ? chat.userChat02.userName : chat.userChat01.userName}
                   </Link>
                 )}
-              </div>
-              <div className="avatar-wrapper">
-                <img alt="" src={avatarDefault} />
               </div>
             </div>
           );
