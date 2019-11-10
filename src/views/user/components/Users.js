@@ -7,9 +7,6 @@ import '../../../css/user/userslist.scss';
 
 const Users = props => {
   const { users } = props;
-  const allDistances = users.map(user => {
-    return user.distanceFromMe;
-  });
 
   return (
     <div className="users-list-content-Bg">
@@ -17,20 +14,29 @@ const Users = props => {
       {users.map(user1 => {
         return (
           <div key={user1._id} className="users-list-line">
-            <div className="avatar activo">
-              <img src="" alt="" />
-            </div>
-            <div className="name">
-              <div>
-                <Link to={`/users/${user1._id}`}>
-                  {user1.userName} {user1.lastName}
-                </Link>
+            <div className="o-avatar is-active w-15precent">
+              <div className="o-avatar__inner">
+                <img
+                  className="o-avatar__img"
+                  src="https://www.lords-safaris.com/wp-content/uploads/2015/02/default_o-avatar_female.jpg"
+                  alt=""
+                />
               </div>
-              <div>Ciudad {user1.city}</div>
             </div>
-            <div>
-              <div>Distance from me {user1.distanceFromMe}</div>
+
+            <div className="text-user">
+              <Link className="name" to={`/users/${user1._id}`}>
+                <strong>
+                  {user1.userName} {user1.lastName}
+                </strong>
+              </Link>
+
+              <div>Ciudad {user1.city}</div>
               <div>Last theme {user1.userName}</div>
+            </div>
+
+            <div className="distance">
+              <div className="oval">{user1.distanceFromMe.toFixed(1)} km</div>
             </div>
           </div>
         );

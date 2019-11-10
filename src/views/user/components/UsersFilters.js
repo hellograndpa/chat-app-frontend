@@ -1,37 +1,48 @@
-import React, { Component } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import '../../../css/room/roomfilter.scss';
 
-class UsersFilters extends Component {
-  state = {};
+function UsersFilters(props) {
+  const [setActive, setActiveState] = useState('');
+  const [setHeight, setHeightState] = useState('0px');
 
-  render() {
-    const {
-      eventSearch,
-      handleSearchUser,
-      handleChangeSelectUser,
-      selectTheme,
-      radiusInMeters,
-      handleChangeSelectRadiusMeters,
-      sortedList,
-    } = this.props;
-    return (
-      <div>
-        <div className="title">
-          <h1>Users Filters</h1>
-        </div>
-        <div className="box-title-search">
-          <div className="title-search ">
+  const content = useRef(null);
+
+  function toggleAccordion() {
+    setActiveState(setActive === '' ? 'active' : '');
+    setHeightState(setActive === 'active' ? '0px' : `${content.current.scrollHeight}px`);
+  }
+
+  const {
+    eventSearch,
+    handleSearchUser,
+    sortedList,
+    selectTheme,
+    handleChangeSelectUser,
+    radiusInMeters,
+    handleChangeSelectRadiusMeters,
+  } = props;
+
+  return (
+    <div className="header || u-sticky">
+      <div className="title">
+        <h1>Users Filters</h1>
+      </div>
+      <div className="box-title-search">
+        <div className="title-search ">
+          <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
             <div calssName="search-text">SEARCH</div>
-            <div className="colors-selected ">
-              <div className="box-color01 "></div>
-              <div className="box-color02 "></div>
-              <div className="box-color03 "></div>
-              <div className="box-color04 "></div>
-            </div>
+          </button>
+          <div className="colors-selected ">
+            <div className="box-color01 "></div>
+            <div className="box-color02 "></div>
+            <div className="box-color03 "></div>
+            <div className="box-color04 "></div>
           </div>
         </div>
+      </div>
+      <div ref={content} style={{ maxHeight: `${setHeight}` }} className="accordion__content">
         <div className="section">
           <input
             className="input-dark"
@@ -72,8 +83,8 @@ class UsersFilters extends Component {
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default UsersFilters;

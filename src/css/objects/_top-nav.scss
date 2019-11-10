@@ -1,0 +1,25 @@
+.o-top-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+
+  &--rel {
+    position: relative;
+  }
+}
+
+.o-top-nav__btn {
+  transition: opacity .4s ease-out, transform .4s ease-out .3s;
+
+  border-radius: 0;
+
+  &--next {
+    margin-left: auto;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
