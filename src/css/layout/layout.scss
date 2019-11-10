@@ -33,9 +33,18 @@ img {
   display: flex;
   justify-content: center;
 }
+.flex {
+  display: flex;
+}
 .margin-bottom {
   height: 60px;
 }
 .text-centered {
   text-align: center;
+}
+.flex-centered-vetically {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }

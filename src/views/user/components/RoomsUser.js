@@ -6,6 +6,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const RoomsUser = props => {
+  const avatarDefault = 'https://engineering.fb.com/wp-content/uploads/2009/02/chat.jpg';
   const { rooms } = props;
 
   const handleindex = number => {
@@ -22,7 +23,7 @@ const RoomsUser = props => {
           <div className={handleindex(index)}>
             <div className="o-images ">
               <div className="o-images__inner">
-                <img className="o-images__img" src={room.avatar} />
+                <img src={room.avatar !== '' ? room.avatar : avatarDefault} />
               </div>
             </div>
             <div className="title">

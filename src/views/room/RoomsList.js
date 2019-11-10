@@ -158,13 +158,8 @@ class RoomsList extends Component {
             <div className="slider">
               <div>
                 <div className="title">
-                  <h1>Room map</h1>
+                  <h1>Rooms arround you </h1>
                 </div>
-                <div>
-                  <Map locations={rooms} />
-                </div>
-              </div>
-              <div>
                 <RoomFilters
                   eventSearch={eventSearch}
                   handleSearchRoom={this.handleSearchRoom}
@@ -175,6 +170,14 @@ class RoomsList extends Component {
                   sortedList={sortedList}
                 />
                 <RoomsUser rooms={rooms} />
+              </div>
+              <div>
+                <div className="title">
+                  <h1>Room map</h1>
+                </div>
+                <div>
+                  <Map locations={rooms} />
+                </div>
               </div>
             </div>
           </>
