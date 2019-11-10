@@ -16,11 +16,7 @@ const Users = props => {
           <div key={user1._id} className="users-list-line">
             <div className="o-avatar is-active w-15precent">
               <div className="o-avatar__inner">
-                <img
-                  className="o-avatar__img"
-                  src="https://www.lords-safaris.com/wp-content/uploads/2015/02/default_o-avatar_female.jpg"
-                  alt=""
-                />
+                <img className="o-avatar__img" src={users.avatar} alt="" />
               </div>
             </div>
 

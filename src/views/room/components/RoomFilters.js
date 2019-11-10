@@ -25,7 +25,7 @@ function RoomFilters(props) {
   } = props;
 
   return (
-    <div>
+    <div className="header || u-sticky">
       <div className="title">
         <h1>Rooms Filters</h1>
       </div>
