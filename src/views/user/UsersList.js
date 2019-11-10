@@ -132,16 +132,13 @@ class UsersList extends Component {
 
     return (
       <div className="CSSgal">
-        {/* Don't wrap targets in parent */}
         <s id="s1"></s>
         <s id="s2"></s>
         <s id="s3"></s>
 
         {!loading && (
           <>
-            {/* START SLIDER--------- */}
             <div className="slider">
-              {/* FIRST SALIDER ------------------*/}
               <div>
                 <div className="title">
                   <h1>Users map</h1>
@@ -150,8 +147,6 @@ class UsersList extends Component {
                   <Map locations={users} />
                 </div>
               </div>
-              {/* EMD FIRST SALIDER-------------- */}
-              {/* SECOND SALIDER ------------------*/}
               <div>
                 <UsersFilters
                   eventSearch={eventSearch}
@@ -162,14 +157,9 @@ class UsersList extends Component {
                   radiusInMeters={this.state.radiusInMeters}
                   handleChangeSelectRadiusMeters={this.handleChangeSelectRadiusMeters}
                 />
-                {/* END SECOND SALIDER ------------------*/}
-                {/* THIRD SALIDER ------------------*/}
                 <Users users={users} />
               </div>
-              {/* END THIRD SALIDER ------------------*/}
             </div>
-            {/* END SLIDER--------- */}
-            {/* START BUTTONS */}
 
             <div className="prevNext">
               <div>
@@ -189,7 +179,6 @@ class UsersList extends Component {
                 <a href="#s2"></a>
               </div>
             </div>
-            {/* END BUTTONS */}
           </>
         )}
         {loading && <div className="loader">Loading...</div>}

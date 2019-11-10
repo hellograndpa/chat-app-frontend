@@ -32,7 +32,7 @@ http://stackoverflow.com/a/34696029/383904
 }
 
 /* SLIDES */
-.CSSgal .slider>* {
+.CSSgal .slider > * {
   display: inline-block;
   white-space: normal;
   vertical-align: top;
@@ -52,7 +52,7 @@ http://stackoverflow.com/a/34696029/383904
   height: 0;
 }
 
-.CSSgal .prevNext>div+div {
+.CSSgal .prevNext > div + div {
   visibility: hidden;
   /* Hide all but first P/N container */
 }
@@ -74,43 +74,43 @@ http://stackoverflow.com/a/34696029/383904
   opacity: 1;
 }
 
-.CSSgal .prevNext a+a {
+.CSSgal .prevNext a + a {
   left: auto;
   right: 0;
 }
 
 /* PREV/NEXT CONTAINERS VISIBILITY */
 /* ALL: */
-.CSSgal>s:target~.prevNext>* {
+.CSSgal > s:target ~ .prevNext > * {
   visibility: hidden;
 }
 
 /* ACTIVE: */
-#s1:target~.prevNext>*:nth-child(1) {
+#s1:target ~ .prevNext > *:nth-child(1) {
   visibility: visible;
 }
 
-#s2:target~.prevNext>*:nth-child(2) {
+#s2:target ~ .prevNext > *:nth-child(2) {
   visibility: visible;
 }
 
-#s3:target~.prevNext>*:nth-child(3) {
+#s3:target ~ .prevNext > *:nth-child(3) {
   visibility: visible;
 }
 
 /* More slides? Add here more rules */
 /* SLIDER ANIMATION POSITIONS */
-#s1:target~.slider {
+#s1:target ~ .slider {
   transform: translateX(0%);
   -webkit-transform: translateX(0%);
 }
 
-#s2:target~.slider {
+#s2:target ~ .slider {
   transform: translateX(-100%);
   -webkit-transform: translateX(-100%);
 }
 
-#s3:target~.slider {
+#s3:target ~ .slider {
   transform: translateX(-200%);
   -webkit-transform: translateX(-200%);
 }

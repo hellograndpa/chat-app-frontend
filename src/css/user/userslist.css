@@ -1,0 +1,53 @@
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
+h3 {
+  color: #78849e;
+  padding-top: 20px; }
+
+.users-list-content-Bg {
+  width: 100%;
+  padding: 0 16px 100px 16px;
+  text-align: left;
+  font-size: 14px;
+  text-decoration: none;
+  background-color: #e2e4e9;
+  margin-top: -18px;
+  padding: 0, 16px; }
+
+.users-list-line {
+  display: flex;
+  flex-flow: row;
+  justify-content: stretch; }
+  .users-list-line .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #353a50; }
+    .users-list-line .avatar .activo {
+      border: 13px solid #3acce1; }
+    .users-list-line .avatar .name {
+      width: 400px;
+      text-decoration: none;
+      ext-align: left;
+      font-size: 14px;
+      text-decoration: none; }
+    .users-list-line .avatar .distnace-from-me {
+      width: 25%; }

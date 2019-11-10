@@ -1,2 +1,14 @@
-.footer-div {
-  margin-bottom: 90px; }
+.room-create .ripple {
+  background-position: center;
+  transition: background 0.4s; }
+
+.room-create .ripple:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s; }
+
+.room-create .button-image {
+  border: none;
+  cursor: pointer;
+  color: white;
+  outline: none; }
