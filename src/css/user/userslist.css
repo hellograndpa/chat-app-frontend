@@ -1,0 +1,65 @@
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
+h3 {
+  color: #78849e;
+  padding-top: 20px; }
+
+.users-list-content-Bg {
+  width: 100%;
+  height: 100%;
+  padding: 0 16px 100px 16px;
+  text-align: left;
+  font-size: 14px;
+  text-decoration: none;
+  background-color: #e2e4e9;
+  margin-top: -18px;
+  padding: 0, 16px; }
+
+.users-list-line {
+  display: flex;
+  flex-flow: row;
+  justify-content: stretch;
+  margin-bottom: 10px; }
+  .users-list-line .avatar {
+    width: 15%; }
+  .users-list-line .text-user {
+    width: 60%;
+    padding: 0px 0 0 14px; }
+    .users-list-line .text-user .name {
+      font-size: 18px;
+      color: #454f63;
+      text-decoration: none; }
+  .users-list-line .distance {
+    width: 15%; }
+    .users-list-line .distance .oval {
+      border-radius: 20px;
+      background: #3acce1;
+      margin: 2%;
+      padding: 4px;
+      color: #fff; }
+
+.u-sticky {
+  position: sticky;
+  top: 0; }
+
+.header {
+  background-color: #fff;
+  z-index: 1; }

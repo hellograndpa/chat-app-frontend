@@ -10,14 +10,17 @@ const NavBar = () => {
   return (
     <div>
       <div className="menu-principal ripple">
-        <di className="element01 ripple">
+        <div className="element01 ripple">
+          <div>
+            <img className="icon" src={icons_rideshare} />
+          </div>
           <NavLink className="nav" to="/">
             <div>
               <img className="icon" src={icons_rideshare} />
             </div>
             You
           </NavLink>
-        </di>
+        </div>
         <div className="element02 ripple">
           <NavLink className="nav" to="/rooms/list">
             <div>

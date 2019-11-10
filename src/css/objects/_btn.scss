@@ -1,3 +1,4 @@
+@import '../utilities/colors.scss';
 .o-btn {
   position: relative;
   display: inline-block;
@@ -7,7 +8,7 @@
   color: white;
   cursor: pointer;
   box-shadow: $gray-shadows 0 0 4px;
-  transition: background-color .4s ease-out;
+  transition: background-color 0.4s ease-out;
 
   &:hover {
     background-color: $cornflower;
@@ -25,7 +26,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(255, 255, 255, .5);
+      background: rgba(255, 255, 255, 0.5);
     }
   }
 
@@ -33,20 +34,20 @@
 
   // BEGIN: Size modifiers
   &--xs {
-    font-size: .7em
+    font-size: 0.7em;
   }
 
   &--sm {
-    font-size: .8em
+    font-size: 0.8em;
   }
 
   &--lg {
-    font-size: 1.2em
+    font-size: 1.2em;
   }
 
   &--block {
     display: block;
-    width: 100%
+    width: 100%;
   }
 
   // END: Size modifiers

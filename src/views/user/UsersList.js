@@ -132,7 +132,6 @@ class UsersList extends Component {
 
     return (
       <div className="CSSgal">
-        {/* Don't wrap targets in parent */}
         <s id="s1"></s>
         <s id="s2"></s>
         <s id="s3"></s>
@@ -148,9 +147,7 @@ class UsersList extends Component {
         {/* end nav top */}
         {!loading && (
           <>
-            {/* START SLIDER--------- */}
             <div className="slider">
-              {/* FIRST SALIDER ------------------*/}
               <div>
                 <div className="title">
                   <h1>Users map</h1>
@@ -159,8 +156,6 @@ class UsersList extends Component {
                   <Map locations={users} />
                 </div>
               </div>
-              {/* EMD FIRST SALIDER-------------- */}
-              {/* SECOND SALIDER ------------------*/}
               <div>
                 <UsersFilters
                   eventSearch={eventSearch}
@@ -171,13 +166,28 @@ class UsersList extends Component {
                   radiusInMeters={this.state.radiusInMeters}
                   handleChangeSelectRadiusMeters={this.handleChangeSelectRadiusMeters}
                 />
-                {/* END SECOND SALIDER ------------------*/}
-                {/* THIRD SALIDER ------------------*/}
                 <Users users={users} />
               </div>
-              {/* END THIRD SALIDER ------------------*/}
             </div>
-            {/* END SLIDER--------- */}
+
+            <div className="prevNext">
+              <div>
+                <a href="#s1"></a>
+                <a href="#s2">
+                  <div className="arrowed">
+                    <div className="arrow-R"></div>
+                  </div>
+                </a>
+              </div>
+              <div>
+                <a href="#s1">
+                  <div className="arrowed">
+                    <div className="arrow-L"></div>
+                  </div>
+                </a>
+                <a href="#s2"></a>
+              </div>
+            </div>
           </>
         )}
         {loading && <div className="loader">Loading...</div>}
