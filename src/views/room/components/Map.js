@@ -11,7 +11,7 @@ class Map extends Component {
   state = {
     viewport: {
       width: window.innerWidth,
-      height: window.innerHeight - 200,
+      height: window.innerHeight - 100,
     },
   };
 
