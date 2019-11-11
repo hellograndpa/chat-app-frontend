@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 
 // Services
 import RoomService from '../../services/roomService';
@@ -38,11 +38,14 @@ class RoomWp extends Component {
         <s id="s2"></s>
         <s id="s3"></s>
         <div className="o-top-nav o-top-nav--rel">
-          <a href="#s1" className="o-top-nav__btn || o-btn">
-            Prev
+          <a className="o-top-nav__btn || o-btn">
+            <NavLink to="/rooms/list">Back</NavLink>
+          </a>
+          <a href="#s1" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+            Chat
           </a>
           <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-            Next
+            Map
           </a>
         </div>
         {!loading && (
