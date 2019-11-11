@@ -49,10 +49,10 @@ class RoomWp extends Component {
           <>
             <div className="slider">
               <div>
-                <UsersInChat roomId={this.state.room._id} activeUsers={this.state.room.activeUsers}></UsersInChat>
+                <Chat {...this.state}></Chat>
               </div>
               <div>
-                <Chat {...this.state}></Chat>
+                <UsersInChat roomId={this.state.room._id} activeUsers={this.state.room.activeUsers}></UsersInChat>
               </div>
               <div>
                 <RoomDetails {...this.state.room}></RoomDetails>

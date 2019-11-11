@@ -1,3 +1,23 @@
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
 .chatroom {
   background-color: #e2e4e9;
   height: 100%; }
@@ -21,10 +41,12 @@
 .chatroom .box {
   display: flex;
   padding: 10px; }
-  .chatroom .box.tu {
-    justify-content: flex-end; }
-  .chatroom .box.el {
-    justify-content: flex-start; }
+
+.chatroom .box.tu {
+  justify-content: flex-end; }
+
+.chatroom .box.el {
+  justify-content: flex-start; }
 
 .chatroom .box-avatar {
   width: 20%; }
@@ -35,10 +57,6 @@
   padding-left: 10px;
   border-radius: 10px;
   background-color: #fff; }
-  .chatroom .box-message.left {
-    margin-left: 10px; }
-  .chatroom .box-message.right {
-    margin-right: 10px; }
 
 .bubble {
   background-color: #f2f2f2;
@@ -65,7 +83,10 @@
 
 .me {
   float: left;
-  margin: 5px 45px 5px 20px; }
+  margin: 0 5px 5px 20px;
+  text-align: left;
+  width: 80%;
+  word-break: break-word; }
 
 .me::before {
   box-shadow: -2px 2px 2px 0 rgba(178, 178, 178, 0.4);
@@ -73,8 +94,42 @@
 
 .you {
   float: right;
-  margin: 5px 20px 5px 45px; }
+  margin: 0 20px 5px 0px;
+  text-align: right;
+  width: 80%;
+  word-break: break-word; }
 
 .you::before {
   box-shadow: 2px -2px 2px 0 rgba(178, 178, 178, 0.4);
   right: -9px; }
+
+.bubble .date {
+  font-size: 12px;
+  width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.bubble .date.right {
+  text-align: right; }
+
+.bubble .date.left {
+  text-align: left; }
+
+.chatroom .margin-header-text {
+  margin-bottom: 5px; }
+
+.chatroom .write-text-wrapper {
+  padding: 15px;
+  margin-bottom: 70px;
+  border-top: 1px solid; }
+
+.chatroom .chat-textarea {
+  width: 250px; }
+
+.chatroom .form-content {
+  display: flex;
+  justify-content: space-between; }
+
+.chatroom .no-border {
+  border: none; }
