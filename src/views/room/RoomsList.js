@@ -142,7 +142,6 @@ class RoomsList extends Component {
       <div className="CSSgal">
         <s id="s1"></s>
         <s id="s2"></s>
-        <s id="s3"></s>
         {/* nav top */}
         <div className="o-top-nav o-top-nav--rel">
           <a href="#s1" className="o-top-nav__btn || o-btn">
@@ -157,9 +156,6 @@ class RoomsList extends Component {
           <>
             <div className="slider">
               <div>
-                <div className="title">
-                  <h1>Rooms arround you </h1>
-                </div>
                 <RoomFilters
                   eventSearch={eventSearch}
                   handleSearchRoom={this.handleSearchRoom}

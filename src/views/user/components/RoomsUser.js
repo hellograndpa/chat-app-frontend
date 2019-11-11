@@ -23,7 +23,7 @@ const RoomsUser = props => {
           <div className={handleindex(index)}>
             <div className="o-images ">
               <div className="o-images__inner">
-                <img src={room.avatar !== '' ? room.avatar : avatarDefault} />
+                <img className="o-images__img" src={room.avatar !== '' ? room.avatar : avatarDefault} />
               </div>
             </div>
             <div className="title">
