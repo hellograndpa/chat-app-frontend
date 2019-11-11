@@ -1,4 +1,5 @@
 @import '../utilities/colors.scss';
+
 .o-btn {
   position: relative;
   display: inline-block;
@@ -9,15 +10,21 @@
   cursor: pointer;
   box-shadow: $gray-shadows 0 0 4px;
   transition: background-color 0.4s ease-out;
+  text-decoration: none;
 
   &:hover {
     background-color: $cornflower;
+  }
+
+  &.margin {
+    margin: .5em;
   }
 
   // BEGIN: States
   &.is-disabled {
     pointer-events: none;
     user-select: none;
+    background: $slate;
 
     &:after {
       content: '';
@@ -26,7 +33,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(255, 255, 255, 0.5);
+      background-color: transparentize($gray-shadows, 0.4);
+
     }
   }
 

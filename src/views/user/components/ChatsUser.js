@@ -48,57 +48,65 @@ const ChatsUser = props => {
   };
 
   return (
-    <div className=".u-wrapper-row">
+    <div className="u-wrapper-flex-wrap u-wrapper-flex-wrap__cont-center">
       {chats.length > 0 &&
         chats.map((chat, index) => {
           return (
-            <div key={chat._id} className="">
+            <div className="flex-centered-vetically w-40precent box-list-user color" key={user._id}>
               {/* start image of avatar */}
-              <div className="o-avatar is-active w-15precent">
+              <div className="o-avatar is-active w-75precent ">
                 <div className="o-avatar__inner">
                   <img
                     className="o-avatar__img"
-                    src={chat.userChat01._id === user._id ? user.avatar : chat.userChat02.avatar}
+                    src={chat.userChat01._id === user._id ? chat.userChat02.avatar : user.avatar}
                     alt=""
                   />
                 </div>
-              </div>
-              {/* end image of avatar */}
-              <div>
-                {chat.status === 'pending' ? (
-                  <>
-                    {chat.userChat01._id === user._id ? (
+                <div>
+                  {/* end image of avatar */}
+                  <div>
+                    {chat.status === 'pending' ? (
                       <>
-                        {chat.userChat02.userName}
-                        {/* {
+                        {chat.userChat01._id === user._id ? (
+                          <>
+                            <div className="title">
+                              {chat.userChat02.userName} {chat.userChat02.lastName}
+                            </div>
+                            {/* {
                         await getDistanceFromMe({
                           latitude: chat.userChat02.location.coordinates[0],
                           logitude: chat.userChat02.location.coordinates[1],
                         })
                       } */}
-                      </>
-                    ) : (
-                      <>
-                        <div className="title">{chat.userChat01.userName}</div>
-                        {/* {
+                          </>
+                        ) : (
+                          <>
+                            <div className="title">
+                              {chat.userChat01.userName} {chat.userChat01.lastName}
+                            </div>
+                            {/* {
                         await getDistanceFromMe({
                           latitude: chat.userChat01.location.coordinates[0],
                           logitude: chat.userChat01.location.coordinates[1],
                         })
                       } */}
+                          </>
+                        )}
+                        {chat.userChat02._id === user._id ? (
+                          <button className="o-btn margin o-btn--sm" onClick={() => handleAccept(chat._id)}>
+                            ACEPTAR
+                          </button>
+                        ) : (
+                          <div className="o-btn margin o-btn--sm is-disabled"> PENDING</div>
+                        )}
                       </>
-                    )}
-                    {chat.userChat02._id === user._id ? (
-                      <button onClick={() => handleAccept(chat._id)}>Aceptar</button>
                     ) : (
-                      ' Pending...'
+                      <Link className="o-btn margin o-btn--sm" to={`/users/private-chat/${chat._id}`}>
+                        OPEN CHAT
+                      </Link>
                     )}
-                  </>
-                ) : (
-                  <Link to={`/users/private-chat/${chat._id}`}>
-                    {chat.userChat01._id === user._id ? chat.userChat02.userName : chat.userChat01.userName}
-                  </Link>
-                )}
+                  </div>
+                </div>
               </div>
             </div>
           );

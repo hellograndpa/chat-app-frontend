@@ -44,7 +44,7 @@ class UsersInChat extends Component {
           <h1>Users in this chat</h1>
         </div>
 
-        <div className="users-chat flex">
+        <div className="u-wrapper-wrap">
           {activeUsers.map(user => {
             return (
               <div className="flex-centered-vetically  box" key={user._id}>

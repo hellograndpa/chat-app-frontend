@@ -583,27 +583,30 @@ td,
 th {
   padding: 0; }
 
-.u-wrapper-wrap {
+.u-wrapper-flex-wrap {
   display: flex;
   flex-flow: wrap; }
 
-.u-wrapper-wrap__cont-center {
+.u-wrapper-flex-wrap__cont-center {
   justify-content: center; }
 
-.u-wrapper-wrap__cont-right {
+.u-wrapper-flex-wrap__cont-center.w-50percent {
+  width: 40%; }
+
+.u-wrapper-flex-wrap__cont-right {
   justify-content: right; }
 
-.u-wrapper-colunm {
+.u-wrapper-flex-colunm {
   display: flex;
   flex-flow: column; }
 
-.u-wrapper-colunm .w-40percent {
-  width: 40%; }
+.u-wrapper-flex-colunm .w-40percent {
+  width: 4%; }
 
-.u-wrapper-colunm__cont-center {
+.u-wrapper-flex-colunm__cont-center {
   justify-content: center; }
 
-.u-wrapper-colunm__cont-right {
+.u-wrapper-flex-colunm__cont-right {
   justify-content: right; }
 
 .u-wrapper-row {

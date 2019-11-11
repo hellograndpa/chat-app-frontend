@@ -1,22 +1,28 @@
-.u-wrapper-wrap {
+.u-wrapper-flex-wrap {
   display: flex;
   flex-flow: wrap;
 
   &__cont-center {
     justify-content: center;
+
+    &.w-50percent {
+      width: 40%;
+    }
   }
 
   &__cont-right {
     justify-content: right;
   }
+
 }
 
-.u-wrapper-colunm {
+.u-wrapper-flex-colunm {
   display: flex;
   flex-flow: column;
 
+
   & .w-40percent {
-    width: 40%;
+    width: 4%;
   }
 
   &__cont-center {
