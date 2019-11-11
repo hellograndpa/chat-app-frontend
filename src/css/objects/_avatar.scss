@@ -9,9 +9,15 @@
   &.w-50precent {
     width: 50%;
   }
+
+  &.w-75precent {
+    width: 75%;
+  }
+
   &.w-100precent {
     width: 100%;
   }
+
   &.is-active {
     .o-avatar__inner:after {
       border-color: $aqua-marine;

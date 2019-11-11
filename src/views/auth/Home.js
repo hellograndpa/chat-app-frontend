@@ -10,11 +10,23 @@ class Home extends Component {
   render() {
     return (
       <div className="CSSgal">
-        {/* Don't wrap targets in parent */}
         <s id="s1"></s>
         <s id="s2"></s>
         <s id="s3"></s>
 
+        {/* nav top */}
+        <div className="o-top-nav o-top-nav--rel">
+          <a href="#s1" className="o-top-nav__btn || o-btn">
+            SINGUP
+          </a>
+          <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+            HOME
+          </a>
+          <a href="#s3" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+            LOGIN
+          </a>
+        </div>
+        {/* end nav top */}
         <div className="slider">
           <div>
             <Login />
@@ -26,21 +38,6 @@ class Home extends Component {
           </div>
           <div>
             <Signup />
-          </div>
-        </div>
-
-        <div className="prevNext">
-          <div>
-            <a href="#s1"></a>
-            <a href="#s2"></a>
-          </div>
-          <div>
-            <a href="#s1"></a>
-            <a href="#s3"></a>
-          </div>
-          <div>
-            <a href="#s2"></a>
-            <a href="#s3"></a>
           </div>
         </div>
       </div>
