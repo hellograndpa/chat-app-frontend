@@ -152,6 +152,7 @@ class UsersList extends Component {
                 <div className="title">
                   <h1>Users map</h1>
                 </div>
+                {/* <hr /> */}
                 <div>
                   <Map locations={users} />
                 </div>
