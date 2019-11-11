@@ -21,38 +21,55 @@ h3 {
     width: 340px;
     height: 144px;
     background-color: #fff;
-    padding: 10px 7px 7px 20px;
+    padding: 10px;
     margin: 24px 0;
     border-radius: 12px;
     color: $dark;
     box-shadow: 0 4px 16px 0 $gray-shadows;
+    position: relative;
 
     img {
       width: 120px;
       height: 120px;
       background-color: $blue-grey;
-      margin: 4px -40px 8px 10px;
+      margin: 4px -40px 8px 240px;
       border-radius: 12px;
       color: $dark;
       float: right;
     }
 
     .title {
+      width: 210px;
+      padding: 16px 16px;
       font-size: $font-size-m;
       color: $slate;
       text-decoration: none;
-      padding: 14px 0 0 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+
     }
 
     .theme {
       font-size: $font-size-m;
       padding-top: 10px;
       color: $barbie-pink;
+      position: absolute;
+      top: 50px;
+      left: 16px;
     }
 
-    .distance {}
+    .distance {
+      position: absolute;
+      top: 90px;
+      left: 16px;
+    }
 
-    .people {}
+    .people {
+      position: absolute;
+      top: 90px;
+      left: 140px;
+    }
   }
 
   .card-R {
@@ -64,6 +81,7 @@ h3 {
     border-radius: 12px;
     color: $dark;
     box-shadow: 0 4px 16px 0 $gray-shadows;
+    position: relative;
 
     img {
       width: 120px;
@@ -77,20 +95,37 @@ h3 {
     }
 
     .title {
+      width: 210px;
+      padding: 16px 16px;
       font-size: $font-size-m;
       color: $slate;
       text-decoration: none;
-      padding: 14px 0 0 0;
+      padding-top: 10px;
+      position: absolute;
+      top: 0;
+      left: 45px;
+
     }
 
     .theme {
       font-size: $font-size-m;
       padding-top: 10px;
       color: $barbie-pink;
+      position: absolute;
+      top: 40px;
+      left: 105px;
     }
 
-    .distance {}
+    .distance {
+      position: absolute;
+      top: 90px;
+      left: 105px;
+    }
 
-    .people {}
+    .people {
+      position: absolute;
+      top: 90px;
+      left: 230px;
+    }
   }
 }

@@ -47,7 +47,7 @@
     position: relative; }
 
 .o-top-nav__btn {
-  transition: opacity .4s ease-out, transform .4s ease-out .3s;
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out 0.3s;
   border-radius: 0; }
   .o-top-nav__btn--next {
     margin-left: auto;

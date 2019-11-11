@@ -1,0 +1,42 @@
+.u-wrapper-wrap {
+  display: flex;
+  flex-flow: wrap;
+
+  &__cont-center {
+    justify-content: center;
+  }
+
+  &__cont-right {
+    justify-content: right;
+  }
+}
+
+.u-wrapper-colunm {
+  display: flex;
+  flex-flow: column;
+
+  & .w-40percent {
+    width: 40%;
+  }
+
+  &__cont-center {
+    justify-content: center;
+  }
+
+  &__cont-right {
+    justify-content: right;
+  }
+}
+
+.u-wrapper-row {
+  display: flex;
+  flex-flow: row;
+
+  &__cont-center {
+    justify-content: center;
+  }
+
+  &__cont-right {
+    justify-content: right;
+  }
+}

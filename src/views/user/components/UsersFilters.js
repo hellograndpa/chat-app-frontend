@@ -15,6 +15,7 @@ function UsersFilters(props) {
   }
 
   const {
+    pgUser,
     eventSearch,
     handleSearchUser,
     sortedList,
@@ -26,9 +27,8 @@ function UsersFilters(props) {
 
   return (
     <div className="header || u-sticky">
-      <div className="title">
-        <h1>Users Filters</h1>
-      </div>
+      <div className="title">{pgUser ? <h1>Your Friends</h1> : <h1>Users Filters</h1>}</div>
+
       <div className="box-title-search">
         <div className="title-search ">
           <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
@@ -51,36 +51,38 @@ function UsersFilters(props) {
             value={eventSearch}
             onChange={handleSearchUser}
           />
-          <div className="select-wp">
-            <div className="select-width-theme-60">
-              <select
-                placeholder="Select a theme select-width-theme-60"
-                className="select-css-dark"
-                name="Select theme"
-                value={selectTheme}
-                onChange={handleChangeSelectUser}
-              >
-                <option value="">Select Theme</option>
-                {sortedList}
-              </select>
+          {!pgUser && (
+            <div className="select-wp">
+              <div className="select-width-theme-60">
+                <select
+                  placeholder="Select a theme select-width-theme-60"
+                  className="select-css-dark"
+                  name="Select theme"
+                  value={selectTheme}
+                  onChange={handleChangeSelectUser}
+                >
+                  <option value="">Select Theme</option>
+                  {sortedList}
+                </select>
+              </div>
+              <div className="select-width-km-30 ">
+                <select
+                  className="select-css-dark select-width-km-30"
+                  name="Select kms"
+                  defaultValue={radiusInMeters}
+                  onChange={handleChangeSelectRadiusMeters}
+                >
+                  <option value="50000"> 50 km</option>
+                  <option value="40000"> 40 km</option>
+                  <option value="30000"> 30 km</option>
+                  <option value="20000"> 20 km</option>
+                  <option value="10000"> 10 km</option>
+                  <option value="5000"> 5 km</option>
+                  <option value="200"> 2 km</option>
+                </select>
+              </div>
             </div>
-            <div className="select-width-km-30 ">
-              <select
-                className="select-css-dark select-width-km-30"
-                name="Select kms"
-                defaultValue={radiusInMeters}
-                onChange={handleChangeSelectRadiusMeters}
-              >
-                <option value="50000"> 50 km</option>
-                <option value="40000"> 40 km</option>
-                <option value="30000"> 30 km</option>
-                <option value="20000"> 20 km</option>
-                <option value="10000"> 10 km</option>
-                <option value="5000"> 5 km</option>
-                <option value="200"> 2 km</option>
-              </select>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

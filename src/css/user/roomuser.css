@@ -35,28 +35,44 @@ h3 {
     width: 340px;
     height: 144px;
     background-color: #fff;
-    padding: 10px 7px 7px 20px;
+    padding: 10px;
     margin: 24px 0;
     border-radius: 12px;
     color: #353a50;
-    box-shadow: 0 4px 16px 0 #c5cdda; }
+    box-shadow: 0 4px 16px 0 #c5cdda;
+    position: relative; }
     .room-user-content .card-L img {
       width: 120px;
       height: 120px;
       background-color: #78849e;
-      margin: 4px -40px 8px 10px;
+      margin: 4px -40px 8px 240px;
       border-radius: 12px;
       color: #353a50;
       float: right; }
     .room-user-content .card-L .title {
+      width: 210px;
+      padding: 16px 16px;
       font-size: 18px;
       color: #454f63;
       text-decoration: none;
-      padding: 14px 0 0 0; }
+      position: absolute;
+      top: 0;
+      left: 0; }
     .room-user-content .card-L .theme {
       font-size: 18px;
       padding-top: 10px;
-      color: #ff4f9a; }
+      color: #ff4f9a;
+      position: absolute;
+      top: 50px;
+      left: 16px; }
+    .room-user-content .card-L .distance {
+      position: absolute;
+      top: 90px;
+      left: 16px; }
+    .room-user-content .card-L .people {
+      position: absolute;
+      top: 90px;
+      left: 140px; }
   .room-user-content .card-R {
     width: 340px;
     height: 144px;
@@ -65,7 +81,8 @@ h3 {
     margin: 24px 0 0 30px;
     border-radius: 12px;
     color: #353a50;
-    box-shadow: 0 4px 16px 0 #c5cdda; }
+    box-shadow: 0 4px 16px 0 #c5cdda;
+    position: relative; }
     .room-user-content .card-R img {
       width: 120px;
       height: 120px;
@@ -75,11 +92,27 @@ h3 {
       color: #353a50;
       float: left; }
     .room-user-content .card-R .title {
+      width: 210px;
+      padding: 16px 16px;
       font-size: 18px;
       color: #454f63;
       text-decoration: none;
-      padding: 14px 0 0 0; }
+      padding-top: 10px;
+      position: absolute;
+      top: 0;
+      left: 45px; }
     .room-user-content .card-R .theme {
       font-size: 18px;
       padding-top: 10px;
-      color: #ff4f9a; }
+      color: #ff4f9a;
+      position: absolute;
+      top: 40px;
+      left: 105px; }
+    .room-user-content .card-R .distance {
+      position: absolute;
+      top: 90px;
+      left: 105px; }
+    .room-user-content .card-R .people {
+      position: absolute;
+      top: 90px;
+      left: 230px; }

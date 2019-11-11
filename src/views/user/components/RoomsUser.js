@@ -21,7 +21,11 @@ const RoomsUser = props => {
       {rooms.map((room, index) => {
         return (
           <div className={handleindex(index)}>
-            <img src={room.avatar !== '' ? room.avatar : avatarDefault} />
+            <div className="o-images ">
+              <div className="o-images__inner">
+                <img src={room.avatar !== '' ? room.avatar : avatarDefault} />
+              </div>
+            </div>
             <div className="title">
               <Link className="title" key={room._id} to={`../rooms/${room._id}`}>
                 {room.roomName}
@@ -30,9 +34,11 @@ const RoomsUser = props => {
             <div className="flex-between">
               <div className="theme">{room.theme}</div>
             </div>
-            <div className="flex-between">
-              <div>{room.distance !== undefined && room.distanceFromMe.toFixed(2)} km from you</div>
-              <div>people in: 18</div>
+            <div className="flex-between ">
+              <div className="distance">
+                {room.distance !== undefined && room.distanceFromMe.toFixed(2)} km from you
+              </div>
+              <div className="people">people in: 18</div>
             </div>
           </div>
         );

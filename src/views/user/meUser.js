@@ -11,7 +11,9 @@ import RoomService from '../../services/roomService';
 // Components
 import User from './components/User';
 import ChatsUser from './components/ChatsUser';
+import UsersFilters from './components/UsersFilters';
 import RoomsUser from './components/RoomsUser';
+import RoomFilters from '../room/components/RoomFilters';
 
 class MeUser extends Component {
   state = {
@@ -21,6 +23,7 @@ class MeUser extends Component {
     rooms: [],
     searchRooms: [],
     selectTheme: '',
+    pgUser: true,
   };
 
   handleChatUser = user => {
@@ -101,7 +104,7 @@ class MeUser extends Component {
 
   render() {
     const { user } = this.props;
-    const { searchChats, selectStatus, searchRooms, selectTheme, loading } = this.state;
+    const { searchChats, selectStatus, searchRooms, selectTheme, loading, pgUser } = this.state;
 
     let themes = [];
     if (searchRooms) {
@@ -131,66 +134,55 @@ class MeUser extends Component {
         <s id="s1"></s>
         <s id="s2"></s>
         <s id="s3"></s>
+        {/* nav top */}
         <div className="o-top-nav o-top-nav--rel">
           <a href="#s1" className="o-top-nav__btn || o-btn">
             Prev
           </a>
           <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+            {user.userName}
+          </a>
+          <a href="#s3" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
             Next
           </a>
         </div>
+        {/* end nav top */}
         {!loading && (
           <>
             <div className="slider">
               <div>
-                <div className="room-user-filters">
-                  <input
-                    className="input-filter input-label"
-                    placeholder="What do you want to talk about?"
-                    onChange={this.handleSearchRoom}
-                  />
-                  <br />
-
-                  <select value="" className="select-filter" onChange={this.handleChangeSelectRooms}>
-                    <option>Select theme</option>
-                    <option value="">All</option>
-                    {sortedList}
-                  </select>
-                </div>
+                <RoomFilters
+                  pgUser={pgUser}
+                  eventSearch={searchRooms}
+                  handleSearchRoom={this.handleSearchRoom}
+                  handleChangeSelectRooms={this.handleChangeSelectRooms}
+                  selectTheme={this.state.selectTheme}
+                  radiusInMeters={this.state.radiusInMeters}
+                  handleChangeSelectRadiusMeters={this.handleChangeSelectRadiusMeters}
+                  sortedList={sortedList}
+                />
                 <RoomsUser rooms={rooms} />
               </div>
-              <div className="room-user-content">
+              <div className="">
                 <User showuser={{}} />
               </div>
               <div>
-                <div className="room-user-filters">
-                  <input
-                    className="input-filter input-label"
-                    placeholder="Your chats... have a look?"
-                    defaultValue=""
-                    onChange={this.handleSearchChats}
-                  />
-                </div>
+                <UsersFilters
+                  pgUser={pgUser}
+                  eventSearch={searchChats}
+                  handleSearchUser={this.handleSearchChats}
+                  sortedList={sortedList}
+                  selectTheme={this.state.selectTheme}
+                  handleChangeSelectUser={this.handleChangeSelectUser}
+                  radiusInMeters={this.state.radiusInMeters}
+                  handleChang
+                />
                 <ChatsUser
                   searchChats={searchChats}
                   selectStatus={selectStatus}
                   onSelect={this.handleChangeSelectChats}
                   onAccept={this.handleAcceptChat}
                 />
-              </div>
-            </div>
-            <div className="prevNext">
-              <div>
-                <a href="#s1"></a>
-                <a href="#s2"></a>
-              </div>
-              <div>
-                <a href="#s1"></a>
-                <a href="#s3"></a>
-              </div>
-              <div>
-                <a href="#s2"></a>
-                <a href="#s3"></a>
               </div>
             </div>
           </>

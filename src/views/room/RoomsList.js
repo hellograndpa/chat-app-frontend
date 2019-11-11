@@ -143,6 +143,7 @@ class RoomsList extends Component {
         <s id="s1"></s>
         <s id="s2"></s>
         <s id="s3"></s>
+        {/* nav top */}
         <div className="o-top-nav o-top-nav--rel">
           <a href="#s1" className="o-top-nav__btn || o-btn">
             Prev
@@ -151,6 +152,7 @@ class RoomsList extends Component {
             Next
           </a>
         </div>
+        {/* end nav top */}
         {!loading && (
           <>
             <div className="slider">
@@ -176,25 +178,6 @@ class RoomsList extends Component {
                 <div>
                   <Map locations={rooms} />
                 </div>
-              </div>
-            </div>
-
-            <div className="prevNext">
-              <div>
-                <a href="#s1"></a>
-                <a href="#s2">
-                  <div className="arrowed">
-                    <div className="arrow-R"></div>
-                  </div>
-                </a>
-              </div>
-              <div>
-                <a href="#s1">
-                  <div className="arrowed">
-                    <div className="arrow-L"></div>
-                  </div>
-                </a>
-                <a href="#s2"></a>
               </div>
             </div>
           </>

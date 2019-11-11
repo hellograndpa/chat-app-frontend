@@ -22,10 +22,12 @@ function RoomFilters(props) {
     radiusInMeters,
     handleChangeSelectRadiusMeters,
     sortedList,
+    pgUser,
   } = props;
 
   return (
-    <div>
+    <div className="header || u-sticky">
+      <div className="title">{pgUser ? <h1>Your Rooms Filters</h1> : <h1>Rooms Filters</h1>}</div>
       <div className="box-title-search">
         <div className="title-search ">
           <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
