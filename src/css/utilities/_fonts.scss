@@ -1,6 +1,7 @@
 @import './colors.scss';
 
-$primary-font: 'Montserrat', sans-serif;
+$primary-font: 'Montserrat',
+sans-serif;
 $font-size-xl: 36px;
 $font-size-l: 24px;
 $font-size-m: 18px;
@@ -30,4 +31,11 @@ h3 {
   line-height: 1.1;
   letter-spacing: normal;
   text-align: left;
+}
+
+hr {
+  height: 12px;
+  border: 0;
+  margin: 0;
+  box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5);
 }
