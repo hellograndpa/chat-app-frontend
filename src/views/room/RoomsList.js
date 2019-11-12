@@ -9,7 +9,7 @@ import RoomService from '../../services/roomService';
 import { withNotification } from '../../Context/NotificationCtx';
 
 // Helpers
-import { getCoords, getDistanceFromMe } from '../../helpers/coordinates';
+import { getCoords, getDistance } from '../../helpers/coordinates';
 import { emptyValidation } from '../../helpers/Validation';
 
 // Components
@@ -39,15 +39,16 @@ class RoomsList extends Component {
     });
   };
 
-  handleRoomsArroundMe = (latitude, longitude, radiusInMeters) => {
+  handleRoomsArroundMe = async (latitude, longitude, radiusInMeters) => {
+    const myLocation = await getCoords();
     RoomService.getAllRooms(latitude, longitude, radiusInMeters)
-      .then(async rooms => {
-        const newRooms = await rooms.map(async room => {
+      .then(rooms => {
+        const newRooms = rooms.map(room => {
           const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
-          room.distanceFromMe = await getDistanceFromMe(location);
+          room.distanceFromMe = getDistance(myLocation.coords, location);
           return room;
         });
-        return Promise.all(newRooms);
+        return newRooms;
       })
       .then(newRooms => {
         this.resultRooms(newRooms);

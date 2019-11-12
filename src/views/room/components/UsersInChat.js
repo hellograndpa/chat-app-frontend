@@ -6,6 +6,8 @@ import { NavLink } from 'react-router-dom';
 // Services
 import RoomService from '../../../services/roomService';
 
+import avatarDefault from '../../../images/avatar.svg';
+
 const socket = socketIOClient('localhost:3001');
 
 class UsersInChat extends Component {
@@ -39,27 +41,38 @@ class UsersInChat extends Component {
   render() {
     const { activeUsers } = this.state;
     return (
-      <div>
-        <div className="title">
-          <h1>Users in this chat</h1>
-        </div>
-
-        <div className="u-wrapper-wrap">
-          {activeUsers.map(user => {
-            return (
-              <div className="flex-centered-vetically  box" key={user._id}>
-                <div className="o-avatar is-active w-50precent">
-                  <div className="o-avatar__inner">
-                    <img className="o-avatar__img" src={user.avatar} alt="" />
-                  </div>
-                </div>
-                <div className="userName">
-                  <NavLink to={`/users/${user._id}`}>{user.userName}</NavLink>
+      <div className="users-list-content-Bg">
+        <h3>{activeUsers.length} Users in this chat</h3>
+        {activeUsers.map(user1 => {
+          return (
+            <div key={user1._id} className="users-list-line">
+              <div className="o-avatar is-active w-15precent">
+                <div className="o-avatar__inner">
+                  <img
+                    className="o-avatar__img"
+                    src={user1.avatar !== undefined ? user1.avatar : avatarDefault}
+                    alt=""
+                  />
                 </div>
               </div>
-            );
-          })}
-        </div>
+
+              <div className="text-user">
+                <NavLink className="name" to={`/users/${user1._id}`}>
+                  <strong>
+                    {user1.userName} {user1.lastName}
+                  </strong>
+                </NavLink>
+
+                <div>Ciudad {user1.city}</div>
+                <div>Last theme {user1.userName}</div>
+              </div>
+
+              <div className="distance">
+                <div className="oval">{/* user1.distanceFromMe.toFixed(1) */} km</div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     );
   }

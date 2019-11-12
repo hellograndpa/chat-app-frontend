@@ -45,7 +45,7 @@ class RoomWp extends Component {
             Chat
           </a>
           <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-            Map
+            Users
           </a>
         </div>
         {!loading && (
