@@ -1,0 +1,48 @@
+.u-wrapper-flex-wrap {
+  display: flex;
+  flex-flow: wrap;
+
+  &__cont-center {
+    justify-content: center;
+
+    &.w-50percent {
+      width: 40%;
+    }
+  }
+
+  &__cont-right {
+    justify-content: right;
+  }
+
+}
+
+.u-wrapper-flex-colunm {
+  display: flex;
+  flex-flow: column;
+
+
+  & .w-40percent {
+    width: 4%;
+  }
+
+  &__cont-center {
+    justify-content: center;
+  }
+
+  &__cont-right {
+    justify-content: right;
+  }
+}
+
+.u-wrapper-row {
+  display: flex;
+  flex-flow: row;
+
+  &__cont-center {
+    justify-content: center;
+  }
+
+  &__cont-right {
+    justify-content: right;
+  }
+}

@@ -1,0 +1,17 @@
+@import '../utilities/colors.scss';
+@import '../utilities/fonts.scss';
+.box-list-user {
+  width: 40%;
+  padding: 1em 0px;
+  margin: 10px;
+  border-radius: 4px;
+  .title {
+    width: 100%;
+    font-size: $font-size-m;
+    font-style: bold;
+  }
+
+  &.color {
+    background-color: transparentize($gray-shadows, 0.6);
+  }
+}

@@ -1,0 +1,126 @@
+@import '../utilities/colors.scss';
+@import '../utilities/fonts.scss';
+
+.user {
+  margin-top: 20px;
+}
+
+.user .right-content {
+  padding-left: 20px;
+}
+
+.user .header {
+  background-color: $slate;
+}
+
+.user .header .header-wrapper {
+  padding: 40px 20px 40px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.user .edit {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  justify-content: space-between;
+}
+
+.user .edit .edit-mode-text {
+  padding-right: 10px;
+  font-family: $primary-font;
+  font-size: $font-size-m;
+}
+
+.user .header .avatar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user .header .avatar-content img {
+  background-color: #ffffff;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.user .header .edit-avatar-btn-wrapper {
+  margin-top: 20px;
+  margin-left: 8px;
+}
+
+.user .header .edit-avatar-btn {
+  border-radius: 10px;
+  background: $aqua-marine;
+  border-color: $aqua-marine;
+}
+
+.user .header .details-content {
+  font-family: $primary-font;
+  font-size: $font-size-s;
+  color: $soft-text;
+  padding-left: 20px;
+}
+
+.edit .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.edit .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.edit .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.edit .slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.edit input:checked+.slider {
+  background-color: #2196f3;
+}
+
+.edit input:focus+.slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+.edit input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.edit .slider.round {
+  border-radius: 34px;
+}
+
+.edit .slider.round:before {
+  border-radius: 50%;
+}

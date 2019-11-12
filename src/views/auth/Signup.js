@@ -1,37 +1,79 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withAuth } from '../../Context/AuthContext';
+import { getCoords } from '../../helpers/coordinates';
 
 class Signup extends Component {
-
   state = {
-    username: "",
-    password: "",
+    userName: '',
+    email: '',
+    password: '',
   };
 
-  handleChange = (event) => {  
-    const {name, value} = event.target;
-    this.setState({[name]: value});
-  }
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  handleFormSubmit = async e => {
+    e.preventDefault();
+    const {
+      coords: { latitude, longitude },
+    } = await getCoords();
+
+    const { userName, email, password } = this.state;
+    const { handleSignup } = this.props;
+    handleSignup({
+      userName,
+      email,
+      password,
+      latitude,
+      longitude,
+    });
+  };
 
   render() {
-    const { username, password } = this.state;
+    const { userName, email, password } = this.state;
     return (
-      <div>
+      <div className="flex-centered">
         <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange}/>
-          <label>Password:</label>
-          <input type="password" name="password" value={password} onChange={this.handleChange} />
-          <input type="submit" value="Signup" />
+          <div>
+            <input
+              type="text"
+              name="userName"
+              className="input input-label"
+              placeHolder="User Name"
+              value={userName}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              name="email"
+              className="input input-label"
+              placeHolder="Email"
+              value={email}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              className="input input-label"
+              placeHolder="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input type="submit" className="action-btn-big" value="Signup" />
+          </div>
         </form>
-
-        <p>Already have account? 
-          <Link to={"/login"}> Login</Link>
-        </p>
-
       </div>
-    )
+    );
   }
 }
 
-export default Signup;
+export default withAuth(Signup);

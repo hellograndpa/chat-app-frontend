@@ -4,30 +4,26 @@ class AuthService {
   constructor() {
     this.auth = axios.create({
       baseURL: process.env.REACT_APP_BACKEND_BASE_URL,
-      withCredentials: true
-    })
+      withCredentials: true,
+    });
   }
 
   signup(user) {
-    const { username, password } = user;
-    return this.auth.post('/signup', {username, password})
-      .then(({ data }) => data);
+    const { userName, email, password, latitude, longitude } = user;
+    return this.auth.post('/signup', { userName, email, password, latitude, longitude }).then(({ data }) => data);
   }
 
   login(user) {
-    const { username, password } = user;
-    return this.auth.post('/login', {username, password})
-      .then(({ data }) => data);
+    const { email, password, latitude, longitude } = user;
+    return this.auth.post('/login', { email, password, latitude, longitude }).then(({ data }) => data);
   }
 
   logout() {
-    return this.auth.get('/logout', {})
-      .then(response => response.data)
+    return this.auth.get('/logout', {}).then(response => response.data);
   }
 
-  me(user) {
-    return this.auth.get('/me')
-    .then(response => response.data)
+  me() {
+    return this.auth.get('/me').then(response => response.data);
   }
 }
 

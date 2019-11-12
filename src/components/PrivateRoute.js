@@ -1,18 +1,22 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { withAuth } from '../Context/AuthContext';
+import NavBar from '../views/nav/NavBar';
 
-function PrivateRoute({ component: Comp, isLoggedin, ...rest }) {
+function PrivateRoute({ component: Comp, isLoggedin, user, ...rest }) {
   return (
     <Route
       {...rest}
-      render={(props) =>
+      render={props =>
         isLoggedin ? (
-          <Comp {...props} />
+          <>
+            <Comp {...props} />
+            <NavBar />
+          </>
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: '/login',
             }}
           />
         )

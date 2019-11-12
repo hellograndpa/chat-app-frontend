@@ -1,37 +1,70 @@
 import React, { Component } from 'react';
 import { withAuth } from '../../Context/AuthContext';
+import { getCoords } from '../../helpers/coordinates';
 
 class Login extends Component {
   state = {
-    username: "",
-    password: "",
-  }
+    email: '',
+    password: '',
+  };
 
-  handleChange = (event) => {  
-    const {name, value} = event.target;
-    this.setState({[name]: value});
-  }
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
 
-  handleFormSubmit = (e) => {
+  handleFormSubmit = async e => {
     e.preventDefault();
-    const { username, password } = this.state;
+    const { email, password } = this.state;
+    const {
+      coords: { latitude, longitude },
+    } = await getCoords();
+
     this.props.handleLogin({
-      username,
-      password
-    })
-  }
+      email,
+      password,
+      latitude,
+      longitude,
+    });
+  };
 
   render() {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
     return (
-      <form onSubmit={this.handleFormSubmit}>
-        <label>Username:</label>
-        <input type="text" name="username" value={username} onChange={this.handleChange}/>
-        <label>Password:</label>
-        <input type="password" name="password" value={password} onChange={this.handleChange} />
-        <input type="submit" value="Login" />
-      </form>
-    )
+      <div className="flex-centered">
+        <form onSubmit={this.handleFormSubmit}>
+          <div>
+            <input
+              type="text"
+              name="email"
+              className="input input-label"
+              placeHolder="Email"
+              value={email}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              className="input input-label"
+              name="password"
+              placeHolder="Password"
+              value={password}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input className="action-btn-big" type="submit" value="Login" />
+          </div>
+          <div className="o-btn o-btn--xs">Lorem</div>
+          <div className="o-btn o-btn--sm">Foo</div>
+          <div className="o-btn">Foo</div>
+          <div className="o-btn o-btn--lg">Foo</div>
+
+          <div className="o-btn o-btn--theme2 o-btn--lg o-btn--block">Foo</div>
+        </form>
+      </div>
+    );
   }
 }
 
