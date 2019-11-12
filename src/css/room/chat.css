@@ -47,10 +47,12 @@ hr {
 .chatroom .box {
   display: flex;
   padding: 10px; }
-  .chatroom .box.tu {
-    justify-content: flex-end; }
-  .chatroom .box.el {
-    justify-content: flex-start; }
+
+.chatroom .box.tu {
+  justify-content: flex-end; }
+
+.chatroom .box.el {
+  justify-content: flex-start; }
 
 .chatroom .box-avatar {
   width: 20%; }
@@ -113,10 +115,12 @@ hr {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
-  .bubble .date.right {
-    text-align: right; }
-  .bubble .date.left {
-    text-align: left; }
+
+.bubble .date.right {
+  text-align: right; }
+
+.bubble .date.left {
+  text-align: left; }
 
 .chatroom .margin-header-text {
   margin-bottom: 5px; }

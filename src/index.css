@@ -1,18 +1,12 @@
 body {
   margin: 0;
-<<<<<<< HEAD
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-=======
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
     'Droid Sans', 'Helvetica Neue', sans-serif;
->>>>>>> dev
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+}
 
 code {
-<<<<<<< HEAD
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
-=======
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 .chatwrapper {
@@ -29,4 +23,3 @@ code {
   /* anchor nodes are required to have non-zero area */
   height: 1px;
 }
->>>>>>> dev
