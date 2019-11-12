@@ -18,6 +18,12 @@ h3 {
   letter-spacing: normal;
   text-align: left; }
 
+hr {
+  height: 12px;
+  border: 0;
+  margin: 0;
+  box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
+
 .chatroom {
   background-color: #e2e4e9;
   height: 100%; }
@@ -41,12 +47,10 @@ h3 {
 .chatroom .box {
   display: flex;
   padding: 10px; }
-
-.chatroom .box.tu {
-  justify-content: flex-end; }
-
-.chatroom .box.el {
-  justify-content: flex-start; }
+  .chatroom .box.tu {
+    justify-content: flex-end; }
+  .chatroom .box.el {
+    justify-content: flex-start; }
 
 .chatroom .box-avatar {
   width: 20%; }
@@ -109,12 +113,10 @@ h3 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
-
-.bubble .date.right {
-  text-align: right; }
-
-.bubble .date.left {
-  text-align: left; }
+  .bubble .date.right {
+    text-align: right; }
+  .bubble .date.left {
+    text-align: left; }
 
 .chatroom .margin-header-text {
   margin-bottom: 5px; }

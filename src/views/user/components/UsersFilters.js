@@ -1,8 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-import '../../../css/room/roomfilter.scss';
-
 function UsersFilters(props) {
   const [setActive, setActiveState] = useState('');
   const [setHeight, setHeightState] = useState('0px');
