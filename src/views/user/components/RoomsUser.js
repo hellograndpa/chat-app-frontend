@@ -38,7 +38,7 @@ const RoomsUser = props => {
               <div className="distance">
                 {room.distanceFromMe !== undefined && room.distanceFromMe.toFixed(2)} km from you
               </div>
-              <div className="people">people in: 18</div>
+              <div className="people">people in: {room.activeUsers.length}</div>
             </div>
           </div>
         );

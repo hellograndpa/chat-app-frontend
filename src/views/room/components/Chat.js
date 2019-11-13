@@ -130,7 +130,7 @@ class Chat extends Component {
                 />
               </div>
               <div>
-                <button className="o-btn no-border">Enviar</button>
+                <button className="o-btn btn-send">Enviar</button>
               </div>
             </div>
           </form>

@@ -99,7 +99,7 @@ class RoomsList extends Component {
     this.handleRoomsArroundMe(latitude, longitude, radiusInMeters);
 
     socket.on('room-created', room => {
-      const searchRooms = [...this.state.searchRooms, room];
+      const searchRooms = [room, ...this.state.searchRooms];
       this.setState({ searchRooms });
     });
   };
@@ -146,10 +146,10 @@ class RoomsList extends Component {
         {/* nav top */}
         <div className="o-top-nav o-top-nav--rel">
           <a href="#s1" className="o-top-nav__btn || o-btn">
-            Prev
+            Rooms
           </a>
           <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-            Next
+            Map
           </a>
         </div>
         {/* end nav top */}

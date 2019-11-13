@@ -17,7 +17,6 @@ class RoomCreate extends Component {
   async handleSubmit(e) {
     e.preventDefault();
 
-    console.log(e);
     // Get date from form
     const {
       roomName: { value: roomName },
@@ -38,7 +37,6 @@ class RoomCreate extends Component {
     const created = await RoomService.createRoom(body);
 
     // Go to the room created
-    console.log(this);
     this.props.history.push(`/rooms/${created._id}`);
   }
 

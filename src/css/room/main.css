@@ -29,7 +29,7 @@ hr {
   height: 100%; }
 
 .chatroom .chatwrapper {
-  height: calc(100% - 100px);
+  height: calc(100% - 72px);
   overflow-y: auto; }
 
 .chatroom .chat * {
@@ -131,14 +131,20 @@ hr {
   border-top: 1px solid; }
 
 .chatroom .chat-textarea {
-  width: 250px; }
+  width: 100%;
+  height: 40px;
+  padding: 8px; }
 
 .chatroom .form-content {
   display: flex;
   justify-content: space-between; }
 
-.chatroom .no-border {
-  border: none; }
+.chatroom .form-content .text-area-wp {
+  width: 76%; }
+
+.chatroom .btn-send {
+  border: none;
+  padding: 10px; }
 
 .room-create .ripple {
   background-position: center;

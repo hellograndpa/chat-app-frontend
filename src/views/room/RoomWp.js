@@ -48,6 +48,9 @@ class RoomWp extends Component {
           <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
             Users
           </a>
+          <a href="#s3" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+            Details
+          </a>
         </div>
         {!loading && (
           <>
