@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import socketIOClient from 'socket.io-client';
 import ChatUserService from '../../../services/chatUserService';
 
-const socket = socketIOClient('localhost:3001');
+const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class PrivateChat extends Component {
   state = {
