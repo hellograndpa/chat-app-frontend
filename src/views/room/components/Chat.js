@@ -10,7 +10,7 @@ import ChatRoomService from '../../../services/chatRoomService';
 // Context
 import { withAuth } from '../../../Context/AuthContext';
 
-const socket = socketIOClient(process.env.SOCKET_HOST);
+const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class Chat extends Component {
   state = {
@@ -71,7 +71,7 @@ class Chat extends Component {
           <div className="chat">
             {conversation.map((c, index) => {
               return (
-                <>
+                <div key={c._id}>
                   {c.user._id === this.props.user._id ? (
                     <div className="box tu" key={index}>
                       <div className="bubble you right">
@@ -112,7 +112,7 @@ class Chat extends Component {
                       </div>
                     </div>
                   )}
-                </>
+                </div>
               );
             })}
             <div className="anchor"></div>

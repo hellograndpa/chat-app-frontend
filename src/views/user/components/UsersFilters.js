@@ -1,8 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-import '../../../css/room/roomfilter.scss';
-
 function UsersFilters(props) {
   const [setActive, setActiveState] = useState('');
   const [setHeight, setHeightState] = useState('0px');
@@ -31,9 +29,9 @@ function UsersFilters(props) {
 
       <div className="box-title-search">
         <div className="title-search ">
-          <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
-            <div calssName="search-text">SEARCH</div>
-          </button>
+          <div className={`accordion ${setActive}`} onClick={toggleAccordion}>
+            <div className="search-text">SEARCH</div>
+          </div>
           <div className="colors-selected ">
             <div className="box-color01 "></div>
             <div className="box-color02 "></div>

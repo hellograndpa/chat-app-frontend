@@ -34,25 +34,12 @@ const ChatsUser = props => {
     onAccept();
   };
 
-  // ToDo: hacer todo lo pone aquí que ni mas que menso que recger la distancia....
-  const distance = async () => {
-    const newdistance = chats.map(async chat => {
-      const uno = await getDistanceFromMe({
-        latitude: chat.userChat02.location.coordinates[0],
-        logitude: chat.userChat02.location.coordinates[1],
-      });
-      return uno;
-    });
-    const pp = await Promise.all(newdistance);
-    return pp;
-  };
-
   return (
     <div className="u-wrapper-flex-wrap u-wrapper-flex-wrap__cont-center">
       {chats.length > 0 &&
         chats.map((chat, index) => {
           return (
-            <div className="flex-centered-vetically w-40precent box-list-user color" key={user._id}>
+            <div className="flex-centered-vetically w-40precent box-list-user color" key={chat._id}>
               {/* start image of avatar */}
               <div className="o-avatar is-active w-75precent ">
                 <div className="o-avatar__inner">

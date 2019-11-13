@@ -38,9 +38,10 @@ class RoomWp extends Component {
         <s id="s2"></s>
         <s id="s3"></s>
         <div className="o-top-nav o-top-nav--rel">
-          <a className="o-top-nav__btn || o-btn">
-            <NavLink to="/rooms/list">Back</NavLink>
-          </a>
+          <NavLink className="o-top-nav__btn || o-btn" to="/rooms/list">
+            Back
+          </NavLink>
+
           <a href="#s1" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
             Chat
           </a>

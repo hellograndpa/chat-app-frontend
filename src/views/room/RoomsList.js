@@ -17,7 +17,7 @@ import RoomsUser from '../user/components/RoomsUser';
 import Map from './components/Map';
 import RoomFilters from './components/RoomFilters';
 
-const socket = socketIOClient('localhost:3001');
+const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class RoomsList extends Component {
   state = {

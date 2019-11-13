@@ -88,7 +88,7 @@ class RoomsDetails extends Component {
               </div>
               <div>
                 avatar:
-                <FileUpload></FileUpload>
+                <FileUpload />
               </div>
               <div>
                 City: <input type="text" name="city" onChange={this.handleOnChange} value={city} />

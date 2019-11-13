@@ -8,7 +8,7 @@ import RoomService from '../../../services/roomService';
 
 import avatarDefault from '../../../images/avatar.svg';
 
-const socket = socketIOClient(process.env.SOCKET_HOST);
+const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class UsersInChat extends Component {
   state = {
