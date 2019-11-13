@@ -10,7 +10,7 @@ import ChatRoomService from '../../../services/chatRoomService';
 // Context
 import { withAuth } from '../../../Context/AuthContext';
 
-const socket = socketIOClient('localhost:3001');
+const socket = socketIOClient(process.env.SOCKET_HOST);
 
 class Chat extends Component {
   state = {

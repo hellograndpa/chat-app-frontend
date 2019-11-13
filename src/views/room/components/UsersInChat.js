@@ -8,7 +8,7 @@ import RoomService from '../../../services/roomService';
 
 import avatarDefault from '../../../images/avatar.svg';
 
-const socket = socketIOClient('localhost:3001');
+const socket = socketIOClient(process.env.SOCKET_HOST);
 
 class UsersInChat extends Component {
   state = {
@@ -19,7 +19,7 @@ class UsersInChat extends Component {
     const { roomId } = this.props;
 
     // First we listen for incoming users
-    socket.on('user-in-chat', users => {
+    socket.on(`user-in-chat-${roomId}`, users => {
       this.setState({ activeUsers: users });
     });
 
@@ -28,9 +28,9 @@ class UsersInChat extends Component {
     RoomService.insertUserToRoom(roomId);
   }
 
-  async componentCleanup() {
-    socket.removeAllListeners('user-in-chat');
+  componentCleanup() {
     const { roomId } = this.props;
+    socket.removeAllListeners(`user-in-chat${roomId}`);
     RoomService.deleteUserFromRoom(roomId);
   }
 

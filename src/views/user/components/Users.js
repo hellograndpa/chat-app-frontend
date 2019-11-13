@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import avatarDefault from '../../../images/avatar.svg';
 // CSS
 
-import '../../../css/user/userslist.scss';
-
 const Users = props => {
   const { users } = props;
 
