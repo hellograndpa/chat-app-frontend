@@ -16,7 +16,7 @@ import Map from '../room/components/Map';
 import { getCoords, getDistance, getDistanceFromMe } from '../../helpers/coordinates';
 import { emptyValidation } from '../../helpers/Validation';
 
-const socket = socketIOClient('localhost:3001');
+const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class UsersList extends Component {
   state = {

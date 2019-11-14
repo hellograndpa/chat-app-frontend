@@ -6,18 +6,23 @@ import { NavLink } from 'react-router-dom';
 // Services
 import RoomService from '../../../services/roomService';
 
-const socket = socketIOClient('localhost:3001');
+import avatarDefault from '../../../images/avatar.svg';
+import { getCoords, getDistance } from '../../../helpers/coordinates';
+
+const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class UsersInChat extends Component {
   state = {
     activeUsers: this.props.activeUsers,
+    myLocation: { coords: { latitude: 0, longitude: 0 } },
   };
 
   async componentDidMount() {
     const { roomId } = this.props;
 
+    this.setState({ myLocation: await getCoords() });
     // First we listen for incoming users
-    socket.on('user-in-chat', users => {
+    socket.on(`user-in-chat-${roomId}`, users => {
       this.setState({ activeUsers: users });
     });
 
@@ -26,9 +31,9 @@ class UsersInChat extends Component {
     RoomService.insertUserToRoom(roomId);
   }
 
-  async componentCleanup() {
-    socket.removeAllListeners('user-in-chat');
+  componentCleanup() {
     const { roomId } = this.props;
+    socket.removeAllListeners(`user-in-chat${roomId}`);
     RoomService.deleteUserFromRoom(roomId);
   }
 
@@ -37,30 +42,50 @@ class UsersInChat extends Component {
   }
 
   render() {
-    const { activeUsers } = this.state;
+    const { activeUsers, myLocation } = this.state;
     return (
-      <div>
-        <div className="title">
-          <h1>Users in this chat</h1>
-        </div>
+      <>
+        {activeUsers.length > 0 && (
+          <div className="users-list-content-Bg">
+            <h3>{activeUsers.length} Users in this chat</h3>
+            {activeUsers.map(user1 => {
+              return (
+                <div key={user1._id} className="users-list-line">
+                  <div className="o-avatar is-active w-15precent">
+                    <div className="o-avatar__inner">
+                      <img
+                        className="o-avatar__img"
+                        src={user1.avatar !== undefined ? user1.avatar : avatarDefault}
+                        alt=""
+                      />
+                    </div>
+                  </div>
 
-        <div className="u-wrapper-wrap">
-          {activeUsers.map(user => {
-            return (
-              <div className="flex-centered-vetically  box" key={user._id}>
-                <div className="o-avatar is-active w-50precent">
-                  <div className="o-avatar__inner">
-                    <img className="o-avatar__img" src={user.avatar} alt="" />
+                  <div className="text-user">
+                    <NavLink className="name" to={`/users/${user1._id}`}>
+                      <strong>
+                        {user1.userName} {user1.lastName}
+                      </strong>
+                    </NavLink>
+
+                    <div>Ciudad {user1.city}</div>
+                  </div>
+
+                  <div className="distance">
+                    <div className="oval">
+                      {getDistance(
+                        { latitude: user1.location.coordinates[0], longitude: user1.location.coordinates[1] },
+                        myLocation.coords,
+                      )}{' '}
+                      km
+                    </div>
                   </div>
                 </div>
-                <div className="userName">
-                  <NavLink to={`/users/${user._id}`}>{user.userName}</NavLink>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+              );
+            })}
+          </div>
+        )}
+      </>
     );
   }
 }

@@ -1,7 +1,6 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useRef } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-
-import '../../../css/room/roomfilter.scss';
+import { NavLink } from 'react-router-dom';
 
 function RoomFilters(props) {
   const [setActive, setActiveState] = useState('');
@@ -30,9 +29,9 @@ function RoomFilters(props) {
       <div className="title">{pgUser ? <h1>Your Rooms Filters</h1> : <h1>Rooms Filters</h1>}</div>
       <div className="box-title-search">
         <div className="title-search ">
-          <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
-            <div calssName="search-text">SEARCH</div>
-          </button>
+          <div className={`accordion ${setActive}`} onClick={toggleAccordion}>
+            <div className="search-text">SEARCH</div>
+          </div>
           <div className="colors-selected ">
             <div className="box-color01 "></div>
             <div className="box-color02 "></div>
@@ -40,9 +39,16 @@ function RoomFilters(props) {
             <div className="box-color04 "></div>
           </div>
         </div>
+        <div className="title-search "></div>
         <div className="title-search ">
           <NavLink to="/rooms/create" className="accordion ">
-            <div calssname="search-text">CREATE</div>
+            <div className="search-text">CREATE</div>
+            <div className="colors-selected ">
+              <div className="box-color01 "></div>
+              <div className="box-color02 "></div>
+              <div className="box-color03 "></div>
+              <div className="box-color04 "></div>
+            </div>
           </NavLink>
         </div>
       </div>

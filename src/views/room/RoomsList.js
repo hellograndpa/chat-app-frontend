@@ -9,7 +9,7 @@ import RoomService from '../../services/roomService';
 import { withNotification } from '../../Context/NotificationCtx';
 
 // Helpers
-import { getCoords, getDistanceFromMe } from '../../helpers/coordinates';
+import { getCoords, getDistance } from '../../helpers/coordinates';
 import { emptyValidation } from '../../helpers/Validation';
 
 // Components
@@ -17,7 +17,7 @@ import RoomsUser from '../user/components/RoomsUser';
 import Map from './components/Map';
 import RoomFilters from './components/RoomFilters';
 
-const socket = socketIOClient('localhost:3001');
+const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class RoomsList extends Component {
   state = {
@@ -39,15 +39,16 @@ class RoomsList extends Component {
     });
   };
 
-  handleRoomsArroundMe = (latitude, longitude, radiusInMeters) => {
+  handleRoomsArroundMe = async (latitude, longitude, radiusInMeters) => {
+    const myLocation = await getCoords();
     RoomService.getAllRooms(latitude, longitude, radiusInMeters)
-      .then(async rooms => {
-        const newRooms = await rooms.map(async room => {
+      .then(rooms => {
+        const newRooms = rooms.map(room => {
           const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
-          room.distanceFromMe = await getDistanceFromMe(location);
+          room.distanceFromMe = getDistance(myLocation.coords, location);
           return room;
         });
-        return Promise.all(newRooms);
+        return newRooms;
       })
       .then(newRooms => {
         this.resultRooms(newRooms);
@@ -98,7 +99,7 @@ class RoomsList extends Component {
     this.handleRoomsArroundMe(latitude, longitude, radiusInMeters);
 
     socket.on('room-created', room => {
-      const searchRooms = [...this.state.searchRooms, room];
+      const searchRooms = [room, ...this.state.searchRooms];
       this.setState({ searchRooms });
     });
   };
@@ -145,10 +146,10 @@ class RoomsList extends Component {
         {/* nav top */}
         <div className="o-top-nav o-top-nav--rel">
           <a href="#s1" className="o-top-nav__btn || o-btn">
-            Prev
+            Rooms
           </a>
           <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-            Next
+            Map
           </a>
         </div>
         {/* end nav top */}

@@ -3,7 +3,7 @@ import React, { Component, createContext } from 'react';
 import socketIOClient from 'socket.io-client';
 import authService from '../services/authService';
 
-const socket = socketIOClient('localhost:3001');
+const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 const AuthContext = createContext();
 
