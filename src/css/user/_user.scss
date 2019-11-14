@@ -11,6 +11,10 @@
 
 .user .header {
   background-color: $slate;
+
+  &__relative {
+    position: relative;
+  }
 }
 
 .user .header .header-wrapper {

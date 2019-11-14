@@ -19,6 +19,7 @@ class UserMe extends Component {
     edit: false,
     loading: true,
     pictures: [],
+    chats: [],
   };
 
   handleInvite = () => {
@@ -116,27 +117,34 @@ class UserMe extends Component {
           <div className="user">
             {showuser._id !== undefined ? (
               <>
-                <div className="header">
+                <div className=" header header__relative">
                   <div className="header-wrapper">
-                    <div className="avatar-content">
-                      <img
-                        className="border-active"
-                        src={showuser.avatar !== undefined ? showuser.avatar : avatarDefault}
-                        alt=""
-                      ></img>
+                    <div className="o-avatar is-active w-50precent">
+                      <div className="o-avatar__inner">
+                        <img
+                          className="o-avatar__img"
+                          src={showuser.avatar !== undefined ? showuser.avatar : avatarDefault}
+                          alt=""
+                        />
+                      </div>
                     </div>
                     <div className="details-content">
                       <div>
-                        {showuser.userName} {showuser.lastName}
+                        <h1>
+                          {showuser.userName} {showuser.lastName}
+                        </h1>
                       </div>
-                      <div>{showuser.email}</div>
+                      <divd className="title">
+                        <h3>{showuser.email}</h3>
+                      </divd>
                       <div>{showuser.city}</div>
                       <div>{showuser.age} years old</div>
                     </div>
                   </div>
                 </div>
-
-                <button onClick={this.handleInvite}>Invitar</button>
+                <div className="o-btn" onClick={this.handleInvite}>
+                  aaaaa Invitar
+                </div>
               </>
             ) : (
               <>
