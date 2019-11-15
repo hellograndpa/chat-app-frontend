@@ -12,9 +12,9 @@ const Users = props => {
       {users.map(user1 => {
         return (
           <div key={user1._id} className="users-list-line">
-            <div className="o-avatar is-active w-15precent">
+            <div className={user1.active ? 'o-avatar is-active w-15precent' : 'o-avatar w-15precent'}>
               <div className="o-avatar__inner">
-                <img className="o-avatar__img" src={user1.avatar !== undefined ? user1.avatar : avatarDefault} alt="" />
+                <img className="o-avatar__img" src={user1.avatar !== '' ? user1.avatar : avatarDefault} alt="" />
               </div>
             </div>
 

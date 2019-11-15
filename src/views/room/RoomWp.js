@@ -59,24 +59,14 @@ class RoomWp extends Component {
                 <Chat {...this.state}></Chat>
               </div>
               <div>
-                <UsersInChat roomId={this.state.room._id} activeUsers={this.state.room.activeUsers}></UsersInChat>
+                <UsersInChat
+                  roomId={this.state.room._id}
+                  participatedUsers={this.state.room.participatedUsers}
+                  activeUsers={this.state.room.activeUsers}
+                ></UsersInChat>
               </div>
               <div>
                 <RoomDetails {...this.state.room}></RoomDetails>
-              </div>
-            </div>
-            <div className="prevNext">
-              <div>
-                <a href="#s1"></a>
-                <a href="#s2"></a>
-              </div>
-              <div>
-                <a href="#s1"></a>
-                <a href="#s3"></a>
-              </div>
-              <div>
-                <a href="#s2"></a>
-                <a href="#s3"></a>
               </div>
             </div>
           </>

@@ -137,13 +137,13 @@ class MeUser extends Component {
         {/* nav top */}
         <div className="o-top-nav o-top-nav--rel">
           <a href="#s1" className="o-top-nav__btn || o-btn">
-            Prev
+            Me
           </a>
           <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-            {user.userName}
+            My Rooms
           </a>
           <a href="#s3" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-            Next
+            My Friends
           </a>
         </div>
         {/* end nav top */}
@@ -151,6 +151,9 @@ class MeUser extends Component {
           <>
             <div className="slider">
               <div>
+                <User showuser={{}} />
+              </div>
+              <div className="">
                 <RoomFilters
                   pgUser={pgUser}
                   eventSearch={searchRooms}
@@ -162,9 +165,6 @@ class MeUser extends Component {
                   sortedList={sortedList}
                 />
                 <RoomsUser rooms={rooms} />
-              </div>
-              <div className="">
-                <User showuser={{}} />
               </div>
               <div>
                 <UsersFilters

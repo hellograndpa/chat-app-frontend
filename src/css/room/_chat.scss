@@ -5,7 +5,7 @@
   height: 100%;
 }
 .chatroom .chatwrapper {
-  height: calc(100% - 146px);
+  height: 86%;
   overflow-y: auto;
 }
 
@@ -112,9 +112,13 @@
   margin-bottom: 5px;
 }
 .chatroom .write-text-wrapper {
-  position: sticky;
   padding: 15px;
   border-top: 1px solid;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #e2e4e9;
 }
 .chatroom .chat-textarea {
   width: 100%;

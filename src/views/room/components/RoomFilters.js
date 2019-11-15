@@ -1,16 +1,28 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import RoomCreate from './RoomCreate';
 
 function RoomFilters(props) {
   const [setActive, setActiveState] = useState('');
+  const [setActiveCreate, setActiveStateCreate] = useState('');
   const [setHeight, setHeightState] = useState('0px');
+  const [setHeightCreate, setHeightStateCreate] = useState('0px');
 
   const content = useRef(null);
+  const contentCreate = useRef(null);
 
   function toggleAccordion() {
     setActiveState(setActive === '' ? 'active' : '');
     setHeightState(setActive === 'active' ? '0px' : `${content.current.scrollHeight}px`);
+  }
+
+  function toggleAccordionCreate() {
+    setActiveStateCreate(setActiveCreate === '' ? 'active' : '');
+    setHeightStateCreate(setActiveCreate === 'active' ? '0px' : `${contentCreate.current.scrollHeight}px`);
+  }
+  function closeLayer() {
+    toggleAccordionCreate();
   }
 
   const {
@@ -26,7 +38,7 @@ function RoomFilters(props) {
 
   return (
     <div className="header || u-sticky">
-      <div className="title">{pgUser ? <h1>Your Rooms Filters</h1> : <h1>Rooms Filters</h1>}</div>
+      <div className="title">{pgUser ? <h1>Your Rooms</h1> : <h1>Rooms Filters</h1>}</div>
       <div className="box-title-search">
         <div className="title-search ">
           <div className={`accordion ${setActive}`} onClick={toggleAccordion}>
@@ -41,7 +53,7 @@ function RoomFilters(props) {
         </div>
         <div className="title-search "></div>
         <div className="title-search ">
-          <NavLink to="/rooms/create" className="accordion ">
+          <div className={`accordion ${setActiveCreate}`} onClick={toggleAccordionCreate}>
             <div className="search-text">CREATE</div>
             <div className="colors-selected ">
               <div className="box-color01 "></div>
@@ -49,7 +61,13 @@ function RoomFilters(props) {
               <div className="box-color03 "></div>
               <div className="box-color04 "></div>
             </div>
-          </NavLink>
+          </div>
+        </div>
+      </div>
+
+      <div ref={contentCreate} style={{ maxHeight: `${setHeightCreate}` }} className="accordion__content">
+        <div className="section">
+          <RoomCreate closeLayer={closeLayer} />
         </div>
       </div>
 

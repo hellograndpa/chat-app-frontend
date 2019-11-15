@@ -16,7 +16,17 @@ export const withAuth = Comp => {
     render() {
       return (
         <AuthConsumer>
-          {({ isLoading, isLoggedin, user, handleLogin, handleSignup, handleLogout, changeSession }) => (
+          {({
+            isLoading,
+            isLoggedin,
+            user,
+            handleLogin,
+            handleSignup,
+            handleLogout,
+            changeSession,
+            handleAbandon,
+            handleRemember,
+          }) => (
             <Comp
               {...this.props}
               isLoading={isLoading}
@@ -26,6 +36,8 @@ export const withAuth = Comp => {
               handleSignup={handleSignup}
               handleLogout={handleLogout}
               changeSession={changeSession}
+              handleAbandon={handleAbandon}
+              handleRemember={handleRemember}
             />
           )}
         </AuthConsumer>
@@ -50,7 +62,6 @@ export default class AuthProvider extends Component {
           user,
           isLoading: false,
         });
-        socket.emit('login', user._id);
       })
       .catch(() => {
         this.setState({
@@ -68,7 +79,6 @@ export default class AuthProvider extends Component {
           user: loggedUser,
           isLoading: false,
         });
-        socket.emit('login', loggedUser._id);
       })
       .catch(() => {
         this.setState({
@@ -108,7 +118,6 @@ export default class AuthProvider extends Component {
           user: undefined,
           isLoading: false,
         });
-        socket.emit('logout', this.state.user._id);
       })
       .catch(() => {
         this.setState({
@@ -117,6 +126,14 @@ export default class AuthProvider extends Component {
           user: undefined,
         });
       });
+  };
+
+  handleAbandon = async () => {
+    await authService.abandon();
+  };
+
+  handleRemember = async () => {
+    await authService.remember();
   };
 
   changeSession = newUser => {
@@ -141,6 +158,8 @@ export default class AuthProvider extends Component {
           handleLogout: this.handleLogout,
           handleSignup: this.handleSignup,
           changeSession: this.changeSession,
+          handleAbandon: this.handleAbandon,
+          handleRemember: this.handleRemember,
         }}
       >
         {children}

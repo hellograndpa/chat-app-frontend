@@ -25,6 +25,14 @@ class AuthService {
   me() {
     return this.auth.get('/me').then(response => response.data);
   }
+
+  abandon() {
+    return this.auth.get('/abandon', {}).then(response => response.data);
+  }
+
+  remember() {
+    return this.auth.get('/remember', {}).then(response => response.data);
+  }
 }
 
 const authService = new AuthService();

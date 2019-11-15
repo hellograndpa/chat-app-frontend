@@ -8,6 +8,7 @@
     "moment": "^2.24.0",
     "node-sass": "^4.13.0",
     "react": "^16.10.2",
+    "react-beforeunload": "^2.1.0",
     "react-dom": "^16.10.2",
     "react-images-upload": "^1.2.7",
     "react-map-gl": "^5.1.1",

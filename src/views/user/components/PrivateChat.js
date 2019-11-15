@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import socketIOClient from 'socket.io-client';
+import Moment from 'react-moment';
+
+// Services
 import ChatUserService from '../../../services/chatUserService';
+
+// Context
+import { withAuth } from '../../../Context/AuthContext';
 
 const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
@@ -51,30 +57,79 @@ class PrivateChat extends Component {
     const { conversation, loading } = this.state;
 
     return (
-      <>
+      <div className="chatroom">
         <div className="chatwrapper">
           <div className="chat">
             {!loading &&
               conversation.map((c, index) => {
                 return (
-                  <div key={index}>
-                    {c.user.userName}: {c.text}
+                  <div key={`${c._id}${index}`}>
+                    {c.user._id === this.props.user._id ? (
+                      <div className="box tu">
+                        <div className="bubble you right">
+                          <div className="flex-between margin-header-text">
+                            <div className="date left">{`${c.user.userName} ${c.user.lastName}`}</div>
+                            <div className="date right">
+                              <Moment format="DD/MM/YY hh:mm">{c.created}</Moment>
+                            </div>
+                          </div>
+                          {c.text}
+                        </div>
+
+                        <div className="box-avatar">
+                          <div className={c.user.active ? 'o-avatar is-active w-100precent' : 'o-avatar w-100precent'}>
+                            <div className="o-avatar__inner">
+                              <img className="o-avatar__img" src={c.user.avatar} alt="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="box el">
+                        <div className="box-avatar">
+                          <div className={c.user.active ? 'o-avatar is-active w-100precent' : 'o-avatar w-100precent'}>
+                            <div className="o-avatar__inner">
+                              <img className="o-avatar__img" src={c.user.avatar} alt="" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bubble me">
+                          <div className="flex-between margin-header-text">
+                            <div className="date left">
+                              <Moment format="DD/MM/YY hh:mm">{c.created}</Moment>
+                            </div>
+                            <div className="date right">{`${c.user.userName} ${c.user.lastName}`}</div>
+                          </div>
+                          {c.text}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               })}
-            {loading && 'loading...'}
-            <div className="anchor"></div>
+            <div id="anchor" className="anchor"></div>
           </div>
         </div>
-        <div>
+        <div className="write-text-wrapper">
           <form onSubmit={this.handleSubmit}>
-            <input type="text" name="text" ref={userInput => (this.input = userInput)} />
-            <button>Enviar</button>
+            <div className="form-content">
+              <div className="text-area-wp ">
+                <textarea
+                  type="text"
+                  className="input chat-textarea"
+                  name="text"
+                  ref={userInput => (this.input = userInput)}
+                />
+              </div>
+              <div>
+                <button className="o-btn btn-send">Send</button>
+              </div>
+            </div>
           </form>
         </div>
-      </>
+      </div>
     );
   }
 }
 
-export default PrivateChat;
+export default withAuth(PrivateChat);
