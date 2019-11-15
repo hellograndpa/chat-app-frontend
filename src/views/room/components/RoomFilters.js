@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 import RoomCreate from './RoomCreate';
 
 function RoomFilters(props) {
-  const [setActive, setActiveState] = useState('');
-  const [setActiveCreate, setActiveStateCreate] = useState('');
+  const [setActive, setActiveState] = useState('active');
+  const [setActiveCreate, setActiveStateCreate] = useState('active');
   const [setHeight, setHeightState] = useState('0px');
   const [setHeightCreate, setHeightStateCreate] = useState('0px');
 
@@ -15,11 +15,19 @@ function RoomFilters(props) {
   function toggleAccordion() {
     setActiveState(setActive === '' ? 'active' : '');
     setHeightState(setActive === 'active' ? '0px' : `${content.current.scrollHeight}px`);
+    if (setActiveCreate === 'active') {
+      setActiveStateCreate(setActiveCreate === '' ? 'active' : '');
+      setHeightStateCreate(setActiveCreate === 'active' ? '0px' : `${contentCreate.current.scrollHeight}px`);
+    }
   }
 
   function toggleAccordionCreate() {
     setActiveStateCreate(setActiveCreate === '' ? 'active' : '');
     setHeightStateCreate(setActiveCreate === 'active' ? '0px' : `${contentCreate.current.scrollHeight}px`);
+    if (setActive === 'active') {
+      setActiveState(setActive === '' ? 'active' : '');
+      setHeightState(setActive === 'active' ? '0px' : `${content.current.scrollHeight}px`);
+    }
   }
   function closeLayer() {
     toggleAccordionCreate();
@@ -95,7 +103,7 @@ function RoomFilters(props) {
             </div>
             <div className="select-width-km-30 ">
               <select
-                className="select-css-dark select-width-km-30"
+                className="select-css-dark"
                 name="Select kms"
                 defaultValue={radiusInMeters}
                 onChange={handleChangeSelectRadiusMeters}

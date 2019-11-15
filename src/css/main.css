@@ -1,5 +1,5 @@
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -9,7 +9,7 @@ h1 {
   text-align: left; }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 200;
   font-stretch: normal;
@@ -25,7 +25,7 @@ hr {
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -35,7 +35,7 @@ h1 {
   text-align: left; }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 200;
   font-stretch: normal;
@@ -56,7 +56,7 @@ hr {
   border-radius: 12px;
   background-color: #3acce1;
   font-size: 24px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #ffffff;
   border: 0px;
   margin: 10px 0 10px 0; }
@@ -174,8 +174,8 @@ hr {
   appearance: none;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient(to bottom, #353a50, 0%, #353a50 100%);
   background-repeat: no-repeat, repeat;
-  background-position: right 0.7em top 50%, 0 0;
-  background-size: 0.65em auto, 100%;
+  background-position: right .7em top 50%, 0 0;
+  background-size: .65em auto, 100%;
   outline: 0px; }
 
 .select-css-dark::-ms-expand {
@@ -320,8 +320,7 @@ a {
   * Improve readability of focused elements when they are also in an
   * active/hover state.
   */
-a:active,
-a:hover {
+a:active, a:hover {
   outline: 0; }
 
 /* Text-level semantics
@@ -480,9 +479,9 @@ select {
   *  Known issue: inner spacing remains in IE 6.
   */
 button,
-html input[type='button'],
-input[type='reset'],
-input[type='submit'] {
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
@@ -633,7 +632,7 @@ th {
   justify-content: right; }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -643,7 +642,7 @@ h1 {
   text-align: left; }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 200;
   font-stretch: normal;
@@ -662,7 +661,7 @@ html {
   height: 100%; }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-image: linear-gradient(to bottom, #ffffff 10%, #f7f7fa 30%); }
 
 img {
@@ -861,7 +860,7 @@ http://stackoverflow.com/a/34696029/383904
   background-color: #5773ff; }
 
 .o-btn.margin {
-  margin: 0.5em; }
+  margin: .5em; }
 
 .o-btn.is-disabled {
   pointer-events: none;
@@ -909,7 +908,7 @@ http://stackoverflow.com/a/34696029/383904
   position: relative; }
 
 .o-top-nav__btn {
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out 0.3s;
+  transition: opacity .4s ease-out, transform .4s ease-out .3s;
   border-radius: 0; }
 
 .o-top-nav__btn--next {
@@ -1000,7 +999,7 @@ http://stackoverflow.com/a/34696029/383904
   height: 100%; }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -1010,7 +1009,7 @@ h1 {
   text-align: left; }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 200;
   font-stretch: normal;
@@ -1040,7 +1039,7 @@ hr {
   background-color: rgba(197, 205, 218, 0.4); }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -1050,7 +1049,7 @@ h1 {
   text-align: left; }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 200;
   font-stretch: normal;
@@ -1070,7 +1069,7 @@ hr {
   height: 100%; }
 
 .chatroom .chatwrapper {
-  height: calc(100% - 146px);
+  height: 86%;
   overflow-y: auto; }
 
 .chatroom .chat * {
@@ -1225,7 +1224,7 @@ hr {
   width: 50%; }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -1235,7 +1234,7 @@ h1 {
   text-align: left; }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 200;
   font-stretch: normal;
@@ -1251,7 +1250,7 @@ hr {
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -1261,7 +1260,7 @@ h1 {
   text-align: left; }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 200;
   font-stretch: normal;
@@ -1282,7 +1281,7 @@ hr {
   border-radius: 12px;
   background-color: #3acce1;
   font-size: 24px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #ffffff;
   border: 0px;
   margin: 10px 0 10px 0; }
@@ -1400,8 +1399,8 @@ hr {
   appearance: none;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient(to bottom, #353a50, 0%, #353a50 100%);
   background-repeat: no-repeat, repeat;
-  background-position: right 0.7em top 50%, 0 0;
-  background-size: 0.65em auto, 100%;
+  background-position: right .7em top 50%, 0 0;
+  background-size: .65em auto, 100%;
   outline: 0px; }
 
 .select-css-dark::-ms-expand {
@@ -1534,7 +1533,7 @@ hr {
   padding: 15px 0 0 0; }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -1544,7 +1543,7 @@ h1 {
   text-align: left; }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 200;
   font-stretch: normal;
@@ -1624,7 +1623,7 @@ hr {
   padding: 0 16px 0 16px; }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -1634,7 +1633,7 @@ h1 {
   text-align: left; }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 200;
   font-stretch: normal;
@@ -1761,7 +1760,7 @@ h3 {
   left: 230px; }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -1771,7 +1770,7 @@ h1 {
   text-align: left; }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 200;
   font-stretch: normal;
@@ -1811,7 +1810,7 @@ hr {
 
 .user .edit .edit-mode-text {
   padding-right: 10px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px; }
 
 .user .header .avatar-content {
@@ -1838,7 +1837,7 @@ hr {
   border-color: #3acce1; }
 
 .user .header .details-content {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   color: #f0e9d3;
   padding-left: 20px; }
@@ -1894,7 +1893,7 @@ hr {
   border-radius: 50%; }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -1904,7 +1903,7 @@ h1 {
   text-align: left; }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 200;
   font-stretch: normal;

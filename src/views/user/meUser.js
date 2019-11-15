@@ -156,7 +156,6 @@ class MeUser extends Component {
               <div className="">
                 <RoomFilters
                   pgUser={pgUser}
-                  eventSearch={searchRooms}
                   handleSearchRoom={this.handleSearchRoom}
                   handleChangeSelectRooms={this.handleChangeSelectRooms}
                   selectTheme={this.state.selectTheme}
