@@ -1023,7 +1023,7 @@ hr {
   height: 100%; }
 
 .chatroom .chatwrapper {
-  height: calc(100% - 72px);
+  height: 86%;
   overflow-y: auto; }
 
 .chatroom .chat * {
@@ -1116,9 +1116,13 @@ hr {
   margin-bottom: 5px; }
 
 .chatroom .write-text-wrapper {
-  position: sticky;
   padding: 15px;
-  border-top: 1px solid; }
+  border-top: 1px solid;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #e2e4e9; }
 
 .chatroom .chat-textarea {
   width: 100%;
@@ -1163,7 +1167,11 @@ hr {
   height: 60px; }
 
 .room-create .button-wrapper {
-  margin: 10px 0 10px 0; }
+  margin: 10px 0 10px 0;
+  width: 50%; }
+
+.room-create .image-wrapper {
+  width: 50%; }
 
 h1 {
   font-family: "Montserrat", sans-serif;

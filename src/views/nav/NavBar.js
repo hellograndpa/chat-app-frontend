@@ -8,7 +8,7 @@ import icons_users from '../../images/icons/icons_users.svg';
 
 const NavBar = () => {
   return (
-    <div>
+    <div id="navBar">
       <div className="menu-principal ripple">
         <div className="element01 ripple">
           <NavLink className="nav" to="/me-user#s2">

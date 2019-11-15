@@ -39,15 +39,17 @@ class UsersList extends Component {
   };
 
   // Get all user arrownd you we are using the helper getDistanceFromMe
-  handleUsersArroundMe = (latitude, longitude, radiusInMeters) => {
+  handleUsersArroundMe = async (latitude, longitude, radiusInMeters) => {
+    const myLocation = await getCoords();
     UserService.getAllUsers(latitude, longitude, radiusInMeters)
+
       .then(async users => {
-        const newUsers = await users.map(async user => {
+        const newUsers = users.map(user => {
           const location = { latitude: user.location.coordinates[0], longitude: user.location.coordinates[1] };
-          user.distanceFromMe = await getDistanceFromMe(location);
+          user.distanceFromMe = getDistance(myLocation.coords, location);
           return user;
         });
-        return Promise.all(newUsers);
+        return newUsers;
       })
       .then(newUsers => {
         this.resultUsers(newUsers);
@@ -138,25 +140,16 @@ class UsersList extends Component {
         {/* nav top */}
         <div className="o-top-nav o-top-nav--rel">
           <a href="#s1" className="o-top-nav__btn || o-btn">
-            Prev
+            Users
           </a>
           <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-            Next
+            Map
           </a>
         </div>
         {/* end nav top */}
         {!loading && (
           <>
             <div className="slider">
-              <div>
-                <div className="title">
-                  <h1>Users map</h1>
-                </div>
-                {/* <hr /> */}
-                <div>
-                  <Map locations={users} />
-                </div>
-              </div>
               <div>
                 <UsersFilters
                   eventSearch={eventSearch}
@@ -168,6 +161,12 @@ class UsersList extends Component {
                   handleChangeSelectRadiusMeters={this.handleChangeSelectRadiusMeters}
                 />
                 <Users users={users} />
+              </div>
+              <div>
+                <div className="title">
+                  <h1>Users map</h1>
+                </div>
+                <Map locations={users} />
               </div>
             </div>
           </>

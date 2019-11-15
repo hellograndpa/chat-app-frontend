@@ -25,7 +25,7 @@ function UsersFilters(props) {
 
   return (
     <div className="header || u-sticky">
-      <div className="title">{pgUser ? <h1>Your Friends</h1> : <h1>Users Filters</h1>}</div>
+      <div className="title">{pgUser ? <h1>Your Friends</h1> : <h1>Users Arroud You</h1>}</div>
 
       <div className="box-title-search">
         <div className="title-search ">

@@ -37,7 +37,7 @@ class RoomCreate extends Component {
     const created = await RoomService.createRoom(body);
 
     // Go to the room created
-    this.props.history.push(`/rooms/${created._id}`);
+    this.props.closeLayer();
   }
 
   showWidget = widget => {
@@ -63,9 +63,6 @@ class RoomCreate extends Component {
     );
     return (
       <div className="room-create">
-        <div className="title">
-          <h1>Create a Room</h1>
-        </div>
         <div className="flex-centered">
           <form name="frmRoom" onSubmit={this.handleSubmit} method="POST">
             <div>
@@ -89,27 +86,43 @@ class RoomCreate extends Component {
             <div>
               <input className="input input-filter" type="text" name="city" placeholder="City"></input>
             </div>
-            <div>
-              {roomImage === '' && (
-                <button
-                  onClick={e => {
-                    e.preventDefault();
-                    this.showWidget(widget);
-                  }}
-                  className="button-image ripple"
-                >
-                  Upload an image
-                </button>
-              )}
-              <img className="image" src={roomImage}></img>
-              <input type="hidden" name="avatar" value={roomImage}></input>
-            </div>
 
-            <div className="button-wrapper">
+            {roomImage === '' && (
+              <button
+                onClick={e => {
+                  e.preventDefault();
+                  this.showWidget(widget);
+                }}
+                className="button-image ripple"
+              >
+                Upload an image
+              </button>
+            )}
+            {roomImage !== '' && (
               <div className="flex-centered">
-                <input className="action-btn-medium" type="submit" value="Create!" />
+                <div className="image-wrapper">
+                  <div className="o-images ">
+                    <div className="o-images__inner">
+                      <img className="o-images__img" src={roomImage} />
+                    </div>
+                  </div>
+                </div>
+                <div className="button-wrapper">
+                  <div className="flex-centered">
+                    <input className="action-btn-medium" type="submit" value="Create!" />
+                  </div>
+                </div>
               </div>
-            </div>
+            )}
+            <input type="hidden" name="avatar" value={roomImage}></input>
+
+            {roomImage === '' && (
+              <div className="button-wrapper">
+                <div className="flex-centered">
+                  <input className="action-btn-medium" type="submit" value="Create!" />
+                </div>
+              </div>
+            )}
           </form>
         </div>
         <div className="margin-bottom"></div>

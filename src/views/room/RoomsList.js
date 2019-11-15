@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Services
 import socketIOClient from 'socket.io-client';
@@ -31,7 +32,6 @@ class RoomsList extends Component {
 
   resultRooms = async newRooms => {
     emptyValidation(newRooms, this.props.handleSetMessage);
-    console.log('Newrroms', newRooms);
     this.setState({
       rooms: newRooms,
       searchRooms: newRooms,
@@ -98,15 +98,17 @@ class RoomsList extends Component {
 
     this.handleRoomsArroundMe(latitude, longitude, radiusInMeters);
 
-    socket.on('room-created', room => {
-      const searchRooms = [room, ...this.state.searchRooms];
+    socket.on('room-created', async room => {
+      const myLocation = await getCoords();
+      const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
+      room.distanceFromMe = getDistance(myLocation.coords, location);
+      const searchRooms = [room, ...this.state.rooms];
       this.setState({ searchRooms });
     });
   };
 
   render() {
     const { searchRooms, selectTheme, loading, eventSearch, radiusInMeters } = this.state;
-
     let themes = [];
     if (searchRooms && searchRooms.length > 0) {
       themes = [...new Set(searchRooms.map(room => room.theme))];
@@ -184,5 +186,9 @@ class RoomsList extends Component {
     );
   }
 }
+
+RoomsList.propTypes = {
+  handleSetMessage: PropTypes.func,
+};
 
 export default withNotification(RoomsList);

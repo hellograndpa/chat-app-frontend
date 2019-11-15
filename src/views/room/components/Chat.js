@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import socketIOClient from 'socket.io-client';
-
-// Services
 import Moment from 'react-moment';
 
+// Services
 import ChatRoomService from '../../../services/chatRoomService';
 
 // Context
@@ -29,6 +28,7 @@ class Chat extends Component {
       newState.room.chat.conversation = newConversation;
       this.setState({ newState });
     });
+    window.document.getElementById('anchor').scrollIntoView();
   }
 
   handleSubmit = async e => {
@@ -115,7 +115,7 @@ class Chat extends Component {
                 </div>
               );
             })}
-            <div className="anchor"></div>
+            <div id="anchor" className="anchor"></div>
           </div>
         </div>
         <div className="write-text-wrapper">

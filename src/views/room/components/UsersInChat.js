@@ -13,6 +13,7 @@ const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class UsersInChat extends Component {
   state = {
+    participatedUsers: this.props.participatedUsers,
     activeUsers: this.props.activeUsers,
     myLocation: { coords: { latitude: 0, longitude: 0 } },
   };
@@ -23,7 +24,15 @@ class UsersInChat extends Component {
     this.setState({ myLocation: await getCoords() });
     // First we listen for incoming users
     socket.on(`user-in-chat-${roomId}`, users => {
-      this.setState({ activeUsers: users });
+      const { participatedUsers } = this.state;
+
+      users.forEach(userActive => {
+        if (participatedUsers.filter(user => user._id === userActive._id).length === 0) {
+          participatedUsers.push(userActive);
+        }
+      });
+
+      this.setState({ participatedUsers, activeUsers: users });
     });
 
     // Insert the user into the room,
@@ -42,16 +51,22 @@ class UsersInChat extends Component {
   }
 
   render() {
-    const { activeUsers, myLocation } = this.state;
+    const { participatedUsers, activeUsers, myLocation } = this.state;
     return (
       <>
-        {activeUsers.length > 0 && (
+        {participatedUsers && participatedUsers.length > 0 && (
           <div className="users-list-content-Bg">
-            <h3>{activeUsers.length} Users in this chat</h3>
-            {activeUsers.map(user1 => {
+            <h3>{participatedUsers.length} Users in this chat</h3>
+            {participatedUsers.map(user1 => {
               return (
                 <div key={user1._id} className="users-list-line">
-                  <div className="o-avatar is-active w-15precent">
+                  <div
+                    className={
+                      activeUsers.filter(user => user._id === user1._id).length > 0
+                        ? 'o-avatar is-active w-15precent'
+                        : 'o-avatar w-15precent'
+                    }
+                  >
                     <div className="o-avatar__inner">
                       <img
                         className="o-avatar__img"
@@ -76,7 +91,7 @@ class UsersInChat extends Component {
                       {getDistance(
                         { latitude: user1.location.coordinates[0], longitude: user1.location.coordinates[1] },
                         myLocation.coords,
-                      )}{' '}
+                      ).toFixed(2)}{' '}
                       km
                     </div>
                   </div>

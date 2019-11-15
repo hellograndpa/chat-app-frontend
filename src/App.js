@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 // Views
+
 import Home from './views/auth/Home';
 import MeUser from './views/user/meUser';
 import OtherUser from './views/user/otherUser';
@@ -30,6 +31,7 @@ class App extends Component {
             <button onClick={handleCloseMessage}>close</button>
           </div>
         )}
+
         <Router>
           <Switch>
             <AnonRoute exact path="/" component={Home} />
