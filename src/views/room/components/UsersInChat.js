@@ -13,6 +13,7 @@ const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class UsersInChat extends Component {
   state = {
+    textToSearch: '',
     participatedUsers: this.props.participatedUsers,
     activeUsers: this.props.activeUsers,
     myLocation: { coords: { latitude: 0, longitude: 0 } },
@@ -53,23 +54,46 @@ class UsersInChat extends Component {
     this.componentCleanup();
   }
 
+  handleKeyPress = event => {
+    this.setState({ textToSearch: event.target.value.toLowerCase() });
+  };
+
   render() {
-    const { participatedUsers, activeUsers, myLocation } = this.state;
+    const { participatedUsers, activeUsers, myLocation, textToSearch } = this.state;
+
+    // Search users by name
+    let users = participatedUsers.filter(
+      element => (`${element.userName  } ${  element.lastName}`).toLowerCase().indexOf(textToSearch) !== -1,
+    );
+
+    // Get if isactive in the chat
+    users = users.map(user => {
+      user.active = activeUsers.filter(userActive => userActive._id === user._id).length > 0;
+      return user;
+    });
+
+    // Sort users by active / no active
+    users.sort((a, b) => (a.active > b.active ? -1 : 1));
+
     return (
       <>
-        {participatedUsers && participatedUsers.length > 0 && (
-          <div className="users-list-content-Bg">
-            <h3>{participatedUsers.length} Users in this chat</h3>
-            {participatedUsers.map(user1 => {
+        <div className="users-list-content-Bg">
+          <h3>{users.length} Users in this chat</h3>
+          <div>
+            <input
+              type="text"
+              className="input-dark"
+              placeholder="Search by name..."
+              name="searchName"
+              onChange={this.handleKeyPress}
+            ></input>
+          </div>
+          {users &&
+            users.length > 0 &&
+            users.map(user1 => {
               return (
                 <div key={user1._id} className="users-list-line">
-                  <div
-                    className={
-                      activeUsers.filter(user => user._id === user1._id).length > 0
-                        ? 'o-avatar is-active w-15precent'
-                        : 'o-avatar w-15precent'
-                    }
-                  >
+                  <div className={user1.active ? 'o-avatar is-active w-15precent' : 'o-avatar w-15precent'}>
                     <div className="o-avatar__inner">
                       <img
                         className="o-avatar__img"
@@ -101,7 +125,7 @@ class UsersInChat extends Component {
                 </div>
               );
             })}
-          </div>
+        </div>
         )}
       </>
     );

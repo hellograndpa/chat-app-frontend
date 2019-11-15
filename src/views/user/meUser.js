@@ -1,5 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
+import socketIOClient from 'socket.io-client';
+import { getCoords, getDistance } from '../../helpers/coordinates';
 
 // Context
 import { withAuth } from '../../Context/AuthContext';
@@ -14,6 +16,8 @@ import ChatsUser from './components/ChatsUser';
 import UsersFilters from './components/UsersFilters';
 import RoomsUser from './components/RoomsUser';
 import RoomFilters from '../room/components/RoomFilters';
+
+const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class MeUser extends Component {
   state = {
@@ -39,9 +43,16 @@ class MeUser extends Component {
 
   handleRoomsUser = user => {
     RoomService.getAllRoomsUserId(user._id)
-      .then(rooms => {
+      .then(async rooms => {
+        const myLocation = await getCoords();
+        const newRooms = rooms.map(room => {
+          const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
+          room.distanceFromMe = getDistance(myLocation.coords, location);
+          return room;
+        });
+
         this.setState({
-          rooms,
+          rooms: newRooms,
           searchRooms: rooms,
           loading: false,
         });
@@ -100,6 +111,14 @@ class MeUser extends Component {
     const { user } = this.props;
     this.handleChatUser(user);
     this.handleRoomsUser(user);
+
+    socket.on('room-created', async room => {
+      const myLocation = await getCoords();
+      const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
+      room.distanceFromMe = getDistance(myLocation.coords, location);
+      const searchRooms = [room, ...this.state.rooms];
+      this.setState({ searchRooms });
+    });
   };
 
   render() {

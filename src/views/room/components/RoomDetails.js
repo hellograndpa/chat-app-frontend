@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
+import { withAuth } from '../../../Context/AuthContext';
 
 // Services
 import RoomService from '../../../services/roomService';
@@ -63,23 +64,26 @@ class RoomsDetails extends Component {
 
     const { editMode, roomName, description, adminList, userBanList, avatar, city, theme } = this.state;
     const checked = editMode ? 'checked' : '';
+    console.log(adminList);
     return (
       <div>
         <div className="title">
           <h1>Room Details</h1>
         </div>
         <div className="user">
-          <div className="edit">
-            <div className="flex-centered-aligned">
-              <div className="edit-mode-text">Edit Mode:</div>
-              <div className="edit-mode-switch">
-                <label className="switch">
-                  <input type="checkbox" checked={checked} onChange={this.handleEditMode} />
-                  <span className="slider round"></span>
-                </label>
+          {adminList.filter(user => this.props.user._id === user._id).length > 0 && (
+            <div className="edit">
+              <div className="flex-centered-aligned">
+                <div className="edit-mode-text">Edit Mode:</div>
+                <div className="edit-mode-switch">
+                  <label className="switch">
+                    <input type="checkbox" checked={checked} onChange={this.handleEditMode} />
+                    <span className="slider round"></span>
+                  </label>
+                </div>
               </div>
             </div>
-          </div>
+          )}
           <div className="header">
             <div className="header-wrapper">
               <div className="avatar-content">
@@ -187,4 +191,4 @@ class RoomsDetails extends Component {
   }
 }
 
-export default RoomsDetails;
+export default withAuth(RoomsDetails);
