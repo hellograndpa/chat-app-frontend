@@ -8,7 +8,7 @@ import UserService from '../../services/userService';
 import User from './components/User';
 
 class otherUser extends Component {
-  state = { showuser: {} };
+  state = { showuser: {}, loading: true };
 
   async componentDidMount() {
     const {
@@ -18,17 +18,13 @@ class otherUser extends Component {
     } = this.props;
 
     const showuser = await UserService.getUserById(userId);
-    this.setState({ showuser });
+    this.setState({ showuser, loading: false });
   }
 
   render() {
-    const { showuser } = this.state;
+    const { showuser, loading } = this.state;
     const { user } = this.props;
-    return (
-      <div>
-        <User user={user} showuser={showuser} />
-      </div>
-    );
+    return <div>{!loading && <User user={user} showuser={showuser} />}</div>;
   }
 }
 

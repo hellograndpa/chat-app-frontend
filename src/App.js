@@ -21,7 +21,7 @@ import AnonRoute from './components/AnonRoute';
 
 class App extends Component {
   render() {
-    const { handleLogout, user, notification, status, handleCloseMessage } = this.props;
+    const { notification, status, handleCloseMessage } = this.props;
     return (
       <>
         {status && (

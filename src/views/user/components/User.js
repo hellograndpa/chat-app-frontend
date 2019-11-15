@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import userService from '../../../services/userService';
 import { getCoords } from '../../../helpers/coordinates';
 import ChatUserService from '../../../services/chatUserService';
@@ -20,12 +21,16 @@ class UserMe extends Component {
     loading: true,
     pictures: [],
     chats: [],
+    status: '',
   };
 
   handleInvite = () => {
     const { user, showuser } = this.props;
     const body = { userChat01: user._id, userChat02: showuser._id };
     ChatUserService.createChatUser(body);
+    this.setState({
+      status: 'pending',
+    });
   };
 
   handleEdit = () => {
@@ -50,6 +55,17 @@ class UserMe extends Component {
       avatar: newUser.avatar,
       loading: false,
     });
+  };
+
+  handleGetChatBetweenUsers = async (userId01, userId02) => {
+    const chatUser = await ChatUserService.getAllChatUserTowId(userId01, userId02);
+    console.log('TCL: UserMe -> handleGetChatBetweenUsers -> chatUser', chatUser);
+
+    if (chatUser) {
+      console.log('TCL: UserMe -> handleGetChatBetweenUsers -> chatUser.status', chatUser.status);
+
+      this.setState({ chatUser, status: chatUser.status });
+    }
   };
 
   handleFormSubmit = async e => {
@@ -80,6 +96,9 @@ class UserMe extends Component {
 
   componentDidMount = () => {
     this.handleUserGet(this.props.user);
+    this.handleGetChatBetweenUsers(this.props.user._id, this.props.showuser._id);
+    console.log('TCL: UserMe -> componentDidMount -> this.props.showuser._id', this.props.showuser._id);
+    console.log('TCL: UserMe -> componentDidMount -> this.props.user._id', this.props.user._id);
   };
 
   showWidget = widget => {
@@ -108,7 +127,9 @@ class UserMe extends Component {
     );
 
     const { showuser } = this.props;
-    const { edit, loading, userName, lastName, email, avatar, age, city } = this.state;
+    const { edit, loading, userName, lastName, email, avatar, age, city, status, chatUser } = this.state;
+    console.log('TCL: UserMe -> render -> status', status);
+
     const checked = edit ? 'checked' : '';
 
     return (
@@ -142,9 +163,18 @@ class UserMe extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="o-btn" onClick={this.handleInvite}>
-                  aaaaa Invitar
-                </div>
+                {status === '' && (
+                  <div className="o-btn" onClick={this.handleInvite}>
+                    INVITE
+                  </div>
+                )}
+
+                {status === 'active' && (
+                  <NavLink to={`/users/private-chat/${chatUser._id}`}>
+                    <div className="o-btn">SAY ME SOMETHING</div>
+                  </NavLink>
+                )}
+                {status === 'pending' && <div className="o-btn is-disabled">PENDING</div>}
               </>
             ) : (
               <>
