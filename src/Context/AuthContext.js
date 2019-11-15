@@ -16,7 +16,17 @@ export const withAuth = Comp => {
     render() {
       return (
         <AuthConsumer>
-          {({ isLoading, isLoggedin, user, handleLogin, handleSignup, handleLogout, changeSession, handleAbandon }) => (
+          {({
+            isLoading,
+            isLoggedin,
+            user,
+            handleLogin,
+            handleSignup,
+            handleLogout,
+            changeSession,
+            handleAbandon,
+            handleRemember,
+          }) => (
             <Comp
               {...this.props}
               isLoading={isLoading}
@@ -27,6 +37,7 @@ export const withAuth = Comp => {
               handleLogout={handleLogout}
               changeSession={changeSession}
               handleAbandon={handleAbandon}
+              handleRemember={handleRemember}
             />
           )}
         </AuthConsumer>
@@ -121,6 +132,10 @@ export default class AuthProvider extends Component {
     await authService.abandon();
   };
 
+  handleRemember = async () => {
+    await authService.remember();
+  };
+
   changeSession = newUser => {
     const newState = { ...this.state };
     newState.user = newUser;
@@ -144,6 +159,7 @@ export default class AuthProvider extends Component {
           handleSignup: this.handleSignup,
           changeSession: this.changeSession,
           handleAbandon: this.handleAbandon,
+          handleRemember: this.handleRemember,
         }}
       >
         {children}

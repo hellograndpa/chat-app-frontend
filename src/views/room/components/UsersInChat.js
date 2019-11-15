@@ -33,6 +33,9 @@ class UsersInChat extends Component {
       });
 
       this.setState({ participatedUsers, activeUsers: users });
+      window.onbeforeunload = () => {
+        this.componentCleanup();
+      };
     });
 
     // Insert the user into the room,

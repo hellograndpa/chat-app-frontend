@@ -101,8 +101,9 @@ class UsersList extends Component {
 
     socket.on('login', () => {
       this.handleUsersArroundMe(latitude, longitude, radiusInMeters / 1000);
-
-      // TODO: control user conected
+    });
+    socket.on('logout', () => {
+      this.handleUsersArroundMe(latitude, longitude, radiusInMeters / 1000);
     });
   };
 

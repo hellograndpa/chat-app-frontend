@@ -21,6 +21,12 @@ import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
 
 class App extends Component {
+  componentDidMount() {
+    if (this.props.user) {
+      this.props.handleRemember();
+    }
+  }
+
   render() {
     const { handleAbandon, notification, status, handleCloseMessage } = this.props;
     return (
