@@ -111,8 +111,8 @@ class MeUser extends Component {
   handleChangeSelectRadiusMeters = event => {
     this.setState({
       radiusInMeters: event.target.value,
-    })
-  }
+    });
+  };
 
   componentDidMount = () => {
     const { user } = this.props;
@@ -129,8 +129,7 @@ class MeUser extends Component {
   };
 
   render() {
-    const { user } = this.props;
-    const { searchChats, selectStatus, searchRooms, selectTheme, loading, pgUser,radiusInMeters } = this.state;
+    const { searchChats, selectStatus, searchRooms, selectTheme, loading, pgUser, radiusInMeters } = this.state;
 
     let themes = [];
     if (searchRooms) {

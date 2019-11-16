@@ -15,7 +15,6 @@ import UsersList from './views/user/UsersList';
 
 // Context
 import { withAuth } from './Context/AuthContext';
-import { withNotification } from './Context/NotificationCtx';
 
 import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
@@ -28,15 +27,9 @@ class App extends Component {
   }
 
   render() {
-    const { handleAbandon, notification, status, handleCloseMessage } = this.props;
+    const { handleAbandon } = this.props;
     return (
       <>
-        {status && (
-          <div className={notification.typeMessage}>
-            {notification.typeMessage}: {notification.message}
-            <button onClick={handleCloseMessage}>close</button>
-          </div>
-        )}
         <Beforeunload onBeforeunload={handleAbandon}>
           <Router>
             <Switch>
@@ -56,4 +49,4 @@ class App extends Component {
   }
 }
 
-export default withAuth(withNotification(App));
+export default withAuth(App);

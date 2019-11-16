@@ -51,9 +51,13 @@ class RoomsList extends Component {
       })
       .then(newRooms => {
         this.resultRooms(newRooms);
+        if (newRooms.length === 0) {
+          this.props.handleSetMessage({ typeMessage: 'error', message: 'no results' });
+        }
       })
       .catch(error => {
-        console.log(error);
+        console.log('error', error);
+        this.props.handleSetMessage({ typeMessage: 'error', message: error });
       });
   };
 
@@ -139,7 +143,6 @@ class RoomsList extends Component {
     } else {
       rooms = searchRooms;
     }
-    console.log(rooms)
     return (
       <div className="CSSgal">
         <s id="s1"></s>

@@ -116,24 +116,24 @@ class Chat extends Component {
               );
             })}
             <div id="anchor" className="anchor"></div>
-          </div>
-        </div>
-        <div className="write-text-wrapper">
-          <form onSubmit={this.handleSubmit}>
-            <div className="form-content">
-              <div className="text-area-wp ">
-                <textarea
-                  type="text"
-                  className="input chat-textarea"
-                  name="text"
-                  ref={userInput => (this.input = userInput)}
-                />
-              </div>
-              <div>
-                <button className="o-btn btn-send">Enviar</button>
-              </div>
+            <div className="write-text-wrapper">
+              <form onSubmit={this.handleSubmit}>
+                <div className="form-content">
+                  <div className="text-area-wp ">
+                    <textarea
+                      type="text"
+                      className="input chat-textarea"
+                      name="text"
+                      ref={userInput => (this.input = userInput)}
+                    />
+                  </div>
+                  <div>
+                    <button className="o-btn btn-send">Enviar</button>
+                  </div>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     );

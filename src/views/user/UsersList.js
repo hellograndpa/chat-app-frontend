@@ -13,7 +13,7 @@ import UsersFilters from './components/UsersFilters';
 import Map from '../room/components/Map';
 
 // Helpers
-import { getCoords, getDistance, getDistanceFromMe } from '../../helpers/coordinates';
+import { getCoords, getDistance } from '../../helpers/coordinates';
 import { emptyValidation } from '../../helpers/Validation';
 
 const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
@@ -145,7 +145,6 @@ class UsersList extends Component {
       users = searchUsers;
     }
 
-    console.log('TCL: UsersList -> render -> selectActive', selectActive);
     return (
       <div className="CSSgal">
         <s id="s1"></s>

@@ -34,7 +34,7 @@ class RoomCreate extends Component {
     const body = { roomName, description, latitude, longitude, theme, avatar, city };
 
     // Create Room
-    const created = await RoomService.createRoom(body);
+    await RoomService.createRoom(body);
 
     // Go to the room created
     this.props.closeLayer();
@@ -103,7 +103,7 @@ class RoomCreate extends Component {
                 <div className="image-wrapper">
                   <div className="o-images ">
                     <div className="o-images__inner">
-                      <img className="o-images__img" src={roomImage} />
+                      <img className="o-images__img" src={roomImage} alt="" />
                     </div>
                   </div>
                 </div>

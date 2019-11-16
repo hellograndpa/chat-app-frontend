@@ -59,11 +59,8 @@ class UserMe extends Component {
 
   handleGetChatBetweenUsers = async (userId01, userId02) => {
     const chatUser = await ChatUserService.getAllChatUserTowId(userId01, userId02);
-    console.log('TCL: UserMe -> handleGetChatBetweenUsers -> chatUser', chatUser);
 
     if (chatUser) {
-      console.log('TCL: UserMe -> handleGetChatBetweenUsers -> chatUser.status', chatUser.status);
-
       this.setState({ chatUser, status: chatUser.status });
     }
   };
@@ -97,8 +94,6 @@ class UserMe extends Component {
   componentDidMount = () => {
     this.handleUserGet(this.props.user);
     this.handleGetChatBetweenUsers(this.props.user._id, this.props.showuser._id);
-    console.log('TCL: UserMe -> componentDidMount -> this.props.showuser._id', this.props.showuser._id);
-    console.log('TCL: UserMe -> componentDidMount -> this.props.user._id', this.props.user._id);
   };
 
   showWidget = widget => {
@@ -128,7 +123,6 @@ class UserMe extends Component {
 
     const { showuser } = this.props;
     const { edit, loading, userName, lastName, email, avatar, age, city, status, chatUser } = this.state;
-    console.log('TCL: UserMe -> render -> status', status);
 
     const checked = edit ? 'checked' : '';
 
