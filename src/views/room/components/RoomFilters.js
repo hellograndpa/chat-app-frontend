@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
 import RoomCreate from './RoomCreate';
 
 function RoomFilters(props) {

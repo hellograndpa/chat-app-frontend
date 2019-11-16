@@ -102,6 +102,12 @@ hr {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
   border: solid 3px #3acce1;
   background-color: #ffffff; }
+<<<<<<< HEAD
+=======
+
+.input.margin {
+  margin: 10px; }
+>>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
 
 .input-filter {
   width: 327px;
@@ -179,7 +185,9 @@ hr {
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
-  outline: 0px; }
+  outline: 0px;
+  background-color: #353a50;
+  border: none; }
 
 .select-css-dark::-ms-expand {
   display: none; }
@@ -681,6 +689,9 @@ img {
   justify-content: center;
   align-items: center; }
 
+.flex-centered-aligned.full {
+  height: 100%; }
+
 .flex-between {
   display: flex;
   justify-content: space-between; }
@@ -1078,7 +1089,7 @@ hr {
   height: 100%; }
 
 .chatroom .chatwrapper {
-  height: 86%;
+  height: calc(100% - 45px);
   overflow-y: auto; }
 
 .chatroom .chat * {
@@ -1177,7 +1188,6 @@ hr {
 .chatroom .write-text-wrapper {
   padding: 15px;
   border-top: 1px solid;
-  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -1336,6 +1346,12 @@ hr {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
   border: solid 3px #3acce1;
   background-color: #ffffff; }
+<<<<<<< HEAD
+=======
+
+.input.margin {
+  margin: 10px; }
+>>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
 
 .input-filter {
   width: 327px;
@@ -1413,7 +1429,9 @@ hr {
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
-  outline: 0px; }
+  outline: 0px;
+  background-color: #353a50;
+  border: none; }
 
 .select-css-dark::-ms-expand {
   display: none; }
@@ -1871,6 +1889,7 @@ h3 {
   position: absolute;
   top: 90px;
   left: 230px; }
+<<<<<<< HEAD
 
 .header-user {
   position: relative;
@@ -1904,6 +1923,8 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   width: 30%; }
+=======
+>>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
 
 .user {
   margin-top: 20px; }
@@ -2063,3 +2084,23 @@ h3 {
 .header {
   background-color: #fff;
   z-index: 1; }
+<<<<<<< HEAD
+=======
+
+.notifications {
+  position: absolute;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  height: auto;
+  z-index: 100;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  transition: all 1s linear;
+  display: block; }
+
+.notifications.hidden {
+  display: none;
+  opacity: 0; }
+>>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475

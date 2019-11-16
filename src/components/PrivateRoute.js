@@ -16,7 +16,7 @@ function PrivateRoute({ component: Comp, isLoggedin, user, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: '/login',
+              pathname: '/',
             }}
           />
         )

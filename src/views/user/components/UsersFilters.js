@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
 
 function UsersFilters(props) {
   const [setActive, setActiveState] = useState('');
@@ -16,7 +15,6 @@ function UsersFilters(props) {
     pgUser,
     eventSearch,
     handleSearchUser,
-    sortedList,
     selectActive,
     handleChangeSelectUsers,
     radiusInMeters,

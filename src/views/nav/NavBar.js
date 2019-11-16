@@ -13,7 +13,7 @@ const NavBar = () => {
         <div className="element01 ripple">
           <NavLink className="nav" to="/me-user#s2">
             <div>
-              <img className="icon" src={icons_rideshare} />
+              <img className="icon" src={icons_rideshare} alt="" />
             </div>
             Me
           </NavLink>
@@ -21,7 +21,7 @@ const NavBar = () => {
         <div className="element02 ripple">
           <NavLink className="nav" to="/rooms/list">
             <div>
-              <img className="icon" src={icons_comment} />
+              <img className="icon" src={icons_comment} alt="" />
             </div>
             Rooms
           </NavLink>
@@ -29,7 +29,7 @@ const NavBar = () => {
         <div className="element03 ripple">
           <NavLink className="nav" to="/users/list">
             <div>
-              <img className="icon" src={icons_users} />
+              <img className="icon" src={icons_users} alt="" />
             </div>
             Users
           </NavLink>

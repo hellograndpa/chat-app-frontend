@@ -103,6 +103,9 @@ hr {
   border: solid 3px #3acce1;
   background-color: #ffffff; }
 
+.input.margin {
+  margin: 10px; }
+
 .input-filter {
   width: 327px;
   height: 40px;
@@ -179,7 +182,9 @@ hr {
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
-  outline: 0px; }
+  outline: 0px;
+  background-color: #353a50;
+  border: none; }
 
 .select-css-dark::-ms-expand {
   display: none; }

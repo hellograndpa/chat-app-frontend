@@ -5,7 +5,6 @@ import { withAuth } from '../../../Context/AuthContext';
 
 // Services
 import RoomService from '../../../services/roomService';
-import chatUserService from '../../../services/chatRoomService';
 
 class RoomsDetails extends Component {
   state = {

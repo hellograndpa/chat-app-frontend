@@ -17,24 +17,24 @@ class Home extends Component {
         {/* nav top */}
         <div className="o-top-nav o-top-nav--rel">
           <a href="#s1" className="o-top-nav__btn || o-btn">
-            SINGUP
-          </a>
-          <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
             HOME
           </a>
-          <a href="#s3" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+          <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
             LOGIN
+          </a>
+          <a href="#s3" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+            SIGNUP
           </a>
         </div>
         {/* end nav top */}
         <div className="slider">
           <div>
-            <Login />
-          </div>
-          <div>
             <div className="home-image">
               <h2>Ready to talk?</h2>
             </div>
+          </div>
+          <div>
+            <Login />
           </div>
           <div>
             <Signup />
