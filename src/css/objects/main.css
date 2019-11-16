@@ -92,6 +92,12 @@
 .o-avatar.is-active .o-avatar__inner:after {
   border-color: #3acce1; }
 
+.o-avatar.is-headerUser-absolute {
+  position: absolute;
+  top: -100px;
+  left: 25%;
+  right: 25%; }
+
 .o-avatar__inner {
   position: relative;
   width: 100%;

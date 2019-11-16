@@ -62,6 +62,8 @@ class UsersList extends Component {
   // SEARCH INPUT SEARCH BY NAME
 
   handleSearchUser = event => {
+    event.preventDefault();
+
     const { users } = this.state;
 
     let searchUsers;
@@ -84,12 +86,26 @@ class UsersList extends Component {
   // SELECT INPUT FILTER BY ACTIVITY
 
   handleChangeSelectUsers = event => {
-    this.setState({
-      selectActive: Number(event.target.value),
-    });
+    event.preventDefault();
+    if (event.target.value === 'true') {
+      this.setState({
+        selectActive: true,
+      });
+    }
+    if (event.target.value === 'false') {
+      this.setState({
+        selectActive: false,
+      });
+    }
+    if (event.target.value === '') {
+      this.setState({
+        selectActive: '',
+      });
+    }
   };
 
   handleChangeSelectRadiusMeters = event => {
+    event.preventDefault();
     this.setState({
       radiusInMeters: event.target.value,
     });
@@ -145,7 +161,6 @@ class UsersList extends Component {
       users = searchUsers;
     }
 
-    console.log('TCL: UsersList -> render -> selectActive', selectActive);
     return (
       <div className="CSSgal">
         <s id="s1"></s>
@@ -170,7 +185,7 @@ class UsersList extends Component {
                   handleSearchUser={this.handleSearchUser}
                   sortedList={sortedList}
                   selectActive={selectActive}
-                  handleChangeSelectUser={this.handleChangeSelectUser}
+                  handleChangeSelectUsers={this.handleChangeSelectUsers}
                   radiusInMeters={radiusInMeters}
                   handleChangeSelectRadiusMeters={this.handleChangeSelectRadiusMeters}
                 />

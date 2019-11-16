@@ -59,11 +59,8 @@ class UserMe extends Component {
 
   handleGetChatBetweenUsers = async (userId01, userId02) => {
     const chatUser = await ChatUserService.getAllChatUserTowId(userId01, userId02);
-    console.log('TCL: UserMe -> handleGetChatBetweenUsers -> chatUser', chatUser);
 
     if (chatUser) {
-      console.log('TCL: UserMe -> handleGetChatBetweenUsers -> chatUser.status', chatUser.status);
-
       this.setState({ chatUser, status: chatUser.status });
     }
   };
@@ -97,8 +94,6 @@ class UserMe extends Component {
   componentDidMount = () => {
     this.handleUserGet(this.props.user);
     this.handleGetChatBetweenUsers(this.props.user._id, this.props.showuser._id);
-    console.log('TCL: UserMe -> componentDidMount -> this.props.showuser._id', this.props.showuser._id);
-    console.log('TCL: UserMe -> componentDidMount -> this.props.user._id', this.props.user._id);
   };
 
   showWidget = widget => {
@@ -128,7 +123,6 @@ class UserMe extends Component {
 
     const { showuser } = this.props;
     const { edit, loading, userName, lastName, email, avatar, age, city, status, chatUser } = this.state;
-    console.log('TCL: UserMe -> render -> status', status);
 
     const checked = edit ? 'checked' : '';
 
@@ -138,9 +132,9 @@ class UserMe extends Component {
           <div className="user">
             {showuser._id !== undefined ? (
               <>
-                <div className=" header header__relative">
-                  <div className="header-wrapper">
-                    <div className="o-avatar is-active w-50precent">
+                <div className="">
+                  <div className="header-user header-user__greycolor">
+                    <div className="o-avatar is-active w-50precent is-headerUser-absolute ">
                       <div className="o-avatar__inner">
                         <img
                           className="o-avatar__img"
@@ -150,22 +144,27 @@ class UserMe extends Component {
                       </div>
                     </div>
                     <div className="details-content">
-                      <div>
+                      <div className="titular">
                         <h1>
-                          {showuser.userName} {showuser.lastName}
+                          {showuser.userName}
+                          <br />
+                          {showuser.lastName}
                         </h1>
                       </div>
-                      <divd className="title">
+                      <divd className=" titular ">
                         <h3>{showuser.email}</h3>
                       </divd>
-                      <div>{showuser.city}</div>
-                      <div>{showuser.age} years old</div>
+                      <div className="titular">
+                        {showuser.city} {showuser.age} years old
+                      </div>
                     </div>
                   </div>
                 </div>
                 {status === '' && (
-                  <div className="o-btn" onClick={this.handleInvite}>
-                    INVITE
+                  <div className="btn-user-header ">
+                    <div className="o-btn " onClick={this.handleInvite}>
+                      INVITE ME
+                    </div>
                   </div>
                 )}
 
@@ -174,7 +173,11 @@ class UserMe extends Component {
                     <div className="o-btn">SAY ME SOMETHING</div>
                   </NavLink>
                 )}
-                {status === 'pending' && <div className="o-btn is-disabled">PENDING</div>}
+                {status === 'pending' && (
+                  <div className="btn-user-header ">
+                    <div className="o-btn is-disabled ">PENDING</div>
+                  </div>
+                )}
               </>
             ) : (
               <>

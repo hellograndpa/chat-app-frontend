@@ -18,7 +18,7 @@ function UsersFilters(props) {
     handleSearchUser,
     sortedList,
     selectActive,
-    handleChangeSelectUser,
+    handleChangeSelectUsers,
     radiusInMeters,
     handleChangeSelectRadiusMeters,
   } = props;
@@ -53,15 +53,13 @@ function UsersFilters(props) {
             <div className="select-wp">
               <div className="select-width-theme-60">
                 <select
-                  placeholder="Select a Activity "
                   className="select-css-dark"
                   name="Selec Activity"
                   defaultValue={selectActive}
-                  onChange={handleChangeSelectUser}
+                  onChange={handleChangeSelectUsers}
                 >
                   <option value="">All</option>
                   <option value="true">Actives</option>
-                  <option value="false">Inactives</option>
                 </select>
               </div>
               <div className="select-width-km-30 ">
