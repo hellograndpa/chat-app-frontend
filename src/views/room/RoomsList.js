@@ -139,7 +139,7 @@ class RoomsList extends Component {
     } else {
       rooms = searchRooms;
     }
-
+    console.log(rooms)
     return (
       <div className="CSSgal">
         <s id="s1"></s>
@@ -163,7 +163,7 @@ class RoomsList extends Component {
                   handleSearchRoom={this.handleSearchRoom}
                   handleChangeSelectRooms={this.handleChangeSelectRooms}
                   selectTheme={this.state.selectTheme}
-                  radiusInMeters={this.state.radiusInMeters}
+                  radiusInMeters={radiusInMeters}
                   handleChangeSelectRadiusMeters={this.handleChangeSelectRadiusMeters}
                   sortedList={sortedList}
                 />

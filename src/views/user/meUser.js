@@ -27,6 +27,7 @@ class MeUser extends Component {
     rooms: [],
     searchRooms: [],
     selectTheme: '',
+    radiusInMeters: 80,
     pgUser: true,
   };
 
@@ -107,6 +108,12 @@ class MeUser extends Component {
     this.handleChatUser(user);
   };
 
+  handleChangeSelectRadiusMeters = event => {
+    this.setState({
+      radiusInMeters: event.target.value,
+    })
+  }
+
   componentDidMount = () => {
     const { user } = this.props;
     this.handleChatUser(user);
@@ -123,7 +130,7 @@ class MeUser extends Component {
 
   render() {
     const { user } = this.props;
-    const { searchChats, selectStatus, searchRooms, selectTheme, loading, pgUser } = this.state;
+    const { searchChats, selectStatus, searchRooms, selectTheme, loading, pgUser,radiusInMeters } = this.state;
 
     let themes = [];
     if (searchRooms) {
@@ -142,12 +149,20 @@ class MeUser extends Component {
       ));
 
     let rooms = [];
-    if (selectTheme !== '') {
-      rooms = searchRooms.filter(element => element.theme === selectTheme);
+    if (selectTheme !== '' || radiusInMeters <= 50) {
+      if (!loading) {
+        rooms = searchRooms;
+
+        if (selectTheme !== '') {
+          rooms = rooms.filter(element => element.theme === selectTheme);
+        }
+        if (radiusInMeters <= 51) {
+          rooms = rooms.filter(element => element.distanceFromMe <= radiusInMeters);
+        }
+      }
     } else {
       rooms = searchRooms;
     }
-
     return (
       <div className="CSSgal">
         <s id="s1"></s>
@@ -178,7 +193,7 @@ class MeUser extends Component {
                   handleSearchRoom={this.handleSearchRoom}
                   handleChangeSelectRooms={this.handleChangeSelectRooms}
                   selectTheme={this.state.selectTheme}
-                  radiusInMeters={this.state.radiusInMeters}
+                  radiusInMeters={radiusInMeters}
                   handleChangeSelectRadiusMeters={this.handleChangeSelectRadiusMeters}
                   sortedList={sortedList}
                 />
@@ -187,12 +202,10 @@ class MeUser extends Component {
               <div>
                 <UsersFilters
                   pgUser={pgUser}
-                  eventSearch={searchChats}
                   handleSearchUser={this.handleSearchChats}
                   sortedList={sortedList}
                   selectTheme={this.state.selectTheme}
                   handleChangeSelectUser={this.handleChangeSelectUser}
-                  radiusInMeters={this.state.radiusInMeters}
                   handleChang
                 />
                 <ChatsUser

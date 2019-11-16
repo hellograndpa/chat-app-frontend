@@ -10,6 +10,13 @@ const ChatsUser = props => {
 
   const status = [...new Set(searchChats.map(chat => chat.status))];
 
+  const userFriend = (user01, user02)=>{
+    if (user01._id=== user._id){
+      return user02
+    }
+    return user01
+  }
+
   const sortedList = status
     .sort((a, b) => {
       if (a < b) return -1;
@@ -41,7 +48,8 @@ const ChatsUser = props => {
           return (
             <div className="flex-centered-vetically w-40precent box-list-user color" key={chat._id}>
               {/* start image of avatar */}
-              <div className="o-avatar is-active w-75precent ">
+              {/* <div className="o-avatar is-active w-75precent "> */}
+              <div className={userFriend(chat.userChat01,chat.userChat02).active ? ('o-avatar is-active w-75precent'): ('o-avatar w-75precent')}>
                 <div className="o-avatar__inner">
                   <img
                     className="o-avatar__img"
@@ -51,6 +59,7 @@ const ChatsUser = props => {
                 </div>
                 <div>
                   {/* end image of avatar */}
+
                   <div>
                     {chat.status === 'pending' ? (
                       <>
@@ -59,24 +68,12 @@ const ChatsUser = props => {
                             <div className="title">
                               {chat.userChat02.userName} {chat.userChat02.lastName}
                             </div>
-                            {/* {
-                        await getDistanceFromMe({
-                          latitude: chat.userChat02.location.coordinates[0],
-                          logitude: chat.userChat02.location.coordinates[1],
-                        })
-                      } */}
                           </>
                         ) : (
                           <>
                             <div className="title">
                               {chat.userChat01.userName} {chat.userChat01.lastName}
                             </div>
-                            {/* {
-                        await getDistanceFromMe({
-                          latitude: chat.userChat01.location.coordinates[0],
-                          logitude: chat.userChat01.location.coordinates[1],
-                        })
-                      } */}
                           </>
                         )}
                         {chat.userChat02._id === user._id ? (
@@ -88,9 +85,24 @@ const ChatsUser = props => {
                         )}
                       </>
                     ) : (
-                      <Link className="o-btn margin o-btn--sm" to={`/users/private-chat/${chat._id}`}>
-                        OPEN CHAT
-                      </Link>
+                      <>
+                        {chat.userChat01._id === user._id ? (
+                          <>
+                            <div className="title">
+                              {chat.userChat02.userName} {chat.userChat02.lastName}
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="title">
+                              {chat.userChat01.userName} {chat.userChat01.lastName}
+                            </div>
+                          </>
+                        )}
+                        <Link className="o-btn margin o-btn--sm" to={`/users/private-chat/${chat._id}`}>
+                          OPEN CHAT
+                        </Link>
+                      </>
                     )}
                   </div>
                 </div>

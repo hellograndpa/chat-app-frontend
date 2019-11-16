@@ -22,8 +22,8 @@ class UsersList extends Component {
   state = {
     users: [],
     searchUsers: [],
-    radiusInMeters: 50000,
-    selectTheme: '',
+    radiusInMeters: 500,
+    selectActive: '',
     eventSearch: '',
     loading: true,
   };
@@ -59,6 +59,8 @@ class UsersList extends Component {
       });
   };
 
+  // SEARCH INPUT SEARCH BY NAME
+
   handleSearchUser = event => {
     const { users } = this.state;
 
@@ -79,9 +81,11 @@ class UsersList extends Component {
     emptyValidation(searchUsers, this.props.handleSetMessage);
   };
 
+  // SELECT INPUT FILTER BY ACTIVITY
+
   handleChangeSelectUsers = event => {
     this.setState({
-      selectTheme: event.target.value,
+      selectActive: Number(event.target.value),
     });
   };
 
@@ -97,18 +101,18 @@ class UsersList extends Component {
     } = await getCoords();
     const { radiusInMeters } = this.state;
 
-    this.handleUsersArroundMe(latitude, longitude, radiusInMeters / 1000);
+    this.handleUsersArroundMe(latitude, longitude, radiusInMeters);
 
     socket.on('login', () => {
-      this.handleUsersArroundMe(latitude, longitude, radiusInMeters / 1000);
+      this.handleUsersArroundMe(latitude, longitude, radiusInMeters);
     });
     socket.on('logout', () => {
-      this.handleUsersArroundMe(latitude, longitude, radiusInMeters / 1000);
+      this.handleUsersArroundMe(latitude, longitude, radiusInMeters);
     });
   };
 
   render() {
-    const { searchUsers, selectTheme, loading, eventSearch, radiusInMeters } = this.state;
+    const { searchUsers, selectActive, loading, eventSearch, radiusInMeters } = this.state;
 
     let themes = [];
     if (searchUsers && searchUsers.length > 0) {
@@ -127,14 +131,21 @@ class UsersList extends Component {
       ));
 
     let users = [];
-    if (selectTheme !== '' && radiusInMeters <= 50001) {
-      users = searchUsers
-        .filter(element => element.theme === selectTheme)
-        .filter(element => element.distanceFromMe <= radiusInMeters);
+    if (selectActive !== '' || radiusInMeters <= 51) {
+      if (!loading) {
+        users = searchUsers;
+        if (selectActive !== '') {
+          users = users.filter(element => element.active === selectActive);
+        }
+        if (radiusInMeters <= 51) {
+          users = users.filter(element => element.distanceFromMe <= radiusInMeters);
+        }
+      }
     } else {
       users = searchUsers;
     }
 
+    console.log('TCL: UsersList -> render -> selectActive', selectActive);
     return (
       <div className="CSSgal">
         <s id="s1"></s>
@@ -158,9 +169,9 @@ class UsersList extends Component {
                   eventSearch={eventSearch}
                   handleSearchUser={this.handleSearchUser}
                   sortedList={sortedList}
-                  selectTheme={this.state.selectTheme}
+                  selectActive={selectActive}
                   handleChangeSelectUser={this.handleChangeSelectUser}
-                  radiusInMeters={this.state.radiusInMeters}
+                  radiusInMeters={radiusInMeters}
                   handleChangeSelectRadiusMeters={this.handleChangeSelectRadiusMeters}
                 />
                 <Users users={users} />
