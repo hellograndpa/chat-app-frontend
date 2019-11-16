@@ -102,12 +102,9 @@ hr {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
   border: solid 3px #3acce1;
   background-color: #ffffff; }
-<<<<<<< HEAD
-=======
 
 .input.margin {
   margin: 10px; }
->>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
 
 .input-filter {
   width: 327px;
@@ -916,7 +913,8 @@ http://stackoverflow.com/a/34696029/383904
   width: 100%;
   z-index: 1;
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  background-color: #fff; }
 
 .o-top-nav--rel {
   position: relative; }
@@ -1346,12 +1344,9 @@ hr {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
   border: solid 3px #3acce1;
   background-color: #ffffff; }
-<<<<<<< HEAD
-=======
 
 .input.margin {
   margin: 10px; }
->>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
 
 .input-filter {
   width: 327px;
@@ -1481,7 +1476,8 @@ hr {
   font-weight: normal; }
 
 .title {
-  padding: 5px 27px 2px 27px; }
+  padding: 5px 27px 2px 27px;
+  background-color: #fff; }
 
 .title .h1 {
   color: #454f63;
@@ -1566,7 +1562,8 @@ hr {
   display: flex; }
 
 .nav-chat-wrapper {
-  white-space: nowrap; }
+  white-space: nowrap;
+  background-color: #fff; }
 
 .chat-title,
 .chat-navbar {
@@ -1576,12 +1573,12 @@ hr {
   width: calc(100% - 42px); }
 
 .chat-navbar {
-  transition: transform 2s;
-  -moz-transition: transform 2s;
+  transition: transform 1s;
+  -moz-transition: transform 1s;
   /* Firefox 4 */
-  -webkit-transition: transform 2s;
+  -webkit-transition: transform 1s;
   /* Safari and Chrome */
-  -o-transition: transform 2s;
+  -o-transition: transform 1s;
   /* Opera */
   width: calc(100% - 42px);
   background-color: #fff; }
@@ -1597,8 +1594,8 @@ hr {
   z-index: 1000; }
 
 .sample-menu-button {
-  width: 52px;
-  height: 52px;
+  width: 51px;
+  height: 51px;
   background-color: DeepSkyBlue;
   cursor: pointer;
   position: absolute;
@@ -1889,7 +1886,6 @@ h3 {
   position: absolute;
   top: 90px;
   left: 230px; }
-<<<<<<< HEAD
 
 .header-user {
   position: relative;
@@ -1923,8 +1919,6 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   width: 30%; }
-=======
->>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
 
 .user {
   margin-top: 20px; }
@@ -2084,23 +2078,38 @@ h3 {
 .header {
   background-color: #fff;
   z-index: 1; }
-<<<<<<< HEAD
-=======
 
 .notifications {
   position: absolute;
-  background: #000;
   color: #fff;
   width: 100%;
   height: auto;
   z-index: 100;
-  padding: 15px;
+  padding: 16px;
   display: flex;
   justify-content: center;
   transition: all 1s linear;
-  display: block; }
+  display: block;
+  transition: transform 1s;
+  -moz-transition: transform 1s;
+  /* Firefox 4 */
+  -webkit-transition: transform 1s;
+  /* Safari and Chrome */
+  -o-transition: transform 1s;
+  /* Opera */ }
 
 .notifications.hidden {
-  display: none;
-  opacity: 0; }
->>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
+  transform: translateX(-100%); }
+
+.notifications.alert {
+  background: #3497fd; }
+
+.notifications.error {
+  background: #ff9057; }
+
+body {
+  background: url(/images/login-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }

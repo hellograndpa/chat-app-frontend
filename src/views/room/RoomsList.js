@@ -148,7 +148,7 @@ class RoomsList extends Component {
         {/* nav top */}
         <div className="o-top-nav o-top-nav--rel">
           <a href="#s1" className="o-top-nav__btn || o-btn">
-            Rooms
+            Chats
           </a>
           <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
             Map
@@ -172,7 +172,7 @@ class RoomsList extends Component {
               </div>
               <div>
                 <div className="title">
-                  <h1>Room map</h1>
+                  <h1>Chat map</h1>
                 </div>
                 <div>
                   <Map locations={rooms} />

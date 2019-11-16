@@ -1,8 +1,7 @@
-.home-image {
-  background-image: url(/images/home.jpg);
-  height: 100%;
+body {
+  background: url(/images/login-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

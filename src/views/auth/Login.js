@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from '../../Context/AuthContext';
 import { getCoords } from '../../helpers/coordinates';
+import { withNotification } from '../../Context/NotificationCtx';
 
 class Login extends Component {
   state = {
@@ -20,12 +21,15 @@ class Login extends Component {
       coords: { latitude, longitude },
     } = await getCoords();
 
-    this.props.handleLogin({
-      email,
-      password,
-      latitude,
-      longitude,
-    });
+    this.props.handleLogin(
+      {
+        email,
+        password,
+        latitude,
+        longitude,
+      },
+      this.props.handleSetMessage,
+    );
   };
 
   render() {
@@ -38,7 +42,7 @@ class Login extends Component {
               type="text"
               name="email"
               className="input input-label margin"
-              placeHolder="Email"
+              placeholder="Email"
               value={email}
               onChange={this.handleChange}
             />
@@ -48,7 +52,7 @@ class Login extends Component {
               type="password"
               className="input input-label margin"
               name="password"
-              placeHolder="Password"
+              placeholder="Password"
               value={password}
               onChange={this.handleChange}
             />
@@ -62,4 +66,4 @@ class Login extends Component {
   }
 }
 
-export default withAuth(Login);
+export default withNotification(withAuth(Login));
