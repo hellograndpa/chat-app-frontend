@@ -60,8 +60,8 @@ function UsersFilters(props) {
                   onChange={handleChangeSelectUser}
                 >
                   <option value="">All</option>
-                  <option value=true>Actives</option>
-                  <option value={alse>Inactives</option>
+                  <option value="true">Actives</option>
+                  <option value="false">Inactives</option>
                 </select>
               </div>
               <div className="select-width-km-30 ">
