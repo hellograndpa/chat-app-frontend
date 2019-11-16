@@ -97,12 +97,23 @@ hr {
   background-color: #fff;
   font-size: 14px;
   font-weight: 300px; }
+<<<<<<< HEAD
   .input:focus {
     box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
     border: solid 3px #3acce1;
     background-color: #ffffff; }
   .input.margin {
     margin: 10px; }
+=======
+
+.input:focus {
+  box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
+  border: solid 3px #3acce1;
+  background-color: #ffffff; }
+
+.input.margin {
+  margin: 10px; }
+>>>>>>> b051a8e0661da2b76aa315ed12e827c2e97da22f
 
 .input-filter {
   width: 327px;
@@ -881,9 +892,17 @@ http://stackoverflow.com/a/34696029/383904
   width: 100%;
   z-index: 1;
   display: flex;
+<<<<<<< HEAD
   flex-direction: row; }
   .o-top-nav--rel {
     position: relative; }
+=======
+  flex-direction: row;
+  background-color: #fff; }
+
+.o-top-nav--rel {
+  position: relative; }
+>>>>>>> b051a8e0661da2b76aa315ed12e827c2e97da22f
 
 .o-top-nav__btn {
   transition: opacity 0.4s ease-out, transform 0.4s ease-out 0.3s;
@@ -1284,12 +1303,23 @@ hr {
   background-color: #fff;
   font-size: 14px;
   font-weight: 300px; }
+<<<<<<< HEAD
   .input:focus {
     box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
     border: solid 3px #3acce1;
     background-color: #ffffff; }
   .input.margin {
     margin: 10px; }
+=======
+
+.input:focus {
+  box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
+  border: solid 3px #3acce1;
+  background-color: #ffffff; }
+
+.input.margin {
+  margin: 10px; }
+>>>>>>> b051a8e0661da2b76aa315ed12e827c2e97da22f
 
 .input-filter {
   width: 327px;
@@ -1408,10 +1438,19 @@ hr {
   font-weight: normal; }
 
 .title {
+<<<<<<< HEAD
   padding: 5px 27px 2px 27px; }
   .title .h1 {
     color: #454f63;
     text-align: center; }
+=======
+  padding: 5px 27px 2px 27px;
+  background-color: #fff; }
+
+.title .h1 {
+  color: #454f63;
+  text-align: center; }
+>>>>>>> b051a8e0661da2b76aa315ed12e827c2e97da22f
 
 .box-title-search {
   display: flex;
@@ -1488,7 +1527,8 @@ hr {
   display: flex; }
 
 .nav-chat-wrapper {
-  white-space: nowrap; }
+  white-space: nowrap;
+  background-color: #fff; }
 
 .chat-title,
 .chat-navbar {
@@ -1498,12 +1538,12 @@ hr {
   width: calc(100% - 42px); }
 
 .chat-navbar {
-  transition: transform 2s;
-  -moz-transition: transform 2s;
+  transition: transform 1s;
+  -moz-transition: transform 1s;
   /* Firefox 4 */
-  -webkit-transition: transform 2s;
+  -webkit-transition: transform 1s;
   /* Safari and Chrome */
-  -o-transition: transform 2s;
+  -o-transition: transform 1s;
   /* Opera */
   width: calc(100% - 42px);
   background-color: #fff; }
@@ -1519,8 +1559,8 @@ hr {
   z-index: 1000; }
 
 .sample-menu-button {
-  width: 52px;
-  height: 52px;
+  width: 51px;
+  height: 51px;
   background-color: DeepSkyBlue;
   cursor: pointer;
   position: absolute;
@@ -1714,6 +1754,7 @@ h3 {
   background-color: #e2e4e9;
   margin-top: -18px;
   padding: 0, 16px; }
+<<<<<<< HEAD
   .room-user-content .card-L {
     width: 340px;
     height: 144px;
@@ -1799,6 +1840,105 @@ h3 {
       position: absolute;
       top: 90px;
       left: 230px; }
+=======
+
+.room-user-content .card-L {
+  width: 340px;
+  height: 144px;
+  background-color: #fff;
+  padding: 10px;
+  margin: 24px 0;
+  border-radius: 12px;
+  color: #353a50;
+  box-shadow: 0 4px 16px 0 #c5cdda;
+  position: relative; }
+
+.room-user-content .card-L img {
+  width: 120px;
+  height: 120px;
+  background-color: #78849e;
+  margin: 4px -40px 8px 240px;
+  border-radius: 12px;
+  color: #353a50;
+  float: right; }
+
+.room-user-content .card-L .title {
+  width: 210px;
+  padding: 16px 16px;
+  font-size: 18px;
+  color: #454f63;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.room-user-content .card-L .theme {
+  font-size: 18px;
+  padding-top: 10px;
+  color: #ff4f9a;
+  position: absolute;
+  top: 50px;
+  left: 16px; }
+
+.room-user-content .card-L .distance {
+  position: absolute;
+  top: 90px;
+  left: 16px; }
+
+.room-user-content .card-L .people {
+  position: absolute;
+  top: 90px;
+  left: 140px; }
+
+.room-user-content .card-R {
+  width: 340px;
+  height: 144px;
+  background-color: #fff;
+  padding: 10px 7px 7px 20px;
+  margin: 24px 0 0 30px;
+  border-radius: 12px;
+  color: #353a50;
+  box-shadow: 0 4px 16px 0 #c5cdda;
+  position: relative; }
+
+.room-user-content .card-R img {
+  width: 120px;
+  height: 120px;
+  background-color: #78849e;
+  margin: 4px 16px 8px -50px;
+  border-radius: 12px;
+  color: #353a50;
+  float: left; }
+
+.room-user-content .card-R .title {
+  width: 210px;
+  padding: 16px 16px;
+  font-size: 18px;
+  color: #454f63;
+  text-decoration: none;
+  padding-top: 10px;
+  position: absolute;
+  top: 0;
+  left: 45px; }
+
+.room-user-content .card-R .theme {
+  font-size: 18px;
+  padding-top: 10px;
+  color: #ff4f9a;
+  position: absolute;
+  top: 40px;
+  left: 105px; }
+
+.room-user-content .card-R .distance {
+  position: absolute;
+  top: 90px;
+  left: 105px; }
+
+.room-user-content .card-R .people {
+  position: absolute;
+  top: 90px;
+  left: 230px; }
+>>>>>>> b051a8e0661da2b76aa315ed12e827c2e97da22f
 
 .header-user {
   position: relative;
@@ -1984,16 +2124,42 @@ h3 {
 
 .notifications {
   position: absolute;
-  background: #000;
   color: #fff;
   width: 100%;
   height: auto;
   z-index: 100;
-  padding: 15px;
+  padding: 16px;
   display: flex;
   justify-content: center;
   transition: all 1s linear;
+<<<<<<< HEAD
   display: block; }
   .notifications.hidden {
     display: none;
     opacity: 0; }
+=======
+  display: block;
+  transition: transform 1s;
+  -moz-transition: transform 1s;
+  /* Firefox 4 */
+  -webkit-transition: transform 1s;
+  /* Safari and Chrome */
+  -o-transition: transform 1s;
+  /* Opera */ }
+
+.notifications.hidden {
+  transform: translateX(-100%); }
+
+.notifications.alert {
+  background: #3497fd; }
+
+.notifications.error {
+  background: #ff9057; }
+
+body {
+  background: url(/images/login-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+>>>>>>> b051a8e0661da2b76aa315ed12e827c2e97da22f

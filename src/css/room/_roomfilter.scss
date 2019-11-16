@@ -4,6 +4,7 @@
 
 .title {
   padding: 5px 27px 2px 27px;
+  background-color: #fff;
 
   .h1 {
     color: $slate;
@@ -40,7 +41,6 @@
   height: 8px;
   flex-flow: row;
 
-
   .box-color01 {
     height: 8px;
     background-color: $cornflodwer-two;
@@ -66,11 +66,9 @@
   }
 }
 
-
 // This stuff matters!
 .section {
   background-color: $dark-two;
-  ;
 }
 
 .select-wp {

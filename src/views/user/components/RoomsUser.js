@@ -16,7 +16,7 @@ const RoomsUser = props => {
   return (
     <div className="room-user-content">
       <h3>
-        <strong> {rooms.length} Rooms</strong> avalible arround you
+        <strong> {rooms.length} Chats</strong> avalible arround you
       </h3>
       {rooms.map((room, index) => {
         return (
