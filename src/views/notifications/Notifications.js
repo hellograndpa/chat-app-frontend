@@ -6,12 +6,11 @@ class Notifications extends Component {
     const { notification, status, handleCloseMessage } = this.props;
     return (
       <>
-        {status && (
+        <div className={status ? 'notifications' : 'notifications hidden'} onClick={handleCloseMessage}>
           <div className={notification.typeMessage}>
             {notification.typeMessage}: {notification.message}
-            <button onClick={handleCloseMessage}>close</button>
           </div>
-        )}
+        </div>
       </>
     );
   }

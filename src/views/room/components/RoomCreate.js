@@ -4,6 +4,9 @@ import { withRouter } from 'react-router-dom';
 import { getCoords } from '../../../helpers/coordinates';
 import RoomService from '../../../services/roomService';
 
+// Context
+import { withNotification } from '../../../Context/NotificationCtx';
+
 class RoomCreate extends Component {
   constructor(props) {
     super(props);
@@ -35,6 +38,8 @@ class RoomCreate extends Component {
 
     // Create Room
     await RoomService.createRoom(body);
+
+    this.props.handleSetMessage({ typeMessage: 'info', message: 'Room created correctly' });
 
     // Go to the room created
     this.props.closeLayer();
@@ -76,7 +81,7 @@ class RoomCreate extends Component {
               ></textarea>
             </div>
             <div className="">
-              <select placeholder="Select a theme" className="select-css-white" name="theme">
+              <select placeholder="Select a theme" className="select-css-dark" name="theme">
                 <option value="">Select Theme</option>
                 <option value="News">News</option>
                 <option value="Party">Party</option>
@@ -88,7 +93,7 @@ class RoomCreate extends Component {
             </div>
 
             {roomImage === '' && (
-              <button
+              <div
                 onClick={e => {
                   e.preventDefault();
                   this.showWidget(widget);
@@ -96,7 +101,7 @@ class RoomCreate extends Component {
                 className="button-image ripple"
               >
                 Upload an image
-              </button>
+              </div>
             )}
             {roomImage !== '' && (
               <div className="flex-centered">
@@ -131,4 +136,4 @@ class RoomCreate extends Component {
   }
 }
 
-export default withRouter(RoomCreate);
+export default withNotification(withRouter(RoomCreate));

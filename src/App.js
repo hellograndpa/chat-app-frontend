@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { Beforeunload } from 'react-beforeunload';
 // Views
 
+import socketIOClient from 'socket.io-client';
 import Home from './views/auth/Home';
 import MeUser from './views/user/meUser';
 import OtherUser from './views/user/otherUser';
@@ -15,14 +16,22 @@ import UsersList from './views/user/UsersList';
 
 // Context
 import { withAuth } from './Context/AuthContext';
+import { withNotification } from './Context/NotificationCtx';
 
 import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
+
+import Notifications from './views/notifications/Notifications';
+
+const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class App extends Component {
   componentDidMount() {
     if (this.props.user) {
       this.props.handleRemember();
+      socket.on(`messageToUser-${this.props.user._id}`, message => {
+        this.props.handleSetMessage({ typeMessage: 'info', message: message.text });
+      });
     }
   }
 
@@ -30,6 +39,7 @@ class App extends Component {
     const { handleAbandon } = this.props;
     return (
       <>
+        <Notifications></Notifications>
         <Beforeunload onBeforeunload={handleAbandon}>
           <Router>
             <Switch>
@@ -49,4 +59,4 @@ class App extends Component {
   }
 }
 
-export default withAuth(App);
+export default withNotification(withAuth(App));

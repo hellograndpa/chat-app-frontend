@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { withAuth } from '../../../Context/AuthContext';
 import ChatUserService from '../../../services/chatUserService';
 
@@ -67,9 +67,9 @@ const ChatsUser = props => {
                           </>
                         )}
                         {chat.userChat02._id === user._id ? (
-                          <button className="o-btn margin o-btn--sm" onClick={() => handleAccept(chat._id)}>
+                          <div className="o-btn margin o-btn--sm" onClick={() => handleAccept(chat._id)}>
                             ACEPTAR
-                          </button>
+                          </div>
                         ) : (
                           <div className="o-btn margin o-btn--sm is-disabled"> PENDING</div>
                         )}
@@ -89,9 +89,9 @@ const ChatsUser = props => {
                             </div>
                           </>
                         )}
-                        <Link className="o-btn margin o-btn--sm" to={`/users/private-chat/${chat._id}`}>
+                        <NavLink className="o-btn margin o-btn--sm" to={`/users/private-chat/${chat._id}`}>
                           OPEN CHAT
-                        </Link>
+                        </NavLink>
                       </>
                     )}
                   </div>

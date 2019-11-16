@@ -45,6 +45,9 @@ img {
   justify-content: center;
   align-items: center; }
 
+.flex-centered-aligned.full {
+  height: 100%; }
+
 .flex-between {
   display: flex;
   justify-content: space-between; }

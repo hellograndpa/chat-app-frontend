@@ -41,7 +41,7 @@ export default class NotificationProvider extends Component {
       this.setState({
         status: false,
       });
-    }, 8000);
+    }, 5000);
   };
 
   handleSetMessage = notification => {

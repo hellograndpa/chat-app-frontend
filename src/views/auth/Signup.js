@@ -35,13 +35,13 @@ class Signup extends Component {
   render() {
     const { userName, email, password } = this.state;
     return (
-      <div className="flex-centered">
+      <div className="flex-centered-aligned full">
         <form onSubmit={this.handleFormSubmit}>
           <div>
             <input
               type="text"
               name="userName"
-              className="input input-label"
+              className="input input-label margin"
               placeHolder="User Name"
               value={userName}
               onChange={this.handleChange}
@@ -51,7 +51,7 @@ class Signup extends Component {
             <input
               type="text"
               name="email"
-              className="input input-label"
+              className="input input-label margin"
               placeHolder="Email"
               value={email}
               onChange={this.handleChange}
@@ -60,7 +60,7 @@ class Signup extends Component {
           <div>
             <input
               type="password"
-              className="input input-label"
+              className="input input-label margin"
               placeHolder="password"
               name="password"
               value={password}

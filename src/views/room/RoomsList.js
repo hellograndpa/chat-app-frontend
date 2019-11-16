@@ -7,6 +7,7 @@ import RoomService from '../../services/roomService';
 
 // Context
 import { withNotification } from '../../Context/NotificationCtx';
+import { withAuth } from '../../Context/AuthContext';
 
 // Helpers
 import { getCoords, getDistance } from '../../helpers/coordinates';
@@ -51,12 +52,8 @@ class RoomsList extends Component {
       })
       .then(newRooms => {
         this.resultRooms(newRooms);
-        if (newRooms.length === 0) {
-          this.props.handleSetMessage({ typeMessage: 'error', message: 'no results' });
-        }
       })
       .catch(error => {
-        console.log('error', error);
         this.props.handleSetMessage({ typeMessage: 'error', message: error });
       });
   };
@@ -194,4 +191,4 @@ RoomsList.propTypes = {
   handleSetMessage: PropTypes.func,
 };
 
-export default withNotification(RoomsList);
+export default withAuth(withNotification(RoomsList));
