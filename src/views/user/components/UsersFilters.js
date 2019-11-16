@@ -17,7 +17,7 @@ function UsersFilters(props) {
     eventSearch,
     handleSearchUser,
     sortedList,
-    selectTheme,
+    selectActive,
     handleChangeSelectUser,
     radiusInMeters,
     handleChangeSelectRadiusMeters,
@@ -45,7 +45,7 @@ function UsersFilters(props) {
           <input
             className="input-dark"
             name="users"
-            placeholder="Search by N"
+            placeholder="Search by Name"
             value={eventSearch}
             onChange={handleSearchUser}
           />
@@ -53,30 +53,31 @@ function UsersFilters(props) {
             <div className="select-wp">
               <div className="select-width-theme-60">
                 <select
-                  placeholder="Select a theme select-width-theme-60"
+                  placeholder="Select a Activity "
                   className="select-css-dark"
-                  name="Select theme"
-                  value={selectTheme}
+                  name="Selec Activity"
+                  defaultValue={selectActive}
                   onChange={handleChangeSelectUser}
                 >
-                  <option value="">Select Theme</option>
-                  {sortedList}
+                  <option value="">All</option>
+                  <option value="true">Actives</option>
+                  <option value="false">Inactives</option>
                 </select>
               </div>
               <div className="select-width-km-30 ">
                 <select
-                  className="select-css-dark select-width-km-30"
+                  className="select-css-dark"
                   name="Select kms"
                   defaultValue={radiusInMeters}
                   onChange={handleChangeSelectRadiusMeters}
                 >
-                  <option value="50000"> 50 km</option>
-                  <option value="40000"> 40 km</option>
-                  <option value="30000"> 30 km</option>
-                  <option value="20000"> 20 km</option>
-                  <option value="10000"> 10 km</option>
-                  <option value="5000"> 5 km</option>
-                  <option value="200"> 2 km</option>
+                  <option value="50"> 50 km</option>
+                  <option value="40"> 40 km</option>
+                  <option value="30"> 30 km</option>
+                  <option value="20"> 20 km</option>
+                  <option value="10"> 10 km</option>
+                  <option value="5"> 5 km</option>
+                  <option value="2"> 2 km</option>
                 </select>
               </div>
             </div>
