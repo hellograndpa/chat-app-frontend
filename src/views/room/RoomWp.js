@@ -15,6 +15,7 @@ class RoomWp extends Component {
   state = {
     room: {},
     loading: true,
+    menu: false,
   };
 
   async componentDidMount() {
@@ -29,28 +30,42 @@ class RoomWp extends Component {
     this.setState({ room, loading: false });
   }
 
+  handleChangeMenu = () => {
+    this.setState({ menu: !this.state.menu });
+  };
+
   render() {
-    const { loading } = this.state;
+    const { loading, menu } = this.state;
 
     return (
       <div className="CSSgal">
         <s id="s1"></s>
         <s id="s2"></s>
         <s id="s3"></s>
-        <div className="o-top-nav o-top-nav--rel">
-          <NavLink className="o-top-nav__btn || o-btn" to="/rooms/list">
-            Back
-          </NavLink>
+        <div className="roomWp">
+          <div className="nav-chat-wrapper">
+            <div className="chat-title">{this.state.room.roomName}</div>
+            <div className={menu ? 'chat-navbar expanded' : 'chat-navbar'}>
+              <div className="o-top-nav o-top-nav--rel">
+                <NavLink className="o-top-nav__btn || o-btn" to="/rooms/list">
+                  Back
+                </NavLink>
 
-          <a href="#s1" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-            Chat
-          </a>
-          <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-            Users
-          </a>
-          <a href="#s3" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-            Details
-          </a>
+                <a href="#s1" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+                  Chat
+                </a>
+                <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+                  Users
+                </a>
+                <a href="#s3" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+                  Details
+                </a>
+              </div>
+            </div>
+          </div>
+          <div onClick={this.handleChangeMenu} className={menu ? 'sample-menu-button active' : 'sample-menu-button'}>
+            <div className="sample-menu-icon"></div>
+          </div>
         </div>
         {!loading && (
           <>

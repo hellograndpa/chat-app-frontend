@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
+import Moment from 'react-moment';
 import { withAuth } from '../../../Context/AuthContext';
 
 // Services
 import RoomService from '../../../services/roomService';
+import chatUserService from '../../../services/chatRoomService';
 
 class RoomsDetails extends Component {
   state = {
@@ -62,9 +64,20 @@ class RoomsDetails extends Component {
       },
     );
 
-    const { editMode, roomName, description, adminList, userBanList, avatar, city, theme } = this.state;
+    const {
+      editMode,
+      roomName,
+      description,
+      adminList,
+      avatar,
+      city,
+      theme,
+      activeUsers,
+      participatedUsers,
+      chat,
+    } = this.state;
     const checked = editMode ? 'checked' : '';
-    console.log(adminList);
+
     return (
       <div>
         <div className="title">
@@ -101,6 +114,12 @@ class RoomsDetails extends Component {
                 <div>{description}</div>
                 <div>{city}</div>
                 <div>{theme}</div>
+                <div>Active people now: {activeUsers.length}</div>
+                <div>People who has participate: {participatedUsers.length}</div>
+                <div>Conversations: {chat.conversation.length}</div>
+                <div>
+                  Last conversation: <Moment format="DD/MM/YY hh:mm">{chat.updated_at}</Moment>
+                </div>
               </div>
             </div>
           </div>

@@ -34,12 +34,13 @@ class UsersInChat extends Component {
       });
 
       this.setState({ participatedUsers, activeUsers: users });
-      window.onbeforeunload = () => {
-        this.componentCleanup();
-      };
     });
 
-    // Insert the user into the room,
+    // If the user goes to another web or close the browser
+    window.onbeforeunload = () => {
+      this.componentCleanup();
+    };
+
     // this will fire socket.on before.
     RoomService.insertUserToRoom(roomId);
   }
@@ -63,7 +64,7 @@ class UsersInChat extends Component {
 
     // Search users by name
     let users = participatedUsers.filter(
-      element => (`${element.userName  } ${  element.lastName}`).toLowerCase().indexOf(textToSearch) !== -1,
+      element => `${element.userName} ${element.lastName}`.toLowerCase().indexOf(textToSearch) !== -1,
     );
 
     // Get if isactive in the chat
@@ -82,7 +83,7 @@ class UsersInChat extends Component {
           <div>
             <input
               type="text"
-              className="input-dark"
+              className="input-dark top-0"
               placeholder="Search by name..."
               name="searchName"
               onChange={this.handleKeyPress}

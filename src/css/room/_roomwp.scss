@@ -1,0 +1,99 @@
+.roomWp {
+  display: flex;
+}
+.nav-chat-wrapper {
+  white-space: nowrap;
+}
+.chat-title,
+.chat-navbar {
+  display: inline-block;
+}
+.chat-title {
+  width: calc(100% - 42px);
+}
+.chat-navbar {
+  transition: transform 2s;
+  -moz-transition: transform 2s; /* Firefox 4 */
+  -webkit-transition: transform 2s; /* Safari and Chrome */
+  -o-transition: transform 2s; /* Opera */
+  width: calc(100% - 42px);
+  background-color: #fff;
+}
+.expanded {
+  transform: translateX(-100%);
+  width: calc(100% - 42px);
+}
+.btn-burger-chat {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.sample-menu-button {
+  width: 52px;
+  height: 52px;
+  background-color: DeepSkyBlue;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+}
+.sample-menu-icon {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  height: 4px;
+  margin-top: -2px;
+  right: 0;
+  width: 60%;
+}
+.sample-menu-icon::before,
+.sample-menu-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+.sample-menu-icon::before {
+  top: -10px;
+}
+.sample-menu-icon::after {
+  bottom: -10px;
+}
+.sample-menu-icon,
+.sample-menu-icon::before,
+.sample-menu-icon::after {
+  background-color: white;
+}
+.sample-menu-button:hover,
+.sample-menu-button.active {
+  background-color: RoyalBlue;
+}
+.sample-menu-button.active:hover {
+  background-color: DeepSkyBlue;
+}
+.sample-menu-button.active .sample-menu-icon {
+  left: 10%;
+  width: 80%;
+  background-color: transparent;
+}
+.sample-menu-button.active .sample-menu-icon::before,
+.sample-menu-button.active .sample-menu-icon::after {
+  top: 50%;
+  margin-top: -2px;
+}
+.sample-menu-button.active .sample-menu-icon::before {
+  transform: rotate(45deg);
+}
+.sample-menu-button.active .sample-menu-icon::after {
+  transform: rotate(-45deg);
+}
+.sample-menu-icon,
+.sample-menu-icon::before,
+.sample-menu-icon::after {
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+}
