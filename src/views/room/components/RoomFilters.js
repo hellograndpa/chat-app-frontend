@@ -45,7 +45,7 @@ function RoomFilters(props) {
 
   return (
     <div className="header || u-sticky">
-      <div className="title">{pgUser ? <h1>Your Rooms</h1> : <h1>Rooms Filters</h1>}</div>
+      <div className="title">{pgUser ? <h1>Your Chats</h1> : <h1>Chats</h1>}</div>
       <div className="box-title-search">
         <div className="title-search ">
           <div className={`accordion ${setActive}`} onClick={toggleAccordion}>

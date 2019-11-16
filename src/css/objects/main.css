@@ -44,7 +44,11 @@
   width: 100%; }
 
 .o-btn--theme2 {
+<<<<<<< HEAD
   background-color: #444f63; }
+=======
+  background-color: #c840e9; }
+>>>>>>> dev
 
 .o-btn--theme2:hover {
   background-color: #ff4f9a; }
@@ -56,7 +60,12 @@
   width: 100%;
   z-index: 1;
   display: flex;
+<<<<<<< HEAD
   flex-direction: row; }
+=======
+  flex-direction: row;
+  background-color: #fff; }
+>>>>>>> dev
 
 .o-top-nav--rel {
   position: relative; }
@@ -72,7 +81,11 @@
 
 .o-avatar {
   cursor: pointer;
+<<<<<<< HEAD
   pointer-events: visible; }
+=======
+  pointer-events: none; }
+>>>>>>> dev
 
 .o-avatar.w-15precent {
   width: 15%; }

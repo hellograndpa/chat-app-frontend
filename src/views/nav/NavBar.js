@@ -23,7 +23,7 @@ const NavBar = () => {
             <div>
               <img className="icon" src={icons_comment} alt="" />
             </div>
-            Rooms
+            Chats
           </NavLink>
         </div>
         <div className="element03 ripple">

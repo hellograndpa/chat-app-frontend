@@ -938,7 +938,8 @@ http://stackoverflow.com/a/34696029/383904
   width: 100%;
   z-index: 1;
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  background-color: #fff; }
 
 .o-top-nav--rel {
   position: relative; }
@@ -1525,7 +1526,8 @@ hr {
   font-weight: normal; }
 
 .title {
-  padding: 5px 27px 2px 27px; }
+  padding: 5px 27px 2px 27px;
+  background-color: #fff; }
 
 .title .h1 {
   color: #454f63;
@@ -1610,7 +1612,8 @@ hr {
   display: flex; }
 
 .nav-chat-wrapper {
-  white-space: nowrap; }
+  white-space: nowrap;
+  background-color: #fff; }
 
 .chat-title,
 .chat-navbar {
@@ -1620,12 +1623,12 @@ hr {
   width: calc(100% - 42px); }
 
 .chat-navbar {
-  transition: transform 2s;
-  -moz-transition: transform 2s;
+  transition: transform 1s;
+  -moz-transition: transform 1s;
   /* Firefox 4 */
-  -webkit-transition: transform 2s;
+  -webkit-transition: transform 1s;
   /* Safari and Chrome */
-  -o-transition: transform 2s;
+  -o-transition: transform 1s;
   /* Opera */
   width: calc(100% - 42px);
   background-color: #fff; }
@@ -1641,8 +1644,8 @@ hr {
   z-index: 1000; }
 
 .sample-menu-button {
-  width: 52px;
-  height: 52px;
+  width: 51px;
+  height: 51px;
   background-color: DeepSkyBlue;
   cursor: pointer;
   position: absolute;
@@ -2132,17 +2135,35 @@ h3 {
 
 .notifications {
   position: absolute;
-  background: #000;
   color: #fff;
   width: 100%;
   height: auto;
   z-index: 100;
-  padding: 15px;
+  padding: 16px;
   display: flex;
   justify-content: center;
   transition: all 1s linear;
-  display: block; }
+  display: block;
+  transition: transform 1s;
+  -moz-transition: transform 1s;
+  /* Firefox 4 */
+  -webkit-transition: transform 1s;
+  /* Safari and Chrome */
+  -o-transition: transform 1s;
+  /* Opera */ }
 
 .notifications.hidden {
-  display: none;
-  opacity: 0; }
+  transform: translateX(-100%); }
+
+.notifications.alert {
+  background: #3497fd; }
+
+.notifications.error {
+  background: #ff9057; }
+
+body {
+  background: url(/images/login-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }

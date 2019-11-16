@@ -27,11 +27,11 @@ class AuthService {
   }
 
   abandon() {
-    return this.auth.get('/abandon', {}).then(response => response.data);
+    return this.auth.get('/abandon');
   }
 
   remember() {
-    return this.auth.get('/remember', {}).then(response => response.data);
+    return this.auth.get('/remember');
   }
 }
 

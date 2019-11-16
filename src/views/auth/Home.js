@@ -28,10 +28,8 @@ class Home extends Component {
         </div>
         {/* end nav top */}
         <div className="slider">
-          <div>
-            <div className="home-image">
-              <h2>Ready to talk?</h2>
-            </div>
+          <div className="login-wrapper">
+            <h2>Ready to talk?</h2>
           </div>
           <div>
             <Login />

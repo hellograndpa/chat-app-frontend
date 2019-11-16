@@ -67,7 +67,7 @@ export default class AuthProvider extends Component {
       });
   }
 
-  handleLogin = user => {
+  handleLogin = (user, handleMessage) => {
     authService
       .login(user)
       .then(loggedUser => {
@@ -78,13 +78,15 @@ export default class AuthProvider extends Component {
         });
       })
       .catch(() => {
+        handleMessage({ typeMessage: 'error', message: 'User y/o password are not correct' });
+
         this.setState({
           isLoading: false,
         });
       });
   };
 
-  handleSignup = user => {
+  handleSignup = (user, handleMessage) => {
     authService
       .signup(user)
       .then(loggedUser => {
@@ -95,6 +97,7 @@ export default class AuthProvider extends Component {
         });
       })
       .catch(() => {
+        handleMessage({ typeMessage: 'error', message: 'There was an error, please try again' });
         this.setState({
           isLoading: false,
           isLoggedin: false,
