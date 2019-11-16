@@ -62,6 +62,7 @@ class RoomsList extends Component {
   };
 
   handleSearchRoom = event => {
+    event.preventDefault();
     const { rooms } = this.state;
 
     let searchRooms;
