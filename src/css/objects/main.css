@@ -35,7 +35,7 @@
     display: block;
     width: 100%; }
   .o-btn--theme2 {
-    background-color: #c840e9; }
+    background-color: #444f63; }
     .o-btn--theme2:hover {
       background-color: #ff4f9a; }
 
@@ -61,7 +61,7 @@
 
 .o-avatar {
   cursor: pointer;
-  pointer-events: none; }
+  pointer-events: visible; }
   .o-avatar.w-15precent {
     width: 15%; }
   .o-avatar.w-50precent {
