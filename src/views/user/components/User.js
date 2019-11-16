@@ -151,9 +151,9 @@ class UserMe extends Component {
                           {showuser.lastName}
                         </h1>
                       </div>
-                      <divd className=" titular ">
+                      <div className=" titular ">
                         <h3>{showuser.email}</h3>
-                      </divd>
+                      </div>
                       <div className="titular">
                         {showuser.city} {showuser.age} years old
                       </div>
@@ -169,9 +169,11 @@ class UserMe extends Component {
                 )}
 
                 {status === 'active' && (
-                  <NavLink to={`/users/private-chat/${chatUser._id}`}>
-                    <div className="o-btn">SAY ME SOMETHING</div>
-                  </NavLink>
+                  <div className="btn-user-header ">
+                    <NavLink to={`/users/private-chat/${chatUser._id}`}>
+                      <div className="o-btn">TALK ME</div>
+                    </NavLink>
+                  </div>
                 )}
                 {status === 'pending' && (
                   <div className="btn-user-header ">
@@ -181,107 +183,118 @@ class UserMe extends Component {
               </>
             ) : (
               <>
-                <div className="edit">
-                  <div>
-                    <div onClick={this.props.handleLogout}>Logout</div>
-                  </div>
-                  <div className="flex-centered-aligned">
-                    <div className="edit-mode-text">Edit Mode:</div>
-                    <div className="edit-mode-switch">
-                      <label className="switch">
-                        <input type="checkbox" checked={checked} onChange={this.handleEdit} />
-                        <span className="slider round"></span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="header">
-                  <div className="header-wrapper">
-                    <div className="avatar-content">
-                      <img
-                        className={edit ? 'border-active-editable' : 'border-active'}
-                        onClick={() => {
-                          this.showWidget(widget);
-                        }}
-                        src={avatar !== undefined ? avatar : avatarDefault}
-                        alt=""
-                      ></img>
-                    </div>
-                    <div className="details-content">
-                      <div>
-                        {userName} {lastName}
+                <div className="">
+                  <div className="edit edit-margin-bottom">
+                    <div className="btn-user-header ">
+                      <div className="o-btn o-btn--theme2" onClick={this.props.handleLogout}>
+                        Logout
                       </div>
-                      <div>{email}</div>
-                      <div>{city}</div>
-                      <div>{age} years old</div>
+                    </div>
+                    <div className="btn-user-header ">
+                      <div className="flex-centered-aligned">
+                        <div className="edit-mode-text">Edit Mode:</div>
+                        <div className="edit-mode-switch">
+                          <label className="switch">
+                            <input type="checkbox" checked={checked} onChange={this.handleEdit} />
+                            <span className="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <div className="header-user header-user__greycolor">
+                    <div className="o-avatar is-active w-50precent is-headerUser-absolute ">
+                      <div className="o-avatar__inner">
+                        <img
+                          className={edit ? 'o-avatar__img border-active-editable' : 'o-avatar__img border-active'}
+                          onClick={() => {
+                            this.showWidget(widget);
+                          }}
+                          src={avatar !== undefined ? avatar : avatarDefault}
+                          alt=""
+                        ></img>
+                      </div>
+                    </div>
+                    {edit ? (
+                      <form className="text-centered" onSubmit={this.handleFormSubmit}>
+                        <div className="details-content">
+                          <div className="titular">
+                            <input
+                              type="text"
+                              className="input input-filter user-name"
+                              placeholder="User Name"
+                              name="userName"
+                              value={userName}
+                              onChange={this.handleChange}
+                            />
+                            <br />
+                            <input
+                              type="text"
+                              className="input input-filter user-last-name"
+                              placeholder="Last Name"
+                              name="lastName"
+                              value={lastName}
+                              onChange={this.handleChange}
+                            />
+                          </div>
+                          <div className=" titular ">
+                            <input
+                              type="text"
+                              className="input input-filter user-email"
+                              placeholder="Email"
+                              name="email"
+                              value={email}
+                              onChange={this.handleChange}
+                            />
+                          </div>
+                          <div className="titular">
+                            <input
+                              type="text"
+                              placeholder="City"
+                              className="input input-filter user-city"
+                              name="city"
+                              value={city}
+                              onChange={this.handleChange}
+                            />
+                            <input
+                              type="text"
+                              placeholder="Age"
+                              className="input input-filter user-age"
+                              name="age"
+                              value={age}
+                              onChange={this.handleChange}
+                            />
+                            years old
+                          </div>
+                        </div>
+                        <div className="flex-centered">
+                          <input
+                            onClick={this.handleFormSubmit}
+                            className="action-btn-medium"
+                            type="submit"
+                            value="Update!"
+                          />
+                        </div>
+                      </form>
+                    ) : (
+                      <div className="details-content">
+                        <div className="titular">
+                          <h1>
+                            {userName}
+                            <br />
+                            {lastName}
+                          </h1>
+                        </div>
+                        <div className=" titular ">
+                          <h3>{email}</h3>
+                        </div>
+                        <div className="titular">
+                          {city} {age} years old
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
-
-                {edit && (
-                  <form className="text-centered" onSubmit={this.handleFormSubmit}>
-                    <div>
-                      <input
-                        type="text"
-                        className="input input-filter"
-                        placeholder="User Name"
-                        name="userName"
-                        value={userName}
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                    <div>
-                      <input
-                        type="text"
-                        className="input input-filter"
-                        placeholder="Last Name"
-                        name="lastName"
-                        value={lastName}
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                    <div>
-                      <input
-                        type="text"
-                        className="input input-filter"
-                        placeholder="Email"
-                        name="email"
-                        value={email}
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                    <div>
-                      <input
-                        type="text"
-                        placeholder="City"
-                        className="input input-filter"
-                        name="city"
-                        value={city}
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                    <div>
-                      <input
-                        type="text"
-                        placeholder="Age"
-                        className="input input-filter"
-                        name="age"
-                        value={age}
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                    <div className="flex-centered">
-                      <input
-                        onClick={this.handleFormSubmit}
-                        className="action-btn-medium"
-                        type="submit"
-                        value="Update!"
-                      />
-                    </div>
-                    <div className="margin-bottom"></div>
-                  </form>
-                )}
               </>
             )}
           </div>

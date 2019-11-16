@@ -121,6 +121,31 @@ hr {
   border: solid 3px #3acce1;
   background-color: #ffffff; }
 
+.input-filter.user-name {
+  margin-top: 115px;
+  width: 300px;
+  height: 40px; }
+
+.input-filter.user-last-name {
+  margin-top: -5px;
+  width: 300px;
+  height: 40px; }
+
+.input-filter.user-email {
+  margin-top: 0px;
+  width: 300px;
+  height: 40px; }
+
+.input-filter.user-city {
+  margin: 0px;
+  width: 150px;
+  height: 40px; }
+
+.input-filter.user-age {
+  margin: 0px 5px 0px 30px;
+  width: 50px;
+  height: 40px; }
+
 .input-textarea {
   height: 120px;
   margin: 10px 0 10px 0; }

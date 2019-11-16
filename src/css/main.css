@@ -102,12 +102,9 @@ hr {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
   border: solid 3px #3acce1;
   background-color: #ffffff; }
-<<<<<<< HEAD
-=======
 
 .input.margin {
   margin: 10px; }
->>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
 
 .input-filter {
   width: 327px;
@@ -123,6 +120,31 @@ hr {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
   border: solid 3px #3acce1;
   background-color: #ffffff; }
+
+.input-filter.user-name {
+  margin-top: 115px;
+  width: 300px;
+  height: 40px; }
+
+.input-filter.user-last-name {
+  margin-top: -5px;
+  width: 300px;
+  height: 40px; }
+
+.input-filter.user-email {
+  margin-top: 0px;
+  width: 300px;
+  height: 40px; }
+
+.input-filter.user-city {
+  margin: 0px;
+  width: 150px;
+  height: 40px; }
+
+.input-filter.user-age {
+  margin: 0px 5px 0px 30px;
+  width: 50px;
+  height: 40px; }
 
 .input-textarea {
   height: 120px;
@@ -904,7 +926,7 @@ http://stackoverflow.com/a/34696029/383904
   width: 100%; }
 
 .o-btn--theme2 {
-  background-color: #c840e9; }
+  background-color: #444f63; }
 
 .o-btn--theme2:hover {
   background-color: #ff4f9a; }
@@ -932,7 +954,7 @@ http://stackoverflow.com/a/34696029/383904
 
 .o-avatar {
   cursor: pointer;
-  pointer-events: none; }
+  pointer-events: visible; }
 
 .o-avatar.w-15precent {
   width: 15%; }
@@ -1346,12 +1368,9 @@ hr {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
   border: solid 3px #3acce1;
   background-color: #ffffff; }
-<<<<<<< HEAD
-=======
 
 .input.margin {
   margin: 10px; }
->>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
 
 .input-filter {
   width: 327px;
@@ -1367,6 +1386,31 @@ hr {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
   border: solid 3px #3acce1;
   background-color: #ffffff; }
+
+.input-filter.user-name {
+  margin-top: 115px;
+  width: 300px;
+  height: 40px; }
+
+.input-filter.user-last-name {
+  margin-top: -5px;
+  width: 300px;
+  height: 40px; }
+
+.input-filter.user-email {
+  margin-top: 0px;
+  width: 300px;
+  height: 40px; }
+
+.input-filter.user-city {
+  margin: 0px;
+  width: 150px;
+  height: 40px; }
+
+.input-filter.user-age {
+  margin: 0px 5px 0px 30px;
+  width: 50px;
+  height: 40px; }
 
 .input-textarea {
   height: 120px;
@@ -1889,7 +1933,6 @@ h3 {
   position: absolute;
   top: 90px;
   left: 230px; }
-<<<<<<< HEAD
 
 .header-user {
   position: relative;
@@ -1923,8 +1966,10 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   width: 30%; }
-=======
->>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
+
+.edit-margin-bottom {
+  margin-bottom: -50px;
+  margin-top: -50px; }
 
 .user {
   margin-top: 20px; }
@@ -2084,8 +2129,6 @@ h3 {
 .header {
   background-color: #fff;
   z-index: 1; }
-<<<<<<< HEAD
-=======
 
 .notifications {
   position: absolute;
@@ -2103,4 +2146,3 @@ h3 {
 .notifications.hidden {
   display: none;
   opacity: 0; }
->>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475

@@ -71,13 +71,20 @@ class RoomCreate extends Component {
         <div className="flex-centered">
           <form name="frmRoom" onSubmit={this.handleSubmit} method="POST">
             <div>
-              <input placeholder="Room's Name" className="input input-filter" type="text" name="roomName"></input>
+              <input
+                placeholder="Room's Name 30 cacaters"
+                className="input input-filter"
+                type="text"
+                name="roomName"
+                maxLength="25"
+              ></input>
             </div>
             <div>
               <textarea
                 className="input input-textarea"
                 placeholder="Write a description"
                 name="description"
+                maxLength="250"
               ></textarea>
             </div>
             <div className="">

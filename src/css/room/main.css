@@ -29,11 +29,7 @@ hr {
   height: 100%; }
 
 .chatroom .chatwrapper {
-<<<<<<< HEAD
-  height: 86%;
-=======
   height: calc(100% - 45px);
->>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
   overflow-y: auto; }
 
 .chatroom .chat * {
@@ -290,12 +286,9 @@ hr {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
   border: solid 3px #3acce1;
   background-color: #ffffff; }
-<<<<<<< HEAD
-=======
 
 .input.margin {
   margin: 10px; }
->>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
 
 .input-filter {
   width: 327px;
@@ -311,6 +304,31 @@ hr {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
   border: solid 3px #3acce1;
   background-color: #ffffff; }
+
+.input-filter.user-name {
+  margin-top: 115px;
+  width: 300px;
+  height: 40px; }
+
+.input-filter.user-last-name {
+  margin-top: -5px;
+  width: 300px;
+  height: 40px; }
+
+.input-filter.user-email {
+  margin-top: 0px;
+  width: 300px;
+  height: 40px; }
+
+.input-filter.user-city {
+  margin: 0px;
+  width: 150px;
+  height: 40px; }
+
+.input-filter.user-age {
+  margin: 0px 5px 0px 30px;
+  width: 50px;
+  height: 40px; }
 
 .input-textarea {
   height: 120px;
@@ -373,13 +391,9 @@ hr {
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
-<<<<<<< HEAD
-  outline: 0px; }
-=======
   outline: 0px;
   background-color: #353a50;
   border: none; }
->>>>>>> 32bb45c8a074ad9a7d883c475f7b7041ff43f475
 
 .select-css-dark::-ms-expand {
   display: none; }

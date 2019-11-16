@@ -175,6 +175,10 @@ h3 {
   margin-right: auto;
   width: 30%; }
 
+.edit-margin-bottom {
+  margin-bottom: -50px;
+  margin-top: -50px; }
+
 .user {
   margin-top: 20px; }
 

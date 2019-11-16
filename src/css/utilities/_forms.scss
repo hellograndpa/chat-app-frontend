@@ -58,6 +58,7 @@
     border: solid 3px $aqua-marine;
     background-color: #ffffff;
   }
+
   &.margin {
     margin: 10px;
   }
@@ -77,6 +78,37 @@
     box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
     border: solid 3px $aqua-marine;
     background-color: #ffffff;
+  }
+
+  &.user-name {
+    margin-top: 115px;
+    width: 300px;
+    height: 40px;
+  }
+
+  &.user-last-name {
+    margin-top: -5px;
+    width: 300px;
+    height: 40px;
+  }
+
+  &.user-email {
+    margin-top: 0px;
+    width: 300px;
+    height: 40px;
+  }
+
+  &.user-city {
+    margin: 0px;
+    width: 150px;
+    height: 40px;
+  }
+
+  &.user-age {
+    margin: 0px 5px 0px 30px;
+
+    width: 50px;
+    height: 40px;
   }
 }
 
