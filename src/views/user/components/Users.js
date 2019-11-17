@@ -10,6 +10,7 @@ const Users = props => {
     <div className="users-list-content-Bg">
       <h3>{users.length} Users arround you</h3>
       {users.map(user1 => {
+        console.log(user1);
         return (
           <div key={user1._id} className="users-list-line">
             <div className={user1.active ? 'o-avatar is-active w-15precent' : 'o-avatar w-15precent'}>
@@ -25,8 +26,8 @@ const Users = props => {
                 </strong>
               </Link>
 
-              <div>Ciudad {user1.city}</div>
-              <div>Last theme {user1.userName}</div>
+              <div>Ciudad: {user1.city}</div>
+              <div>Interests: {user1.themes.join(',')}</div>
             </div>
 
             <div className="distance">

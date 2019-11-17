@@ -138,6 +138,7 @@
 .border-active-editable {
   border: 4px solid $active;
   border-style: dotted;
+  pointer-events: auto;
 }
 
 .input-dark {

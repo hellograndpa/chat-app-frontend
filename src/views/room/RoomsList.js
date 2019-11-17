@@ -18,9 +18,11 @@ import RoomsUser from '../user/components/RoomsUser';
 import Map from './components/Map';
 import RoomFilters from './components/RoomFilters';
 
-const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
-
 class RoomsList extends Component {
+  _isMounted = false;
+
+  socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
+
   state = {
     rooms: [],
     serchRooms: [],
@@ -31,31 +33,38 @@ class RoomsList extends Component {
   };
 
   resultRooms = async newRooms => {
-    emptyValidation(newRooms, this.props.handleSetMessage);
-    this.setState({
-      rooms: newRooms,
-      searchRooms: newRooms,
-      loading: false,
-    });
+    if (this._isMounted) {
+      emptyValidation(newRooms, this.props.handleSetMessage);
+      this.setState({
+        rooms: newRooms,
+        searchRooms: newRooms,
+        loading: false,
+      });
+    }
   };
 
   handleRoomsArroundMe = async (latitude, longitude, radiusInMeters) => {
     const myLocation = await getCoords();
-    RoomService.getAllRooms(latitude, longitude, radiusInMeters)
-      .then(rooms => {
-        const newRooms = rooms.map(room => {
-          const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
-          room.distanceFromMe = getDistance(myLocation.coords, location);
-          return room;
+
+    if (this._isMounted) {
+      RoomService.getAllRooms(latitude, longitude, radiusInMeters)
+        .then(rooms => {
+          const newRooms = rooms.map(room => {
+            const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
+            room.distanceFromMe = getDistance(myLocation.coords, location);
+            return room;
+          });
+          return newRooms;
+        })
+        .then(newRooms => {
+          this.resultRooms(newRooms);
+        })
+        .catch(error => {
+          if (this._isMounted) {
+            this.props.handleSetMessage({ typeMessage: 'error', message: error });
+          }
         });
-        return newRooms;
-      })
-      .then(newRooms => {
-        this.resultRooms(newRooms);
-      })
-      .catch(error => {
-        this.props.handleSetMessage({ typeMessage: 'error', message: error });
-      });
+    }
   };
 
   handleSearchRoom = event => {
@@ -72,26 +81,35 @@ class RoomsList extends Component {
     } else {
       searchRooms = rooms;
     }
-    this.setState({
-      searchRooms,
-      eventSearch: newEventSearch,
-    });
-    emptyValidation(searchRooms, this.props.handleSetMessage);
+
+    if (this._isMounted) {
+      this.setState({
+        searchRooms,
+        eventSearch: newEventSearch,
+      });
+      emptyValidation(searchRooms, this.props.handleSetMessage);
+    }
   };
 
   handleChangeSelectRooms = event => {
-    this.setState({
-      selectTheme: event.target.value,
-    });
+    if (this._isMounted) {
+      this.setState({
+        selectTheme: event.target.value,
+      });
+    }
   };
 
   handleChangeSelectRadiusMeters = event => {
-    this.setState({
-      radiusInMeters: event.target.value,
-    });
+    if (this._isMounted) {
+      this.setState({
+        radiusInMeters: event.target.value,
+      });
+    }
   };
 
   componentDidMount = async () => {
+    this._isMounted = true;
+
     const {
       coords: { latitude, longitude },
     } = await getCoords();
@@ -99,14 +117,25 @@ class RoomsList extends Component {
 
     this.handleRoomsArroundMe(latitude, longitude, radiusInMeters);
 
-    socket.on('room-created', async room => {
+    this.socket.on('room-created', async room => {
       const myLocation = await getCoords();
       const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
       room.distanceFromMe = getDistance(myLocation.coords, location);
       const searchRooms = [room, ...this.state.rooms];
-      this.setState({ searchRooms });
+      if (this._isMounted) {
+        this.setState({ searchRooms });
+      }
     });
   };
+
+  componentCleanup() {
+    this._isMounted = false;
+    this.socket.removeAllListeners('room-created');
+  }
+
+  componentWillUnmount() {
+    this.componentCleanup();
+  }
 
   render() {
     const { searchRooms, selectTheme, loading, eventSearch, radiusInMeters } = this.state;
@@ -141,6 +170,7 @@ class RoomsList extends Component {
     } else {
       rooms = searchRooms;
     }
+
     return (
       <div className="CSSgal">
         <s id="s1"></s>

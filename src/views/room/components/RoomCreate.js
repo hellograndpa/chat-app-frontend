@@ -59,8 +59,8 @@ class RoomCreate extends Component {
     const { roomImage } = this.state;
     const widget = window.cloudinary.createUploadWidget(
       {
-        cloudName: 'dadpqdwus',
-        uploadPreset: 'viqz5h5f',
+        cloudName: 'dldvty15u',
+        uploadPreset: 'ggbp4y7j',
       },
       (error, result) => {
         this.checkUploadResult(result);
@@ -90,9 +90,13 @@ class RoomCreate extends Component {
             <div className="">
               <select placeholder="Select a theme" className="select-css-dark" name="theme">
                 <option value="">Select Theme</option>
+                <option value="Sports">Development</option>
                 <option value="News">News</option>
                 <option value="Party">Party</option>
                 <option value="Travel">Travel</option>
+                <option value="Sports">Sports</option>
+                <option value="Sports">Music</option>
+                <option value="Sports">Jobs</option>
               </select>
             </div>
             <div>

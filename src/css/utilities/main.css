@@ -237,7 +237,8 @@ h5 {
 
 .border-active-editable {
   border: 4px solid #07b17d;
-  border-style: dotted; }
+  border-style: dotted;
+  pointer-events: auto; }
 
 .input-dark {
   color: #fff;
