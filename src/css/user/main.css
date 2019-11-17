@@ -31,6 +31,41 @@ hr {
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
 
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
+
 h3 {
   color: #78849e;
   padding-top: 20px; }
@@ -44,124 +79,181 @@ h3 {
   background-color: #e2e4e9;
   margin-top: -18px;
   padding: 0, 16px; }
-  .room-user-content .card-L {
-    width: 340px;
-    height: 144px;
-    background-color: #fff;
-    padding: 10px;
-    margin: 24px 0;
-    border-radius: 12px;
-    color: #353a50;
-    box-shadow: 0 4px 16px 0 #c5cdda;
-    position: relative; }
-    .room-user-content .card-L img {
-      width: 120px;
-      height: 120px;
-      background-color: #78849e;
-      margin: 4px -40px 8px 240px;
-      border-radius: 12px;
-      color: #353a50;
-      float: right; }
-    .room-user-content .card-L .title {
-      width: 210px;
-      padding: 16px 16px;
-      font-size: 18px;
-      color: #454f63;
-      text-decoration: none;
-      position: absolute;
-      top: 0;
-      left: 0; }
-    .room-user-content .card-L .theme {
-      font-size: 18px;
-      padding-top: 10px;
-      color: #ff4f9a;
-      position: absolute;
-      top: 50px;
-      left: 16px; }
-    .room-user-content .card-L .distance {
-      position: absolute;
-      top: 90px;
-      left: 16px; }
-    .room-user-content .card-L .people {
-      position: absolute;
-      top: 90px;
-      left: 140px; }
-  .room-user-content .card-R {
-    width: 340px;
-    height: 144px;
-    background-color: #fff;
-    padding: 10px 7px 7px 20px;
-    margin: 24px 0 0 30px;
-    border-radius: 12px;
-    color: #353a50;
-    box-shadow: 0 4px 16px 0 #c5cdda;
-    position: relative; }
-    .room-user-content .card-R img {
-      width: 120px;
-      height: 120px;
-      background-color: #78849e;
-      margin: 4px 16px 8px -50px;
-      border-radius: 12px;
-      color: #353a50;
-      float: left; }
-    .room-user-content .card-R .title {
-      width: 210px;
-      padding: 16px 16px;
-      font-size: 18px;
-      color: #454f63;
-      text-decoration: none;
-      padding-top: 10px;
-      position: absolute;
-      top: 0;
-      left: 45px; }
-    .room-user-content .card-R .theme {
-      font-size: 18px;
-      padding-top: 10px;
-      color: #ff4f9a;
-      position: absolute;
-      top: 40px;
-      left: 105px; }
-    .room-user-content .card-R .distance {
-      position: absolute;
-      top: 90px;
-      left: 105px; }
-    .room-user-content .card-R .people {
-      position: absolute;
-      top: 90px;
-      left: 230px; }
+
+.room-user-content .card-L {
+  width: 340px;
+  height: 144px;
+  background-color: #fff;
+  padding: 10px;
+  margin: 24px 0;
+  border-radius: 12px;
+  color: #353a50;
+  box-shadow: 0 4px 16px 0 #c5cdda;
+  position: relative; }
+
+.room-user-content .card-L img {
+  width: 120px;
+  height: 120px;
+  background-color: #78849e;
+  margin: 4px -40px 8px 240px;
+  border-radius: 12px;
+  color: #353a50;
+  float: right; }
+
+.room-user-content .card-L .title {
+  width: 210px;
+  padding: 16px 16px;
+  font-size: 18px;
+  color: #454f63;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.room-user-content .card-L .theme {
+  font-size: 18px;
+  padding-top: 10px;
+  color: #ff4f9a;
+  position: absolute;
+  top: 50px;
+  left: 16px; }
+
+.room-user-content .card-L .distance {
+  position: absolute;
+  top: 90px;
+  left: 16px; }
+
+.room-user-content .card-L .people {
+  position: absolute;
+  top: 90px;
+  left: 140px; }
+
+.room-user-content .card-R {
+  width: 340px;
+  height: 144px;
+  background-color: #fff;
+  padding: 10px 7px 7px 20px;
+  margin: 24px 0 0 30px;
+  border-radius: 12px;
+  color: #353a50;
+  box-shadow: 0 4px 16px 0 #c5cdda;
+  position: relative; }
+
+.room-user-content .card-R img {
+  width: 120px;
+  height: 120px;
+  background-color: #78849e;
+  margin: 4px 16px 8px -50px;
+  border-radius: 12px;
+  color: #353a50;
+  float: left; }
+
+.room-user-content .card-R .title {
+  width: 210px;
+  padding: 16px 16px;
+  font-size: 18px;
+  color: #454f63;
+  text-decoration: none;
+  padding-top: 10px;
+  position: absolute;
+  top: 0;
+  left: 45px; }
+
+.room-user-content .card-R .theme {
+  font-size: 18px;
+  padding-top: 10px;
+  color: #ff4f9a;
+  position: absolute;
+  top: 40px;
+  left: 105px; }
+
+.room-user-content .card-R .distance {
+  position: absolute;
+  top: 90px;
+  left: 105px; }
+
+.room-user-content .card-R .people {
+  position: absolute;
+  top: 90px;
+  left: 230px; }
 
 .header-user {
   position: relative;
-  margin-top: 150px; }
-  .header-user__greycolor {
-    background-color: #c5cdda; }
-  .header-user .titular {
-    width: 100%;
-    text-align: center;
-    padding-bottom: 20px; }
-  .header-user .titular h1 {
-    width: 100%;
-    padding-top: 120px;
-    text-align: center;
-    padding-bottom: -20px; }
-  .header-user .titular h3 {
-    width: 100%;
-    text-align: center;
-    padding-top: 0px 0px 10px 0px;
-    margin-top: -40px;
-    padding-bottom: 3px;
-    color: #c840e9;
-    font-weight: 400; }
+  margin-top: 150px;
+  padding: 0 1.2em; }
+
+.header-user__greycolor {
+  background-color: #e1e5ec;
+  height: 600px; }
+
+.header-user__room-header {
+  margin-top: 90px; }
+
+.header-user .titular {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 30px; }
+
+.header-user .titular__no-padding {
+  padding: 0px 0px 5px 0px;
+  margin: -5px; }
+
+.header-user .titular h1 {
+  width: 100%;
+  padding-top: 120px;
+  text-align: center;
+  padding-bottom: -20px; }
+
+.header-user .titular h3 {
+  width: 100%;
+  text-align: center;
+  padding-top: 0px 0px 10px 0px;
+  margin-top: -40px;
+  padding-bottom: 3px;
+  font-weight: 400; }
+
+.header-user .titular h2 {
+  width: 100%;
+  text-align: center;
+  padding-top: 0px 0px 30px 0px;
+  margin-top: -30px;
+  padding-bottom: 3px;
+  color: #c840e9;
+  font-weight: 400; }
+
+.header-user .titular h5 {
+  width: 100%;
+  text-align: center;
+  padding-top: 0px 0px 10px 0px;
+  margin-top: 20px;
+  padding-bottom: 3px;
+  font-weight: 400; }
+
+.header-user .titular-input-title {
+  margin-top: 120px; }
 
 .btn-user-header {
-  margin-top: 50px;
+  margin-top: -36px;
   margin-left: auto;
   margin-right: auto;
   width: 30%; }
 
+.btn-user-header__left {
+  margin-right: 140px; }
+
 .edit-margin-bottom {
   margin-bottom: -50px;
   margin-top: -50px; }
+
+.bg-color-white {
+  background-color: white; }
+
+.edit {
+  display: flex;
+  align-items: center;
+  float: right;
+  margin-top: -100px;
+  justify-content: space-between; }
 
 .user {
   margin-top: 20px; }
@@ -171,8 +263,9 @@ h3 {
 
 .user .header {
   background-color: #454f63; }
-  .user .header__relative {
-    position: relative; }
+
+.user .header__relative {
+  position: relative; }
 
 .user .header .header-wrapper {
   padding: 40px 20px 40px 20px;
@@ -182,7 +275,8 @@ h3 {
 .user .edit {
   display: flex;
   align-items: center;
-  padding-bottom: 10px;
+  float: right;
+  margin-top: -100px;
   justify-content: space-between; }
 
 .user .edit .edit-mode-text {
@@ -289,24 +383,29 @@ h3 {
   flex-flow: row;
   justify-content: stretch;
   margin-bottom: 10px; }
-  .users-list-line .avatar {
-    width: 15%; }
-  .users-list-line .text-user {
-    width: 60%;
-    padding: 0px 0 0 14px; }
-    .users-list-line .text-user .name {
-      font-size: 18px;
-      color: #454f63;
-      text-decoration: none; }
-  .users-list-line .distance {
-    width: 15%; }
-    .users-list-line .distance .oval {
-      border-radius: 20px;
-      background: #3acce1;
-      margin: 2%;
-      padding: 4px;
-      color: #fff;
-      text-align: center; }
+
+.users-list-line .avatar {
+  width: 15%; }
+
+.users-list-line .text-user {
+  width: 60%;
+  padding: 0px 0 0 14px; }
+
+.users-list-line .text-user .name {
+  font-size: 18px;
+  color: #454f63;
+  text-decoration: none; }
+
+.users-list-line .distance {
+  width: 15%; }
+
+.users-list-line .distance .oval {
+  border-radius: 20px;
+  background: #3acce1;
+  margin: 2%;
+  padding: 4px;
+  color: #fff;
+  text-align: center; }
 
 .u-sticky {
   position: sticky;

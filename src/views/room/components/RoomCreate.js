@@ -76,7 +76,7 @@ class RoomCreate extends Component {
                 className="input input-filter"
                 type="text"
                 name="roomName"
-                maxLength="25"
+                maxLength="35"
               ></input>
             </div>
             <div>
