@@ -31,9 +31,9 @@
   z-index: 1000;
 }
 
-.sample-menu-button {
-  width: 51px;
-  height: 51px;
+.top-menu-button {
+  width: 47px;
+  height: 52px;
   background-color: DeepSkyBlue;
   cursor: pointer;
   position: absolute;
@@ -41,7 +41,7 @@
   right: 0;
   z-index: 100;
 }
-.sample-menu-icon {
+.top-menu-icon {
   position: absolute;
   top: 50%;
   left: 20%;
@@ -50,51 +50,51 @@
   right: 0;
   width: 60%;
 }
-.sample-menu-icon::before,
-.sample-menu-icon::after {
+.top-menu-icon::before,
+.top-menu-icon::after {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
   height: 4px;
 }
-.sample-menu-icon::before {
+.top-menu-icon::before {
   top: -10px;
 }
-.sample-menu-icon::after {
+.top-menu-icon::after {
   bottom: -10px;
 }
-.sample-menu-icon,
-.sample-menu-icon::before,
-.sample-menu-icon::after {
+.top-menu-icon,
+.top-menu-icon::before,
+.top-menu-icon::after {
   background-color: white;
 }
-.sample-menu-button:hover,
-.sample-menu-button.active {
+.top-menu-button:hover,
+.top-menu-button.active {
   background-color: RoyalBlue;
 }
-.sample-menu-button.active:hover {
+.top-menu-button.active:hover {
   background-color: DeepSkyBlue;
 }
-.sample-menu-button.active .sample-menu-icon {
+.top-menu-button.active .top-menu-icon {
   left: 10%;
   width: 80%;
   background-color: transparent;
 }
-.sample-menu-button.active .sample-menu-icon::before,
-.sample-menu-button.active .sample-menu-icon::after {
+.top-menu-button.active .top-menu-icon::before,
+.top-menu-button.active .top-menu-icon::after {
   top: 50%;
   margin-top: -2px;
 }
-.sample-menu-button.active .sample-menu-icon::before {
+.top-menu-button.active .top-menu-icon::before {
   transform: rotate(45deg);
 }
-.sample-menu-button.active .sample-menu-icon::after {
+.top-menu-button.active .top-menu-icon::after {
   transform: rotate(-45deg);
 }
-.sample-menu-icon,
-.sample-menu-icon::before,
-.sample-menu-icon::after {
+.top-menu-icon,
+.top-menu-icon::before,
+.top-menu-icon::after {
   background-color: white;
   transition: all 0.3s ease-in-out;
 }

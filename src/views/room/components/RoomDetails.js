@@ -55,8 +55,8 @@ class RoomsDetails extends Component {
   render() {
     const widget = window.cloudinary.createUploadWidget(
       {
-        cloudName: 'dadpqdwus',
-        uploadPreset: 'viqz5h5f',
+        cloudName: 'dldvty15u',
+        uploadPreset: 'ggbp4y7j',
       },
       (error, result) => {
         this.checkUploadResult(result);
@@ -126,7 +126,7 @@ class RoomsDetails extends Component {
                   </h2>
                 </div>
                 <div className="titular titular__no-padding">
-                  <h5 className>
+                  <h5>
                     Conversations: {chat.conversation.length} - Last:{' '}
                     <Moment format="DD/MM/YY hh:mm">{chat.updated_at}</Moment>
                   </h5>
@@ -139,7 +139,7 @@ class RoomsDetails extends Component {
                     <input
                       type="text"
                       className="input input-filter"
-                      placeholder="RoomName"
+                      placeholder="Room Name"
                       name="roomName"
                       maxLength="35"
                       value={roomName}
@@ -167,11 +167,13 @@ class RoomsDetails extends Component {
                       defaultValue={this.state.theme}
                       onChange={this.handleChangeTheme}
                     >
-                      <option value="Travel">Travel</option>
-                      <option value="Party">Party</option>
+                      <option value="Sports">Development</option>
                       <option value="News">News</option>
-                      <option value="Shopping">Shopping</option>
-                      <option value="Pets">Pets</option>
+                      <option value="Party">Party</option>
+                      <option value="Travel">Travel</option>
+                      <option value="Sports">Sports</option>
+                      <option value="Sports">Music</option>
+                      <option value="Sports">Jobs</option>
                     </select>
                   </div>
                   <input className="action-btn-medium" type="submit" value="Modify!" />

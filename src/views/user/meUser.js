@@ -1,6 +1,6 @@
-/* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import socketIOClient from 'socket.io-client';
+import PropTypes from 'prop-types';
 import { getCoords, getDistance } from '../../helpers/coordinates';
 
 // Context
@@ -17,9 +17,11 @@ import UsersFilters from './components/UsersFilters';
 import RoomsUser from './components/RoomsUser';
 import RoomFilters from '../room/components/RoomFilters';
 
-const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
-
 class MeUser extends Component {
+  socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
+
+  _isMounted = false;
+
   state = {
     chats: [],
     searchChats: [],
@@ -34,10 +36,12 @@ class MeUser extends Component {
   handleChatUser = user => {
     ChatUserService.getAllChatUserId(user._id)
       .then(chats => {
-        this.setState({
-          chats,
-          searchChats: chats,
-        });
+        if (this._isMounted) {
+          this.setState({
+            chats,
+            searchChats: chats,
+          });
+        }
       })
       .catch(error => console.log(error));
   };
@@ -51,26 +55,31 @@ class MeUser extends Component {
           room.distanceFromMe = getDistance(myLocation.coords, location);
           return room;
         });
-
-        this.setState({
-          rooms: newRooms,
-          searchRooms: rooms,
-          loading: false,
-        });
+        if (this._isMounted) {
+          this.setState({
+            rooms: newRooms,
+            searchRooms: rooms,
+            loading: false,
+          });
+        }
       })
       .catch(error => console.log(error));
   };
 
   handleChangeSelectRooms = event => {
-    this.setState({
-      selectTheme: event.target.value,
-    });
+    if (this._isMounted) {
+      this.setState({
+        selectTheme: event.target.value,
+      });
+    }
   };
 
   handleChangeSelectChats = event => {
-    this.setState({
-      selectStatus: event.target.value,
-    });
+    if (this._isMounted) {
+      this.setState({
+        selectStatus: event.target.value,
+      });
+    }
   };
 
   handleSearchRoom = event => {
@@ -83,9 +92,11 @@ class MeUser extends Component {
     } else {
       searchRooms = rooms;
     }
-    this.setState({
-      searchRooms,
-    });
+    if (this._isMounted) {
+      this.setState({
+        searchRooms,
+      });
+    }
   };
 
   handleSearchChats = event => {
@@ -98,9 +109,11 @@ class MeUser extends Component {
     } else {
       searchChats = chats;
     }
-    this.setState({
-      searchChats,
-    });
+    if (this._isMounted) {
+      this.setState({
+        searchChats,
+      });
+    }
   };
 
   handleAcceptChat = () => {
@@ -115,18 +128,26 @@ class MeUser extends Component {
   };
 
   componentDidMount = () => {
+    this._isMounted = true;
     const { user } = this.props;
     this.handleChatUser(user);
     this.handleRoomsUser(user);
 
-    socket.on('room-created', async room => {
+    this.socket.on('room-created', async room => {
       const myLocation = await getCoords();
       const location = { latitude: room.location.coordinates[0], longitude: room.location.coordinates[1] };
       room.distanceFromMe = getDistance(myLocation.coords, location);
       const searchRooms = [room, ...this.state.rooms];
-      this.setState({ searchRooms });
+      if (this._isMounted) {
+        this.setState({ searchRooms });
+      }
     });
   };
+
+  componentWillUnmount() {
+    this.socket.removeAllListeners('room-created');
+    this._isMounted = false;
+  }
 
   render() {
     const { searchChats, selectStatus, searchRooms, selectTheme, loading, pgUser, radiusInMeters } = this.state;
@@ -222,4 +243,8 @@ class MeUser extends Component {
     );
   }
 }
+
+MeUser.propTypes = {
+  user: PropTypes.object,
+};
 export default withAuth(MeUser);

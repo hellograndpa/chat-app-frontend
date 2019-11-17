@@ -1,5 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import WebMercatorViewport from 'viewport-mercator-project';
 import MapGL, { Layer, Source } from 'react-map-gl';
 
@@ -8,6 +9,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 const TOKEN = process.env.REACT_APP_TOKEN;
 
 class Map extends Component {
+  _isMounted = false;
+
   state = {
     viewport: {
       width: window.innerWidth,
@@ -24,10 +27,10 @@ class Map extends Component {
     let minValueLong = 3;
 
     if (locations.length > 0) {
-      maxValueLat = Math.max(...locations.map(locations => locations.location.coordinates[0]));
-      minValueLat = Math.min(...locations.map(locations => locations.location.coordinates[0]));
-      maxValueLong = Math.max(...locations.map(locations => locations.location.coordinates[1]));
-      minValueLong = Math.min(...locations.map(locations => locations.location.coordinates[1]));
+      maxValueLat = Math.max(...locations.map(loc => loc.location.coordinates[0]));
+      minValueLat = Math.min(...locations.map(loc => loc.location.coordinates[0]));
+      maxValueLong = Math.max(...locations.map(loc => loc.location.coordinates[1]));
+      minValueLong = Math.min(...locations.map(loc => loc.location.coordinates[1]));
     } else {
       maxValueLat = 3;
       minValueLat = -5;
@@ -47,28 +50,32 @@ class Map extends Component {
       },
     );
 
-    this.setState({
-      viewport: {
-        width: window.innerWidth,
-        height: window.innerHeight - 220,
-        longitude,
-        latitude,
-        zoom,
-      },
-    });
+    if (this._isMounted) {
+      this.setState({
+        viewport: {
+          width: window.innerWidth,
+          height: window.innerHeight - 220,
+          longitude,
+          latitude,
+          zoom,
+        },
+      });
+    }
   };
 
   componentDidMount() {
+    this._isMounted = true;
     window.addEventListener('resize', this.setInitialBounds);
     this.setInitialBounds();
   }
 
   componentWillUnmount() {
+    this._isMounted = false;
     window.removeEventListener('resize', this.setInitialBounds);
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.locations !== this.props.locations) {
+    if (this._isMounted && prevProps.locations !== this.props.locations) {
       this.setInitialBounds();
     }
   }
@@ -112,4 +119,9 @@ class Map extends Component {
     );
   }
 }
+
+Map.propTypes = {
+  locations: PropTypes.array,
+};
+
 export default Map;

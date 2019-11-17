@@ -50,21 +50,19 @@ export default class AuthProvider extends Component {
     isLoading: true,
   };
 
-  componentDidMount() {
-    authService
-      .me()
-      .then(user => {
-        this.setState({
-          isLoggedin: true,
-          user,
-          isLoading: false,
-        });
-      })
-      .catch(() => {
-        this.setState({
-          isLoading: false,
-        });
+  async componentDidMount() {
+    try {
+      const user = await authService.me();
+      this.setState({
+        isLoggedin: true,
+        user,
+        isLoading: false,
       });
+    } catch (error) {
+      this.setState({
+        isLoading: false,
+      });
+    }
   }
 
   handleLogin = (user, handleMessage) => {

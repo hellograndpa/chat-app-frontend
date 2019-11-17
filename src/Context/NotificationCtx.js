@@ -28,6 +28,10 @@ export const withNotification = Comp => {
 };
 
 export default class NotificationProvider extends Component {
+  _isMounted = false;
+
+  _timeoutID = 0;
+
   state = {
     notification: {
       typeMessage: '',
@@ -36,31 +40,46 @@ export default class NotificationProvider extends Component {
     status: false,
   };
 
+  componentDidMount() {
+    this._isMounted = true;
+  }
+
   handleAutoCloseMessage = () => {
-    setTimeout(() => {
-      this.setState({
-        status: false,
-      });
-    }, 5000);
+    if (this._isMounted) {
+      this._timeoutID = setTimeout(() => {
+        this.setState({
+          status: false,
+        });
+      }, 5000);
+    }
   };
 
   handleSetMessage = notification => {
     const { typeMessage, message } = notification;
-    this.setState({
-      notification: {
-        typeMessage,
-        message,
-      },
-      status: true,
-    });
-    this.handleAutoCloseMessage();
+    if (this._isMounted) {
+      this.setState({
+        notification: {
+          typeMessage,
+          message,
+        },
+        status: true,
+      });
+      this.handleAutoCloseMessage();
+    }
   };
 
   handleCloseMessage = () => {
-    this.setState({
-      status: false,
-    });
+    if (this._isMounted) {
+      this.setState({
+        status: false,
+      });
+    }
   };
+
+  componentWillUnmount() {
+    this._isMounted = false;
+    clearTimeout(this._timeoutID);
+  }
 
   render() {
     const { notification, status } = this.state;

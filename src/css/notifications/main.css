@@ -16,12 +16,9 @@
   /* Safari and Chrome */
   -o-transition: transform 1s;
   /* Opera */ }
-
-.notifications.hidden {
-  transform: translateX(-100%); }
-
-.notifications.alert {
-  background: darkseagreen; }
-
-.notifications.error {
-  background: #eb6969; }
+  .notifications.hidden {
+    transform: translateX(-100%); }
+  .notifications.alert {
+    background: #3497fd; }
+  .notifications.error {
+    background: #ff9057; }

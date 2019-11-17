@@ -5,7 +5,7 @@
   height: 100%;
 }
 .chatroom .chatwrapper {
-  height: calc(100% - 45px);
+  height: 100%;
   overflow-y: auto;
 }
 
@@ -20,7 +20,7 @@
   height: 1px;
 }
 .chatroom .chat {
-  padding: 20px;
+  padding: 5px;
 }
 .chatroom .box {
   display: flex;

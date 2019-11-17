@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withNotification } from '../../Context/NotificationCtx';
 
 class Notifications extends Component {
@@ -18,5 +19,9 @@ class Notifications extends Component {
     );
   }
 }
-
+Notifications.propTypes = {
+  notification: PropTypes.object,
+  status: PropTypes.bool,
+  handleCloseMessage: PropTypes.func,
+};
 export default withNotification(Notifications);
