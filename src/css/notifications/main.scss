@@ -1,3 +1,7 @@
+@import '../utilities/colors.scss';
+@import '../utilities/fonts.scss';
+
+
 .notifications {
   position: absolute;
   color: #fff;
@@ -10,16 +14,21 @@
   transition: all 1s linear;
   display: block;
   transition: transform 1s;
-  -moz-transition: transform 1s; /* Firefox 4 */
-  -webkit-transition: transform 1s; /* Safari and Chrome */
-  -o-transition: transform 1s; /* Opera */
+  -moz-transition: transform 1s;
+  /* Firefox 4 */
+  -webkit-transition: transform 1s;
+  /* Safari and Chrome */
+  -o-transition: transform 1s;
+  /* Opera */
 
   &.hidden {
     transform: translateX(-100%);
   }
+
   &.alert {
     background: $dodger-blue;
   }
+
   &.error {
     background: $pastel-orange;
   }
