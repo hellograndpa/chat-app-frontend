@@ -27,7 +27,8 @@ const Users = props => {
               </Link>
 
               <div>Ciudad: {user1.city}</div>
-              <div>Interests: {user1.themes.join(',')}</div>
+
+              {!user1.themes === undefined ? <div>Interests: {user1.themes.map(theme => `${theme}, `)}</div> : <> </>}
             </div>
 
             <div className="distance">
