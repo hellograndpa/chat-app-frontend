@@ -5,7 +5,7 @@
 
   &__greycolor {
     background-color: $gray-w;
-    height: 600px;
+    height: 515px;
   }
 
   &__room-header {
@@ -69,7 +69,7 @@
 
 
 .btn-user-header {
-  margin-top: -36px;
+  margin-top: -150px;
   margin-left: auto;
   margin-right: auto;
   width: 30%;
@@ -130,8 +130,9 @@
   display: flex;
   align-items: center;
   float: right;
-  margin-top: -100px;
   justify-content: space-between;
+  margin-top: -26px;
+  margin-right: 10px;
 }
 
 .user .edit .edit-mode-text {
