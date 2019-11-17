@@ -78,7 +78,11 @@ h3 {
   text-decoration: none;
   background-color: #e2e4e9;
   margin-top: -18px;
+<<<<<<< HEAD
+  padding: 0, 16px; }
+=======
   padding: 0 16px; }
+>>>>>>> ec52c461d547b1ea7e6d729de2eac34d0b60bc66
 
 .room-user-content .card-L {
   width: 340px;
@@ -184,7 +188,11 @@ h3 {
 
 .header-user__greycolor {
   background-color: #e1e5ec;
+<<<<<<< HEAD
+  height: 515px; }
+=======
   height: 600px; }
+>>>>>>> ec52c461d547b1ea7e6d729de2eac34d0b60bc66
 
 .header-user__room-header {
   margin-top: 90px; }
@@ -233,7 +241,7 @@ h3 {
   margin-top: 120px; }
 
 .btn-user-header {
-  margin-top: -36px;
+  margin-top: -150px;
   margin-left: auto;
   margin-right: auto;
   width: 30%; }
@@ -276,8 +284,9 @@ h3 {
   display: flex;
   align-items: center;
   float: right;
-  margin-top: -100px;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-top: -26px;
+  margin-right: 10px; }
 
 .user .edit .edit-mode-text {
   padding-right: 10px;
@@ -368,28 +377,37 @@ h3 {
   padding-top: 20px; }
 
 .users-list-content-Bg {
-  width: 100%;
-  height: 100%;
-  padding: 0 16px 100px 16px;
   text-align: left;
   font-size: 14px;
   text-decoration: none;
   background-color: #e2e4e9;
   margin-top: -18px;
-  padding: 0, 16px; }
+  padding: 0 16px; }
 
 .users-list-line {
   display: flex;
   flex-flow: row;
+<<<<<<< HEAD
+  padding: 5px 0; }
+=======
   justify-content: stretch;
   margin-bottom: 10px; }
+>>>>>>> ec52c461d547b1ea7e6d729de2eac34d0b60bc66
 
 .users-list-line .avatar {
   width: 15%; }
 
 .users-list-line .text-user {
+<<<<<<< HEAD
+  padding: 0px 0 0 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 65%;
+  white-space: nowrap; }
+=======
   width: 60%;
   padding: 0px 0 0 14px; }
+>>>>>>> ec52c461d547b1ea7e6d729de2eac34d0b60bc66
 
 .users-list-line .text-user .name {
   font-size: 18px;
