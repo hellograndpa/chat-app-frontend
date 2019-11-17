@@ -23,15 +23,21 @@ import AnonRoute from './components/AnonRoute';
 
 import Notifications from './views/notifications/Notifications';
 
-const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
-
 class App extends Component {
+  socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
+
   componentDidMount() {
     if (this.props.user) {
       this.props.handleRemember();
-      socket.on(`messageToUser-${this.props.user._id}`, message => {
+      this.socket.on(`messageToUser-${this.props.user._id}`, message => {
         this.props.handleSetMessage({ typeMessage: 'info', message: message.text });
       });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.props.user) {
+      this.socket.removeAllListeners(`messageToUser-${this.props.user._id}`);
     }
   }
 
@@ -45,9 +51,9 @@ class App extends Component {
             <Switch>
               <AnonRoute exact path="/" component={Home} />
               <PrivateRoute exact path="/me-user" component={MeUser} />
-              <PrivateRoute exact path="/users/list" component={UsersList} />
+              <PrivateRoute exact path="/users/" component={UsersList} />
               <PrivateRoute exact path="/rooms/create" component={CreateRoomWp} />
-              <PrivateRoute exact path="/rooms/list" component={RoomsList} />
+              <PrivateRoute exact path="/rooms/" component={RoomsList} />
               <PrivateRoute exact path="/rooms/:id" component={RoomWp} />
               <PrivateRoute exact path="/users/:id" component={OtherUser} />
               <PrivateRoute exact path="/users/private-chat/:id" component={PrivateChatWp} />

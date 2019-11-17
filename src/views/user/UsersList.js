@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import socketIOClient from 'socket.io-client';
+import PropTypes from 'prop-types';
 
 // Context
 import { withNotification } from '../../Context/NotificationCtx';
@@ -16,9 +17,11 @@ import Map from '../room/components/Map';
 import { getCoords, getDistance } from '../../helpers/coordinates';
 import { emptyValidation } from '../../helpers/Validation';
 
-const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
-
 class UsersList extends Component {
+  socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
+
+  _isMounted = false;
+
   state = {
     users: [],
     searchUsers: [],
@@ -41,22 +44,26 @@ class UsersList extends Component {
   // Get all user arrownd you we are using the helper getDistanceFromMe
   handleUsersArroundMe = async (latitude, longitude, radiusInMeters) => {
     const myLocation = await getCoords();
-    UserService.getAllUsers(latitude, longitude, radiusInMeters)
-
-      .then(async users => {
-        const newUsers = users.map(user => {
-          const location = { latitude: user.location.coordinates[0], longitude: user.location.coordinates[1] };
-          user.distanceFromMe = getDistance(myLocation.coords, location);
-          return user;
+    if (this._isMounted) {
+      UserService.getAllUsers(latitude, longitude, radiusInMeters)
+        .then(async users => {
+          const newUsers = users.map(user => {
+            const location = { latitude: user.location.coordinates[0], longitude: user.location.coordinates[1] };
+            user.distanceFromMe = getDistance(myLocation.coords, location);
+            return user;
+          });
+          return newUsers;
+        })
+        .then(newUsers => {
+          this.resultUsers(newUsers);
+        })
+        .catch(() => {
+          this.props.handleSetMessage({
+            typeMessage: 'alert',
+            message: 'An unexpected error ocurred! Please try again',
+          });
         });
-        return newUsers;
-      })
-      .then(newUsers => {
-        this.resultUsers(newUsers);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    }
   };
 
   // SEARCH INPUT SEARCH BY NAME
@@ -112,20 +119,34 @@ class UsersList extends Component {
   };
 
   componentDidMount = async () => {
+    this._isMounted = true;
+
     const {
       coords: { latitude, longitude },
     } = await getCoords();
     const { radiusInMeters } = this.state;
 
-    this.handleUsersArroundMe(latitude, longitude, radiusInMeters);
+    if (this._isMounted) {
+      this.handleUsersArroundMe(latitude, longitude, radiusInMeters);
+    }
 
-    socket.on('login', () => {
-      this.handleUsersArroundMe(latitude, longitude, radiusInMeters);
+    this.socket.on('login', () => {
+      if (this._isMounted) {
+        this.handleUsersArroundMe(latitude, longitude, radiusInMeters);
+      }
     });
-    socket.on('logout', () => {
-      this.handleUsersArroundMe(latitude, longitude, radiusInMeters);
+    this.socket.on('logout', () => {
+      if (this._isMounted) {
+        this.handleUsersArroundMe(latitude, longitude, radiusInMeters);
+      }
     });
   };
+
+  componentWillUnmount() {
+    this._isMounted = false;
+    this.socket.removeAllListeners('login');
+    this.socket.removeAllListeners('logout');
+  }
 
   render() {
     const { searchUsers, selectActive, loading, eventSearch, radiusInMeters } = this.state;
@@ -166,7 +187,6 @@ class UsersList extends Component {
         <s id="s1"></s>
         <s id="s2"></s>
         <s id="s3"></s>
-        {/* nav top */}
         <div className="o-top-nav o-top-nav--rel">
           <a href="#s1" className="o-top-nav__btn || o-btn">
             Users
@@ -175,7 +195,6 @@ class UsersList extends Component {
             Map
           </a>
         </div>
-        {/* end nav top */}
         {!loading && (
           <>
             <div className="slider">
@@ -205,5 +224,9 @@ class UsersList extends Component {
     );
   }
 }
+
+UsersList.propTypes = {
+  handleSetMessage: PropTypes.func,
+};
 
 export default withNotification(UsersList);

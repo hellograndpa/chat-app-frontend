@@ -22,8 +22,9 @@ class AuthService {
     return this.auth.get('/logout', {}).then(response => response.data);
   }
 
-  me() {
-    return this.auth.get('/me').then(response => response.data);
+  async me() {
+    const response = await this.auth.get('/me');
+    return response.data;
   }
 
   abandon() {

@@ -18,7 +18,10 @@ class RoomWp extends Component {
     menu: false,
   };
 
+  _isMounted = false;
+
   async componentDidMount() {
+    this._isMounted = true;
     const {
       match: {
         params: { id },
@@ -27,7 +30,13 @@ class RoomWp extends Component {
 
     const room = await RoomService.getRoomById(id);
 
-    this.setState({ room, loading: false });
+    if (this._isMounted) {
+      this.setState({ room, loading: false });
+    }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   handleChangeMenu = () => {
@@ -47,7 +56,7 @@ class RoomWp extends Component {
             <div className="chat-title">{this.state.room.roomName}</div>
             <div className={menu ? 'chat-navbar expanded' : 'chat-navbar'}>
               <div className="o-top-nav o-top-nav--rel">
-                <NavLink className="o-top-nav__btn || o-btn" to="/rooms/list">
+                <NavLink className="o-top-nav__btn || o-btn" to="/rooms/">
                   Back
                 </NavLink>
 
@@ -63,8 +72,8 @@ class RoomWp extends Component {
               </div>
             </div>
           </div>
-          <div onClick={this.handleChangeMenu} className={menu ? 'sample-menu-button active' : 'sample-menu-button'}>
-            <div className="sample-menu-icon"></div>
+          <div onClick={this.handleChangeMenu} className={menu ? 'top-menu-button active' : 'top-menu-button'}>
+            <div className="top-menu-icon"></div>
           </div>
         </div>
         {!loading && (

@@ -9,6 +9,9 @@ import ChatRoomService from '../../../services/chatRoomService';
 // Context
 import { withAuth } from '../../../Context/AuthContext';
 
+// Image
+import avatarDefault from '../../../images/avatar.svg';
+
 const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class Chat extends Component {
@@ -87,7 +90,11 @@ class Chat extends Component {
                       <div className="box-avatar">
                         <div className={c.user.active ? 'o-avatar is-active w-100precent' : 'o-avatar w-100precent'}>
                           <div className="o-avatar__inner">
-                            <img className="o-avatar__img" src={c.user.avatar} alt="" />
+                            <img
+                              className="o-avatar__img"
+                              src={c.user.avatar !== '' ? c.user.avatar : avatarDefault}
+                              alt=""
+                            />
                           </div>
                         </div>
                       </div>
@@ -97,7 +104,11 @@ class Chat extends Component {
                       <div className="box-avatar">
                         <div className={c.user.active ? 'o-avatar is-active w-100precent' : 'o-avatar w-100precent'}>
                           <div className="o-avatar__inner">
-                            <img className="o-avatar__img" src={c.user.avatar} alt="" />
+                            <img
+                              className="o-avatar__img"
+                              src={c.user.avatar !== '' ? c.user.avatar : avatarDefault}
+                              alt=""
+                            />
                           </div>
                         </div>
                       </div>
@@ -128,7 +139,7 @@ class Chat extends Component {
                     />
                   </div>
                   <div>
-                    <button className="o-btn btn-send">Enviar</button>
+                    <button className="o-btn btn-send">Send</button>
                   </div>
                 </div>
               </form>

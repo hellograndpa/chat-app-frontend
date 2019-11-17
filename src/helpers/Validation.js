@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export const emptyValidation = (array, handleSetMessage) => {
   if (array && array.length <= 0) {
     handleSetMessage({ typeMessage: 'alert', message: 'There are any result with this search' });

@@ -15,7 +15,10 @@ class ChatUserService {
   getAllChatUserTowId(userId01, userId02) {
     return this.axios
       .get(`/api/v01/chat-user/between/${userId01}/${userId02}`)
-      .then(({ data: friendUser }) => friendUser);
+      .then(({ data: friendUser }) => friendUser)
+      .catch(() => {
+        return {};
+      });
   }
 
   getChatUserById(id) {

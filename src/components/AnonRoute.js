@@ -12,7 +12,7 @@ function AnonRoute({ component: Comp, isLoggedin, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: '/me-user',
+              pathname: '/rooms',
             }}
           />
         )

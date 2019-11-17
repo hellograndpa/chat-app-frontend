@@ -78,7 +78,11 @@ h3 {
   text-decoration: none;
   background-color: #e2e4e9;
   margin-top: -18px;
+<<<<<<< HEAD
   padding: 0, 16px; }
+=======
+  padding: 0 16px; }
+>>>>>>> ec52c461d547b1ea7e6d729de2eac34d0b60bc66
 
 .room-user-content .card-L {
   width: 340px;
@@ -184,7 +188,11 @@ h3 {
 
 .header-user__greycolor {
   background-color: #e1e5ec;
+<<<<<<< HEAD
   height: 515px; }
+=======
+  height: 600px; }
+>>>>>>> ec52c461d547b1ea7e6d729de2eac34d0b60bc66
 
 .header-user__room-header {
   margin-top: 90px; }
@@ -379,17 +387,27 @@ h3 {
 .users-list-line {
   display: flex;
   flex-flow: row;
+<<<<<<< HEAD
   padding: 5px 0; }
+=======
+  justify-content: stretch;
+  margin-bottom: 10px; }
+>>>>>>> ec52c461d547b1ea7e6d729de2eac34d0b60bc66
 
 .users-list-line .avatar {
   width: 15%; }
 
 .users-list-line .text-user {
+<<<<<<< HEAD
   padding: 0px 0 0 14px;
   text-overflow: ellipsis;
   overflow: hidden;
   width: 65%;
   white-space: nowrap; }
+=======
+  width: 60%;
+  padding: 0px 0 0 14px; }
+>>>>>>> ec52c461d547b1ea7e6d729de2eac34d0b60bc66
 
 .users-list-line .text-user .name {
   font-size: 18px;

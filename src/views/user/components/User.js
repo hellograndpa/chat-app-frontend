@@ -1,15 +1,23 @@
-/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import userService from '../../../services/userService';
-import { getCoords } from '../../../helpers/coordinates';
-import ChatUserService from '../../../services/chatUserService';
+import PropTypes from 'prop-types';
+
+// Context
 import { withAuth } from '../../../Context/AuthContext';
+
+// Services
+import userService from '../../../services/userService';
+import ChatUserService from '../../../services/chatUserService';
+
+// Functions
+import { getCoords } from '../../../helpers/coordinates';
 
 // Components
 import avatarDefault from '../../../images/avatar.svg';
 
 class UserMe extends Component {
+  _isMounted = false;
+
   state = {
     userName: '',
     lastName: '',
@@ -28,40 +36,50 @@ class UserMe extends Component {
     const { user, showuser } = this.props;
     const body = { userChat01: user._id, userChat02: showuser._id };
     ChatUserService.createChatUser(body);
-    this.setState({
-      status: 'pending',
-    });
+    if (this._isMounted) {
+      this.setState({
+        status: 'pending',
+      });
+    }
   };
 
   handleEdit = () => {
-    this.setState({
-      edit: !this.state.edit,
-    });
+    if (this._isMounted) {
+      this.setState({
+        edit: !this.state.edit,
+      });
+    }
   };
 
   handleChange = event => {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    if (this._isMounted) {
+      this.setState({ [name]: value });
+    }
   };
 
   handleUserGet = async user => {
     const newUser = await userService.getUserById(user._id);
-    this.setState({
-      userName: newUser.userName,
-      lastName: newUser.lastName,
-      email: newUser.email,
-      city: newUser.city,
-      age: newUser.age,
-      avatar: newUser.avatar,
-      loading: false,
-    });
+    if (this._isMounted) {
+      this.setState({
+        userName: newUser.userName,
+        lastName: newUser.lastName,
+        email: newUser.email,
+        city: newUser.city,
+        age: newUser.age,
+        avatar: newUser.avatar,
+        loading: false,
+      });
+    }
   };
 
   handleGetChatBetweenUsers = async (userId01, userId02) => {
-    const chatUser = await ChatUserService.getAllChatUserTowId(userId01, userId02);
+    if (userId01 !== undefined && userId02 !== undefined) {
+      const chatUser = await ChatUserService.getAllChatUserTowId(userId01, userId02);
 
-    if (chatUser) {
-      this.setState({ chatUser, status: chatUser.status });
+      if (chatUser) {
+        this.setState({ chatUser, status: chatUser.status });
+      }
     }
   };
 
@@ -85,13 +103,15 @@ class UserMe extends Component {
     );
 
     this.props.changeSession(newUser);
-
-    this.setState({ edit: false });
+    if (this._isMounted) {
+      this.setState({ edit: false });
+    }
 
     // this.handleUserGet(this.props.user);
   };
 
   componentDidMount = () => {
+    this._isMounted = true;
     this.handleUserGet(this.props.user);
     this.handleGetChatBetweenUsers(this.props.user._id, this.props.showuser._id);
   };
@@ -99,6 +119,10 @@ class UserMe extends Component {
   showWidget = widget => {
     widget.open();
   };
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
 
   checkUploadResult = async resultEvent => {
     if (resultEvent.event === 'success') {
@@ -113,8 +137,8 @@ class UserMe extends Component {
   render() {
     const widget = window.cloudinary.createUploadWidget(
       {
-        cloudName: 'dadpqdwus',
-        uploadPreset: 'viqz5h5f',
+        cloudName: 'dldvty15u',
+        uploadPreset: 'ggbp4y7j',
       },
       (error, result) => {
         this.checkUploadResult(result);
@@ -138,7 +162,7 @@ class UserMe extends Component {
                       <div className="o-avatar__inner">
                         <img
                           className="o-avatar__img"
-                          src={showuser.avatar !== undefined ? showuser.avatar : avatarDefault}
+                          src={showuser.avatar !== '' ? showuser.avatar : avatarDefault}
                           alt=""
                         />
                       </div>
@@ -210,7 +234,7 @@ class UserMe extends Component {
                           onClick={() => {
                             this.showWidget(widget);
                           }}
-                          src={avatar !== undefined ? avatar : avatarDefault}
+                          src={avatar !== '' ? avatar : avatarDefault}
                           alt=""
                         ></img>
                       </div>
@@ -304,5 +328,11 @@ class UserMe extends Component {
     );
   }
 }
+
+UserMe.propTypes = {
+  user: PropTypes.object,
+  showuser: PropTypes.object,
+  changeSession: PropTypes.func,
+};
 
 export default withAuth(UserMe);
