@@ -24,6 +24,16 @@ hr {
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
 
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
 h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 36px;
@@ -49,6 +59,16 @@ hr {
   border: 0;
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
+
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
 
 .action-btn-big {
   width: 327px;
@@ -690,6 +710,16 @@ hr {
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
 
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
 html {
   height: 100%; }
 
@@ -986,7 +1016,8 @@ http://stackoverflow.com/a/34696029/383904
   width: 100%;
   height: 0;
   padding-top: 100%;
-  border-radius: 100%; }
+  border-radius: 100%;
+  background-color: white; }
 
 .o-avatar__inner:after {
   content: '';
@@ -1067,6 +1098,16 @@ hr {
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
 
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
 .box-list-user {
   width: 40%;
   padding: 1em 0px;
@@ -1106,6 +1147,16 @@ hr {
   border: 0;
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
+
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
 
 .chatroom {
   background-color: #e2e4e9;
@@ -1291,6 +1342,16 @@ hr {
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
 
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
 h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 36px;
@@ -1316,6 +1377,16 @@ hr {
   border: 0;
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
+
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
 
 .action-btn-big {
   width: 327px;
@@ -1526,8 +1597,7 @@ hr {
   font-weight: normal; }
 
 .title {
-  padding: 5px 27px 2px 27px;
-  background-color: #fff; }
+  padding: 5px 27px 2px 27px; }
 
 .title .h1 {
   color: #454f63;
@@ -1736,6 +1806,16 @@ hr {
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
 
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
 .menu-principal {
   height: 75px;
   background-color: #3497fd;
@@ -1825,6 +1905,16 @@ hr {
   border: 0;
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
+
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
 
 h3 {
   color: #78849e;
@@ -1939,15 +2029,24 @@ h3 {
 
 .header-user {
   position: relative;
-  margin-top: 150px; }
+  margin-top: 150px;
+  padding: 0 1.2em; }
 
 .header-user__greycolor {
-  background-color: #c5cdda; }
+  background-color: #e1e5ec;
+  height: 600px; }
+
+.header-user__room-header {
+  margin-top: 90px; }
 
 .header-user .titular {
   width: 100%;
   text-align: center;
   padding-bottom: 20px; }
+
+.header-user .titular__no-padding {
+  padding: 0px 0px 0px 0px;
+  margin: -10px; }
 
 .header-user .titular h1 {
   width: 100%;
@@ -1961,6 +2060,14 @@ h3 {
   padding-top: 0px 0px 10px 0px;
   margin-top: -40px;
   padding-bottom: 3px;
+  font-weight: 400; }
+
+.header-user .titular h2 {
+  width: 100%;
+  text-align: center;
+  padding-top: 0px 0px 10px 0px;
+  margin-top: -30px;
+  padding-bottom: 3px;
   color: #c840e9;
   font-weight: 400; }
 
@@ -1973,6 +2080,9 @@ h3 {
 .edit-margin-bottom {
   margin-bottom: -50px;
   margin-top: -50px; }
+
+.bg-color-white {
+  background-color: white; }
 
 .user {
   margin-top: 20px; }

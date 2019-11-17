@@ -24,6 +24,16 @@ hr {
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
 
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
 .menu-principal {
   height: 75px;
   background-color: #3497fd;

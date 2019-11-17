@@ -78,11 +78,11 @@ class RoomsDetails extends Component {
     const checked = editMode ? 'checked' : '';
 
     return (
-      <div>
+      <div className="bg-color-white">
         <div className="title">
           <h1>Room Details</h1>
         </div>
-        <div className="user">
+        <div>
           {adminList.filter(user => this.props.user._id === user._id).length > 0 && (
             <div className="edit">
               <div className="flex-centered-aligned">
@@ -96,114 +96,98 @@ class RoomsDetails extends Component {
               </div>
             </div>
           )}
-          <div className="header">
-            <div className="header-wrapper">
-              <div className="avatar-content">
+          <div className="header-user header-user__greycolor header-user__room-header">
+            <div className="o-avatar is-active w-50precent is-headerUser-absolute ">
+              <div className="o-avatar__inner">
                 <img
-                  className={editMode ? 'border-active-editable' : 'border-inactive'}
+                  className={editMode ? 'o-avatar__img border-active-editable' : 'o-avatar__img border-active'}
                   onClick={() => {
                     this.showWidget(widget);
                   }}
                   src={avatar !== undefined ? avatar : ''}
                   alt=""
-                ></img>
-              </div>
-              <div className="details-content">
-                <div>{roomName}</div>
-                <div>{description}</div>
-                <div>{city}</div>
-                <div>{theme}</div>
-                <div>Active people now: {activeUsers.length}</div>
-                <div>People who has participate: {participatedUsers.length}</div>
-                <div>Conversations: {chat.conversation.length}</div>
-                <div>
-                  Last conversation: <Moment format="DD/MM/YY hh:mm">{chat.updated_at}</Moment>
-                </div>
+                />
               </div>
             </div>
+            <div className="details-content">
+              <div className="titular">
+                <h1>{roomName}</h1>
+                <p>{description}</p>
+              </div>
+              <div className="titular titular__no-padding">
+                <h2 className="theme">{theme}</h2>
+              </div>
+              <div className="titular titular__no-padding">{city}</div>
+              <div>
+                <h2 calssName="titular titular__no-padding">
+                  Active now: {activeUsers.length} Participate: {participatedUsers.length}
+                </h2>
+              </div>
+              <div classsName="titular titular__no-padding">
+                <h5>
+                  Conversations: {chat.conversation.length} - Last:{' '}
+                  <Moment format="DD/MM/YY hh:mm">{chat.updated_at}</Moment>
+                </h5>
+              </div>
+            </div>
+
+            {editMode && (
+              <div className="flex-centered">
+                <form name="frm" onSubmit={this.handleOnSubmit}>
+                  <div>
+                    <input
+                      type="text"
+                      className="input input-filter"
+                      placeholder="RoomName"
+                      name="roomName"
+                      value={roomName}
+                      onChange={this.handleOnChange}
+                    />
+                  </div>
+                  <div>
+                    <textarea
+                      className="input input-textarea"
+                      placeholder="Description"
+                      name="description"
+                      value={description}
+                      onChange={this.handleOnChange}
+                    />
+                  </div>
+
+                  <div>
+                    <input
+                      type="text"
+                      className="input input-filter"
+                      placeholder="City"
+                      name="city"
+                      onChange={this.handleOnChange}
+                      value={city}
+                    />
+                  </div>
+                  <div>
+                    <select
+                      name="theme"
+                      className="select-css-white"
+                      defaultValue={this.state.theme}
+                      onChange={this.handleChangeTheme}
+                    >
+                      <option value="Travel">Travel</option>
+                      <option value="Party">Party</option>
+                      <option value="News">News</option>
+                      <option value="Shopping">Shopping</option>
+                      <option value="Pets">Pets</option>
+                    </select>
+                  </div>
+                  <div className="button-wrapper">
+                    <div className="flex-centered">
+                      <input className="action-btn-medium" type="submit" value="Modify!" />
+                    </div>
+                  </div>
+                </form>
+              </div>
+            )}
           </div>
         </div>
-        {editMode && (
-          <div className="flex-centered">
-            <form name="frm" onSubmit={this.handleOnSubmit}>
-              <div>
-                <input
-                  type="text"
-                  className="input input-filter"
-                  placeholder="RoomName"
-                  name="roomName"
-                  value={roomName}
-                  onChange={this.handleOnChange}
-                />
-              </div>
-              <div>
-                <textarea
-                  className="input input-textarea"
-                  placeholder="Description"
-                  name="description"
-                  value={description}
-                  onChange={this.handleOnChange}
-                />
-              </div>
-              {/* <div>
-                AdminList:
-                <br />
-                <ul>
-                  {adminList.map(user => {
-                    return (
-                      <li key={user._id}>
-                        {user.userName} <button>quitar</button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-              <div>
-                userBanList:
-                <br />
-                <ul>
-                  {userBanList.map(user => {
-                    return (
-                      <li key={user._id}>
-                        {user.userName}
-                        <button>quitar</button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div> */}
-              <div>
-                <input
-                  type="text"
-                  className="input input-filter"
-                  placeholder="City"
-                  name="city"
-                  onChange={this.handleOnChange}
-                  value={city}
-                />
-              </div>
-              <div>
-                <select
-                  name="theme"
-                  className="select-css-white"
-                  defaultValue={this.state.theme}
-                  onChange={this.handleChangeTheme}
-                >
-                  <option value="Travel">Travel</option>
-                  <option value="Party">Party</option>
-                  <option value="News">News</option>
-                  <option value="Shopping">Shopping</option>
-                  <option value="Pets">Pets</option>
-                </select>
-              </div>
-              <div className="button-wrapper">
-                <div className="flex-centered">
-                  <input className="action-btn-medium" type="submit" value="Modify!" />
-                </div>
-              </div>
-            </form>
-          </div>
-        )}
       </div>
     );
   }

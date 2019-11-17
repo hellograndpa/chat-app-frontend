@@ -31,6 +31,16 @@ hr {
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
 
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
 h3 {
   color: #78849e;
   padding-top: 20px; }
@@ -144,15 +154,24 @@ h3 {
 
 .header-user {
   position: relative;
-  margin-top: 150px; }
+  margin-top: 150px;
+  padding: 0 1.2em; }
 
 .header-user__greycolor {
-  background-color: #c5cdda; }
+  background-color: #e1e5ec;
+  height: 600px; }
+
+.header-user__room-header {
+  margin-top: 90px; }
 
 .header-user .titular {
   width: 100%;
   text-align: center;
   padding-bottom: 20px; }
+
+.header-user .titular__no-padding {
+  padding: 0px 0px 0px 0px;
+  margin: -10px; }
 
 .header-user .titular h1 {
   width: 100%;
@@ -166,6 +185,14 @@ h3 {
   padding-top: 0px 0px 10px 0px;
   margin-top: -40px;
   padding-bottom: 3px;
+  font-weight: 400; }
+
+.header-user .titular h2 {
+  width: 100%;
+  text-align: center;
+  padding-top: 0px 0px 10px 0px;
+  margin-top: -30px;
+  padding-bottom: 3px;
   color: #c840e9;
   font-weight: 400; }
 
@@ -178,6 +205,9 @@ h3 {
 .edit-margin-bottom {
   margin-bottom: -50px;
   margin-top: -50px; }
+
+.bg-color-white {
+  background-color: white; }
 
 .user {
   margin-top: 20px; }
