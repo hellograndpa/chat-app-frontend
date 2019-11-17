@@ -83,7 +83,7 @@ class RoomsDetails extends Component {
           <h1>Room Details</h1>
         </div>
         <div>
-          {adminList.filter(user => this.props.user._id === user._id).length > 0 && (
+          {adminList[0]._id === this.props.user._id && (
             <div className="edit">
               <div className="flex-centered-aligned">
                 <div className="edit-mode-text">Edit Mode:</div>
@@ -109,62 +109,58 @@ class RoomsDetails extends Component {
                 />
               </div>
             </div>
-            <div className="details-content">
-              <div className="titular">
-                <h1>{roomName}</h1>
-                <p>{description}</p>
-              </div>
-              <div className="titular titular__no-padding">
-                <h2 className="theme">{theme}</h2>
-              </div>
-              <div className="titular titular__no-padding">{city}</div>
-              <div>
-                <h2 calssName="titular titular__no-padding">
-                  Active now: {activeUsers.length} Participate: {participatedUsers.length}
-                </h2>
-              </div>
-              <div classsName="titular titular__no-padding">
-                <h5>
-                  Conversations: {chat.conversation.length} - Last:{' '}
-                  <Moment format="DD/MM/YY hh:mm">{chat.updated_at}</Moment>
-                </h5>
-              </div>
-            </div>
 
-            {editMode && (
-              <div className="flex-centered">
+            {!editMode ? (
+              <div className="details-content">
+                <div className="titular">
+                  <h1>{roomName}</h1>
+                  <p>{description}</p>
+                </div>
+                <div className="titular titular__no-padding">
+                  <h2 className="theme">{theme}</h2>
+                </div>
+                <div className="titular titular__no-padding">{city}</div>
+                <div>
+                  <h2 className="titular titular__no-padding">
+                    Active now: {activeUsers.length} Participate: {participatedUsers.length}
+                  </h2>
+                </div>
+                <div className="titular titular__no-padding">
+                  <h5 className>
+                    Conversations: {chat.conversation.length} - Last:{' '}
+                    <Moment format="DD/MM/YY hh:mm">{chat.updated_at}</Moment>
+                  </h5>
+                </div>
+              </div>
+            ) : (
+              <div className="details-content">
                 <form name="frm" onSubmit={this.handleOnSubmit}>
-                  <div>
+                  <div className="titular">
                     <input
                       type="text"
                       className="input input-filter"
                       placeholder="RoomName"
                       name="roomName"
+                      maxLength="35"
                       value={roomName}
                       onChange={this.handleOnChange}
                     />
-                  </div>
-                  <div>
                     <textarea
                       className="input input-textarea"
                       placeholder="Description"
                       name="description"
+                      maxLength="250"
                       value={description}
                       onChange={this.handleOnChange}
                     />
-                  </div>
-
-                  <div>
                     <input
                       type="text"
-                      className="input input-filter"
+                      className="input input-filter user-city"
                       placeholder="City"
                       name="city"
                       onChange={this.handleOnChange}
                       value={city}
                     />
-                  </div>
-                  <div>
                     <select
                       name="theme"
                       className="select-css-white"
@@ -178,11 +174,7 @@ class RoomsDetails extends Component {
                       <option value="Pets">Pets</option>
                     </select>
                   </div>
-                  <div className="button-wrapper">
-                    <div className="flex-centered">
-                      <input className="action-btn-medium" type="submit" value="Modify!" />
-                    </div>
-                  </div>
+                  <input className="action-btn-medium" type="submit" value="Modify!" />
                 </form>
               </div>
             )}
