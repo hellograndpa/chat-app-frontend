@@ -162,7 +162,7 @@ class UserMe extends Component {
                       <div className="o-avatar__inner">
                         <img
                           className="o-avatar__img"
-                          src={showuser.avatar !== undefined ? showuser.avatar : avatarDefault}
+                          src={showuser.avatar !== '' ? showuser.avatar : avatarDefault}
                           alt=""
                         />
                       </div>
@@ -234,7 +234,7 @@ class UserMe extends Component {
                           onClick={() => {
                             this.showWidget(widget);
                           }}
-                          src={avatar !== undefined ? avatar : avatarDefault}
+                          src={avatar !== '' ? avatar : avatarDefault}
                           alt=""
                         ></img>
                       </div>

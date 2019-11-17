@@ -11,6 +11,8 @@
 }
 .chat-title {
   width: calc(100% - 42px);
+  text-align: left;
+  padding-left: 20px;
 }
 .chat-navbar {
   transition: transform 1s;

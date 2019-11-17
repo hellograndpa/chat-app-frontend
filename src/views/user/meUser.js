@@ -194,10 +194,10 @@ class MeUser extends Component {
             Me
           </a>
           <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-            My Chats
+            Your Chats
           </a>
           <a href="#s3" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-            My Friends
+            Your Friends
           </a>
         </div>
         {/* end nav top */}

@@ -1414,6 +1414,9 @@ h5 {
   border: none;
   padding: 10px; }
 
+.room-create {
+  padding-top: 15px; }
+
 .room-create .ripple {
   background-position: center;
   transition: background 0.4s; }
@@ -1877,7 +1880,9 @@ h5 {
   display: inline-block; }
 
 .chat-title {
-  width: calc(100% - 42px); }
+  width: calc(100% - 42px);
+  text-align: left;
+  padding-left: 20px; }
 
 .chat-navbar {
   transition: transform 1s;
@@ -2165,7 +2170,7 @@ h3 {
   text-decoration: none;
   background-color: #e2e4e9;
   margin-top: -18px;
-  padding: 0, 16px; }
+  padding: 0 16px; }
 
 .room-user-content .card-L {
   width: 340px;
