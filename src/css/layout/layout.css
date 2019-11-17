@@ -48,7 +48,7 @@ h5 {
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5git em;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -79,9 +79,8 @@ img {
   display: flex;
   justify-content: center;
   align-items: center; }
-
-.flex-centered-aligned.full {
-  height: 100%; }
+  .flex-centered-aligned.full {
+    height: 100%; }
 
 .flex-between {
   display: flex;

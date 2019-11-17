@@ -48,7 +48,7 @@ h5 {
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5git em;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -109,7 +109,7 @@ h5 {
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5git em;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -763,7 +763,7 @@ h5 {
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5git em;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -912,10 +912,6 @@ http://stackoverflow.com/a/34696029/383904
 #s2:target ~ .slider {
   transform: translateX(-100%);
   -webkit-transform: translateX(-100%); }
-
-#s2:target ~ .bg-image-slider {
-  transform: background-position(-100% 0);
-  -webkit-transform: background-position(-100% 0); }
 
 #s3:target ~ .slider {
   transform: translateX(-200%);
@@ -1153,7 +1149,7 @@ h5 {
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5git em;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -1226,7 +1222,7 @@ h5 {
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5git em;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -1441,7 +1437,7 @@ h5 {
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5git em;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -1502,7 +1498,7 @@ h5 {
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5git em;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -1937,7 +1933,7 @@ h5 {
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5git em;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -2062,7 +2058,7 @@ h5 {
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5git em;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -2394,6 +2390,67 @@ h3 {
   background-color: #fff;
   z-index: 1; }
 
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
+hr {
+  height: 12px;
+  border: 0;
+  margin: 0;
+  box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
+
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5git em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
+
 .notifications {
   position: absolute;
   color: #fff;
@@ -2427,5 +2484,4 @@ h3 {
   position: absolute;
   width: 100%;
   top: 0;
-  left: 0px;
-  animation: animatedBackground 10s linear; }
+  left: 0px; }
