@@ -34,6 +34,31 @@ h5 {
   letter-spacing: normal;
   text-align: left; }
 
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
+
 h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 36px;
@@ -70,6 +95,31 @@ h5 {
   letter-spacing: normal;
   text-align: left; }
 
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
+
 .action-btn-big {
   width: 327px;
   height: 52px;
@@ -86,7 +136,8 @@ h5 {
   height: 52px;
   border-radius: 12px;
   background-color: #353a50;
-  font-size: 24px; }
+  font-size: 24px;
+  outline: 0px; }
 
 .action-btn-medium {
   width: 150px;
@@ -96,7 +147,8 @@ h5 {
   border: 0px;
   margin: 10px 0 10px 0;
   padding: 10px;
-  color: #fff; }
+  color: #fff;
+  outline: 0px; }
 
 .action-btn-small {
   width: 73px;
@@ -105,7 +157,8 @@ h5 {
   background-color: #5773ff;
   font-size: 24px;
   border: 0px;
-  margin: 10px 0 10px 0; }
+  margin: 10px 0 10px 0;
+  outline: 0px; }
 
 .input {
   width: 327px;
@@ -116,7 +169,8 @@ h5 {
   box-shadow: 0px 4px 16px 0px rgba(69, 91, 99, 0.18);
   background-color: #fff;
   font-size: 14px;
-  font-weight: 300px; }
+  font-weight: 300px;
+  outline: 0px; }
 
 .input:focus {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
@@ -260,7 +314,8 @@ h5 {
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
-  margin: 10px 0 10px 0; }
+  margin: 10px 0 10px 0;
+  outline: 0px; }
 
 .select-css-white::-ms-expand {
   display: none; }
@@ -720,6 +775,31 @@ h5 {
   letter-spacing: normal;
   text-align: left; }
 
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
+
 html {
   height: 100%; }
 
@@ -860,6 +940,10 @@ http://stackoverflow.com/a/34696029/383904
   transform: translateX(-100%);
   -webkit-transform: translateX(-100%); }
 
+#s2:target ~ .bg-image-slider {
+  transform: background-position(-100% 0);
+  -webkit-transform: background-position(-100% 0); }
+
 #s3:target ~ .slider {
   transform: translateX(-200%);
   -webkit-transform: translateX(-200%); }
@@ -969,7 +1053,7 @@ http://stackoverflow.com/a/34696029/383904
   z-index: 1;
   display: flex;
   flex-direction: row;
-  background-color: #fff; }
+  background-color: rgba(239, 255, 255, 0.5); }
 
 .o-top-nav--rel {
   position: relative; }
@@ -1108,6 +1192,31 @@ h5 {
   letter-spacing: normal;
   text-align: left; }
 
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
+
 .box-list-user {
   width: 40%;
   padding: 1em 0px;
@@ -1157,6 +1266,31 @@ h5 {
   line-height: 1.1;
   letter-spacing: normal;
   text-align: left; }
+
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
 
 .chatroom {
   background-color: #e2e4e9;
@@ -1352,6 +1486,31 @@ h5 {
   letter-spacing: normal;
   text-align: left; }
 
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
+
 h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 36px;
@@ -1388,6 +1547,31 @@ h5 {
   letter-spacing: normal;
   text-align: left; }
 
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
+
 .action-btn-big {
   width: 327px;
   height: 52px;
@@ -1404,7 +1588,8 @@ h5 {
   height: 52px;
   border-radius: 12px;
   background-color: #353a50;
-  font-size: 24px; }
+  font-size: 24px;
+  outline: 0px; }
 
 .action-btn-medium {
   width: 150px;
@@ -1414,7 +1599,8 @@ h5 {
   border: 0px;
   margin: 10px 0 10px 0;
   padding: 10px;
-  color: #fff; }
+  color: #fff;
+  outline: 0px; }
 
 .action-btn-small {
   width: 73px;
@@ -1423,7 +1609,8 @@ h5 {
   background-color: #5773ff;
   font-size: 24px;
   border: 0px;
-  margin: 10px 0 10px 0; }
+  margin: 10px 0 10px 0;
+  outline: 0px; }
 
 .input {
   width: 327px;
@@ -1434,7 +1621,8 @@ h5 {
   box-shadow: 0px 4px 16px 0px rgba(69, 91, 99, 0.18);
   background-color: #fff;
   font-size: 14px;
-  font-weight: 300px; }
+  font-weight: 300px;
+  outline: 0px; }
 
 .input:focus {
   box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.18);
@@ -1578,7 +1766,8 @@ h5 {
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
-  margin: 10px 0 10px 0; }
+  margin: 10px 0 10px 0;
+  outline: 0px; }
 
 .select-css-white::-ms-expand {
   display: none; }
@@ -1816,6 +2005,31 @@ h5 {
   letter-spacing: normal;
   text-align: left; }
 
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
+
 .menu-principal {
   height: 75px;
   background-color: #3497fd;
@@ -1915,6 +2129,31 @@ h5 {
   line-height: 1.1;
   letter-spacing: normal;
   text-align: left; }
+
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
 
 h3 {
   color: #78849e;
@@ -2293,9 +2532,13 @@ h3 {
 .notifications.error {
   background: #ff9057; }
 
-body {
+.bg-image-slider {
   background: url(/images/login-background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
+  background-size: cover;
+  background-position: left;
+  background-position: -150px 00px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0px;
+  animation: animatedBackground 10s linear; }

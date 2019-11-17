@@ -34,6 +34,31 @@ h5 {
   letter-spacing: normal;
   text-align: left; }
 
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
+
 html {
   height: 100%; }
 

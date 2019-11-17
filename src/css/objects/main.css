@@ -57,7 +57,7 @@
   z-index: 1;
   display: flex;
   flex-direction: row;
-  background-color: #fff; }
+  background-color: rgba(239, 255, 255, 0.5); }
 
 .o-top-nav--rel {
   position: relative; }
@@ -195,6 +195,31 @@ h5 {
   line-height: 1.1;
   letter-spacing: normal;
   text-align: left; }
+
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
 
 .box-list-user {
   width: 40%;
