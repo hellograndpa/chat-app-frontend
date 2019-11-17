@@ -50,3 +50,31 @@ h5 {
   letter-spacing: normal;
   text-align: left;
 }
+
+.logo {
+  font-family: $primary-font;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px;
+
+}
+
+.subtitle {
+  font-family: $primary-font;
+  font-size: 1.5git em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em;
+}

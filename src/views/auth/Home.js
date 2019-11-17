@@ -9,7 +9,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="CSSgal">
+      <div className="CSSgal bg-image-slider">
         <s id="s1"></s>
         <s id="s2"></s>
         <s id="s3"></s>
@@ -27,9 +27,13 @@ class Home extends Component {
           </a>
         </div>
         {/* end nav top */}
-        <div className="slider">
+        <div className="slider ">
           <div className="login-wrapper">
-            <h2>Ready to talk?</h2>
+            <div className="logo">talk-in.me</div>
+            <div className="subtitle">
+              share your knowledge <br />
+              with the people arround you
+            </div>
           </div>
           <div>
             <Login />

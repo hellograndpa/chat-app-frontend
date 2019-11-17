@@ -60,13 +60,23 @@
     font-weight: 400;
   }
 
+  .titular-input-title {
+    margin-top: 120px;
+
+  }
+
 }
 
+
 .btn-user-header {
-  margin-top: 50px;
+  margin-top: -36px;
   margin-left: auto;
   margin-right: auto;
   width: 30%;
+
+  &__left {
+    margin-right: 140px
+  }
 }
 
 .edit-margin-bottom {
@@ -80,6 +90,13 @@
   background-color: white;
 }
 
+.edit {
+  display: flex;
+  align-items: center;
+  float: right;
+  margin-top: -100px;
+  justify-content: space-between;
+}
 
 
 // old css
@@ -112,7 +129,8 @@
 .user .edit {
   display: flex;
   align-items: center;
-  padding-bottom: 10px;
+  float: right;
+  margin-top: -100px;
   justify-content: space-between;
 }
 

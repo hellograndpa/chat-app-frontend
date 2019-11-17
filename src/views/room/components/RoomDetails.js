@@ -85,14 +85,12 @@ class RoomsDetails extends Component {
         <div>
           {adminList[0]._id === this.props.user._id && (
             <div className="edit">
-              <div className="flex-centered-aligned">
-                <div className="edit-mode-text">Edit Mode:</div>
-                <div className="edit-mode-switch">
-                  <label className="switch">
-                    <input type="checkbox" checked={checked} onChange={this.handleEditMode} />
-                    <span className="slider round"></span>
-                  </label>
-                </div>
+              <div className="edit-mode-text">Edit Mode: </div>
+              <div className="edit-mode-switch">
+                <label className="switch">
+                  <input type="checkbox" checked={checked} onChange={this.handleEditMode} />
+                  <span className="slider round"></span>
+                </label>
               </div>
             </div>
           )}
@@ -117,9 +115,10 @@ class RoomsDetails extends Component {
                   <p>{description}</p>
                 </div>
                 <div className="titular titular__no-padding">
-                  <h2 className="theme">{theme}</h2>
+                  <div className="theme">
+                    {theme} {city}
+                  </div>
                 </div>
-                <div className="titular titular__no-padding">{city}</div>
                 <div>
                   <h2 className="titular titular__no-padding">
                     Active now: {activeUsers.length} Participate: {participatedUsers.length}

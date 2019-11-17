@@ -209,7 +209,7 @@ class UserMe extends Component {
               <>
                 <div className="">
                   <div className="edit edit-margin-bottom">
-                    <div className="btn-user-header ">
+                    <div className="btn-user-header btn-user-header__left">
                       <div className="o-btn o-btn--theme2" onClick={this.props.handleLogout}>
                         Logout
                       </div>
