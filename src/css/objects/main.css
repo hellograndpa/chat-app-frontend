@@ -44,11 +44,7 @@
   width: 100%; }
 
 .o-btn--theme2 {
-<<<<<<< HEAD
   background-color: #444f63; }
-=======
-  background-color: #c840e9; }
->>>>>>> dev
 
 .o-btn--theme2:hover {
   background-color: #ff4f9a; }
@@ -60,12 +56,8 @@
   width: 100%;
   z-index: 1;
   display: flex;
-<<<<<<< HEAD
-  flex-direction: row; }
-=======
   flex-direction: row;
   background-color: #fff; }
->>>>>>> dev
 
 .o-top-nav--rel {
   position: relative; }
@@ -81,11 +73,7 @@
 
 .o-avatar {
   cursor: pointer;
-<<<<<<< HEAD
   pointer-events: visible; }
-=======
-  pointer-events: none; }
->>>>>>> dev
 
 .o-avatar.w-15precent {
   width: 15%; }
@@ -196,6 +184,41 @@ hr {
   border: 0;
   margin: 0;
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
+
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left; }
+
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: 300px; }
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
 
 .box-list-user {
   width: 40%;
