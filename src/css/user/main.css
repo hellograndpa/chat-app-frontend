@@ -204,6 +204,9 @@ h3 {
   padding-bottom: 3px;
   font-weight: 400; }
 
+.header-user .titular-input-title {
+  margin-top: 120px; }
+
 .btn-user-header {
   margin-top: 50px;
   margin-left: auto;
@@ -216,6 +219,13 @@ h3 {
 
 .bg-color-white {
   background-color: white; }
+
+.edit {
+  display: flex;
+  align-items: center;
+  float: right;
+  margin-top: -100px;
+  justify-content: space-between; }
 
 .user {
   margin-top: 20px; }
@@ -237,7 +247,8 @@ h3 {
 .user .edit {
   display: flex;
   align-items: center;
-  padding-bottom: 10px;
+  float: right;
+  margin-top: -100px;
   justify-content: space-between; }
 
 .user .edit .edit-mode-text {
