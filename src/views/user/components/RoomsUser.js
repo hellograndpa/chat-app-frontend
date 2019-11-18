@@ -41,7 +41,6 @@ const RoomsUser = props => {
                 <strong>{room.activeUsers.length}</strong> people in
               </div>
               {/* <div className="people">people in: {room.activeUsers.length}</div> */}
-              <vbr />
             </div>
           </div>
         );
