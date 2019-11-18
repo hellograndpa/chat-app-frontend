@@ -92,6 +92,7 @@ class RoomsList extends Component {
   };
 
   handleChangeSelectRooms = event => {
+    event.preventDefault();
     if (this._isMounted) {
       this.setState({
         selectTheme: event.target.value,
@@ -100,6 +101,7 @@ class RoomsList extends Component {
   };
 
   handleChangeSelectRadiusMeters = event => {
+    event.preventDefault();
     if (this._isMounted) {
       this.setState({
         radiusInMeters: event.target.value,
