@@ -54,27 +54,28 @@ class RoomWp extends Component {
         <div className="roomWp">
           <div className="nav-chat-wrapper">
             <div className="chat-title">{this.state.room.roomName}</div>
-            <div className={menu ? 'chat-navbar expanded' : 'chat-navbar'}>
-              <div className="o-top-nav o-top-nav--rel">
-                <NavLink className="o-top-nav__btn || o-btn" to="/rooms/">
-                  Back
-                </NavLink>
+          </div>
+          <div className={menu ? 'chat-navbar expanded' : 'chat-navbar'}>
+            <div className="o-top-nav o-top-nav--rel">
+              <NavLink className="o-top-nav__btn || o-btn" to="/rooms/">
+                Back
+              </NavLink>
 
-                <a href="#s1" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-                  Chat
-                </a>
-                <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-                  Users
-                </a>
-                <a href="#s3" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
-                  Details
-                </a>
-              </div>
+              <a href="#s1" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+                Chat
+              </a>
+              <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+                Users
+              </a>
+              <a href="#s3" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+                Details
+              </a>
             </div>
           </div>
-          <div onClick={this.handleChangeMenu} className={menu ? 'top-menu-button active' : 'top-menu-button'}>
-            <div className="top-menu-icon"></div>
-          </div>
+        </div>
+
+        <div onClick={this.handleChangeMenu} className={menu ? 'top-menu-button active' : 'top-menu-button'}>
+          <div className="top-menu-icon"></div>
         </div>
         {!loading && (
           <>

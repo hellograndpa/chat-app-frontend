@@ -43,6 +43,10 @@ class RoomCreate extends Component {
 
     // Go to the room created
     this.props.closeLayer();
+
+    this.inputRoomName.value = '';
+    this.inputDescription.value = '';
+    this.inputCity.value = '';
   }
 
   showWidget = widget => {
@@ -77,6 +81,7 @@ class RoomCreate extends Component {
                 type="text"
                 name="roomName"
                 maxLength="35"
+                ref={userInput => (this.inputRoomName = userInput)}
               ></input>
             </div>
             <div>
@@ -85,6 +90,7 @@ class RoomCreate extends Component {
                 placeholder="Write a description"
                 name="description"
                 maxLength="250"
+                ref={userInput => (this.inputDescription = userInput)}
               ></textarea>
             </div>
             <div className="">
@@ -100,7 +106,13 @@ class RoomCreate extends Component {
               </select>
             </div>
             <div>
-              <input className="input input-filter" type="text" name="city" placeholder="City"></input>
+              <input
+                className="input input-filter"
+                ref={userInput => (this.inputCity = userInput)}
+                type="text"
+                name="city"
+                placeholder="City"
+              ></input>
             </div>
 
             {roomImage === '' && (

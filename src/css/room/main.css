@@ -643,6 +643,7 @@ h5 {
 
 .nav-chat-wrapper {
   white-space: nowrap;
+  padding: 16px;
   background-color: #fff; }
 
 .chat-title,
@@ -662,12 +663,13 @@ h5 {
   /* Safari and Chrome */
   -o-transition: transform 1s;
   /* Opera */
-  width: calc(100% - 42px);
-  background-color: #fff; }
+  width: 90%;
+  background-color: #fff;
+  position: absolute;
+  left: 100%; }
 
 .expanded {
-  transform: translateX(-100%);
-  width: calc(100% - 42px); }
+  transform: translateX(-110%); }
 
 .btn-burger-chat {
   position: absolute;
