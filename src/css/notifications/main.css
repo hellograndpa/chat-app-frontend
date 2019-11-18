@@ -77,15 +77,11 @@ h5 {
   /* Safari and Chrome */
   -o-transition: transform 1s;
   /* Opera */ }
-
-.notifications.hidden {
-  transform: translateX(-100%); }
-
-.notifications.alert {
-  background: #3497fd; }
-
-.notifications.error {
-  background: #ff9057; }
-
-.notifications.info {
-  background: #07b17d; }
+  .notifications.hidden {
+    transform: translateX(-100%); }
+  .notifications.alert {
+    background: #3497fd; }
+  .notifications.error {
+    background: #ff9057; }
+  .notifications.info {
+    background: #07b17d; }
