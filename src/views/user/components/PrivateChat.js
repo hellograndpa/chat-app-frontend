@@ -8,6 +8,8 @@ import ChatUserService from '../../../services/chatUserService';
 // Context
 import { withAuth } from '../../../Context/AuthContext';
 
+import avatarDefault from '../../../images/avatar.svg';
+
 const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class PrivateChat extends Component {
@@ -79,7 +81,11 @@ class PrivateChat extends Component {
                         <div className="box-avatar">
                           <div className={c.user.active ? 'o-avatar is-active w-100precent' : 'o-avatar w-100precent'}>
                             <div className="o-avatar__inner">
-                              <img className="o-avatar__img" src={c.user.avatar} alt="" />
+                              <img
+                                className="o-avatar__img"
+                                src={c.user.avatar !== '' ? c.user.avatar : avatarDefault}
+                                alt=""
+                              />
                             </div>
                           </div>
                         </div>
