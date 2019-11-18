@@ -228,12 +228,14 @@ class UserMe extends Component {
                   </div>
                   <div className="header-user header-user__greycolor">
                     <div className="o-avatar is-active w-50precent is-headerUser-absolute ">
-                      <div className="o-avatar__inner">
+                      <div
+                        onClick={() => {
+                          this.showWidget(widget);
+                        }}
+                        className="o-avatar__inner"
+                      >
                         <img
                           className={edit ? 'o-avatar__img border-active-editable' : 'o-avatar__img border-active'}
-                          onClick={() => {
-                            this.showWidget(widget);
-                          }}
                           src={avatar !== '' ? avatar : avatarDefault}
                           alt=""
                         ></img>
