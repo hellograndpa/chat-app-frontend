@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { withAuth } from '../../../Context/AuthContext';
 import ChatUserService from '../../../services/chatUserService';
+import avatarDefault from '../../../images/avatar.svg';
 
 const ChatsUser = props => {
   const { searchChats, selectStatus, user, onAccept } = props;
@@ -43,7 +44,11 @@ const ChatsUser = props => {
                 <div className="o-avatar__inner">
                   <img
                     className="o-avatar__img"
-                    src={chat.userChat01._id === user._id ? chat.userChat02.avatar : user.avatar}
+                    src={
+                      userFriend(chat.userChat01, chat.userChat02).avatar !== ''
+                        ? userFriend(chat.userChat01, chat.userChat02).avatar
+                        : avatarDefault
+                    }
                     alt=""
                   />
                 </div>
