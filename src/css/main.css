@@ -44,12 +44,12 @@ h5 {
   letter-spacing: normal;
   text-align: center;
   color: white;
-  margin-top: 300px; }
+  margin-top: 320px; }
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5git em;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -105,12 +105,12 @@ h5 {
   letter-spacing: normal;
   text-align: center;
   color: white;
-  margin-top: 300px; }
+  margin-top: 320px; }
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5git em;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -786,12 +786,12 @@ h5 {
   letter-spacing: normal;
   text-align: center;
   color: white;
-  margin-top: 300px; }
+  margin-top: 320px; }
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5git em;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -1194,12 +1194,12 @@ h5 {
   letter-spacing: normal;
   text-align: center;
   color: white;
-  margin-top: 300px; }
+  margin-top: 320px; }
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5git em;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -1269,12 +1269,12 @@ h5 {
   letter-spacing: normal;
   text-align: center;
   color: white;
-  margin-top: 300px; }
+  margin-top: 320px; }
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5git em;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -1491,12 +1491,12 @@ h5 {
   letter-spacing: normal;
   text-align: center;
   color: white;
-  margin-top: 300px; }
+  margin-top: 320px; }
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5git em;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -1552,12 +1552,12 @@ h5 {
   letter-spacing: normal;
   text-align: center;
   color: white;
-  margin-top: 300px; }
+  margin-top: 320px; }
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5git em;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -2015,12 +2015,12 @@ h5 {
   letter-spacing: normal;
   text-align: center;
   color: white;
-  margin-top: 300px; }
+  margin-top: 320px; }
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5git em;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -2140,12 +2140,12 @@ h5 {
   letter-spacing: normal;
   text-align: center;
   color: white;
-  margin-top: 300px; }
+  margin-top: 320px; }
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5git em;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -2170,7 +2170,7 @@ h3 {
   padding: 0 22px 0 22px; }
 
 .room-user-content .card-L {
-  width: 340px;
+  width: 90%;
   height: 144px;
   background-color: #fff;
   padding: 10px;
@@ -2190,7 +2190,7 @@ h3 {
   float: right; }
 
 .room-user-content .card-L .title {
-  width: 210px;
+  width: 85%;
   padding: 16px 16px;
   font-size: 18px;
   color: #454f63;
@@ -2218,7 +2218,7 @@ h3 {
   left: 140px; }
 
 .room-user-content .card-R {
-  width: 340px;
+  width: 90%;
   height: 144px;
   background-color: #fff;
   padding: 10px 7px 7px 20px;
@@ -2238,7 +2238,7 @@ h3 {
   float: left; }
 
 .room-user-content .card-R .title {
-  width: 210px;
+  width: 85%;
   padding: 16px 16px;
   font-size: 18px;
   color: #454f63;
@@ -2550,12 +2550,12 @@ h5 {
   letter-spacing: normal;
   text-align: center;
   color: white;
-  margin-top: 300px; }
+  margin-top: 320px; }
 
 .subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5git em;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
