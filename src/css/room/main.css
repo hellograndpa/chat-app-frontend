@@ -743,3 +743,10 @@ h5 {
 .top-menu-icon::after {
   background-color: white;
   transition: all 0.3s ease-in-out; }
+ate(-45deg); }
+
+.top-menu-icon,
+.top-menu-icon::before,
+.top-menu-icon::after {
+  background-color: white;
+  transition: all 0.3s ease-in-out; }
