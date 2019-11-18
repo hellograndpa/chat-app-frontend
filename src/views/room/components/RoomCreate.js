@@ -96,13 +96,13 @@ class RoomCreate extends Component {
             <div className="">
               <select placeholder="Select a theme" className="select-css-dark" name="theme">
                 <option value="">Select Theme</option>
-                <option value="Sports">Development</option>
+                <option value="Development">Development</option>
                 <option value="News">News</option>
                 <option value="Party">Party</option>
                 <option value="Travel">Travel</option>
                 <option value="Sports">Sports</option>
-                <option value="Sports">Music</option>
-                <option value="Sports">Jobs</option>
+                <option value="Music">Music</option>
+                <option value="Jobs">Jobs</option>
               </select>
             </div>
             <div>

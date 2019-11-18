@@ -166,13 +166,13 @@ class RoomsDetails extends Component {
                       defaultValue={this.state.theme}
                       onChange={this.handleChangeTheme}
                     >
-                      <option value="Sports">Development</option>
+                      <option value="Development">Development</option>
                       <option value="News">News</option>
                       <option value="Party">Party</option>
                       <option value="Travel">Travel</option>
                       <option value="Sports">Sports</option>
-                      <option value="Sports">Music</option>
-                      <option value="Sports">Jobs</option>
+                      <option value="Music">Music</option>
+                      <option value="Jobs">Jobs</option>
                     </select>
                   </div>
                   <input className="action-btn-medium" type="submit" value="Modify!" />

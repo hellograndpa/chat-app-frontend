@@ -182,6 +182,9 @@ class UsersList extends Component {
       users = searchUsers;
     }
 
+    // Sort users by active / no active
+    users.sort((a, b) => (a.active > b.active ? -1 : 1));
+
     return (
       <div className="CSSgal">
         <s id="s1"></s>
