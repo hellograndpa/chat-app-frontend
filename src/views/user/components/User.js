@@ -184,7 +184,7 @@ class UserMe extends Component {
                     </div>
                   </div>
                 </div>
-                {status === '' && (
+                {status === undefined && (
                   <div className="btn-user-header ">
                     <div className="o-btn " onClick={this.handleInvite}>
                       INVITE ME
