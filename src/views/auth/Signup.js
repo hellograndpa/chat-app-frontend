@@ -29,6 +29,7 @@ class Signup extends Component {
         userName,
         email,
         password,
+        active: true,
         latitude,
         longitude,
       },
