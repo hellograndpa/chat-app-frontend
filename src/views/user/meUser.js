@@ -67,6 +67,7 @@ class MeUser extends Component {
   };
 
   handleChangeSelectRooms = event => {
+    event.preventDefault();
     if (this._isMounted) {
       this.setState({
         selectTheme: event.target.value,
@@ -75,6 +76,7 @@ class MeUser extends Component {
   };
 
   handleChangeSelectChats = event => {
+    event.preventDefault();
     if (this._isMounted) {
       this.setState({
         selectStatus: event.target.value,
@@ -83,6 +85,7 @@ class MeUser extends Component {
   };
 
   handleSearchRoom = event => {
+    event.preventDefault();
     const { rooms } = this.state;
     let searchRooms = [];
     if (event !== '') {
@@ -100,6 +103,7 @@ class MeUser extends Component {
   };
 
   handleSearchChats = event => {
+    event.preventDefault();
     const { chats } = this.state;
     let searchChats = [];
     if (event !== '') {
@@ -122,6 +126,7 @@ class MeUser extends Component {
   };
 
   handleChangeSelectRadiusMeters = event => {
+    event.preventDefault();
     this.setState({
       radiusInMeters: event.target.value,
     });
