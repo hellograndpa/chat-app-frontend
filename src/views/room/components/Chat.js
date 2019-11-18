@@ -8,6 +8,7 @@ import ChatRoomService from '../../../services/chatRoomService';
 
 // Context
 import { withAuth } from '../../../Context/AuthContext';
+import { withNotification } from '../../../Context/NotificationCtx';
 
 // Image
 import avatarDefault from '../../../images/avatar.svg';
@@ -42,6 +43,11 @@ class Chat extends Component {
     } = this.state.room;
 
     const text = e.target.text.value;
+
+    if (text === '') {
+      this.props.handleSetMessage({ typeMessage: 'error', message: "Can't send empty messages" });
+      return;
+    }
 
     // Update the db with the new comment,
     // This will fire a emit on server, we will catch it with the
@@ -151,4 +157,4 @@ class Chat extends Component {
   }
 }
 
-export default withAuth(Chat);
+export default withNotification(withAuth(Chat));

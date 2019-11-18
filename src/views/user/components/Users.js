@@ -10,7 +10,6 @@ const Users = props => {
     <div className="users-list-content-Bg">
       <h3>{users.length} Users arround you</h3>
       {users.map(user1 => {
-        console.log(user1);
         return (
           <div key={user1._id} className="users-list-line">
             <div className={user1.active ? 'o-avatar is-active w-15precent' : 'o-avatar w-15precent'}>
@@ -27,8 +26,7 @@ const Users = props => {
               </Link>
 
               <div>Ciudad: {user1.city}</div>
-
-              {!user1.themes === undefined ? <div>Interests: {user1.themes.map(theme => `${theme}, `)}</div> : <> </>}
+              <div>Interests: {user1.themes.length > 0 ? user1.themes.join(',') : 'Not yet'}</div>
             </div>
 
             <div className="distance">
