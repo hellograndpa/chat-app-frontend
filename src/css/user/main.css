@@ -357,6 +357,7 @@ h3 {
   display: flex;
   flex-flow: row;
   padding: 5px 0; }
+<<<<<<< HEAD
   .users-list-line .avatar {
     width: 15%; }
   .users-list-line .text-user {
@@ -378,6 +379,34 @@ h3 {
       padding: 4px;
       color: #fff;
       text-align: center; }
+=======
+
+.users-list-line .avatar {
+  width: 15%; }
+
+.users-list-line .text-user {
+  padding: 0px 0 0 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 65%;
+  white-space: nowrap; }
+
+.users-list-line .text-user .name {
+  font-size: 18px;
+  color: #454f63;
+  text-decoration: none; }
+
+.users-list-line .distance {
+  width: 22%; }
+
+.users-list-line .distance .oval {
+  border-radius: 20px;
+  background: #3acce1;
+  margin: 2%;
+  padding: 4px;
+  color: #fff;
+  text-align: center; }
+>>>>>>> dev
 
 .u-sticky {
   position: sticky;
