@@ -162,7 +162,8 @@ h5 {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #e2e4e9; }
+  background-color: #e2e4e9;
+  margin-bottom: 67px; }
 
 .chatroom .chat-textarea {
   width: 100%;
@@ -710,13 +711,6 @@ h5 {
 
 .top-menu-button.active .top-menu-icon::after {
   transform: rotate(-45deg); }
-
-.top-menu-icon,
-.top-menu-icon::before,
-.top-menu-icon::after {
-  background-color: white;
-  transition: all 0.3s ease-in-out; }
-ate(-45deg); }
 
 .top-menu-icon,
 .top-menu-icon::before,
