@@ -2253,7 +2253,7 @@ h3 {
   padding-top: 10px;
   color: #ff4f9a;
   position: absolute;
-  top: 40px;
+  top: 50px;
   left: 105px; }
 
 .room-user-content .card-R .distance {
@@ -2486,7 +2486,7 @@ h3 {
   text-decoration: none; }
 
 .users-list-line .distance {
-  width: 15%; }
+  width: 18%; }
 
 .users-list-line .distance .oval {
   border-radius: 20px;
