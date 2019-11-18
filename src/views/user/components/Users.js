@@ -26,9 +26,8 @@ const Users = props => {
               </Link>
 
               <div>Ciudad: {user1.city}</div>
-              <div>Interests: {user1.themes.length > 0 ? user1.themes.join(',') : 'Not yet'}</div>
+              {user1.themes && <div>Interests: {user1.themes.length > 0 ? user1.themes.join(',') : 'Not yet'}</div>}
             </div>
-
             <div className="distance">
               <div className="oval">{user1.distanceFromMe.toFixed(1)} km</div>
             </div>
