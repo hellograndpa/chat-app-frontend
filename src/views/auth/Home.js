@@ -32,7 +32,7 @@ class Home extends Component {
             <div className="logo">talk-in.me</div>
             <div className="subtitle">
               share your knowledge <br />
-              with the people arround you
+              with the people around you
             </div>
           </div>
           <div>
