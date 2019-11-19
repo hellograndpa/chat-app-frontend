@@ -69,26 +69,26 @@ class RoomsList extends Component {
 
   handleSearchRoom = event => {
     event.preventDefault();
-    const { rooms } = this.state;
+    // const { rooms } = this.state;
 
-    let searchRooms;
-    let newEventSearch;
-    if (event) {
-      searchRooms = rooms.filter(
-        element => element.roomName.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1,
-      );
-      newEventSearch = event.target.value;
-    } else {
-      searchRooms = rooms;
-    }
+    // let searchRooms;
+    // let newEventSearch;
+    // if (event) {
+    //   searchRooms = rooms.filter(
+    //     element => element.roomName.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1,
+    //   );
+    //   newEventSearch = event.target.value;
+    // } else {
+    //   searchRooms = rooms;
+    // }
 
-    if (this._isMounted) {
-      this.setState({
-        searchRooms,
-        eventSearch: newEventSearch,
-      });
-      emptyValidation(searchRooms, this.props.handleSetMessage);
-    }
+    // if (this._isMounted) {
+    //   this.setState({
+    //     searchRooms,
+    //     eventSearch: newEventSearch,
+    //   });
+    //   emptyValidation(searchRooms, this.props.handleSetMessage);
+    // }
   };
 
   handleChangeSelectRooms = event => {
