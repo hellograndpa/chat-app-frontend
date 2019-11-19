@@ -40,11 +40,12 @@ class Map extends Component {
 
     const viewport = new WebMercatorViewport({
       width: window.innerWidth,
-      height: window.innerHeight,
+      height: window.innerHeight - 220,
     });
-    let longitude;
-    let latitude;
-    let zoom;
+
+    let longitude = 0;
+    let latitude = 0;
+    let zoom = 0;
 
     try {
       const view = viewport.fitBounds([[minValueLat, maxValueLong], [maxValueLat, minValueLong]], {
@@ -56,7 +57,7 @@ class Map extends Component {
       latitude = view.latitude;
       zoom = view.zoom;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
 
     if (this._isMounted) {
