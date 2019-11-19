@@ -85,7 +85,7 @@ class Map extends Component {
     const { viewport } = this.state;
     let features = [];
     let geojson = {};
-    if (locations !== []) {
+    if (locations.length > 0) {
       features = locations.map(item => {
         return {
           type: 'Feature',

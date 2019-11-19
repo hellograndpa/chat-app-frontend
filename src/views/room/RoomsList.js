@@ -85,7 +85,7 @@ class RoomsList extends Component {
     emptyValidation(searchRooms, this.props.handleSetMessage);
     if (this._isMounted) {
       this.setState({
-        // searchRooms,
+        searchRooms,
         eventSearch: newEventSearch,
       });
     }
