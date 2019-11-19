@@ -43,6 +43,7 @@ function UsersFilters(props) {
           <input
             className="input-dark"
             name="users"
+            type="text"
             placeholder="Search by Name"
             value={eventSearch}
             onChange={handleSearchUser}
