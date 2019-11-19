@@ -86,7 +86,7 @@ class UsersList extends Component {
     emptyValidation(searchUsers, this.props.handleSetMessage);
 
     this.setState({
-      // searchUsers,
+      searchUsers,
       eventSearch: newEventSearch,
     });
   };

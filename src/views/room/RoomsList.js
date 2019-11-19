@@ -25,7 +25,7 @@ class RoomsList extends Component {
 
   state = {
     rooms: [],
-    serchRooms: [],
+    searchRooms: [],
     radiusInMeters: 50,
     selectTheme: '',
     eventSearch: '',
