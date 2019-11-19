@@ -73,7 +73,7 @@ class RoomsList extends Component {
 
     let searchRooms;
     let newEventSearch;
-    if (event !== '') {
+    if (event) {
       searchRooms = rooms.filter(
         element => element.roomName.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1,
       );
@@ -87,7 +87,7 @@ class RoomsList extends Component {
         searchRooms,
         eventSearch: newEventSearch,
       });
-      emptyValidation(searchRooms, this.props.handleSetMessage);
+      // emptyValidation(searchRooms, this.props.handleSetMessage);
     }
   };
 
