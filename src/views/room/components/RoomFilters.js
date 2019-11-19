@@ -79,7 +79,7 @@ function RoomFilters(props) {
       </div>
 
       <div ref={content} style={{ maxHeight: `${setHeight}` }} className="accordion__content">
-        <div className="section">
+        <form className="section" method="POST">
           <input
             type="text"
             className="input-dark"
@@ -118,7 +118,7 @@ function RoomFilters(props) {
               </select>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

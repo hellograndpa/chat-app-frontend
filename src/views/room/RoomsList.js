@@ -87,7 +87,7 @@ class RoomsList extends Component {
         searchRooms,
         eventSearch: newEventSearch,
       });
-      // emptyValidation(searchRooms, this.props.handleSetMessage);
+      emptyValidation(searchRooms, this.props.handleSetMessage);
     }
   };
 
