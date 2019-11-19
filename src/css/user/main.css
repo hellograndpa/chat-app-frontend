@@ -6,7 +6,7 @@
   padding: 0 16px 0 16px; }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-weight: 400;
   font-stretch: normal;
@@ -16,7 +16,7 @@ h1 {
   text-align: left; }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 200;
   font-stretch: normal;
@@ -32,7 +32,7 @@ hr {
   box-shadow: inset -2px -11px 10px -9px rgba(69, 91, 99, 0.5); }
 
 h5 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 500;
   font-stretch: normal;
@@ -42,7 +42,7 @@ h5 {
   text-align: left; }
 
 .logo {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 4em;
   font-weight: 900;
   font-stretch: normal;
@@ -54,7 +54,7 @@ h5 {
   margin-top: 320px; }
 
 .subtitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.5em;
   font-weight: 400;
   font-stretch: normal;
@@ -63,7 +63,20 @@ h5 {
   letter-spacing: normal;
   text-align: center;
   color: white;
-  margin-top: 0.4em;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
+
+.error {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: #f00372;
+  margin-top: .4em;
   padding: 0px 0.5em; }
 
 h3 {
@@ -282,7 +295,7 @@ h3 {
 
 .user .edit .edit-mode-text {
   padding-right: 10px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px; }
 
 .user .header .avatar-content {
@@ -309,7 +322,7 @@ h3 {
   border-color: #3acce1; }
 
 .user .header .details-content {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   color: #f0e9d3;
   padding-left: 20px; }
@@ -380,32 +393,6 @@ h3 {
   display: flex;
   flex-flow: row;
   padding: 5px 0; }
-
-.users-list-line .avatar {
-  width: 15%; }
-
-.users-list-line .text-user {
-  padding: 0px 0 0 14px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  width: 65%;
-  white-space: nowrap; }
-
-.users-list-line .text-user .name {
-  font-size: 18px;
-  color: #454f63;
-  text-decoration: none; }
-
-.users-list-line .distance {
-  width: 22%; }
-
-.users-list-line .distance .oval {
-  border-radius: 20px;
-  background: #3acce1;
-  margin: 2%;
-  padding: 4px;
-  color: #fff;
-  text-align: center; }
 
 .users-list-line .avatar {
   width: 15%; }
