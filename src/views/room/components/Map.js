@@ -65,7 +65,7 @@ class Map extends Component {
 
   componentDidMount() {
     this._isMounted = true;
-    window.addEventListener('resize', this.setInitialBounds);
+    // window.addEventListener('resize', this.setInitialBounds);
     this.setInitialBounds();
   }
 
