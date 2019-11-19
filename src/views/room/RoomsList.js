@@ -82,13 +82,13 @@ class RoomsList extends Component {
       searchRooms = rooms;
     }
 
-    // if (this._isMounted) {
-    this.setState({
-      searchRooms,
-      eventSearch: newEventSearch,
-    });
-    emptyValidation(searchRooms, this.props.handleSetMessage);
-    // }
+    if (this._isMounted) {
+      // this.setState({
+      //   searchRooms,
+      //   eventSearch: newEventSearch,
+      // });
+      emptyValidation(searchRooms, this.props.handleSetMessage);
+    }
   };
 
   handleChangeSelectRooms = event => {
