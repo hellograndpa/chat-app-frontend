@@ -42,14 +42,22 @@ class Map extends Component {
       width: window.innerWidth,
       height: window.innerHeight,
     });
+    let longitude;
+    let latitude;
+    let zoom;
 
-    const { longitude, latitude, zoom } = viewport.fitBounds(
-      [[minValueLat, maxValueLong], [maxValueLat, minValueLong]],
-      {
+    try {
+      const view = viewport.fitBounds([[minValueLat, maxValueLong], [maxValueLat, minValueLong]], {
         padding: 60,
         offset: [0, -100],
-      },
-    );
+      });
+
+      longitude = view.longitude;
+      latitude = view.latitude;
+      zoom = view.zoom;
+    } catch (error) {
+      console.log(error);
+    }
 
     if (this._isMounted) {
       this.setState({
