@@ -71,12 +71,14 @@ class Map extends Component {
 
   componentWillUnmount() {
     this._isMounted = false;
-    window.removeEventListener('resize', this.setInitialBounds);
+    // window.removeEventListener('resize', this.setInitialBounds);
   }
 
   componentDidUpdate(prevProps) {
     if (this._isMounted && prevProps.locations !== this.props.locations) {
-      this.setInitialBounds();
+      if (this.props.locations.length > 0) {
+        this.setInitialBounds();
+      }
     }
   }
 
@@ -103,18 +105,20 @@ class Map extends Component {
 
     return (
       <div style={{ margin: '0 auto', width: 'auto' }}>
-        <MapGL {...viewport} mapboxApiAccessToken={TOKEN} mapStyle="mapbox://styles/mapbox/streets-v11">
-          <Source id="my-data" type="geojson" data={geojson}>
-            <Layer
-              id="point"
-              type="circle"
-              paint={{
-                'circle-radius': 10,
-                'circle-color': '#007cbf',
-              }}
-            />
-          </Source>
-        </MapGL>
+        {locations.length > 0 && (
+          <MapGL {...viewport} mapboxApiAccessToken={TOKEN} mapStyle="mapbox://styles/mapbox/streets-v11">
+            <Source id="my-data" type="geojson" data={geojson}>
+              <Layer
+                id="point"
+                type="circle"
+                paint={{
+                  'circle-radius': 10,
+                  'circle-color': '#007cbf',
+                }}
+              />
+            </Source>
+          </MapGL>
+        )}
       </div>
     );
   }
