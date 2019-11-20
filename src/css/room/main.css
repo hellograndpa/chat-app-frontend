@@ -234,6 +234,9 @@ h5 {
 .room-create .image-wrapper {
   width: 50%; }
 
+.edit-form-create {
+  padding-top: 112px; }
+
 h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 36px;
