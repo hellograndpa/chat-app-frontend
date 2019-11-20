@@ -61,8 +61,8 @@ h5 {
 
 .error {
   font-family: "Montserrat", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
+  font-size: 0.8em;
+  font-weight: 00;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -135,8 +135,8 @@ h5 {
 
 .error {
   font-family: "Montserrat", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
+  font-size: 0.8em;
+  font-weight: 00;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -359,6 +359,23 @@ h5 {
 
 .select-css option {
   font-weight: normal; }
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  max-width: 90%;
+  min-width: 100px;
+  min-height: 400px;
+  padding: 20px 40px;
+  border-radius: 6px;
+  box-shadow: 0px 8px 36px #222;
+  background-color: #fefefe;
+  justify-content: center; }
+
+.form-wrapper input {
+  width: 90%;
+  font-size: 14px; }
 
 /* ==========================================================================
    Normalize.scss settings
@@ -829,8 +846,8 @@ h5 {
 
 .error {
   font-family: "Montserrat", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
+  font-size: 0.8em;
+  font-weight: 00;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -1250,8 +1267,8 @@ h5 {
 
 .error {
   font-family: "Montserrat", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
+  font-size: 0.8em;
+  font-weight: 00;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -1338,8 +1355,8 @@ h5 {
 
 .error {
   font-family: "Montserrat", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
+  font-size: 0.8em;
+  font-weight: 00;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -1574,8 +1591,8 @@ h5 {
 
 .error {
   font-family: "Montserrat", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
+  font-size: 0.8em;
+  font-weight: 00;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -1648,8 +1665,8 @@ h5 {
 
 .error {
   font-family: "Montserrat", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
+  font-size: 0.8em;
+  font-weight: 00;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -1872,6 +1889,23 @@ h5 {
 
 .select-css option {
   font-weight: normal; }
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  max-width: 90%;
+  min-width: 100px;
+  min-height: 400px;
+  padding: 20px 40px;
+  border-radius: 6px;
+  box-shadow: 0px 8px 36px #222;
+  background-color: #fefefe;
+  justify-content: center; }
+
+.form-wrapper input {
+  width: 90%;
+  font-size: 14px; }
 
 .title {
   padding: 5px 27px 2px 27px; }
@@ -2124,8 +2158,8 @@ h5 {
 
 .error {
   font-family: "Montserrat", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
+  font-size: 0.8em;
+  font-weight: 00;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -2262,8 +2296,8 @@ h5 {
 
 .error {
   font-family: "Montserrat", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
+  font-size: 0.8em;
+  font-weight: 00;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;
@@ -2685,8 +2719,8 @@ h5 {
 
 .error {
   font-family: "Montserrat", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
+  font-size: 0.8em;
+  font-weight: 00;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.1;

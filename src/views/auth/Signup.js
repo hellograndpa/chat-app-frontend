@@ -84,58 +84,60 @@ class Signup extends Component {
     const { userName, email, password, errors, formValid } = this.state;
     return (
       <div className="flex-centered-aligned full">
-        <form onSubmit={this.handleFormSubmit} noValidate>
-          <div>
-            <input
-              type="text"
-              name="userName"
-              className="input input-label margin"
-              placeholder="User Name"
-              value={userName}
-              onChange={this.handleChange}
-              noValidate
-            />{' '}
-            <br />
-            {errors.userName.length > 0 && <span className="error">{errors.userName}</span>}
-          </div>
-          <div>
-            <input
-              type="text"
-              name="email"
-              className="input input-label margin"
-              placeholder="Email"
-              value={email}
-              onChange={this.handleChange}
-              noValidate
-            />
-            <br />
-            {errors.email.length > 0 && <span className="error">{errors.email}</span>}
-          </div>
-          <div>
-            <input
-              type="password"
-              className="input input-label margin"
-              placeholder="password"
-              name="password"
-              value={password}
-              onChange={this.handleChange}
-              noValidate
-            />
-            <br />
-            {errors.password.length > 0 && <span className="error">{errors.password}</span>}
-          </div>
-          <div className="info">
-            <small>Password must be eight characters in length.</small>
-          </div>
-          <div>
-            <input type="submit" className="action-btn-big" value="Signup" />
-          </div>
-          {this.state.errorCount !== null ? (
-            <p className="form-status">Form is {formValid ? 'valid ✅' : 'invalid ❌'}</p>
-          ) : (
-            'Form not submitted'
-          )}
-        </form>
+        <div className="form-wrapper">
+          <form onSubmit={this.handleFormSubmit} noValidate>
+            <div>
+              <input
+                type="text"
+                name="userName"
+                className="input input-label margin"
+                placeholder="User Name"
+                value={userName}
+                onChange={this.handleChange}
+                noValidate
+              />{' '}
+              <br />
+              {errors.userName.length > 0 && <span className="error">{errors.userName}</span>}
+            </div>
+            <div>
+              <input
+                type="text"
+                name="email"
+                className="input input-label margin"
+                placeholder="Email"
+                value={email}
+                onChange={this.handleChange}
+                noValidate
+              />
+              <br />
+              {errors.email.length > 0 && <span className="error">{errors.email}</span>}
+            </div>
+            <div>
+              <input
+                type="password"
+                className="input input-label margin"
+                placeholder="password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}
+                noValidate
+              />
+              <br />
+              {errors.password.length > 0 && <span className="error">{errors.password}</span>}
+            </div>
+            <div className="info">
+              <small>Password must be eight characters in length.</small>
+            </div>
+            <div>
+              <input type="submit" className="action-btn-big" value="Signup" />
+            </div>
+            {this.state.errorCount !== null ? (
+              <p className="form-status">Form is {formValid ? 'valid ✅' : 'invalid ❌'}</p>
+            ) : (
+              'Form not submitted'
+            )}
+          </form>
+        </div>
       </div>
     );
   }
