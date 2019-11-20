@@ -17,7 +17,7 @@ class PrivateChatWp extends Component {
         <s id="s2"></s>
         <s id="s3"></s>
         <div className="o-top-nav o-top-nav--rel">
-          <NavLink className="o-top-nav__btn || o-btn" to="/rooms/list">
+          <NavLink className="o-top-nav__btn || o-btn" to="/rooms">
             Back
           </NavLink>
         </div>
