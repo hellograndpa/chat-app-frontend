@@ -133,7 +133,7 @@ class RoomsDetails extends Component {
               </div>
             ) : (
               <div className="details-content">
-                <form name="frm" onSubmit={this.handleOnSubmit}>
+                <form name="frm" className="edit-form-create" onSubmit={this.handleOnSubmit}>
                   <div className="titular">
                     <input
                       type="text"

@@ -1,106 +1,56 @@
-# README Modulo3
-
-​
-
 # Project Name
 
-​
+Talk-in
 
 ## Description
 
-​
-Geolocalized chat.
-​
+Mobile only geolocalized chat with themes.
 
 ## User Stories
 
-**Homepage** - As a user I want to be able to access the homepage so that I see what the app is about and login and signup
+**Homepage** - As a user you can log in and sign up. You must to be registered user to access to the application
+**Chats list** - As a user you can view the chats at 50km arround you. You can filter the results, create a chat, view the
+location of your results in a map.
 
-**
-​
-**404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault
-​
-**500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
-​
-​
-**Sign up** - As a user I want to sign up on the webpage so that I can see all the events that I could attend
-​
-**Login** - As a user I want to be able to log in on the webpage so that I can get back to my account
-​
-**Logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
-​
-**Events list** - As a user I want to see all the events available so that I can choose which ones I want to attend
-​
-**Events create** - As a user I want to create an event so that I can invite others to attend
-​
-**Events detail** - As a user I want to see the event details and attendee list of one event so that I can decide if I want to attend
-​
-**Attend event** - As a user I want to be able to attend to event so that the organizers can count me in
-​
+**Chat** - As a user you can join to a chat, and share your experiences, view which users have participated and who's connected.
+Also you can view the chat details, and edit them if you are the administrator.
 
-## Backlog
+**Users list** -As a user, you can view the users conected or not, which his last positio was around 50km from you now. You can
+filter the results, and watch it on a map.
 
-​
-List of other features outside of the MVPs scope
-​
-User profile: - see my profile - upload my profile picture - see other users profile - list of events created by the user - list events the user is attending
-​
-Geo Location: - add geolocation to events when creating - show event in a map in event detail page - show all events in a map in the event list page
-​
-Homepage: - …
-​
+**Profile** - As a user you can view your profile and edit your data. In this view, you have the chats you've created or the
+chats you have written in,as well the users you have a private chat with.
 
 ## Routes
 
 | Log In                 | GET    | /login                    |
 | ---------------------- | ------ | ------------------------- |
 | Home                   | GET    | /                         |
-| User Profile           | GET    | /user/:id                 |
-| Sign Up Form           | GET    | /signup                   |
-| Rooms                  | GET    | /rooms                    |
+| Your Profile           | GET    | /me-user                  |
+| Chats                  | GET    | /rooms                    |
 | Chat                   | GET    | /rooms/:id                |
-| Create Room            | GET    | /rooms/create             |
+| Users List             | GET    | /users                    |
+| User Profile           | GET    | /users/:id                |
 | ---------------------- | ------ | ------------------------- |
 
-## Models
+## Manual
 
-​
-User model
-​
-{
-username: String
-password: String
-}
-​
-Event model
-​
-{
-owner: ObjectId<User>
-name: String
-description: String
-date: Date
-location: String +
+​User login: vcamarena@gruponat.com
+User Pass: 111
 
-}
-​
+User2 login: jorge@jorge.com
+User2 Pass: 111
 
 ## Links
 
-​
-
-### Git
-
-​
 The url to your repository and to your deployed project
-​
-[Repository Frontend Link](http://github.com/)
-​
-[Repository Backend Link](http://github.com/)
-​
-[Deploy Link](http://heroku.com/)
-​
+
+[Repository Frontend Link](https://github.com/hellograndpa/chat-app-frontend)
+
+[Repository Backend Link](https://github.com/hellograndpa/chat-app-backend)
+
+[Deploy Link](https://www.talk-in.me/)
 
 ### Slides
 
-​
-[Slides Link](http://slides.com/)
+[Slides Link](https://slides.com/antoniorivera-1/talk-in-me/fullscreen)
