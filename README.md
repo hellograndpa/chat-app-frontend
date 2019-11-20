@@ -1,36 +1,6 @@
-# README Modulo3
-
-​
-
 # Project Name
 
-​
-
-## Description
-
-​
-Geolocalized chat.
-​
-
-## User Stories
-
-**Homepage** - As a user I want to be able to access the homepage so that I see what the app is about and login and signup
-
-**
-​
-**404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault
-​
-**500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
-​
-​
-**Sign up** - As a user I want to sign up on the webpage so that I can see all the events that I could attend
-​
-**Login** - As a user I want to be able to log in on the webpage so that I can get back to my account
-​
-**Logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
-# Project Name
-
-​Talk-in
+Talk-in
 
 ## Description
 
@@ -39,19 +9,19 @@ Mobile only geolocalized chat with themes.
 ## User Stories
 
 **Homepage** - As a user you can log in and sign up. You must to be registered user to access to the application
-​
+
 **Chats list** - As a user you can view the chats at 50km arround you. You can filter the results, create a chat, view the
 location of your results in a map.
 
 **Chat** - As a user you can join to a chat, and share your experiences, view which users have participated and who's connected.
 Also you can view the chat details, and edit them if you are the administrator.
-​
+
 **Users list** -As a user, you can view the users conected or not, which his last positio was around 50km from you now. You can
 filter the results, and watch it on a map.
-​
+
 **Profile** - As a user you can view your profile and edit your data. In this view, you have the chats you've created or the
 chats you have written in,as well the users you have a private chat with.
-​
+
 
 ## Routes
 
@@ -76,16 +46,14 @@ User2 Pass: 111
 ## Links
 
 The url to your repository and to your deployed project
-​
+
 [Repository Frontend Link](https://github.com/hellograndpa/chat-app-frontend)
-​
+
 [Repository Backend Link](https://github.com/hellograndpa/chat-app-backend)
-​
+
 [Deploy Link](https://www.talk-in.me/)
-​
+
 
 ### Slides
 
-​
 [Slides Link](https://slides.com/antoniorivera-1/talk-in-me/fullscreen)
-
