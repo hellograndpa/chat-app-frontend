@@ -42,13 +42,23 @@ class Map extends Component {
       width: window.innerWidth,
       height: window.innerHeight - 220,
     });
-    const { longitude, latitude, zoom } = viewport.fitBounds(
-      [[minValueLat, maxValueLong], [maxValueLat, minValueLong]],
-      {
+
+    let longitude = 0;
+    let latitude = 0;
+    let zoom = 0;
+
+    try {
+      const view = viewport.fitBounds([[minValueLat, maxValueLong], [maxValueLat, minValueLong]], {
         padding: 60,
         offset: [0, -100],
-      },
-    );
+      });
+
+      longitude = view.longitude;
+      latitude = view.latitude;
+      zoom = view.zoom;
+    } catch (error) {
+      // console.log(error);
+    }
 
     if (this._isMounted) {
       this.setState({
@@ -65,18 +75,20 @@ class Map extends Component {
 
   componentDidMount() {
     this._isMounted = true;
-    window.addEventListener('resize', this.setInitialBounds);
+    // window.addEventListener('resize', this.setInitialBounds);
     this.setInitialBounds();
   }
 
   componentWillUnmount() {
     this._isMounted = false;
-    window.removeEventListener('resize', this.setInitialBounds);
+    // window.removeEventListener('resize', this.setInitialBounds);
   }
 
   componentDidUpdate(prevProps) {
     if (this._isMounted && prevProps.locations !== this.props.locations) {
-      this.setInitialBounds();
+      if (this.props.locations.length > 0) {
+        this.setInitialBounds();
+      }
     }
   }
 
@@ -85,7 +97,7 @@ class Map extends Component {
     const { viewport } = this.state;
     let features = [];
     let geojson = {};
-    if (locations !== []) {
+    if (locations.length > 0) {
       features = locations.map(item => {
         return {
           type: 'Feature',
@@ -103,18 +115,20 @@ class Map extends Component {
 
     return (
       <div style={{ margin: '0 auto', width: 'auto' }}>
-        <MapGL {...viewport} mapboxApiAccessToken={TOKEN} mapStyle="mapbox://styles/mapbox/streets-v11">
-          <Source id="my-data" type="geojson" data={geojson}>
-            <Layer
-              id="point"
-              type="circle"
-              paint={{
-                'circle-radius': 10,
-                'circle-color': '#007cbf',
-              }}
-            />
-          </Source>
-        </MapGL>
+        {locations.length > 0 && (
+          <MapGL {...viewport} mapboxApiAccessToken={TOKEN} mapStyle="mapbox://styles/mapbox/streets-v11">
+            <Source id="my-data" type="geojson" data={geojson}>
+              <Layer
+                id="point"
+                type="circle"
+                paint={{
+                  'circle-radius': 10,
+                  'circle-color': '#007cbf',
+                }}
+              />
+            </Source>
+          </MapGL>
+        )}
       </div>
     );
   }

@@ -59,6 +59,19 @@ h5 {
   margin-top: .4em;
   padding: 0px 0.5em; }
 
+.error {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: #f00372;
+  margin-top: .4em;
+  padding: 0px 0.5em; }
+
 .notifications {
   position: absolute;
   color: #fff;
@@ -77,11 +90,15 @@ h5 {
   /* Safari and Chrome */
   -o-transition: transform 1s;
   /* Opera */ }
-  .notifications.hidden {
-    transform: translateX(-100%); }
-  .notifications.alert {
-    background: #3497fd; }
-  .notifications.error {
-    background: #ff9057; }
-  .notifications.info {
-    background: #07b17d; }
+
+.notifications.hidden {
+  transform: translateX(-100%); }
+
+.notifications.alert {
+  background: #3497fd; }
+
+.notifications.error {
+  background: #ff9057; }
+
+.notifications.info {
+  background: #07b17d; }

@@ -25,7 +25,7 @@ class RoomsList extends Component {
 
   state = {
     rooms: [],
-    serchRooms: [],
+    searchRooms: [],
     radiusInMeters: 50,
     selectTheme: '',
     eventSearch: '',
@@ -73,7 +73,7 @@ class RoomsList extends Component {
 
     let searchRooms;
     let newEventSearch;
-    if (event !== '') {
+    if (event) {
       searchRooms = rooms.filter(
         element => element.roomName.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1,
       );
@@ -82,12 +82,12 @@ class RoomsList extends Component {
       searchRooms = rooms;
     }
 
+    emptyValidation(searchRooms, this.props.handleSetMessage);
     if (this._isMounted) {
       this.setState({
         searchRooms,
         eventSearch: newEventSearch,
       });
-      emptyValidation(searchRooms, this.props.handleSetMessage);
     }
   };
 

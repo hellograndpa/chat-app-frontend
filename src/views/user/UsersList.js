@@ -83,11 +83,12 @@ class UsersList extends Component {
     } else {
       searchUsers = users;
     }
+    emptyValidation(searchUsers, this.props.handleSetMessage);
+
     this.setState({
       searchUsers,
       eventSearch: newEventSearch,
     });
-    emptyValidation(searchUsers, this.props.handleSetMessage);
   };
 
   // SELECT INPUT FILTER BY ACTIVITY

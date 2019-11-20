@@ -81,6 +81,7 @@ function RoomFilters(props) {
       <div ref={content} style={{ maxHeight: `${setHeight}` }} className="accordion__content">
         <div className="section">
           <input
+            type="text"
             className="input-dark"
             name="rooms"
             placeholder="Search by title"
