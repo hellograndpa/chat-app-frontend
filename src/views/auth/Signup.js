@@ -15,7 +15,7 @@ const validateForm = errors => {
 
 const countErrors = errors => {
   let count = 0;
-  Object.values(errors).forEach(val => val.length > 0 && (count = count + 1));
+  Object.values(errors).forEach(val => val.length > 0 && (count += 1));
   return count;
 };
 
@@ -36,31 +36,30 @@ class Signup extends Component {
   handleChange = event => {
     event.preventDefault();
     const { name, value } = event.target;
-    let errors = this.state.errors;
+    const { errors } = this.state;
 
     switch (name) {
-      case 'fullName':
+      case 'userName':
         errors.userName = value.length < 5 ? 'Full Name must be 5 characters long!' : '';
+        this.setState({ errors, [name]: value });
         break;
       case 'email':
         errors.email = validEmailRegex.test(value) ? '' : 'Email is not valid!';
+        this.setState({ errors, [name]: value });
         break;
       case 'password':
         errors.password = value.length < 8 ? 'Password must be 8 characters long!' : '';
+        this.setState({ errors, [name]: value });
         break;
       default:
         break;
     }
 
-    this.setState({ errors, [name]: value });
+    this.setState({ formValid: validateForm(this.state.errors), errorCount: countErrors(this.state.errors) });
   };
 
   handleFormSubmit = async e => {
     e.preventDefault();
-    this.setState({
-      formValid: validateForm(this.state.errors),
-      errorCount: countErrors(this.state.errors),
-    });
     if (this.state.formValid) {
       const {
         coords: { latitude, longitude },
@@ -79,6 +78,8 @@ class Signup extends Component {
         },
         handleSetMessage,
       );
+    } else {
+      this.props.handleSetMessage({ typeMessage: 'error', message: 'Form is incorrect, please revise it!' });
     }
   };
 
