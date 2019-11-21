@@ -57,8 +57,10 @@ class Signup extends Component {
 
   handleFormSubmit = async e => {
     e.preventDefault();
-    this.setState({ formValid: validateForm(this.state.errors) });
-    this.setState({ errorCount: countErrors(this.state.errors) });
+    this.setState({
+      formValid: validateForm(this.state.errors),
+      errorCount: countErrors(this.state.errors),
+    });
     if (this.state.formValid) {
       const {
         coords: { latitude, longitude },
