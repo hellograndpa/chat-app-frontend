@@ -4,8 +4,18 @@ import React, { Component } from 'react';
 import Login from './Login';
 import Signup from './Signup';
 
+import voicer from '../../helpers/voicer';
+
 class Home extends Component {
-  componentDidMount() {}
+  handleVoicerResult = text => {
+    if (text === 'login') {
+      window.document.getElementById('login').click();
+    }
+  };
+
+  componentDidMount() {
+    voicer(this.handleVoicerResult);
+  }
 
   render() {
     return (
@@ -19,7 +29,7 @@ class Home extends Component {
           <a href="#s1" className="o-top-nav__btn || o-btn">
             HOME
           </a>
-          <a href="#s2" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
+          <a href="#s2" id="login" className="o-top-nav__btn o-top-nav__btn--next || o-btn">
             LOGIN
           </a>
           <a href="#s3" className="o-top-nav__btn o-top-nav__btn--next || o-btn">

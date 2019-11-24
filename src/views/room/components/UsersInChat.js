@@ -3,6 +3,8 @@ import socketIOClient from 'socket.io-client';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { withNotification } from '../../../Context/NotificationCtx';
+
 // Services
 import RoomService from '../../../services/roomService';
 
@@ -40,6 +42,9 @@ class UsersInChat extends Component {
         }
       });
       if (this._isMounted) {
+        if (this.state.activeUsers.length < users.length && users.length > 1) {
+          this.props.handleSetMessage({ typeMessage: 'info', message: 'New people coming....' });
+        }
         this.setState({ participatedUsers, activeUsers: users });
       }
     });
@@ -144,4 +149,4 @@ UsersInChat.propTypes = {
   roomId: PropTypes.string,
 };
 
-export default UsersInChat;
+export default withNotification(UsersInChat);
