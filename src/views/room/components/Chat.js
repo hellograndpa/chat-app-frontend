@@ -13,11 +13,32 @@ import { withNotification } from '../../../Context/NotificationCtx';
 // Image
 import avatarDefault from '../../../images/avatar.svg';
 
+import voicer from '../../../helpers/voicer';
+
+import botUser from '../../../helpers/bot-user';
+
 const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
 class Chat extends Component {
   state = {
     room: this.props.room,
+  };
+
+  handleVoicerResult = text => {
+    if (text.toLowerCase() === 'thor') {
+      const newState = { ...this.state };
+
+      const newConversation = [...this.state.room.chat.conversation];
+      newConversation.push({ _id: 0, user: botUser, image: '/images/home.jpg' });
+      newConversation.push({ _id: 0, user: botUser, text: 'Hablas de thor!?' });
+      newState.room.chat.conversation = newConversation;
+
+      this.setState({ newState });
+    }
+  };
+
+  handleClickMicro = () => {
+    voicer(this.handleVoicerResult);
   };
 
   async componentDidMount() {
@@ -80,7 +101,7 @@ class Chat extends Component {
           <div className="chat">
             {conversation.map((c, index) => {
               return (
-                <div key={c._id}>
+                <div key={c._id + index}>
                   {c.user._id === this.props.user._id ? (
                     <div className="box tu" key={index}>
                       <div className="bubble you right">
@@ -90,7 +111,14 @@ class Chat extends Component {
                             <Moment format="DD/MM/YY hh:mm">{c.created}</Moment>
                           </div>
                         </div>
-                        {c.text}
+                        {!c.image && c.text}
+                        {c.image && (
+                          <div className="o-images ">
+                            <div className="o-images__inner">
+                              <img className="o-images__img" src={c.image} alt="" />
+                            </div>
+                          </div>
+                        )}
                       </div>
 
                       <div className="box-avatar">
@@ -125,7 +153,14 @@ class Chat extends Component {
                           </div>
                           <div className="date right">{`${c.user.userName} ${c.user.lastName}`}</div>
                         </div>
-                        {c.text}
+                        {!c.image && c.text}
+                        {c.image && (
+                          <div className="o-images ">
+                            <div className="o-images__inner">
+                              <img className="o-images__img" src={c.image} alt="" />
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}
@@ -144,6 +179,12 @@ class Chat extends Component {
                       ref={userInput => (this.input = userInput)}
                     />
                   </div>
+                  <div>
+                    <div className="o-btn btn-send" onClick={this.handleClickMicro}>
+                      Micro
+                    </div>
+                  </div>
+
                   <div>
                     <button className="o-btn btn-send">Send</button>
                   </div>
