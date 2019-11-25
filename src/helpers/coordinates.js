@@ -1,11 +1,15 @@
 export const getCoords = async () => {
-  const position = await new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject);
-  });
+  try {
+    const position = await new Promise((resolve, reject) => {
+      window.navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
 
-  const newPosition = { coords: { latitude: position.coords.longitude, longitude: position.coords.latitude } };
+    const newPosition = { coords: { latitude: position.coords.longitude, longitude: position.coords.latitude } };
 
-  return newPosition;
+    return newPosition;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getDistance = (from, to) => {
