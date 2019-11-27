@@ -1,30 +1,32 @@
 export const getCoords = async () => {
-  const position = await new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject);
-  });
+  try {
+    let newPosition = { coords: { latitude: 0, longitude: 0 } };
 
-  const newPosition = { coords: { latitude: position.coords.longitude, longitude: position.coords.latitude } };
+    if (navigator.geolocation) {
+      const position = await new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
 
-  return newPosition;
+      newPosition = { coords: { latitude: position.coords.longitude, longitude: position.coords.latitude } };
+    } else {
+      window.geo_position_js.init();
+
+      const position = await new Promise((resolve, reject) => {
+        window.geo_position_js.getCurrentPosition(resolve, reject, { enableHighAccuracy: true });
+      });
+
+      newPosition = { coords: { latitude: position.coords.longitude, longitude: position.coords.latitude } };
+    }
+
+    return newPosition;
+  } catch (error) {
+    return { coords: { latitude: 0, longitude: 0 } };
+  }
 };
 
 export const getDistance = (from, to) => {
   const { latitude: lat1, longitude: lon1 } = from;
   const { latitude: lat2, longitude: lon2 } = to;
-
-  // const R = 6371; // m
-  // const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  // const dLon = ((lon2 - lon1) * Math.PI) / 180;
-  // const dlat1 = (lat1 * Math.PI) / 180;
-  // const dlat2 = (lat2 * Math.PI) / 180;
-
-  // const a =
-  //   Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-  //   Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(dlat1) * Math.cos(dlat2);
-  // const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  // const d = R * c;
-
-  // return (d * Math.PI) / 180;
 
   const radlat1 = (Math.PI * lat1) / 180;
   const radlat2 = (Math.PI * lat2) / 180;

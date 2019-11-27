@@ -25,15 +25,163 @@ class Chat extends Component {
   };
 
   handleVoicerResult = text => {
-    if (text.toLowerCase() === 'thor') {
-      const newState = { ...this.state };
+    const newState = { ...this.state };
+    const newConversation = [...this.state.room.chat.conversation];
 
-      const newConversation = [...this.state.room.chat.conversation];
-      newConversation.push({ _id: 0, user: botUser, image: '/images/home.jpg' });
-      newConversation.push({ _id: 0, user: botUser, text: 'Hablas de thor!?' });
-      newState.room.chat.conversation = newConversation;
-
-      this.setState({ newState });
+    if (!text.toLowerCase().startsWith('escribe')) {
+      switch (text.toLowerCase()) {
+        case 'thor':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/home.jpg' });
+          newConversation.push({ _id: 0, user: botUser, text: 'Hablas de thor!?' });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'mario':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/mario.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'Joven y con ganas! Mucha suerte, aunque no la necesitarás.',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'guillem':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/guillem.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'Cuando sea joven, quiero ser como tú! Buen viaje.',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'xavi':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/xavi.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'Con calma, harás lo que quieras. Nos vemos por ahí.',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'olga z':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/olga z.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'Muy currado Olga. Guapa y con talento!',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'olga d':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/olga d.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'Olga, acuérdate de nosotros cuando seas directiva. Apunta alto.',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'elena':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/helena.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'Paso a paso, no pares de aprender.',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'juan vicente':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/juan vicente.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'JuanVi, lo bueno empieza ahora! Eres muy grande.',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'marc':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/marc.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'La bala pensante. Eres capaz de todo!',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'johan':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/johan.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'Colombiano valiente. Ya has dado un paso, sigue andando sin parar.',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'jofre':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/jofre.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'Nuestro GrandPa preferido, ahí queda, quién sabe.... Un abrazo enorme!',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'cris':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/cris.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'Como se puede tener tanto estilo y encima programar bien? Bravo!!',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'ale':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/ale.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'Eres brillante, cualquiera te querría en su equipo.',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'tash':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/ale.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'Che! Lo conseguiste!!! ahora que?!',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        case 'todos':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/todos.jpg' });
+          newConversation.push({
+            _id: 0,
+            user: botUser,
+            text: 'Minions! Nos hemos atrevido a soñar y lo hemos conseguido. Seguimos soñando? ...',
+          });
+          newState.room.chat.conversation = newConversation;
+          this.setState({ newState });
+          break;
+        default:
+          this.props.handleSetMessage({ typeMessage: 'error', message: `Sorry, did you mean? ${text}` });
+      }
+    } else {
+      window.document.getElementById('writter').value = text.replace('escribe ', '');
+      window.document.getElementById('writter').focus();
     }
   };
 
@@ -173,6 +321,7 @@ class Chat extends Component {
                 <div className="form-content">
                   <div className="text-area-wp ">
                     <textarea
+                      id="writter"
                       type="text"
                       className="input chat-textarea"
                       name="text"
