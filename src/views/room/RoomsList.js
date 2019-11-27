@@ -213,7 +213,7 @@ class RoomsList extends Component {
             </div>
           </>
         )}
-        {loading && <div className="loader">Loading...</div>}
+        {loading && <div className="loader"></div>}
       </div>
     );
   }
