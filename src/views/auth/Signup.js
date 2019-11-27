@@ -60,7 +60,6 @@ class Signup extends Component {
 
   handleFormSubmit = async e => {
     e.preventDefault();
-
     if (this.state.formValid) {
       const {
         coords: { latitude, longitude },
