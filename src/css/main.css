@@ -1151,6 +1151,11 @@ http://stackoverflow.com/a/34696029/383904
   border-radius: 100%;
   background-color: white; }
 
+.o-avatar__inner.aqua {
+  background-color: #3acce1;
+  outline: none;
+  border: none; }
+
 .o-avatar__inner:after {
   content: '';
   position: absolute;
@@ -1161,6 +1166,10 @@ http://stackoverflow.com/a/34696029/383904
   height: 100%;
   border: 2px solid #78849e;
   border-radius: 50%; }
+
+.o-avatar button {
+  outline: none;
+  border: none; }
 
 .o-avatar__img {
   object-fit: cover;
@@ -1372,7 +1381,8 @@ h5 {
 
 .chatroom .chatwrapper {
   height: 100%;
-  overflow-y: auto; }
+  overflow-y: scroll;
+  overflow: auto; }
 
 .chatroom .chat * {
   overflow-anchor: none; }
@@ -1470,11 +1480,11 @@ h5 {
 .chatroom .write-text-wrapper {
   padding: 15px;
   border-top: 1px solid;
+  position: sticky;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #e2e4e9;
-  margin-bottom: 67px; }
+  background-color: #e2e4e9; }
 
 .chatroom .chat-textarea {
   width: 100%;

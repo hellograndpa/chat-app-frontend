@@ -12,6 +12,8 @@ import { withNotification } from '../../../Context/NotificationCtx';
 
 // Image
 import avatarDefault from '../../../images/avatar.svg';
+import icons_micro from '../../../images/icons/micro.png';
+import icons_send from '../../../images/icons/send.png';
 
 import voicer from '../../../helpers/voicer';
 
@@ -22,6 +24,8 @@ const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 class Chat extends Component {
   state = {
     room: this.props.room,
+    checkText: '',
+    record: false,
   };
 
   handleVoicerResult = text => {
@@ -34,7 +38,7 @@ class Chat extends Component {
           newConversation.push({ _id: 0, user: botUser, image: '/images/home.jpg' });
           newConversation.push({ _id: 0, user: botUser, text: 'Hablas de thor!?' });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'mario':
           newConversation.push({ _id: 0, user: botUser, image: '/images/mario.jpg' });
@@ -44,7 +48,7 @@ class Chat extends Component {
             text: 'Joven y con ganas! Mucha suerte, aunque no la necesitarás.',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'guillem':
           newConversation.push({ _id: 0, user: botUser, image: '/images/guillem.jpg' });
@@ -54,7 +58,7 @@ class Chat extends Component {
             text: 'Cuando sea joven, quiero ser como tú! Buen viaje.',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'xavi':
           newConversation.push({ _id: 0, user: botUser, image: '/images/xavi.jpg' });
@@ -64,7 +68,7 @@ class Chat extends Component {
             text: 'Con calma, harás lo que quieras. Nos vemos por ahí.',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'olga z':
           newConversation.push({ _id: 0, user: botUser, image: '/images/olga z.jpg' });
@@ -74,9 +78,9 @@ class Chat extends Component {
             text: 'Muy currado Olga. Guapa y con talento!',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
-        case 'olga d':
+        case 'olga de':
           newConversation.push({ _id: 0, user: botUser, image: '/images/olga d.jpg' });
           newConversation.push({
             _id: 0,
@@ -84,7 +88,7 @@ class Chat extends Component {
             text: 'Olga, acuérdate de nosotros cuando seas directiva. Apunta alto.',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'elena':
           newConversation.push({ _id: 0, user: botUser, image: '/images/helena.jpg' });
@@ -94,7 +98,7 @@ class Chat extends Component {
             text: 'Paso a paso, no pares de aprender.',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'juan vicente':
           newConversation.push({ _id: 0, user: botUser, image: '/images/juan vicente.jpg' });
@@ -104,7 +108,7 @@ class Chat extends Component {
             text: 'JuanVi, lo bueno empieza ahora! Eres muy grande.',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'marc':
           newConversation.push({ _id: 0, user: botUser, image: '/images/marc.jpg' });
@@ -114,7 +118,7 @@ class Chat extends Component {
             text: 'La bala pensante. Eres capaz de todo!',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'johan':
           newConversation.push({ _id: 0, user: botUser, image: '/images/johan.jpg' });
@@ -124,7 +128,7 @@ class Chat extends Component {
             text: 'Colombiano valiente. Ya has dado un paso, sigue andando sin parar.',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'jofre':
           newConversation.push({ _id: 0, user: botUser, image: '/images/jofre.jpg' });
@@ -134,7 +138,7 @@ class Chat extends Component {
             text: 'Nuestro GrandPa preferido, ahí queda, quién sabe.... Un abrazo enorme!',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'cris':
           newConversation.push({ _id: 0, user: botUser, image: '/images/cris.jpg' });
@@ -144,7 +148,7 @@ class Chat extends Component {
             text: 'Como se puede tener tanto estilo y encima programar bien? Bravo!!',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'ale':
           newConversation.push({ _id: 0, user: botUser, image: '/images/ale.jpg' });
@@ -154,7 +158,7 @@ class Chat extends Component {
             text: 'Eres brillante, cualquiera te querría en su equipo.',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'tash':
           newConversation.push({ _id: 0, user: botUser, image: '/images/ale.jpg' });
@@ -164,7 +168,7 @@ class Chat extends Component {
             text: 'Che! Lo conseguiste!!! ahora que?!',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         case 'todos':
           newConversation.push({ _id: 0, user: botUser, image: '/images/todos.jpg' });
@@ -174,19 +178,29 @@ class Chat extends Component {
             text: 'Minions! Nos hemos atrevido a soñar y lo hemos conseguido. Seguimos soñando? ...',
           });
           newState.room.chat.conversation = newConversation;
-          this.setState({ newState });
+          this.setState({ newState, record: false });
           break;
         default:
           this.props.handleSetMessage({ typeMessage: 'error', message: `Sorry, did you mean? ${text}` });
+          this.setState({
+            record: false,
+          });
       }
     } else {
       window.document.getElementById('writter').value = text.replace('escribe ', '');
       window.document.getElementById('writter').focus();
+      this.setState({
+        record: false,
+        checkText: text,
+      });
     }
   };
 
   handleClickMicro = () => {
     voicer(this.handleVoicerResult);
+    this.setState({
+      record: true,
+    });
   };
 
   async componentDidMount() {
@@ -203,6 +217,13 @@ class Chat extends Component {
     });
     window.document.getElementById('anchor').scrollIntoView();
   }
+
+  handleTextArea = e => {
+    const checkText = e.target.value;
+    this.setState({
+      checkText,
+    });
+  };
 
   handleSubmit = async e => {
     e.preventDefault();
@@ -226,6 +247,10 @@ class Chat extends Component {
 
     // Clean the input
     this.input.value = '';
+    this.setState({
+      checkText: '',
+      record: false,
+    });
   };
 
   async componentCleanup() {
@@ -243,6 +268,7 @@ class Chat extends Component {
     const {
       chat: { conversation },
     } = this.state.room;
+    const { checkText, record } = this.state;
     return (
       <div className="chatroom">
         <div className="chatwrapper">
@@ -326,17 +352,27 @@ class Chat extends Component {
                       className="input chat-textarea"
                       name="text"
                       ref={userInput => (this.input = userInput)}
+                      onChange={this.handleTextArea}
                     />
                   </div>
-                  <div>
-                    <div className="o-btn btn-send" onClick={this.handleClickMicro}>
-                      Micro
-                    </div>
-                  </div>
 
-                  <div>
-                    <button className="o-btn btn-send">Send</button>
-                  </div>
+                  {checkText === '' ? (
+                    <div className="box-avatar" onClick={this.handleClickMicro}>
+                      <div className="o-avatar w-50precent">
+                        <div className={`o-avatar__inner ${record && 'aqua'}`}>
+                          <img className="o-avatar__img" src={icons_micro} alt="" />
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="box-avatar">
+                      <div className="o-avatar w-50precent">
+                        <button className="o-avatar__inner">
+                          <img className="o-avatar__img" src={icons_send} alt="" />
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </form>
             </div>
