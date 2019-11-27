@@ -92,8 +92,9 @@ img {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .flex-centered-aligned.full {
-    height: 100%; }
+
+.flex-centered-aligned.full {
+  height: 100%; }
 
 .flex-between {
   display: flex;
