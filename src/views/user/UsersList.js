@@ -17,6 +17,8 @@ import Map from '../room/components/Map';
 import { getCoords, getDistance } from '../../helpers/coordinates';
 import { emptyValidation } from '../../helpers/Validation';
 
+import voicer from '../../helpers/voicer';
+
 class UsersList extends Component {
   socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
 
@@ -66,6 +68,37 @@ class UsersList extends Component {
     }
   };
 
+  handleClickMicro = () => {
+    voicer(this.handleVoicerResult);
+  };
+
+  handleVoicerResult = text => {
+    const { users } = this.state;
+    text = text
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+
+    let searchUsers;
+    if (text !== '') {
+      searchUsers = users.filter(
+        element =>
+          element.userName
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .indexOf(text) !== -1,
+      );
+    } else {
+      searchUsers = users;
+    }
+    emptyValidation(searchUsers, this.props.handleSetMessage);
+
+    this.setState({
+      searchUsers,
+      eventSearch: text,
+    });
+  };
   // SEARCH INPUT SEARCH BY NAME
 
   handleSearchUser = event => {
@@ -204,6 +237,7 @@ class UsersList extends Component {
             <div className="slider">
               <div>
                 <UsersFilters
+                  handleClickMicro={this.handleClickMicro}
                   eventSearch={eventSearch}
                   handleSearchUser={this.handleSearchUser}
                   sortedList={sortedList}

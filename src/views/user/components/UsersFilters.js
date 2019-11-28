@@ -19,6 +19,7 @@ function UsersFilters(props) {
     handleChangeSelectUsers,
     radiusInMeters,
     handleChangeSelectRadiusMeters,
+    handleClickMicro,
   } = props;
 
   return (
@@ -37,10 +38,23 @@ function UsersFilters(props) {
             <div className="box-color04 "></div>
           </div>
         </div>
+        <div className="title-search "></div>
+        <div className="title-search ">
+          <div onClick={handleClickMicro}>
+            <div className="search-text">VOICE SEARCH</div>
+            <div className="colors-selected ">
+              <div className="box-color01 "></div>
+              <div className="box-color02 "></div>
+              <div className="box-color03 "></div>
+              <div className="box-color04 "></div>
+            </div>
+          </div>
+        </div>
       </div>
       <div ref={content} style={{ maxHeight: `${setHeight}` }} className="accordion__content">
         <div className="section">
           <input
+            id="txtNameSearch"
             className="input-dark"
             name="users"
             type="text"
