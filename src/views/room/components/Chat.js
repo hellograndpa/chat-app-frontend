@@ -75,7 +75,7 @@ class Chat extends Component {
           newConversation.push({
             _id: 0,
             user: botUser,
-            text: 'Muy currado Olga. Guapa y con talento!',
+            text: 'Muy currado Olga y mucho talento, nos beberemos una a tu salud!',
           });
           newState.room.chat.conversation = newConversation;
           this.setState({ newState, record: false });
@@ -160,8 +160,8 @@ class Chat extends Component {
           newState.room.chat.conversation = newConversation;
           this.setState({ newState, record: false });
           break;
-        case 'tash':
-          newConversation.push({ _id: 0, user: botUser, image: '/images/ale.jpg' });
+        case 'natasha':
+          newConversation.push({ _id: 0, user: botUser, image: '/images/tash.jpg' });
           newConversation.push({
             _id: 0,
             user: botUser,
@@ -170,7 +170,7 @@ class Chat extends Component {
           newState.room.chat.conversation = newConversation;
           this.setState({ newState, record: false });
           break;
-        case 'todos':
+        case 'minions':
           newConversation.push({ _id: 0, user: botUser, image: '/images/todos.jpg' });
           newConversation.push({
             _id: 0,
@@ -197,9 +197,15 @@ class Chat extends Component {
   };
 
   handleClickMicro = () => {
-    voicer(this.handleVoicerResult);
+    voicer(this.handleVoicerResult, this.handleCloseMicro);
     this.setState({
       record: true,
+    });
+  };
+
+  handleCloseMicro = () => {
+    this.setState({
+      record: false,
     });
   };
 
@@ -275,7 +281,7 @@ class Chat extends Component {
           <div className="chat">
             {conversation.map((c, index) => {
               return (
-                <div key={c._id + index}>
+                <div key={index}>
                   {c.user._id === this.props.user._id ? (
                     <div className="box tu" key={index}>
                       <div className="bubble you right">

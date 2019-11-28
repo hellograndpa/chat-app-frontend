@@ -1,4 +1,4 @@
-export default cb => {
+export default (cb, cbStop) => {
   window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
   if (window.SpeechRecognition) {
     let finalTranscript = '';
@@ -18,6 +18,9 @@ export default cb => {
       }
       cb(finalTranscript);
     };
+    if (cbStop) {
+      recognition.onend = cbStop;
+    }
     recognition.start();
   }
 };
